@@ -1,0 +1,26 @@
+---
+title: "Substack projects"
+subtitle: "Interactive data and tools that accompany my Substack posts"
+---
+
+<!-- TODO: add a link to the Substack itself once the URL is set. -->
+
+Each project has its own page with the posts it supports, the data behind them, and interactive tools.
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+<a class="section-card" href="completion-efficiency/index.html">
+<span class="status-tag">In progress</span>
+<h3>Completion Efficiency</h3>
+<p>How much of their own curriculum do universities outsource to AP and transfer credit, and are institutions and state systems getting more efficient over time? Built from IPEDS credit-hour and completions data.</p>
+<span class="go">Open project →</span>
+</a>
+:::
+
+:::
+
+<!--
+To add a project: create substack/<project-slug>/index.qmd,
+add a card above, and add it to the Substack menu in _quarto.yml.
+-->

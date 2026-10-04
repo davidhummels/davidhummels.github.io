@@ -1,0 +1,39 @@
+project:
+  type: website
+  output-dir: _site
+  resources:
+    - "research/papers/**"
+    - "substack/**/data/**"
+
+website:
+  title: "David Hummels"
+  site-url: "https://davidhummels.github.io"
+  page-navigation: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: teaching/index.qmd
+        text: Teaching
+      - href: research/index.qmd
+        text: Research
+      - text: Substack
+        menu:
+          - href: substack/index.qmd
+            text: All projects
+          - href: substack/completion-efficiency/index.qmd
+            text: Completion Efficiency
+    right:
+      - icon: github
+        href: https://github.com/Davidhummels
+        aria-label: GitHub
+  page-footer:
+    left: "© 2026 David Hummels"
+    right: "Built with [Quarto](https://quarto.org)"
+
+format:
+  html:
+    theme:
+      light: [cosmo, styles.scss]
+    toc: false
+    smooth-scroll: true

@@ -1,0 +1,17 @@
+---
+title: "Teaching"
+---
+
+## Econ 432
+
+<!-- TODO: course description, term offered, syllabus link. -->
+Course materials, simulations, and readings for Econ 432 will live here.
+
+- Syllabus *(coming soon)*
+- Interactive simulations *(coming soon)*
+- Readings *(coming soon)*
+
+<!--
+To add a simulation: create teaching/econ432/<name>/index.qmd
+and link it from this page.
+-->

@@ -1,0 +1,42 @@
+/*-- scss:defaults --*/
+$primary: #1f4e79;
+$font-size-root: 17px;
+
+/*-- scss:rules --*/
+.hero {
+  padding: 1.5rem 0 1rem;
+  h1 { font-weight: 700; margin-bottom: .25rem; }
+  .lead { color: #555; max-width: 42rem; }
+}
+
+.section-card {
+  display: block;
+  height: 100%;
+  padding: 1.25rem 1.25rem 1rem;
+  border: 1px solid #dde3ea;
+  border-radius: 10px;
+  text-decoration: none !important;
+  color: inherit !important;
+  transition: border-color .15s, box-shadow .15s, transform .15s;
+
+  h3 { margin-top: 0; color: $primary; font-size: 1.25rem; }
+  p { color: #555; margin-bottom: .5rem; }
+  .go { font-weight: 600; color: $primary; }
+
+  &:hover {
+    border-color: $primary;
+    box-shadow: 0 4px 14px rgba(31, 78, 121, .12);
+    transform: translateY(-2px);
+  }
+}
+
+.status-tag {
+  display: inline-block;
+  font-size: .75rem;
+  font-weight: 600;
+  padding: .1rem .5rem;
+  border-radius: 999px;
+  background: #e8f0f8;
+  color: $primary;
+  margin-bottom: .5rem;
+}

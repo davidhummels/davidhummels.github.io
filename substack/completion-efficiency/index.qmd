@@ -1,0 +1,68 @@
+---
+title: "Completion Efficiency"
+subtitle: "How much of the degree do universities deliver themselves, and is that changing?"
+---
+
+::: {.status-tag}
+In progress
+:::
+
+## The question
+
+Using IPEDS data on credit hours and completions, this project measures how much of their own curriculum universities outsource to AP and transfer credit, and whether individual universities and state systems are becoming more efficient at producing degrees over time.
+
+## Posts
+
+<!-- TODO: link Substack posts as they're published, newest first:
+- [Post title](https://YOURNAME.substack.com/p/slug) (Month YYYY)
+-->
+*First post coming soon.*
+
+## Interactive tools
+
+### Illustration: where a degree's credits come from
+
+This simple calculator shows the accounting idea behind the measure. It is illustrative arithmetic, not results from the data.
+
+```{ojs}
+//| echo: false
+viewof required = Inputs.range([60, 150], {step: 1, value: 120, label: "Credits required for degree"})
+viewof outside = Inputs.range([0, 60], {step: 1, value: 15, label: "% from AP / dual / transfer"})
+viewof excess = Inputs.range([0, 40], {step: 1, value: 10, label: "Excess credits taken (%)"})
+```
+
+```{ojs}
+//| echo: false
+earned = required * (1 + excess / 100)
+outsideCr = required * outside / 100
+inhouse = earned - outsideCr
+md`A graduate earns about **${earned.toFixed(0)}** credits. **${outsideCr.toFixed(0)}** arrive from outside, so the university delivers **${inhouse.toFixed(0)}** itself, or **${(100 * inhouse / earned).toFixed(0)}%** of the total.`
+```
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  height: 110,
+  x: {label: "Credits", domain: [0, 210]},
+  y: {axis: null},
+  color: {legend: true, domain: ["Delivered by university", "From outside"], range: ["#1f4e79", "#9cb9d6"]},
+  marks: [
+    Plot.barX([
+      {src: "Delivered by university", v: inhouse},
+      {src: "From outside", v: outsideCr}
+    ], Plot.stackX({x: "v", fill: "src"})),
+    Plot.ruleX([required], {stroke: "#c0392b", strokeDasharray: "4,3"}),
+    Plot.text([required], {x: d => d, text: () => "Required", dy: -40, fill: "#c0392b"})
+  ]
+})
+```
+
+<!--
+Real tools go in their own folders, e.g.
+substack/completion-efficiency/state-trends/index.qmd
+with data in substack/completion-efficiency/data/.
+-->
+
+## Data and methods
+
+Data come from IPEDS (credit-hour activity, completions, and enrollment files). A methods note and downloadable data will be posted here.

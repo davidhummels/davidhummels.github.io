@@ -1,0 +1,19 @@
+---
+title: "Research"
+---
+
+## White papers
+
+- **Completion efficiency in U.S. higher education** *(in progress)*. Companion data and tools: [Completion Efficiency project](../substack/completion-efficiency/index.qmd)
+
+## Working papers
+
+<!-- TODO: add working papers. Put PDFs in research/papers/ and link like:
+- **Title** (2026), with Coauthor. [PDF](papers/file.pdf)
+-->
+*Coming soon.*
+
+## Publications
+
+<!-- TODO: add publications, newest first. -->
+*Coming soon.*
