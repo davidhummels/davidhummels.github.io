@@ -9,6 +9,7 @@ Each project has its own page with the posts it supports, the data behind them, 
 
 ::: {.grid}
 
+<!-- Hidden until the white paper draft is ready (David, 2026-10-04); restore by removing these comment markers:
 ::: {.g-col-12 .g-col-md-6}
 <a class="section-card" href="completion-efficiency/index.html">
 <span class="status-tag">In progress</span>
@@ -17,6 +18,11 @@ Each project has its own page with the posts it supports, the data behind them, 
 <span class="go">Open project →</span>
 </a>
 :::
+
+-->
+
+*Projects will be listed here as they launch.*
+
 
 :::
 

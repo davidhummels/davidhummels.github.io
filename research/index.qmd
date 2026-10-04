@@ -6,7 +6,7 @@ Full details are in my [CV](https://webapps.krannert.purdue.edu/sites/Home/Files
 
 ## Higher education
 
-- **Completion efficiency in U.S. higher education** (white paper, in progress). Companion data and tools: [Completion Efficiency project](../substack/completion-efficiency/index.qmd)
+- **Completion efficiency in U.S. higher education** (white paper, in progress). <!-- Hidden until ready (2026-10-04): Companion data and tools: [Completion Efficiency project](../substack/completion-efficiency/index.qmd) -->
 - "The Efficiency Gains From Consolidating Universities," with Xiaoxiao Li and Hajime Shimao. Working paper.
 
 ## Working papers

@@ -21,8 +21,9 @@ website:
         menu:
           - href: substack/index.qmd
             text: All projects
-          - href: substack/completion-efficiency/index.qmd
-            text: Completion Efficiency
+          # Hidden until the white paper draft is ready (David, 2026-10-04); uncomment to restore:
+          # - href: substack/completion-efficiency/index.qmd
+          #   text: Completion Efficiency
           - text: "---"
           - href: https://findingequilibriumfuturehighered.substack.com/
             text: Read on Substack ↗
