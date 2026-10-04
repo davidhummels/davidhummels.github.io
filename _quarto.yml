@@ -23,7 +23,12 @@ website:
             text: All projects
           - href: substack/completion-efficiency/index.qmd
             text: Completion Efficiency
+          - text: "---"
+          - href: https://findingequilibriumfuturehighered.substack.com/
+            text: Read on Substack ↗
     right:
+      - text: Subscribe
+        href: https://findingequilibriumfuturehighered.substack.com/
       - icon: github
         href: https://github.com/Davidhummels
         aria-label: GitHub

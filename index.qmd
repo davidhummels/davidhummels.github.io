@@ -7,10 +7,11 @@ title-block-style: none
 ::: {.hero}
 # David Hummels
 
-[Professor of Economics, Purdue University]{.lead}
+[Distinguished Professor of Economics and Marshall and Susan Larsen Chair, Purdue University · Dean Emeritus, Daniels School of Business · Research Associate, NBER]{.lead}
 
-<!-- TODO: replace with a two- or three-sentence bio. -->
-[Teaching materials, research papers, and interactive companions to my Substack writing on higher education.]{.lead}
+My research focuses on international trade, including offshoring and its effects on labor markets, product differentiation, trade barriers, and the role of aviation and infrastructure in trade. I have also worked on executive compensation, worker health and labor markets, and, increasingly, the economics of higher education. I teach international economics and growth and innovation, and co-write *Finding Equilibrium*, a weekly Substack on the future of higher education.
+
+[CV](https://webapps.krannert.purdue.edu/sites/Home/Files/User/e0325fe9-c425-4525-b652-c3a20929c581/DownloadCv) · [NBER](https://www.nber.org/people/David_Hummels) · [Purdue profile](https://business.purdue.edu/faculty/hummelsd/home.php) · [Substack](https://findingequilibriumfuturehighered.substack.com/) · <hummelsd@purdue.edu>
 :::
 
 ::: {.grid}
@@ -26,7 +27,7 @@ title-block-style: none
 ::: {.g-col-12 .g-col-md-4}
 <a class="section-card" href="research/index.html">
 <h3>Research</h3>
-<p>Published papers, working papers, and white papers.</p>
+<p>Publications, books, working papers, and white papers.</p>
 <span class="go">Go to Research →</span>
 </a>
 :::
@@ -34,7 +35,7 @@ title-block-style: none
 ::: {.g-col-12 .g-col-md-4}
 <a class="section-card" href="substack/index.html">
 <h3>Substack</h3>
-<p>Interactive data and tools that accompany my Substack posts.</p>
+<p>Interactive data and tools that accompany <em>Finding Equilibrium</em>, a weekly Substack on the future of higher education.</p>
 <span class="go">Go to Substack projects →</span>
 </a>
 :::

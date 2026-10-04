@@ -3,7 +3,7 @@ title: "Substack projects"
 subtitle: "Interactive data and tools that accompany my Substack posts"
 ---
 
-<!-- TODO: add a link to the Substack itself once the URL is set. -->
+*Finding Equilibrium: Two Economists on Higher Ed's Future* is a weekly, data-driven newsletter on the future of higher education. [Read and subscribe on Substack →](https://findingequilibriumfuturehighered.substack.com/)
 
 Each project has its own page with the posts it supports, the data behind them, and interactive tools.
 

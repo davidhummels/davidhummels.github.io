@@ -2,6 +2,8 @@
 title: "Teaching"
 ---
 
+I teach international economics and growth and innovation at the undergraduate, MBA, and executive levels.
+
 ## Econ 432
 
 <!-- TODO: course description, term offered, syllabus link. -->
@@ -15,3 +17,10 @@ Course materials, simulations, and readings for Econ 432 will live here.
 To add a simulation: create teaching/econ432/<name>/index.qmd
 and link it from this page.
 -->
+
+## Teaching awards
+
+- Outstanding Innovation in Graduate Teaching, Purdue University (2013)
+- Excellence in Executive MBA Teaching, Purdue University (2012)
+- Excellence in MBA Teaching, Purdue University (2011–2013)
+- Excellence in Undergraduate Teaching, Purdue University (2005)

@@ -2,18 +2,55 @@
 title: "Research"
 ---
 
-## White papers
+Full details are in my [CV](https://webapps.krannert.purdue.edu/sites/Home/Files/User/e0325fe9-c425-4525-b652-c3a20929c581/DownloadCv). See also my [NBER page](https://www.nber.org/people/David_Hummels).
 
-- **Completion efficiency in U.S. higher education** *(in progress)*. Companion data and tools: [Completion Efficiency project](../substack/completion-efficiency/index.qmd)
+## Higher education
+
+- **Completion efficiency in U.S. higher education** (white paper, in progress). Companion data and tools: [Completion Efficiency project](../substack/completion-efficiency/index.qmd)
+- "The Efficiency Gains From Consolidating Universities," with Xiaoxiao Li and Hajime Shimao. Working paper.
 
 ## Working papers
 
-<!-- TODO: add working papers. Put PDFs in research/papers/ and link like:
-- **Title** (2026), with Coauthor. [PDF](papers/file.pdf)
--->
-*Coming soon.*
+- "On the Ubiquity of Declining Business Dynamism," with Kan Yue. NBER Working Paper 32637.
+- "Using Global Shocks to Understand the Level and Structure of Executive Compensation," with Jakob Munch and Huilin Zhang. NBER Working Paper 35004.
+- "Culling the Herd: Mass Layoff Events and Previously Sick Workers," with Jakob Munch, Pernille Plato, and Chong Xiang.
+- "Estimating the Gains from Liberalizing Services Trade: The Case of Passenger Aviation," with Anca Cristea and Brian Roberson.
+- "CEO Transitions," with Jakob Munch and Huilin Zhang.
 
 ## Publications
 
-<!-- TODO: add publications, newest first. -->
-*Coming soon.*
+- "No Pain, No Gain: Work Demand, Work Effort, and Worker Health," with Jakob Munch and Chong Xiang. *Review of Economics and Statistics* 107 (2025).
+- "The Income Elasticity of Import Demand: Micro Evidence and an Application," with Kwan Yong Lee. *Journal of International Economics* 113 (2018).
+- "Offshoring and Labor Markets," with Jakob Munch and Chong Xiang. *Journal of Economic Literature* 56 (2018).
+- "CareerVis: Hierarchical Visualization of Career Pathway Data," with Mingran Li et al. *IEEE Computer Graphics and Applications* 38 (2018).
+- "The Wage Effects of Offshoring: Evidence from Danish Matched Worker-Firm Data," with Rasmus Jorgensen, Jakob Munch, and Chong Xiang. *American Economic Review* 104 (2014).
+- "Time as a Trade Barrier," with Georg Schaur. *American Economic Review* 103 (2013).
+- "Trade and the Greenhouse Gas Emissions from International Freight Transport," with Anca Cristea, Laura Puzzello, and Misak Avetisyan. *Journal of Environmental Economics and Management* 65 (2013).
+- "Education and Labor Market Policies in an Offshoring Global Economy," with Jakob Munch and Chong Xiang. *Nordic Economic Policy Review* (2013).
+- "Offshoring, Transition and Training: Evidence from Danish Matched Worker-Firm Data," with Jakob Munch, Lars Skipper, and Chong Xiang. *American Economic Review Papers & Proceedings* 102 (2012).
+- "Hedging Price Volatility using Fast Transport," with Georg Schaur. *Journal of International Economics* 82 (2010).
+- "Explaining Import Quality: The Role of the Income Distribution," with Yo Chul Choi and Chong Xiang. *Journal of International Economics* 77 (2009).
+- "The Trade Reducing Effects of Market Power in International Shipping," with Volodymyr Lugovskyy and Alexandre Skiba. *Journal of Development Economics* 89 (2009).
+- "International Pricing in a Generalized Model of Ideal Variety," with Volodymyr Lugovskyy. *Journal of Money, Credit, and Banking* 41 (2009).
+- "Trade Responses to Geographic Frictions: A Decomposition Using Micro-Data," with Russell Hillberry. *European Economic Review* 52 (2008).
+- "Transportation Costs and International Trade in the Second Era of Globalization." *Journal of Economic Perspectives* 21 (2007).
+- "How Confident Can We Be in CGE-Based Assessments of Regional Trade Agreements?" with Tom Hertel, Maros Ivanic, and Roman Keeney. *Economic Modelling* 24 (2007).
+- "Are Matched Partner Trade Statistics Usable Measures of Transportation Costs?" with Volodymyr Lugovskyy. *Review of International Economics* 14 (2006).
+- "The Variety and Quality of a Nation's Exports," with Peter Klenow. *American Economic Review* 95 (2005).
+- "Shipping the Good Apples Out: An Empirical Confirmation of the Alchian-Allen Conjecture," with Alexandre Skiba. *Journal of Political Economy* 112 (2004).
+- "Alternative Hypotheses and the Volume of Trade: The Gravity Equation and the Extent of Specialization," with Jon Haveman. *Canadian Journal of Economics* 37 (2004).
+- "Intra-national Home Bias: Some Explanations," with Russell Hillberry. *Review of Economics and Statistics* 85 (2003).
+- "The Nature and Growth of Vertical Specialization in World Trade," with Jun Ishii and Kei-Mu Yi. *Journal of International Economics* 54 (2001).
+- "Vertical Specialization and the Changing Nature of World Trade," with Dana Rapoport and Kei-Mu Yi. *FRBNY Economic Policy Review* 4 (1998).
+- "Trade Creation and Trade Diversion: New Empirical Results," with Jon Haveman. *Journal of Transnational Management Development* 3 (1998).
+- "Monopolistic Competition and International Trade: Reconsidering the Evidence," with James Levinsohn. *Quarterly Journal of Economics* 110 (1995).
+- "Evolving Patterns of North American Merchandise Trade and Foreign Direct Investment, 1960–1990," with Robert Stern. *The World Economy* 17 (1994).
+- "Gender Effects in Laboratory Public Goods Contribution: Do Individuals Put Their Money Where Their Mouth Is?" with Jamie Brown-Kruse. *Journal of Economic Behavior and Organization* 22 (1993).
+- "Product Differentiation as a Source of Comparative Advantage?" with James Levinsohn. *American Economic Review Papers & Proceedings* 83 (1993).
+
+## Books
+
+- *Asia and Global Production Networks: Implications for Trade, Incomes and Economic Vulnerability* (2014), edited with Benno Ferrarini. Asian Development Bank and Edward Elgar.
+- *The Economics of Food Price Volatility* (2013), edited with Jean-Paul Chavas and Brian Wright. University of Chicago Press.
+- *Infrastructure's Role in Lowering Asia's Trade Costs: Building for Trade* (2008), edited with Douglas H. Brooks. Edward Elgar.
+- *California's Global Gateways: Exploring the Landscape* (2004), with Jon D. Haveman. Public Policy Institute of California.
