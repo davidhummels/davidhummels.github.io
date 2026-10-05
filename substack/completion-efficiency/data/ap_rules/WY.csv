@@ -1,0 +1,160 @@
+org_id,exam,credits_s3,credits_s4,credits_s5
+2790,Art History,0.0,3.0,3.0
+2790,Biology,0.0,4.0,4.0
+2790,Calculus AB,4.0,4.0,4.0
+2790,Calculus BC,8.0,8.0,8.0
+2790,Chemistry,0.0,8.0,8.0
+2790,Computer Science A,0.0,4.0,8.0
+2790,English Language and Composition,0.0,3.0,3.0
+2790,French Language and Culture,4.0,8.0,12.0
+2790,German Language and Culture,4.0,8.0,12.0
+2790,Macroeconomics,0.0,3.0,3.0
+2790,Microeconomics,0.0,3.0,3.0
+2790,Music Theory,0.0,4.0,4.0
+2790,Physics C: Electricity and Magnetism,0.0,4.0,4.0
+2790,Physics C: Mechanics,0.0,4.0,4.0
+2790,Psychology,3.0,3.0,3.0
+2790,Spanish Language and Culture,4.0,8.0,12.0
+2790,Statistics,4.0,4.0,4.0
+2790,United States History,0.0,6.0,6.0
+2790,Physics 1,0.0,4.0,4.0
+2790,Physics 2,0.0,8.0,8.0
+2980,Art History,0.0,3.0,3.0
+2980,Biology,0.0,4.0,4.0
+2980,Calculus AB,5.0,5.0,5.0
+2980,Calculus BC,10.0,10.0,10.0
+2980,Chemistry,0.0,8.0,8.0
+2980,Computer Science A,0.0,4.0,10.0
+2980,English Language and Composition,0.0,3.0,3.0
+2980,English Literature and Composition,0.0,3.0,3.0
+2980,Environmental Science,4.0,4.0,4.0
+2980,European History,3.0,3.0,3.0
+2980,French Language and Culture,4.0,8.0,12.0
+2980,Human Geography,0.0,3.0,3.0
+2980,Macroeconomics,0.0,3.0,3.0
+2980,Microeconomics,0.0,3.0,3.0
+2980,Music Theory,0.0,4.0,4.0
+2980,Psychology,0.0,4.0,4.0
+2980,Spanish Language and Culture,4.0,8.0,12.0
+2980,Spanish Literature and Culture,4.0,7.0,7.0
+2980,Statistics,4.0,4.0,4.0
+2980,2-D Art and Design,0.0,3.0,3.0
+2980,3-D Art and Design,0.0,3.0,3.0
+2980,Drawing,0.0,3.0,3.0
+2980,United States Government and Politics,3.0,3.0,3.0
+2980,United States History,0.0,6.0,6.0
+2980,Physics 1,0.0,4.0,4.0
+2980,Physics 2,0.0,0.0,4.0
+3282,Biology,4.0,4.0,4.0
+3282,Calculus AB,5.0,5.0,5.0
+3282,Chemistry,5.0,5.0,5.0
+3282,Comparative Government and Politics,3.0,3.0,3.0
+3282,English Language and Composition,3.0,3.0,3.0
+3282,English Literature and Composition,3.0,3.0,3.0
+3282,European History,3.0,3.0,3.0
+3282,Macroeconomics,3.0,3.0,3.0
+3282,Microeconomics,3.0,3.0,3.0
+3282,Psychology,3.0,3.0,3.0
+3282,Spanish Language and Culture,4.0,4.0,4.0
+3282,United States Government and Politics,3.0,3.0,3.0
+3282,United States History,3.0,3.0,3.0
+3456,Art History,3.0,6.0,6.0
+3456,Biology,0.0,4.0,4.0
+3456,Calculus AB,4.0,4.0,4.0
+3456,Calculus BC,8.0,8.0,8.0
+3456,Chemistry,4.0,8.0,8.0
+3456,Comparative Government and Politics,3.0,3.0,3.0
+3456,Computer Science A,0.0,4.0,4.0
+3456,English Language and Composition,0.0,3.0,3.0
+3456,Environmental Science,3.0,3.0,3.0
+3456,European History,3.0,3.0,3.0
+3456,French Language and Culture,4.0,8.0,8.0
+3456,Human Geography,3.0,3.0,3.0
+3456,Macroeconomics,3.0,3.0,3.0
+3456,Microeconomics,3.0,3.0,3.0
+3456,Music Theory,4.0,8.0,8.0
+3456,Physics C: Electricity and Magnetism,4.0,4.0,4.0
+3456,Physics C: Mechanics,4.0,4.0,4.0
+3456,Psychology,0.0,3.0,3.0
+3456,Spanish Language and Culture,4.0,8.0,16.0
+3456,Statistics,4.0,4.0,4.0
+3456,2-D Art and Design,3.0,3.0,3.0
+3456,3-D Art and Design,3.0,3.0,3.0
+3456,Drawing,3.0,3.0,3.0
+3456,United States Government and Politics,3.0,3.0,3.0
+3456,United States History,3.0,3.0,3.0
+3456,World History: Modern,3.0,6.0,6.0
+3456,Physics 1,0.0,4.0,4.0
+3456,Physics 2,0.0,4.0,4.0
+3456,Computer Science Principles,4.0,4.0,4.0
+3456,Pre-Calculus,4.0,4.0,4.0
+3880,Art History,0.0,3.0,3.0
+3880,Biology,0.0,4.0,4.0
+3880,Calculus AB,4.0,4.0,4.0
+3880,Calculus BC,8.0,8.0,8.0
+3880,Chemistry,0.0,8.0,8.0
+3880,Chinese Language and Culture,0.0,4.0,8.0
+3880,Comparative Government and Politics,3.0,3.0,3.0
+3880,Computer Science A,0.0,4.0,8.0
+3880,English Language and Composition,0.0,3.0,3.0
+3880,English Literature and Composition,0.0,3.0,3.0
+3880,Environmental Science,4.0,4.0,4.0
+3880,European History,3.0,3.0,3.0
+3880,French Language and Culture,4.0,8.0,12.0
+3880,German Language and Culture,4.0,8.0,12.0
+3880,Human Geography,0.0,3.0,3.0
+3880,Latin,4.0,8.0,12.0
+3880,Macroeconomics,0.0,3.0,3.0
+3880,Microeconomics,0.0,3.0,3.0
+3880,Music Theory,0.0,4.0,4.0
+3880,Physics C: Electricity and Magnetism,0.0,4.0,4.0
+3880,Physics C: Mechanics,0.0,8.0,8.0
+3880,Psychology,0.0,3.0,3.0
+3880,Spanish Language and Culture,4.0,8.0,12.0
+3880,Spanish Literature and Culture,12.0,15.0,15.0
+3880,Statistics,4.0,4.0,4.0
+3880,2-D Art and Design,0.0,3.0,3.0
+3880,3-D Art and Design,0.0,3.0,3.0
+3880,Drawing,0.0,3.0,3.0
+3880,United States Government and Politics,3.0,3.0,3.0
+3880,United States History,0.0,6.0,6.0
+3880,World History: Modern,0.0,3.0,6.0
+3880,Physics 1,0.0,4.0,4.0
+3880,Physics 2,0.0,4.0,4.0
+3880,Computer Science Principles,3.0,3.0,3.0
+3880,Pre-Calculus,0.0,0.0,0.0
+4171,Biology,0.0,4.0,4.0
+4171,Calculus AB,4.0,4.0,4.0
+4171,Calculus BC,8.0,8.0,8.0
+4171,Chemistry,0.0,8.0,8.0
+4171,Computer Science A,0.0,4.0,4.0
+4171,English Language and Composition,0.0,3.0,3.0
+4171,English Literature and Composition,0.0,3.0,3.0
+4171,European History,3.0,3.0,3.0
+4171,French Language and Culture,4.0,8.0,12.0
+4171,German Language and Culture,4.0,8.0,12.0
+4171,Human Geography,0.0,3.0,3.0
+4171,Macroeconomics,0.0,3.0,3.0
+4171,Music Theory,0.0,4.0,4.0
+4171,Psychology,0.0,3.0,3.0
+4171,Spanish Language and Culture,4.0,8.0,12.0
+4171,Statistics,4.0,4.0,4.0
+4171,2-D Art and Design,0.0,3.0,3.0
+4171,3-D Art and Design,0.0,3.0,3.0
+4171,Drawing,0.0,3.0,3.0
+4171,United States Government and Politics,3.0,3.0,3.0
+4171,United States History,0.0,6.0,6.0
+292665,Biology,8.0,8.0,8.0
+292665,Calculus AB,4.0,4.0,4.0
+292665,Calculus BC,8.0,8.0,8.0
+292665,Chemistry,0.0,8.0,8.0
+292665,English Literature and Composition,0.0,3.0,3.0
+292665,European History,3.0,3.0,3.0
+292665,French Language and Culture,4.0,8.0,12.0
+292665,German Language and Culture,4.0,8.0,12.0
+292665,Latin,4.0,6.0,6.0
+292665,Psychology,4.0,4.0,4.0
+292665,Spanish Language and Culture,4.0,8.0,12.0
+292665,Statistics,4.0,4.0,4.0
+292665,United States Government and Politics,3.0,3.0,3.0
+292665,United States History,3.0,6.0,6.0

@@ -1,0 +1,260 @@
+---
+title: "State explorer"
+subtitle: "Public systems: each state's public universities and community colleges together"
+page-layout: full
+execute:
+  echo: false
+---
+
+{{< include ../_nav.qmd >}}
+
+{{< include ../_common.qmd >}}
+
+```{ojs}
+S0 = FileAttachment("../data/states.csv").csv({typed: true})
+SY = FileAttachment("../data/state_year.csv").csv({typed: true})
+SSY = FileAttachment("../data/state_sector_year.csv").csv({typed: true})
+SI = FileAttachment("../data/state_items.csv").csv({typed: true})
+POL = FileAttachment("../data/policy_grid.csv").csv({typed: true})
+DE = FileAttachment("../data/de_state.csv").csv({typed: true})
+```
+
+```{ojs}
+//| output: false
+S = S0.map(r => {
+  const y = st => SY.filter(d => d.stabbr === r.st);
+  const sy = SY.filter(d => d.stabbr === r.st), at = yr => sy.find(d => d.year === yr) ?? {};
+  const ap = SI.find(d => d.stabbr === r.st && d.item === "AP credit") ?? {};
+  const de = DE.find(d => d.stabbr === r.st) ?? {};
+  const k = r.K;
+  return {...r,
+    T22_adj: 120 / r.ERadj_central_2022, T10_adj: 120 / r.ERadj_central_2010,
+    res_cr: r.residual / k, items_cr: r.items_sum / k,
+    tuition_deg_2024: at(2024).sticker_cost_per_degree_central, tuition_deg_2010: at(2010).sticker_cost_per_degree_central,
+    tuition_deg_chg: at(2024).sticker_cost_per_degree_central / at(2010).sticker_cost_per_degree_central - 1,
+    tuition_credit_chg: at(2024).sticker_price / at(2010).sticker_price - 1,
+    ap_pb_2022: ap.per_ba_2022, de_per100_2022: de.de_credits_per_100_taught_2022,
+    within_cc_sh: r.within_cc / r.dER_adj, within_pub_sh: r.within_pub / r.dER_adj};
+})
+MEAS = [
+  {k: "ERadj_central_2022", l: "Timing-adjusted ER, 2022", f: f2},
+  {k: "ER_2022", l: "Measured ER, 2022", f: f2},
+  {k: "T22_adj", l: "Credits taught per degree (T), adjusted, 2022", f: f0, rev: true},
+  {k: "dER_adj", l: "Rise in the adjusted ER, 2010–22", f: f3},
+  {k: "dER", l: "Rise in the measured ER, 2010–22", f: f3},
+  {k: "timing_central", l: "Timing removed from the rise (ER points)", f: f3, div: true},
+  {k: "residual", l: "Efficiency gain: unexplained residual (ER points)", f: f3, div: true},
+  {k: "res_cr", l: "Efficiency gain: fewer excess credits per degree", f: f0, div: true},
+  {k: "share_residual", l: "Residual share of the adjusted rise", f: pct, div: true},
+  {k: "items_cr", l: "Measured channels: credits per degree", f: f0, div: true},
+  {k: "cc_share_CT_2022", l: "Community-college share of public credits, 2022", f: pct},
+  {k: "within_cc", l: "Gain within community colleges (ER points)", f: f3, div: true},
+  {k: "within_pub", l: "Gain within public universities (ER points)", f: f3, div: true},
+  {k: "composition", l: "Degree-mix term (ER points)", f: f3, div: true},
+  {k: "ap_pb_2022", l: "AP credit per degree, 2022", f: f2},
+  {k: "de_per100_2022", l: "Dual-enrollment credit per 100 credits taught, 2022", f: f2},
+  {k: "tuition_deg_2024", l: "Tuition per degree, 2024 (real $, adjusted ER)", f: usd},
+  {k: "tuition_deg_chg", l: "Change in tuition per degree, 2010–24 (real)", f: pct, div: true},
+  {k: "tuition_credit_chg", l: "Change in tuition per credit, 2010–24 (real)", f: pct, div: true}
+]
+MBY = new Map(MEAS.map(m => [m.k, m]))
+colorFor = (m, vals) => {
+  const ext = d3.extent(vals);
+  if (m.div) { const a = d3.max(vals, Math.abs); return {type: "diverging", domain: [-a, a], scheme: "rdbu", pivot: 0}; }
+  return {type: "linear", domain: ext, scheme: m.rev ? "oranges" : "blues"};
+}
+```
+
+```{ojs}
+md`<div class="ce-lead">Every state's public system produced more degree credit per credit taught in 2022 than in 2010. The measured channels do not predict which states gained most; the share of a state's credits taught at community colleges does, because most of the system gain happened inside community colleges. Pick a measure for the map, click a state for its profile, or switch to the scatter to compare any two measures.</div>`
+```
+
+```{ojs}
+viewof mapm = Inputs.select(MEAS.map(m => m.k), {format: k => MBY.get(k).l, value: param("mapm", "res_cr"), label: "Map measure"})
+viewof st = Inputs.select(STLIST, {format: s => STNAME[s], value: param("s", "CA"), label: "State"})
+viewof mode = Inputs.radio(new Map([["Map", "map"], ["Scatter", "scatter"], ["Table", "table"]]), {value: param("view", "map"), label: "View"})
+```
+
+```{ojs}
+{
+  setParam("mapm", mapm); setParam("s", st); setParam("view", mode);
+  const m = MBY.get(mapm);
+  if (mode === "map") {
+    const data = S.map(r => ({st: r.st, v: r[mapm]}));
+    const sc = Plot.scale({color: colorFor(m, data.map(d => d.v).filter(isFinite))});
+    const pick = s => { const el = viewof st; el.value = s; el.dispatchEvent(new Event("input", {bubbles: true})); };
+    return html`<div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:flex-start">
+      ${tileMap(data, {color: v => sc.apply(v), fmt: m.f, selected: st, onPick: pick, w: Math.min(width, 700)})}
+      <div style="max-width:300px">${Plot.legend({color: colorFor(m, data.map(d => d.v).filter(isFinite)), label: m.l, width: 280, tickFormat: m.f === pct ? "%" : null})}
+      <p class="ce-note">Click a state to open its profile below. Grey: no value (Alaska and DC have no community-college sector).</p></div></div>`;
+  }
+  return html``;
+}
+```
+
+```{ojs}
+viewof sx = mode === "scatter" ? Inputs.select(MEAS.map(m => m.k), {format: k => MBY.get(k).l, value: param("x", "cc_share_CT_2022"), label: "Horizontal"}) : html``
+viewof sy = mode === "scatter" ? Inputs.select(MEAS.map(m => m.k), {format: k => MBY.get(k).l, value: param("y", "dER_adj"), label: "Vertical"}) : html``
+viewof wfit = mode === "scatter" ? Inputs.radio(new Map([["Credit-weighted", true], ["Unweighted", false]]), {value: true, label: "Fit line"}) : html``
+```
+
+```{ojs}
+{
+  if (mode === "scatter") {
+    setParam("x", sx); setParam("y", sy);
+    const mx = MBY.get(sx), my = MBY.get(sy);
+    const pts = S.filter(d => isFinite(d[sx]) && isFinite(d[sy]));
+    const fit = wls(pts, d => d[sx], d => d[sy], d => wfit ? d.CT_2022 : 1);
+    const xs = d3.extent(pts, d => d[sx]);
+    return html`${Plot.plot({
+      width, height: 520, grid: true,
+      x: {label: mx.l, tickFormat: mx.f === pct ? "%" : null}, y: {label: my.l, tickFormat: my.f === pct ? "%" : null},
+      r: {range: [3, 26]},
+      marks: [
+        Plot.line(xs.map(x => ({x, y: fit.a + fit.b * x})), {x: "x", y: "y", stroke: ORANGE, strokeDasharray: "5,4"}),
+        Plot.dot(pts, {x: sx, y: sy, r: "CT_2022", fill: d => d.st === st ? ORANGE : BLUE, fillOpacity: 0.55, stroke: "white"}),
+        Plot.text(pts, {x: sx, y: sy, text: "st", fontSize: 10, fill: INK}),
+        Plot.tip(pts, Plot.pointer({x: sx, y: sy, title: d => `${d.name}\n${mx.l}: ${mx.f(d[sx])}\n${my.l}: ${my.f(d[sy])}`}))
+      ]
+    })}<p class="ce-note">Dot size: credits taught in 2022. ${wfit ? "Credit-weighted" : "Unweighted"} least-squares line: slope ${d3.format(".3g")(fit.b)}, R² ${f2(fit.r2)}. Descriptive only: no standard errors here; the paper's tests (Section 8.2) report them.</p>`;
+  }
+  if (mode === "table") {
+    return Inputs.table(S, {columns: ["name", "ERadj_central_2010", "ERadj_central_2022", "dER", "timing_central", "dER_adj", "items_sum", "residual", "res_cr", "share_residual", "cc_share_CT_2022", "within_cc", "within_pub", "composition"],
+      header: {name: "State", ERadj_central_2010: "Adj. ER 2010", ERadj_central_2022: "Adj. ER 2022", dER: "Measured rise", timing_central: "Timing", dER_adj: "Adjusted rise", items_sum: "Items", residual: "Residual", res_cr: "Residual, credits/degree", share_residual: "Residual share", cc_share_CT_2022: "CC share 2022", within_cc: "Within CC", within_pub: "Within univ.", composition: "Mix"},
+      format: {ERadj_central_2010: f3, ERadj_central_2022: f3, dER: f3, timing_central: f3, dER_adj: f3, items_sum: f3, residual: f3, res_cr: f0, share_residual: pct, cc_share_CT_2022: pct, within_cc: f3, within_pub: f3, composition: f3},
+      sort: "residual", reverse: true, rows: 25});
+  }
+  return html``;
+}
+```
+
+{{< include ../_toggles.qmd >}}
+
+```{ojs}
+R = S.find(d => d.st === st)
+md`## ${R.name}: public system profile
+
+<div class="ce-kpis">
+<div class="ce-kpi"><div class="v">${f2(R.ERadj_central_2010)} → ${f2(R.ERadj_central_2022)}</div><div class="l">timing-adjusted ER, 2010 → 2022 (measured ${f2(R.ER_2010)} → ${f2(R.ER_2022)})</div></div>
+<div class="ce-kpi"><div class="v">${f0(R.T10_adj)} → ${f0(R.T22_adj)}</div><div class="l">credits taught per degree, adjusted</div></div>
+<div class="ce-kpi"><div class="v">${pct(R.share_residual)}</div><div class="l">of the adjusted rise is the residual (${f0(R.res_cr)} fewer excess credits per degree)</div></div>
+<div class="ce-kpi"><div class="v">${pct(R.cc_share_CT_2022)}</div><div class="l">of public credits taught at community colleges, 2022</div></div>
+</div>`
+```
+
+```{ojs}
+viewof showPol = Inputs.toggle({label: "Mark policy adoption years", value: true})
+```
+
+```{ojs}
+{
+  const pts = SY.filter(d => (d.stabbr === st || d.stabbr === "US") && d.year >= 1998)
+    .map(d => ({...d, who: d.stabbr === "US" ? "All states' public systems" : `${STNAME[st]} public system`, v: val(d[`ER_${tcol}`]), vm: val(d.ER_measured)}));
+  const pol = POL.filter(d => d.st === st && (d.status === "Yes" || d.status === "Partial") && d.year >= 1998).sort((a, b) => a.year - b.year)
+    .map((d, i) => ({...d, lab: POLSHORT[d.policy] ?? d.label, i}));
+  return Plot.plot({
+    width, height: 380, marginRight: 200, marginTop: showPol ? 30 + 12 * Math.min(pol.length, 6) : 20,
+    x: {...yearAxis, domain: [1998, 2024]}, y: {label: `${mlab} (${tlab})`, grid: true},
+    color: {domain: [`${STNAME[st]} public system`, "All states' public systems"], range: [BLUE, GRAY]},
+    marks: [
+      showPol ? Plot.ruleX(pol, {x: "year", stroke: ORANGE, strokeOpacity: 0.6, strokeDasharray: "3,3"}) : null,
+      ...(showPol ? d3.range(6).map(k => Plot.text(pol.filter(d => d.i % 6 === k), {x: "year", text: d => `${d.lab}${d.status === "Partial" ? " (partial)" : ""}`, frameAnchor: "top", dy: -12 * (Math.min(pol.length, 6) - k) + 4, fill: ORANGE, fontSize: 10, textAnchor: "start", dx: 3})) : []),
+      timing !== "measured" ? Plot.lineY(pts, {x: "year", y: "vm", stroke: "who", strokeDasharray: "2,3", strokeOpacity: 0.5}) : null,
+      Plot.lineY(pts, {x: "year", y: "v", stroke: "who", strokeWidth: 2.3}),
+      Plot.text(pts, Plot.selectLast({x: "year", y: "v", z: "who", text: d => `${d.who} ${fv(d.v)}`, fill: "who", dx: 6, textAnchor: "start"})),
+      Plot.tip(pts, Plot.pointerX({x: "year", y: "v", title: d => `${d.who}, ${d.year}\n${fv(d.v)} (${tlab})\nmeasured ${fv(d.vm)}`}))
+    ]
+  });
+}
+```
+
+```{ojs}
+{
+  const pol = POL.filter(d => d.st === st && (d.status === "Yes" || d.status === "Partial")).sort((a, b) => (a.year ?? 9999) - (b.year ?? 9999));
+  const none = POL.filter(d => d.st === st && !(d.status === "Yes" || d.status === "Partial"));
+  return md`<p class="ce-note"><b>Policies</b> (adoption year): ${pol.map(d => `${POLSHORT[d.policy] ?? d.label} ${d.year ?? "(year unknown)"}${d.status === "Partial" ? " (partial)" : ""}`).join(" · ") || "none identified"}. Not adopted or not identified: ${none.map(d => POLSHORT[d.policy] ?? d.label).join(", ")}. See the <a href="../policy-timeline/index.html?s=${st}">policy timeline</a> for sources.</p>`;
+}
+```
+
+<div class="ce-two">
+
+```{ojs}
+{
+  const pts = SSY.filter(d => d.stabbr === st).map(d => ({...d, who: d.sec === "cc" ? "Community colleges" : "Public universities", v: val(d[`ER_${tcol}`])}));
+  return Plot.plot({
+    width: width / 2 - 20, height: 300, marginRight: 120, title: "By sector",
+    x: {...yearAxis, domain: [1998, 2024]}, y: {label: `${measure === "T" ? "T" : "ER"} (${tlab})`, grid: true, type: measure === "T" ? "log" : "linear", tickFormat: measure === "T" ? "d" : ".2f"},
+    color: {domain: ["Public universities", "Community colleges"], range: [BLUE, TEAL]},
+    marks: [Plot.lineY(pts, {x: "year", y: "v", stroke: "who", strokeWidth: 2}),
+      Plot.text(pts, Plot.selectLast({x: "year", y: "v", z: "who", text: d => `${d.who} ${fv(d.v)}`, fill: "who", dx: 5, textAnchor: "start", fontSize: 10})),
+      Plot.tip(pts, Plot.pointerX({x: "year", y: "v", title: d => `${d.who} ${d.year}: ${fv(d.v)}`}))]
+  });
+}
+```
+
+```{ojs}
+{
+  const rows = [
+    {part: "Within community colleges", v: R.within_cc},
+    {part: "Within public universities", v: R.within_pub},
+    {part: "Degree mix", v: R.composition}
+  ];
+  return Plot.plot({
+    width: width / 2 - 20, height: 300, marginLeft: 170, marginRight: 70, title: "Sector split of the adjusted rise",
+    x: {label: "ER points", grid: true}, y: {label: null, domain: rows.map(d => d.part)},
+    marks: [Plot.ruleX([0]), Plot.barX(rows, {y: "part", x: "v", fill: d => d.v < 0 ? GRAY : TEAL}),
+      Plot.text(rows, {y: "part", x: d => Math.max(0, d.v), text: d => `${f3(d.v)} (${pct(d.v / R.dER_adj)})`, dx: 4, textAnchor: "start", fill: INK, fontSize: 11})]
+  });
+}
+```
+
+</div>
+
+
+```{ojs}
+md`### Where ${R.name}'s gain came from`
+```
+
+```{ojs}
+{
+  const lab = {"c_AP_credit": "AP credit", "c_Fewer_leavers": "Fewer leavers", "c_Unreported_DE_credit": "Unreported dual-enrollment credit", "c_Reported_DE_credit_never_used": "Reported DE credit never used", "c_Less_non-degree_credit": "Less unused non-degree credit", "c_AA_counted_twice": "Associate degrees counted twice", "c_Certificate_credit": "Certificate credit", "c_Net_interstate_credit_inflow": "Net interstate credit"};
+  const rows = [{l: "Timing removed", v: R.timing_central / R.K, kind: "t"}, ...Object.entries(lab).map(([k, l]) => ({l, v: R[k] / R.K, kind: "i"})), {l: "Residual: fewer excess credits", v: R.residual / R.K, kind: "r"}];
+  return Plot.plot({
+    width: Math.min(width, 900), height: 40 + 28 * rows.length, marginLeft: 240, marginRight: 60,
+    x: {label: "Fewer credits per bachelor's-degree equivalent, 2010 → 2022", grid: true}, y: {label: null, domain: rows.map(d => d.l)},
+    marks: [Plot.ruleX([0]),
+      Plot.barX(rows, {y: "l", x: "v", fill: d => d.kind === "r" ? ORANGE : d.kind === "t" ? GRAY : BLUE}),
+      Plot.text(rows, {y: "l", x: d => Math.max(0, d.v), text: d => d3.format("+.1f")(d.v), dx: 5, textAnchor: "start", fontSize: 11})]
+  });
+}
+```
+
+::: {.ce-note}
+Contributions are converted from ER points to credits with the state's own `ER₀·ER₁/120`. Timing is removed before the items; items plus the residual equal the timing-adjusted rise. AP credit is allocated by the state where scores were sent; dual enrollment by the providing college's state; the interstate item moves credit carried by students who cross state lines (an assumption: IPEDS reports transfer students by state of residence only in 1986 and 1988).
+:::
+
+```{ojs}
+{
+  const pts = SY.filter(d => d.stabbr === st && d.sticker_cost_per_degree_measured > 0).flatMap(d => [
+    {year: d.year, v: d.sticker_cost_per_degree_measured, s: "Per degree, measured ER"},
+    {year: d.year, v: d.sticker_cost_per_degree_central, s: "Per degree, adjusted ER"},
+    {year: d.year, v: d.sticker_price * 4, s: "Four years of full-time tuition"}]);
+  return Plot.plot({
+    width: Math.min(width, 900), height: 300, marginLeft: 65, marginRight: 200, title: `Published in-state tuition per degree, ${STNAME[st]} public system (real 2024 $)`,
+    x: {...yearAxis}, y: {label: "Real 2024 dollars", grid: true, tickFormat: "$,.0f"},
+    color: {domain: ["Four years of full-time tuition", "Per degree, measured ER", "Per degree, adjusted ER"], range: [GRAY, LIGHT, BLUE]},
+    marks: [Plot.lineY(pts, {x: "year", y: "v", stroke: "s", strokeWidth: 2}),
+      Plot.text(pts, Plot.selectLast({x: "year", y: "v", z: "s", text: d => `${d.s} ${usd(d.v)}`, fill: "s", dx: 5, textAnchor: "start", fontSize: 10})),
+      Plot.tip(pts, Plot.pointerX({x: "year", y: "v", z: "s", title: d => `${d.s} ${d.year}: ${usd(d.v)}`}))]
+  });
+}
+```
+
+::: {.ce-note}
+Tuition per degree = tuition per credit × 120 / ER: what students pay for the credits a system teaches per degree it awards. Four years of full-time tuition is the same price with ER = 1. Credit-hour weighted over public institutions reporting published tuition. Sources: IPEDS; author's calculations, white paper v5 Sections 5 and 8.2–8.3.
+:::
+
+```{ojs}
+//| output: false
+syncParams
+```

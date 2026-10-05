@@ -1,0 +1,17 @@
+::: {.ce-toggles}
+```{ojs}
+viewof measure = Inputs.radio(new Map([["Efficiency ratio (ER)", "ER"], ["Credits taught per degree (T = 120 / ER)", "T"]]), {value: param("m", "ER"), label: "Show"})
+viewof timing = Inputs.radio(new Map([["Measured", "measured"], ["Timing-adjusted", "adjusted"]]), {value: param("t", "adjusted"), label: "Ratio"})
+viewof tcase = Inputs.radio(new Map([["Low", "low"], ["Central", "central"], ["High", "high"]]), {value: param("c", "central"), label: "Timing case"})
+```
+:::
+
+```{ojs}
+//| output: false
+tcol = timing === "measured" ? "measured" : tcase
+val = er => er == null || !(er > 0) ? null : (measure === "T" ? 120 / er : er)
+mlab = measure === "T" ? "Credits taught per bachelor's-degree equivalent" : "Efficiency ratio (degree credits / credits taught)"
+tlab = timing === "measured" ? "measured" : `timing-adjusted, ${tcase} case`
+fv = x => measure === "T" ? f0(x) : f2(x)
+syncParams = { setParam("m", measure); setParam("t", timing); setParam("c", tcase); return true; }
+```

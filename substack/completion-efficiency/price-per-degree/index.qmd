@@ -1,0 +1,123 @@
+---
+title: "Price per degree"
+subtitle: "Tuition per credit rose much faster than tuition per degree"
+page-layout: full
+execute:
+  echo: false
+---
+
+{{< include ../_nav.qmd >}}
+
+{{< include ../_common.qmd >}}
+
+```{ojs}
+PN = FileAttachment("../data/prices_national.csv").csv({typed: true})
+PH = FileAttachment("../data/prices_headlines.csv").csv({typed: true})
+SY = FileAttachment("../data/state_year.csv").csv({typed: true})
+IDX = FileAttachment("../data/inst_index.csv").csv({typed: true})
+```
+
+{{< include ../_toggles.qmd >}}
+
+```{ojs}
+h = PH.find(d => d.scenario === tcol)
+md`<div class="ce-lead">Since 2002, published tuition per credit rose <b>${pct(h.nat_tuition_per_credit_2024 / 100 - 1)}</b> in real terms. Because colleges now teach fewer credits per degree they award, tuition per degree rose only <b>${pct(h.nat_tuition_per_degree_2024 / 100 - 1)}</b>, and it peaked in ${h.peak_year_tuition_per_degree}. Net tuition revenue per degree is ${h.nat_rev_per_degree_2024 < 100 ? "slightly below" : "about at"} its early-2000s level (index ${f0(h.nat_rev_per_degree_2024)}). Had the ratio stayed at its 2010 level, tuition per degree in 2024 would be <b>${f0(h.counterfactual_2010_er_pct_higher_2024)}%</b> higher. <span class="ce-note">(${tlab} ratio)</span></div>`
+```
+
+## Nation and sectors
+
+```{ojs}
+viewof grp = Inputs.select([...new Set(PN.map(d => d.group))], {value: param("g", "All 2- and 4-year"), label: "Group"})
+viewof pview = Inputs.radio(new Map([["Indices, 2002 = 100", "idx"], ["Dollars per degree", "usd"]]), {value: "idx", label: "Show"})
+```
+
+```{ojs}
+{
+  setParam("g", grp);
+  const rows = PN.filter(d => d.group === grp && d.scenario === tcol);
+  if (pview === "idx") {
+    const L = [["sticker_price_idx", "Tuition per credit"], ["sticker_cost_idx", "Tuition per degree"], ["rev_cost_idx", "Net tuition revenue per degree"], ["netprice_cost_idx", "Net price per degree"]];
+    const pts = rows.flatMap(d => L.map(([k, l]) => ({year: d.year, s: l, v: d[k]})).filter(p => p.v > 0));
+    const fro = rows.filter(d => d.year >= 2010).map(d => ({year: d.year, v: d.sticker_price_idx / (rows.find(r => r.year === 2010).sticker_er / rows.find(r => r.year === 2002).sticker_er)}));
+    return Plot.plot({
+      width, height: 400, marginRight: 230,
+      x: {...yearAxis}, y: {label: "Real index, 2002 = 100", grid: true},
+      color: {domain: L.map(l => l[1]), range: [GRAY, BLUE, TEAL, ORANGE]},
+      marks: [Plot.ruleY([100]),
+        Plot.lineY(fro, {x: "year", y: "v", stroke: BLUE, strokeDasharray: "4,4", strokeOpacity: 0.6}),
+        Plot.text(fro.slice(-1), {x: "year", y: "v", text: () => "Per degree if the ratio had stayed at 2010", fill: BLUE, dx: 6, textAnchor: "start", fontSize: 10, fillOpacity: 0.7}),
+        Plot.lineY(pts, {x: "year", y: "v", stroke: "s", strokeWidth: 2.2}),
+        Plot.text(pts, Plot.selectLast({x: "year", y: "v", z: "s", text: d => `${d.s} ${f0(d.v)}`, fill: "s", dx: 6, textAnchor: "start", fontSize: 11})),
+        Plot.tip(pts, Plot.pointerX({x: "year", y: "v", z: "s", title: d => `${d.s}, ${d.year}: ${f0(d.v)}`}))]
+    });
+  }
+  const pts = rows.flatMap(d => [{year: d.year, s: "Tuition per degree", v: d.sticker_cost_per_degree}, {year: d.year, s: "Four years of full-time tuition", v: d.sticker_price * 4}, {year: d.year, s: "Net tuition revenue per degree", v: d.rev_per_degree}]).filter(d => d.v > 0);
+  return Plot.plot({
+    width, height: 400, marginRight: 230, marginLeft: 70,
+    x: {...yearAxis}, y: {label: "Real 2024 dollars", grid: true, tickFormat: "$,.0f"},
+    color: {domain: ["Four years of full-time tuition", "Tuition per degree", "Net tuition revenue per degree"], range: [GRAY, BLUE, TEAL]},
+    marks: [Plot.lineY(pts, {x: "year", y: "v", stroke: "s", strokeWidth: 2.2}),
+      Plot.text(pts, Plot.selectLast({x: "year", y: "v", z: "s", text: d => `${d.s} ${usd(d.v)}`, fill: "s", dx: 6, textAnchor: "start", fontSize: 11})),
+      Plot.tip(pts, Plot.pointerX({x: "year", y: "v", z: "s", title: d => `${d.s}, ${d.year}: ${usd(d.v)}`}))]
+  });
+}
+```
+
+::: {.ce-note}
+Tuition per degree = published tuition per credit × 120 / ER: what students together pay for all the credits a college teaches per bachelor's-degree equivalent it awards. Net tuition revenue per degree uses revenue net of institutional discounts (undergraduate share); net price is IPEDS net price for first-time full-time grant recipients (from 2009, linked to the tuition index). Credit-hour weighted; real 2024 dollars (CPI-U). The dashed line divides tuition per credit by the ratio's 2010 level instead of its actual path.
+:::
+
+## States: public systems
+
+```{ojs}
+viewof y0 = Inputs.select([2002, 2010], {value: 2010, label: "Change since", format: d => String(d)})
+```
+
+```{ojs}
+{
+  const col = tcol === "measured" ? "sticker_cost_per_degree_measured" : "sticker_cost_per_degree_central";
+  const rows = STLIST.map(s => { const a = SY.find(d => d.stabbr === s && d.year === y0), b = SY.find(d => d.stabbr === s && d.year === 2024);
+    return a && b && a[col] > 0 ? {st: s, deg: b[col] / a[col] - 1, cr: b.sticker_price / a.sticker_price - 1, lvl: b[col]} : null; }).filter(d => d);
+  return Plot.plot({
+    width, height: 330, marginBottom: 40,
+    x: {domain: d3.sort(rows, d => d.deg).map(d => d.st), label: null, tickRotate: 0, tickSize: 0},
+    y: {label: `Real change, ${y0}–2024`, tickFormat: "+.0%", grid: true},
+    marks: [Plot.ruleY([0]),
+      Plot.barY(rows, {x: "st", y: "deg", fill: d => d.deg < 0 ? TEAL : BLUE, title: d => `${STNAME[d.st]}\ntuition per degree ${d3.format("+.0%")(d.deg)} (2024: ${usd(d.lvl)})\ntuition per credit ${d3.format("+.0%")(d.cr)}`}),
+      Plot.dot(rows, {x: "st", y: "cr", fill: ORANGE, r: 3})],
+    caption: `Bars: published in-state tuition per degree (${tlab} ratio); orange dots: tuition per credit. Teal bars: states where tuition per degree fell.`
+  });
+}
+```
+
+## One institution
+
+```{ojs}
+viewof stp = Inputs.select(STLIST, {format: s => STNAME[s], value: param("s", "IN"), label: "State"})
+viewof inst = Inputs.select(IDX.filter(d => d.st === stp && (d.group === "Public university" || d.group === "Community college" || d.group === "Private nonprofit 4-year")).sort((a, b) => d3.descending(a.credits_last, b.credits_last)), {format: d => d.name, label: "Institution"})
+```
+
+```{ojs}
+{
+  setParam("s", stp);
+  const P = await d3.csv(`../data/inst/${stp}.csv`, d3.autoType);
+  const k = tcol === "measured" ? "m" : tcol[0];
+  const I = P.filter(d => d.unitid === inst.unitid && d.sticker_real > 0 && d[`ER_${k}`] > 0);
+  if (!I.length) return md`*No published tuition for this institution.*`;
+  const pts = I.flatMap(d => [{year: d.year, s: "Tuition per degree", v: d.sticker_real * 4 / d[`ER_${k}`]}, {year: d.year, s: "Four years of full-time tuition", v: d.sticker_real * 4}]);
+  return Plot.plot({
+    width, height: 330, marginRight: 230, marginLeft: 70, title: `${inst.name}: published tuition (real 2024 $)`,
+    x: {...yearAxis}, y: {grid: true, tickFormat: "$,.0f", label: null},
+    color: {domain: ["Four years of full-time tuition", "Tuition per degree"], range: [GRAY, BLUE]},
+    marks: [Plot.lineY(pts, {x: "year", y: "v", stroke: "s", strokeWidth: 2.2}),
+      Plot.text(pts, Plot.selectLast({x: "year", y: "v", z: "s", text: d => `${d.s} ${usd(d.v)}`, fill: "s", dx: 6, textAnchor: "start", fontSize: 11})),
+      Plot.tip(pts, Plot.pointerX({x: "year", y: "v", z: "s", title: d => `${d.s}, ${d.year}: ${usd(d.v)}`}))],
+    caption: "Tuition per degree above four years of tuition means the college teaches more than 120 credits per degree it awards (ER below 1); below it, the college awards degrees with credit taught elsewhere."
+  });
+}
+```
+
+```{ojs}
+//| output: false
+syncParams
+```

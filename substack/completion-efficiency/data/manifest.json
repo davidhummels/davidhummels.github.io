@@ -1,0 +1,547 @@
+{
+ "national_series.csv": {
+  "rows": 729,
+  "kb": 86.3
+ },
+ "share_above_1.csv": {
+  "rows": 81,
+  "kb": 3.2
+ },
+ "timing_growth.csv": {
+  "rows": 81,
+  "kb": 5.8
+ },
+ "accounting_national.csv": {
+  "rows": 12,
+  "kb": 1.8
+ },
+ "accounting_scenarios.csv": {
+  "rows": 305,
+  "kb": 29.9
+ },
+ "accounting_constants.csv": {
+  "rows": 1,
+  "kb": 0.2
+ },
+ "sector_split_summary.csv": {
+  "rows": 26,
+  "kb": 1.4
+ },
+ "types_levels_2022.csv": {
+  "rows": 15,
+  "kb": 1.9
+ },
+ "types_change.csv": {
+  "rows": 15,
+  "kb": 3.0
+ },
+ "states.csv": {
+  "rows": 51,
+  "kb": 19.3
+ },
+ "state_items.csv": {
+  "rows": 408,
+  "kb": 22.5
+ },
+ "state_sector_year.csv": {
+  "rows": 2763,
+  "kb": 142.5
+ },
+ "state_year.csv": {
+  "rows": 1401,
+  "kb": 210.9
+ },
+ "prices_national.csv": {
+  "rows": 1932,
+  "kb": 271.9
+ },
+ "prices_headlines.csv": {
+  "rows": 4,
+  "kb": 0.8
+ },
+ "inst_index.csv": {
+  "rows": 5950,
+  "kb": 839.5
+ },
+ "inst/AK.csv": {
+  "rows": 208,
+  "kb": 17.0
+ },
+ "inst/AL.csv": {
+  "rows": 1754,
+  "kb": 147.3
+ },
+ "inst/AR.csv": {
+  "rows": 1319,
+  "kb": 110.9
+ },
+ "inst/AZ.csv": {
+  "rows": 1606,
+  "kb": 129.8
+ },
+ "inst/CA.csv": {
+  "rows": 9034,
+  "kb": 734.9
+ },
+ "inst/CO.csv": {
+  "rows": 1655,
+  "kb": 134.9
+ },
+ "inst/CT.csv": {
+  "rows": 1157,
+  "kb": 94.6
+ },
+ "inst/DC.csv": {
+  "rows": 353,
+  "kb": 29.3
+ },
+ "inst/DE.csv": {
+  "rows": 249,
+  "kb": 21.2
+ },
+ "inst/FL.csv": {
+  "rows": 4231,
+  "kb": 341.5
+ },
+ "inst/GA.csv": {
+  "rows": 3160,
+  "kb": 259.3
+ },
+ "inst/HI.csv": {
+  "rows": 454,
+  "kb": 38.2
+ },
+ "inst/IA.csv": {
+  "rows": 1576,
+  "kb": 131.9
+ },
+ "inst/ID.csv": {
+  "rows": 416,
+  "kb": 35.2
+ },
+ "inst/IL.csv": {
+  "rows": 3962,
+  "kb": 327.2
+ },
+ "inst/IN.csv": {
+  "rows": 2122,
+  "kb": 175.1
+ },
+ "inst/KS.csv": {
+  "rows": 1634,
+  "kb": 136.2
+ },
+ "inst/KY.csv": {
+  "rows": 1701,
+  "kb": 140.5
+ },
+ "inst/LA.csv": {
+  "rows": 1559,
+  "kb": 128.3
+ },
+ "inst/MA.csv": {
+  "rows": 2736,
+  "kb": 231.3
+ },
+ "inst/MD.csv": {
+  "rows": 1455,
+  "kb": 121.9
+ },
+ "inst/ME.csv": {
+  "rows": 786,
+  "kb": 65.0
+ },
+ "inst/MI.csv": {
+  "rows": 2592,
+  "kb": 215.2
+ },
+ "inst/MN.csv": {
+  "rows": 2401,
+  "kb": 200.7
+ },
+ "inst/MO.csv": {
+  "rows": 2605,
+  "kb": 214.5
+ },
+ "inst/MS.csv": {
+  "rows": 944,
+  "kb": 79.3
+ },
+ "inst/MT.csv": {
+  "rows": 617,
+  "kb": 51.2
+ },
+ "inst/NC.csv": {
+  "rows": 3470,
+  "kb": 292.2
+ },
+ "inst/ND.csv": {
+  "rows": 534,
+  "kb": 44.9
+ },
+ "inst/NE.csv": {
+  "rows": 1015,
+  "kb": 83.7
+ },
+ "inst/NH.csv": {
+  "rows": 628,
+  "kb": 53.3
+ },
+ "inst/NJ.csv": {
+  "rows": 1986,
+  "kb": 162.1
+ },
+ "inst/NM.csv": {
+  "rows": 950,
+  "kb": 78.7
+ },
+ "inst/NV.csv": {
+  "rows": 483,
+  "kb": 38.7
+ },
+ "inst/NY.csv": {
+  "rows": 7218,
+  "kb": 598.6
+ },
+ "inst/OH.csv": {
+  "rows": 4649,
+  "kb": 381.7
+ },
+ "inst/OK.csv": {
+  "rows": 1349,
+  "kb": 111.7
+ },
+ "inst/OR.csv": {
+  "rows": 1328,
+  "kb": 108.1
+ },
+ "inst/PA.csv": {
+  "rows": 5751,
+  "kb": 466.1
+ },
+ "inst/RI.csv": {
+  "rows": 335,
+  "kb": 28.8
+ },
+ "inst/SC.csv": {
+  "rows": 1761,
+  "kb": 148.3
+ },
+ "inst/SD.csv": {
+  "rows": 598,
+  "kb": 50.1
+ },
+ "inst/TN.csv": {
+  "rows": 2130,
+  "kb": 178.1
+ },
+ "inst/TX.csv": {
+  "rows": 5476,
+  "kb": 446.5
+ },
+ "inst/UT.csv": {
+  "rows": 704,
+  "kb": 58.2
+ },
+ "inst/VA.csv": {
+  "rows": 2734,
+  "kb": 223.8
+ },
+ "inst/VT.csv": {
+  "rows": 512,
+  "kb": 42.6
+ },
+ "inst/WA.csv": {
+  "rows": 1893,
+  "kb": 158.1
+ },
+ "inst/WI.csv": {
+  "rows": 1763,
+  "kb": 148.8
+ },
+ "inst/WV.csv": {
+  "rows": 999,
+  "kb": 82.9
+ },
+ "inst/WY.csv": {
+  "rows": 244,
+  "kb": 20.5
+ },
+ "ap_national.csv": {
+  "rows": 19,
+  "kb": 1.7
+ },
+ "ap_state_exams.csv": {
+  "rows": 312,
+  "kb": 17.3
+ },
+ "ap_policy_state.csv": {
+  "rows": 2200,
+  "kb": 87.4
+ },
+ "ap_colleges.csv": {
+  "rows": 2146,
+  "kb": 128.6
+ },
+ "ap_rules/AK.csv": {
+  "rows": 138,
+  "kb": 5.1
+ },
+ "ap_rules/AL.csv": {
+  "rows": 784,
+  "kb": 28.1
+ },
+ "ap_rules/AR.csv": {
+  "rows": 861,
+  "kb": 30.5
+ },
+ "ap_rules/AZ.csv": {
+  "rows": 770,
+  "kb": 27.7
+ },
+ "ap_rules/CA.csv": {
+  "rows": 6570,
+  "kb": 239.0
+ },
+ "ap_rules/CO.csv": {
+  "rows": 868,
+  "kb": 31.5
+ },
+ "ap_rules/CT.csv": {
+  "rows": 684,
+  "kb": 24.8
+ },
+ "ap_rules/DC.csv": {
+  "rows": 205,
+  "kb": 7.5
+ },
+ "ap_rules/DE.csv": {
+  "rows": 137,
+  "kb": 5.0
+ },
+ "ap_rules/FL.csv": {
+  "rows": 2562,
+  "kb": 92.0
+ },
+ "ap_rules/GA.csv": {
+  "rows": 1830,
+  "kb": 65.3
+ },
+ "ap_rules/GU.csv": {
+  "rows": 11,
+  "kb": 0.5
+ },
+ "ap_rules/HI.csv": {
+  "rows": 215,
+  "kb": 7.8
+ },
+ "ap_rules/IA.csv": {
+  "rows": 925,
+  "kb": 33.1
+ },
+ "ap_rules/ID.csv": {
+  "rows": 345,
+  "kb": 12.6
+ },
+ "ap_rules/IL.csv": {
+  "rows": 3108,
+  "kb": 112.3
+ },
+ "ap_rules/IN.csv": {
+  "rows": 1464,
+  "kb": 53.0
+ },
+ "ap_rules/KS.csv": {
+  "rows": 850,
+  "kb": 30.2
+ },
+ "ap_rules/KY.csv": {
+  "rows": 1422,
+  "kb": 51.4
+ },
+ "ap_rules/LA.csv": {
+  "rows": 630,
+  "kb": 22.8
+ },
+ "ap_rules/MA.csv": {
+  "rows": 2259,
+  "kb": 82.0
+ },
+ "ap_rules/MD.csv": {
+  "rows": 1323,
+  "kb": 47.3
+ },
+ "ap_rules/ME.csv": {
+  "rows": 597,
+  "kb": 21.7
+ },
+ "ap_rules/MI.csv": {
+  "rows": 1998,
+  "kb": 72.6
+ },
+ "ap_rules/MN.csv": {
+  "rows": 1686,
+  "kb": 60.3
+ },
+ "ap_rules/MO.csv": {
+  "rows": 1344,
+  "kb": 47.9
+ },
+ "ap_rules/MP.csv": {
+  "rows": 15,
+  "kb": 0.6
+ },
+ "ap_rules/MS.csv": {
+  "rows": 600,
+  "kb": 21.6
+ },
+ "ap_rules/MT.csv": {
+  "rows": 421,
+  "kb": 15.4
+ },
+ "ap_rules/NC.csv": {
+  "rows": 2529,
+  "kb": 90.5
+ },
+ "ap_rules/ND.csv": {
+  "rows": 388,
+  "kb": 13.6
+ },
+ "ap_rules/NE.csv": {
+  "rows": 433,
+  "kb": 15.4
+ },
+ "ap_rules/NH.csv": {
+  "rows": 475,
+  "kb": 17.2
+ },
+ "ap_rules/NJ.csv": {
+  "rows": 1104,
+  "kb": 39.7
+ },
+ "ap_rules/NM.csv": {
+  "rows": 661,
+  "kb": 23.8
+ },
+ "ap_rules/NV.csv": {
+  "rows": 282,
+  "kb": 10.3
+ },
+ "ap_rules/NY.csv": {
+  "rows": 4715,
+  "kb": 170.8
+ },
+ "ap_rules/OH.csv": {
+  "rows": 3659,
+  "kb": 132.6
+ },
+ "ap_rules/OK.csv": {
+  "rows": 853,
+  "kb": 30.4
+ },
+ "ap_rules/OR.csv": {
+  "rows": 1017,
+  "kb": 37.2
+ },
+ "ap_rules/PA.csv": {
+  "rows": 3918,
+  "kb": 141.8
+ },
+ "ap_rules/PR.csv": {
+  "rows": 28,
+  "kb": 1.1
+ },
+ "ap_rules/RI.csv": {
+  "rows": 388,
+  "kb": 14.1
+ },
+ "ap_rules/SC.csv": {
+  "rows": 1354,
+  "kb": 48.3
+ },
+ "ap_rules/SD.csv": {
+  "rows": 338,
+  "kb": 12.0
+ },
+ "ap_rules/TN.csv": {
+  "rows": 1330,
+  "kb": 48.2
+ },
+ "ap_rules/TX.csv": {
+  "rows": 3356,
+  "kb": 120.5
+ },
+ "ap_rules/UT.csv": {
+  "rows": 470,
+  "kb": 17.2
+ },
+ "ap_rules/VA.csv": {
+  "rows": 2005,
+  "kb": 72.1
+ },
+ "ap_rules/VI.csv": {
+  "rows": 17,
+  "kb": 0.6
+ },
+ "ap_rules/VT.csv": {
+  "rows": 221,
+  "kb": 7.9
+ },
+ "ap_rules/WA.csv": {
+  "rows": 1759,
+  "kb": 64.0
+ },
+ "ap_rules/WI.csv": {
+  "rows": 1716,
+  "kb": 62.0
+ },
+ "ap_rules/WV.csv": {
+  "rows": 776,
+  "kb": 27.8
+ },
+ "ap_rules/WY.csv": {
+  "rows": 159,
+  "kb": 5.7
+ },
+ "de_national.csv": {
+  "rows": 23,
+  "kb": 3.1
+ },
+ "de_state.csv": {
+  "rows": 51,
+  "kb": 9.9
+ },
+ "de_state_2023_2024.csv": {
+  "rows": 102,
+  "kb": 5.1
+ },
+ "de_credits_per_student.csv": {
+  "rows": 28,
+  "kb": 2.5
+ },
+ "om_award_shares.csv": {
+  "rows": 64,
+  "kb": 8.1
+ },
+ "cc_certificates.csv": {
+  "rows": 34,
+  "kb": 2.7
+ },
+ "ge_certificates_state.csv": {
+  "rows": 15,
+  "kb": 0.3
+ },
+ "nondegree_national.csv": {
+  "rows": 22,
+  "kb": 3.5
+ },
+ "policy_grid.csv": {
+  "rows": 510,
+  "kb": 84.0
+ },
+ "policy_summary.csv": {
+  "rows": 10,
+  "kb": 2.3
+ },
+ "_built": "2026-10-05 15:45"
+}

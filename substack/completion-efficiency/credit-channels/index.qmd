@@ -1,0 +1,191 @@
+---
+title: "Credit channels"
+subtitle: "AP, dual enrollment, transfer and certificates: credit taught in one place and used in another"
+page-layout: full
+execute:
+  echo: false
+---
+
+{{< include ../_nav.qmd >}}
+
+{{< include ../_common.qmd >}}
+
+```{ojs}
+APN = FileAttachment("../data/ap_national.csv").csv({typed: true})
+APS = FileAttachment("../data/ap_state_exams.csv").csv({typed: true})
+APP = FileAttachment("../data/ap_policy_state.csv").csv({typed: true})
+APC = FileAttachment("../data/ap_colleges.csv").csv({typed: true})
+DEN = FileAttachment("../data/de_national.csv").csv({typed: true})
+DE24 = FileAttachment("../data/de_state_2023_2024.csv").csv({typed: true})
+DECPS = FileAttachment("../data/de_credits_per_student.csv").csv({typed: true})
+OM = FileAttachment("../data/om_award_shares.csv").csv({typed: true})
+CC = FileAttachment("../data/cc_certificates.csv").csv({typed: true})
+GE = FileAttachment("../data/ge_certificates_state.csv").csv({typed: true})
+ND = FileAttachment("../data/nondegree_national.csv").csv({typed: true})
+ACC = FileAttachment("../data/accounting_national.csv").csv({typed: true})
+```
+
+```{ojs}
+a10 = APN.find(d => d.year === 2010); a22 = APN.find(d => d.year === 2022)
+d10 = DEN.find(d => d.year === 2010); d22 = DEN.find(d => d.year === 2022)
+apItem = ACC.find(d => d.item.startsWith("1 AP"))
+md`<div class="ce-lead">AP and dual enrollment are large at the door and small in the national account. Qualifying AP exams rose from <b>${f0(a10.qualifying_exams / 1000)}k</b> in 2010 to <b>${f0(a22.qualifying_exams / 1000)}k</b> in 2022, and dual-enrollment credit from <b>${pct1(d10.de_share_of_credits_taught)}</b> to <b>${pct1(d22.de_share_of_credits_taught)}</b> of all credits taught. Yet AP credit explains only <b>${pct(apItem.share_central)}</b> of the system's timing-adjusted gain: even counting every qualifying exam it is under 3% of all credits taught, and dual-enrollment credit is taught by colleges, so it is already in the credits-taught count. These channels matter most for <i>outsourcing</i>, how much of a degree a college teaches itself; see the <a href="../institution-explorer/index.html">institution types</a>.</div>`
+```
+
+::: {.panel-tabset}
+
+## AP
+
+```{ojs}
+Plot.plot({
+  width, height: 300, marginRight: 160,
+  x: {...yearAxis}, y: {label: "Share of all credits taught", tickFormat: ".1%", grid: true},
+  marks: [Plot.lineY(APN, {x: "year", y: "ap_share_of_credits_all_central", stroke: BLUE, strokeWidth: 2.2}),
+    Plot.lineY(APN, {x: "year", y: "ap_share_of_credits_sent_central", stroke: LIGHT, strokeWidth: 2.2}),
+    Plot.text(APN.slice(-1), {x: "year", y: "ap_share_of_credits_all_central", text: () => "Every qualifying exam", fill: BLUE, dx: 6, textAnchor: "start"}),
+    Plot.text(APN.slice(-1), {x: "year", y: "ap_share_of_credits_sent_central", text: () => "Scores sent to colleges", fill: LIGHT, dx: 6, textAnchor: "start"}),
+    Plot.tip(APN, Plot.pointerX({x: "year", y: "ap_share_of_credits_all_central", title: d => `${d.year}\n${f0(d.qualifying_exams)} qualifying exams (of ${f0(d.exams)})\nAP credit ${pct1(d.ap_share_of_credits_all_central)} of credits taught (all exams), ${pct1(d.ap_share_of_credits_sent_central)} (scores sent)`}))],
+  caption: "AP credit as a share of all credits taught by U.S. colleges, central credit schedule. Source: College Board; IPEDS; white paper v5 Section 6.3."
+})
+```
+
+### Public-school AP exams by state
+
+```{ojs}
+viewof apm = Inputs.radio(new Map([["Growth in exams scoring 3+, 2012–2024", "g"], ["Share of exams scoring 3+, 2024", "s"]]), {value: "g", label: "Map"})
+```
+
+```{ojs}
+{
+  const rows = STLIST.map(s => { const a = APS.find(d => d.st === s && d.year === 2012), b = APS.find(d => d.st === s && d.year === 2024);
+    return {st: s, v: apm === "g" ? (a && b ? b.exams_3plus / a.exams_3plus - 1 : null) : (b ? b.exams_3plus / b.exams : null)}; });
+  const sc = Plot.scale({color: {type: apm === "g" ? "diverging" : "linear", scheme: apm === "g" ? "rdbu" : "blues", domain: apm === "g" ? [-1, 1].map(x => x * d3.max(rows, d => Math.abs(d.v ?? 0))) : d3.extent(rows, d => d.v)}});
+  return tileMap(rows, {color: v => sc.apply(v), fmt: pct, w: Math.min(width, 640)});
+}
+```
+
+### How much credit colleges give: state averages, 2026 policies
+
+```{ojs}
+viewof apExam = Inputs.select([...new Set(APP.map(d => d.exam))].sort(), {value: "Calculus AB", label: "Exam"})
+viewof apScore = Inputs.radio([3, 4, 5], {value: 4, label: "Score"})
+```
+
+```{ojs}
+{
+  const rows = APP.filter(d => d.exam === apExam).map(d => ({st: d.state, v: d[`mean_credits_score${apScore}`], n: d.n_colleges}));
+  const sc = Plot.scale({color: {type: "linear", scheme: "blues", domain: [0, Math.max(1, d3.max(rows, d => d.v))]}});
+  return html`${tileMap(rows, {color: v => sc.apply(v), fmt: v => d3.format(".1f")(v), w: Math.min(width, 640)})}<p class="ce-note">Mean semester credits for a ${apScore} on ${apExam} across the colleges located in each state that list an AP policy in the College Board's credit-policy search (2026).</p>`;
+}
+```
+
+### Look up a college
+
+```{ojs}
+viewof lkSt = Inputs.select(STLIST.filter(s => APC.some(d => d.state === s)), {format: s => STNAME[s], value: "IN", label: "State"})
+viewof lkCol = Inputs.select(APC.filter(d => d.state === lkSt).sort((a, b) => a.name.localeCompare(b.name)), {format: d => `${d.name}, ${d.city}`, label: "College"})
+```
+
+```{ojs}
+{
+  const R = await d3.csv(`../data/ap_rules/${lkSt}.csv`, d3.autoType);
+  const rows = R.filter(d => d.org_id === lkCol.org_id).sort((a, b) => a.exam.localeCompare(b.exam));
+  if (!rows.length) return md`*${lkCol.name} lists ${lkCol.credit_awarded === "N" ? "no AP credit" : "no exam-level rules"} in the College Board's search.*`;
+  return Inputs.table(rows, {columns: ["exam", "credits_s3", "credits_s4", "credits_s5"], header: {exam: "Exam", credits_s3: "Score 3", credits_s4: "Score 4", credits_s5: "Score 5"},
+    format: {credits_s3: d => d == null ? "–" : d3.format(".1f")(d), credits_s4: d => d == null ? "–" : d3.format(".1f")(d), credits_s5: d => d == null ? "–" : d3.format(".1f")(d)}, rows: 15});
+}
+```
+
+::: {.ce-note}
+Credits by exam and score, as listed in the College Board's AP credit-policy search (retrieved 2026; 2,145 colleges). Policies change; check the college's own page before relying on a number.
+:::
+
+## Dual enrollment
+
+```{ojs}
+Plot.plot({
+  width, height: 300, marginRight: 170,
+  x: {...yearAxis}, y: {label: "Dual-enrollment credit, share of all credits taught", tickFormat: ".1%", grid: true},
+  marks: [Plot.lineY(DEN, {x: "year", y: "de_share_of_credits_taught", stroke: BLUE, strokeWidth: 2.2}),
+    Plot.tip(DEN, Plot.pointerX({x: "year", y: "de_share_of_credits_taught", title: d => `${d.year}\n${f0(d.de_headcount_nces_anchored)} dual-enrolled students (full year, est.)\n${d3.format(".1f")(d.credits_per_student_central)} credits each\n${pct1(d.de_share_of_credits_taught)} of credits taught`}))],
+  caption: "Full-year dual-enrollment headcount estimated from fall high-school-age enrollment, anchored to NCES counts; central credits per student. White paper v5 Section 6.2 and Appendix C."
+})
+```
+
+### Share of undergraduates who are dual-enrolled, 2023–24
+
+```{ojs}
+viewof deYear = Inputs.radio([2023, 2024], {value: 2024, label: "Year", format: d => String(d)})
+viewof deCol = Inputs.radio(new Map([["All colleges", "share"], ["Public 2-year colleges", "share_pub2"]]), {value: "share", label: "Of"})
+```
+
+```{ojs}
+{
+  const rows = DE24.filter(d => d.year === deYear).map(d => ({st: d.state, v: d[deCol]}));
+  const sc = Plot.scale({color: {type: "linear", scheme: "blues", domain: [0, d3.max(rows, d => d.v)]}});
+  return tileMap(rows, {color: v => sc.apply(v), fmt: pct, w: Math.min(width, 640)});
+}
+```
+
+### Credits per dual-enrolled student, where states report them
+
+```{ojs}
+Inputs.table(DECPS, {columns: ["state", "credits_per_student", "fiscal_year", "series", "credit_concept"], header: {state: "State", credits_per_student: "Credits per student", fiscal_year: "Year", series: "Series", credit_concept: "Credit concept"},
+  format: {credits_per_student: d => d3.format(".1f")(d), fiscal_year: d => d == null ? "" : String(d)}, sort: "credits_per_student", reverse: true, rows: 12})
+```
+
+## Transfer
+
+```{ojs}
+viewof omLevel = Inputs.radio(["4-year", "2-year"], {value: "4-year", label: "Level"})
+```
+
+```{ojs}
+{
+  const rows = OM.filter(d => d.level === omLevel);
+  return Plot.plot({
+    width, height: 320, marginRight: 150,
+    x: {label: "Entering cohort", type: "point"}, y: {label: `Share of ${omLevel === "4-year" ? "bachelor's degrees" : "associate degrees and certificates"} earned by students who entered as transfers`, tickFormat: "%", grid: true, domain: [0, 0.8]},
+    color: {domain: ["All", "Public", "Private nonprofit", "Private for-profit"], range: [INK, BLUE, ORANGE, GRAY]},
+    marks: [Plot.lineY(rows, {x: "entering_cohort", y: "share_non_first_time", stroke: "control", strokeWidth: 2, marker: "dot"}),
+      Plot.text(rows, Plot.selectLast({x: "entering_cohort", y: "share_non_first_time", z: "control", text: d => `${d.control} ${pct(d.share_non_first_time)}`, fill: "control", dx: 6, textAnchor: "start"}))],
+    caption: "IPEDS Outcome Measures: awards within eight years to an entering cohort, by whether students entered as first-time or as transfer / other non-first-time students. Read the 2-year series with care: the level shifts sharply from the 2013-14 cohort."
+  });
+}
+```
+
+## Certificates and non-degree credit
+
+```{ojs}
+{
+  const keys = ["< 12 weeks", "12 weeks to < 1 year", "< 1 year (pre-2020 code)", "1 to < 2 years", "2 to < 4 years"];
+  const rows = CC.flatMap(d => keys.map(k => ({year: d.year, k, v: d[k]})));
+  return Plot.plot({
+    width, height: 300, marginRight: 20,
+    x: {...yearAxis}, y: {label: "Certificates awarded by community colleges", grid: true, tickFormat: "s"},
+    color: {domain: keys, legend: true, range: ["#c6dbef", "#9ecae1", "#6baed6", "#2171b5", "#08306b"]},
+    marks: [Plot.areaY(rows, {x: "year", y: "v", fill: "k", order: keys, title: d => `${d.k}, ${d.year}: ${f0(d.v)}`})]
+  });
+}
+```
+
+```{ojs}
+Plot.plot({
+  width, height: 260, marginLeft: 40,
+  x: {label: null, domain: d3.sort(GE, d => -d.ge_certs_2025).map(d => d.state)}, y: {label: "General-education transfer certificates, 2025", grid: true, tickFormat: "s"},
+  marks: [Plot.barY(GE, {x: "state", y: "ge_certs_2025", fill: BLUE, title: d => `${d.state}: ${f0(d.ge_certs_2025)} (${pct(d.share_of_national)} of the nation)`})],
+  caption: "Certificates that package a transferable general-education core (California awards about half of them). These count as awards, not degrees, so the credit behind them is in the denominator but not the numerator of the ER."
+})
+```
+
+```{ojs}
+Plot.plot({
+  width, height: 260, marginRight: 140,
+  x: {...yearAxis}, y: {label: "Non-degree-seeking students' unused credit, share of credits taught", tickFormat: "%", grid: true},
+  marks: [Plot.lineY(ND, {x: "credit_year", y: "nonde_credits_share_of_ct", stroke: BLUE, strokeWidth: 2.2}),
+    Plot.tip(ND, Plot.pointerX({x: "credit_year", y: "nonde_credits_share_of_ct", title: d => `${d.credit_year}: ${pct1(d.nonde_credits_share_of_ct)} of credits taught\n${f0(d.nd)} non-degree undergraduates in the fall (${pct1(d.nonde_share_of_fall_ug)})`}))],
+  caption: "Credit taught to non-degree-seeking undergraduates that is never used in a degree, central case. White paper v5 Section 7.3."
+})
+```
+
+:::

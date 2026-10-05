@@ -1,0 +1,29 @@
+state,series,fiscal_year,credits_per_student,credit_concept,delivery,round,ipeds_de_2023_24
+TX,"THECB public colleges, per full-year student (IPEDS count)",2024.0,10.113,SCH (enrolled),mixed,first round,283615.0
+GA,"Dual Enrollment (merged program), FY2016-25",2025.0,10.088,funded,mixed,first round,68647.0
+CO,Concurrent Enrollment,2021.0,8.48,attempted,mixed,first round,76358.0
+OK,"Concurrent enrollment, State System",2024.0,9.389,enrolled,mixed,first round,20932.0
+IA,"Joint enrollment, community colleges (FY2025)",2025.0,9.14,enrolled,mostly high-school-based (contracted),first round,54346.0
+UT,"Concurrent enrollment, USHE",2025.0,8.402,attempted,mostly high-school-based,first round,67491.0
+KY,"Dual credit, all sectors",2024.0,6.419,earned,mixed,first round,59597.0
+LA,"Dual enrollment, public colleges",2023.0,8.261,enrolled,mixed,first round,40159.0
+ID,Advanced Opportunities (state-funded),2024.0,8.588,funded,mixed,first round,53413.0
+AK,University of Alaska,2024.0,8.98,enrolled,mixed,first round,4628.0
+CA,All special admits (FTES x 30),2020.0,6.794,FTES (525 contact hours) x 30,mixed,first round,292291.0
+AZ,Community colleges (FTSE x 30),2024.0,7.55,FTSE x 30,mostly high-school-based,first round,47548.0
+KS,"All HS college credit, unduplicated (KBOR)",2024.0,8.752,earned,mixed,CHSA follow-up,42662.0
+NH,CCSNH Early College (all modalities),2025.0,5.528,enrolled,mostly high-school-based,CHSA follow-up,11329.0
+ND,Statewide dual credit (Legislative Council),2025.0,4.905,enrolled,mixed,CHSA follow-up,8197.0
+CT,UConn Early College Experience,2025.0,5.736,attempted,high-school-based,CHSA follow-up,28199.0
+WI,WTCS all dual credit (earned),2025.0,4.855,earned,mostly high-school-based,CHSA follow-up,73048.0
+WV,LevelUpWV (state-funded; approximate),2025.0,8.056,earned (rounded),mixed,CHSA follow-up,13209.0
+OH,College Credit Plus (approximate),2021.0,8.486,attempted (rounded),mixed,CHSA follow-up,103580.0
+MN,Concurrent + state-paid PSEO (earned),2024.0,9.795,earned,mixed,first round,69805.0
+WY,Concurrent + dual,2025.0,7.044,enrolled,mixed,first round,9119.0
+TN,TBR average credits attempted per DE student (reported directly),2023.0,11.3,attempted,mixed,CHSA follow-up,55038.0
+"Weighted mean, first-round states only",as of the earlier revision,,8.516,,,,1147949.0
+Weighted mean,weights = IPEDS 2023-24 full-year count,,8.344,,,,1483211.0
+Weighted mean excl. CA,,,8.724,,,,1190920.0
+"Weighted mean, credits taught only",attempted/enrolled/FTE series,,8.454,,,,1102830.0
+Median state,,,8.441,,,,
+Coverage,share of national IPEDS 2023-24 count,,,,,,0.525

@@ -1,0 +1,82 @@
+control_lab,year,n,share_above_1_measured,share_above_1_adjusted
+Private for-profit,1998,241.0,0.0705,0.0705
+Private for-profit,1999,260.0,0.0308,0.0308
+Private for-profit,2000,219.0,0.0731,0.0731
+Private for-profit,2001,265.0,0.0792,0.083
+Private for-profit,2002,258.0,0.0659,0.0659
+Private for-profit,2003,308.0,0.1071,0.1039
+Private for-profit,2004,346.0,0.0665,0.0751
+Private for-profit,2005,373.0,0.0643,0.0643
+Private for-profit,2006,414.0,0.087,0.0845
+Private for-profit,2007,399.0,0.0627,0.0627
+Private for-profit,2008,461.0,0.128,0.128
+Private for-profit,2009,492.0,0.0935,0.0935
+Private for-profit,2010,573.0,0.0768,0.0768
+Private for-profit,2011,628.0,0.0589,0.0589
+Private for-profit,2012,658.0,0.0897,0.0897
+Private for-profit,2013,670.0,0.1552,0.1567
+Private for-profit,2014,652.0,0.1442,0.1442
+Private for-profit,2015,634.0,0.1877,0.1877
+Private for-profit,2016,457.0,0.2385,0.2363
+Private for-profit,2017,435.0,0.3287,0.3287
+Private for-profit,2018,358.0,0.3073,0.3045
+Private for-profit,2019,291.0,0.2784,0.2784
+Private for-profit,2020,274.0,0.2409,0.2409
+Private for-profit,2021,279.0,0.2652,0.2796
+Private for-profit,2022,272.0,0.2831,0.2941
+Private for-profit,2023,242.0,0.2893,0.2893
+Private for-profit,2024,231.0,0.2381,0.2381
+Private nonprofit,1998,1294.0,0.1669,0.177
+Private nonprofit,1999,1292.0,0.1478,0.1641
+Private nonprofit,2000,1105.0,0.1955,0.2145
+Private nonprofit,2001,1128.0,0.1897,0.195
+Private nonprofit,2002,1199.0,0.1835,0.2043
+Private nonprofit,2003,1225.0,0.191,0.2065
+Private nonprofit,2004,1271.0,0.1959,0.2014
+Private nonprofit,2005,1293.0,0.1833,0.1949
+Private nonprofit,2006,1261.0,0.1951,0.2062
+Private nonprofit,2007,1313.0,0.1805,0.2064
+Private nonprofit,2008,1327.0,0.2042,0.211
+Private nonprofit,2009,1323.0,0.1935,0.195
+Private nonprofit,2010,1328.0,0.189,0.1898
+Private nonprofit,2011,1329.0,0.1716,0.1956
+Private nonprofit,2012,1345.0,0.1948,0.1978
+Private nonprofit,2013,1351.0,0.2073,0.2021
+Private nonprofit,2014,1358.0,0.232,0.2106
+Private nonprofit,2015,1353.0,0.2387,0.2225
+Private nonprofit,2016,1363.0,0.2465,0.2377
+Private nonprofit,2017,1360.0,0.2618,0.2463
+Private nonprofit,2018,1352.0,0.2751,0.2537
+Private nonprofit,2019,1363.0,0.2671,0.2546
+Private nonprofit,2020,1340.0,0.2627,0.253
+Private nonprofit,2021,1334.0,0.2871,0.2466
+Private nonprofit,2022,1317.0,0.2992,0.2278
+Private nonprofit,2023,1307.0,0.2731,0.2112
+Private nonprofit,2024,1289.0,0.2273,0.1994
+Public,1998,797.0,0.0841,0.0991
+Public,1999,805.0,0.0745,0.0969
+Public,2000,771.0,0.0739,0.096
+Public,2001,773.0,0.0595,0.0776
+Public,2002,800.0,0.0612,0.0862
+Public,2003,806.0,0.062,0.0819
+Public,2004,818.0,0.0697,0.0917
+Public,2005,814.0,0.0897,0.0983
+Public,2006,813.0,0.091,0.0984
+Public,2007,816.0,0.0821,0.0895
+Public,2008,825.0,0.0776,0.0982
+Public,2009,833.0,0.0792,0.1032
+Public,2010,835.0,0.0862,0.0946
+Public,2011,836.0,0.0969,0.1017
+Public,2012,834.0,0.0875,0.1019
+Public,2013,838.0,0.1169,0.1301
+Public,2014,839.0,0.1168,0.1323
+Public,2015,843.0,0.1293,0.1423
+Public,2016,841.0,0.1474,0.1486
+Public,2017,840.0,0.1607,0.1738
+Public,2018,841.0,0.1748,0.1926
+Public,2019,839.0,0.199,0.211
+Public,2020,816.0,0.2292,0.2426
+Public,2021,811.0,0.27,0.2528
+Public,2022,824.0,0.2973,0.2354
+Public,2023,824.0,0.2633,0.2221
+Public,2024,826.0,0.2107,0.2107

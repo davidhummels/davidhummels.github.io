@@ -1,0 +1,95 @@
+---
+title: "Policy timeline"
+subtitle: "When states adopted the completion and transfer policies in the paper's Table 1"
+page-layout: full
+execute:
+  echo: false
+---
+
+{{< include ../_nav.qmd >}}
+
+{{< include ../_common.qmd >}}
+
+```{ojs}
+POL = FileAttachment("../data/policy_grid.csv").csv({typed: true})
+PS = FileAttachment("../data/policy_summary.csv").csv({typed: true})
+SSY = FileAttachment("../data/state_sector_year.csv").csv({typed: true})
+```
+
+```{ojs}
+md`<div class="ce-lead">Transfer architecture (general-education cores, common course numbers, guaranteed associate-degree transfer) spread over decades, from the 1970s on. Completion policies (15 to Finish, statewide guided pathways) came almost entirely in the 2010s, the decade the ratio rose. Dates line up with each state's community-college ratio below; this is the descriptive set-up for the paper's policy test, not the test itself.</div>`
+```
+
+```{ojs}
+ORDER = PS.map(d => d.policy)
+STATUS = ["Yes", "Partial", "Repealed", "No", "Not identified"]
+viewof sortBy = Inputs.radio(new Map([["Alphabetical", "a"], ["Number of policies", "n"]]), {value: "n", label: "Sort states"})
+```
+
+```{ojs}
+{
+  const cnt = d3.rollup(POL.filter(d => d.status === "Yes" || d.status === "Partial"), v => v.length, d => d.st);
+  const sts = sortBy === "a" ? STLIST : d3.sort(STLIST, s => -(cnt.get(s) ?? 0), s => STNAME[s]);
+  return Plot.plot({
+    width, height: 330, marginLeft: 150, marginBottom: 30,
+    x: {domain: sts, label: null, axis: "top", tickSize: 0},
+    y: {domain: ORDER, tickFormat: k => POLSHORT[k] ?? k, label: null},
+    color: {domain: STATUS, range: [BLUE, LIGHT, "#c9a26b", "#eeeeee", "#f8f8f8"], legend: true},
+    marks: [Plot.cell(POL, {x: "st", y: "policy", fill: "status", inset: 0.5, title: d => `${d.state}: ${d.label}\n${d.status}${d.year ? `, ${d.year}` : ""}${d.cohort ? ` (first cohort ${d.cohort})` : ""}${d.instrument ? `\n${d.instrument}` : ""}${d.citation ? `\n${d.citation}` : ""}`}),
+      Plot.text(POL.filter(d => d.year), {x: "st", y: "policy", text: d => `'${String(d.year).slice(2)}`, fill: d => d.status === "Yes" ? "white" : INK, fontSize: 8})]
+  });
+}
+```
+
+::: {.ce-note}
+Cells show the adoption year ('13 = 2013). Hover for the instrument and citation. "Not identified" means no statewide policy was found, not that none exists. Source: author's compilation from statutes, board policies and ECS / CCRC / Complete College America trackers (white paper v5 Table 1, `policy_dates`).
+:::
+
+## Adoption years by policy
+
+```{ojs}
+Plot.plot({
+  width, height: 620, marginLeft: 150,
+  x: {label: "Year adopted", tickFormat: "d", grid: true}, fy: {domain: ORDER, tickFormat: k => POLSHORT[k] ?? k, label: null},
+  marks: [Plot.rectX([{x1: 2010.5, x2: 2022.5}], {x1: "x1", x2: "x2", fill: "#f1f4f7"}),
+    Plot.dot(POL.filter(d => d.year && (d.status === "Yes" || d.status === "Partial")), Plot.dodgeY("middle", {x: "year", fy: "policy", r: 4, fill: d => d.status === "Yes" ? BLUE : LIGHT, title: d => `${d.state}: ${POLSHORT[d.policy] ?? d.label} ${d.year}${d.status === "Partial" ? " (partial)" : ""}`}))],
+  caption: "One dot per state; light dots are partial adoptions. Shaded: 2011–2022, the window of the paper's accounting."
+})
+```
+
+```{ojs}
+Inputs.table(PS, {columns: ["label", "lever", "states", "partial", "first_adopters", "median_year", "latest"], header: {label: "Policy", lever: "What it does", states: "States", partial: "Partial", first_adopters: "First adopters", median_year: "Median year", latest: "Latest"}, rows: 11, height: 330, format: {median_year: d => d == null ? "" : String(d)}})
+```
+
+## A state's policies against its community-college ratio
+
+```{ojs}
+viewof st = Inputs.select(STLIST, {format: s => STNAME[s], value: param("s", "TN"), label: "State"})
+```
+
+{{< include ../_toggles.qmd >}}
+
+```{ojs}
+{
+  setParam("s", st);
+  const pts = SSY.filter(d => d.stabbr === st || d.stabbr === "US").map(d => ({...d, who: `${d.stabbr === "US" ? "All states" : STNAME[st]}: ${d.sec === "cc" ? "community colleges" : "public universities"}`, v: val(d[`ER_${tcol}`])}));
+  const pol = POL.filter(d => d.st === st && (d.status === "Yes" || d.status === "Partial") && d.year >= 1998).sort((a, b) => a.year - b.year).map((d, i) => ({...d, i}));
+  const dom = [`${STNAME[st]}: community colleges`, `${STNAME[st]}: public universities`, "All states: community colleges", "All states: public universities"];
+  return Plot.plot({
+    width, height: 420, marginRight: 260, marginTop: 30 + 12 * Math.min(pol.length, 6),
+    x: {...yearAxis, domain: [1998, 2024]}, y: {label: `${mlab} (${tlab})`, grid: true, type: measure === "T" ? "log" : "linear", tickFormat: measure === "T" ? "d" : ".2f"},
+    color: {domain: dom, range: [TEAL, BLUE, "#9fcfc6", "#b9c8d8"]},
+    marks: [
+      Plot.ruleX(pol, {x: "year", stroke: ORANGE, strokeOpacity: 0.6, strokeDasharray: "3,3"}),
+      ...d3.range(6).map(k => Plot.text(pol.filter(d => d.i % 6 === k), {x: "year", text: d => `${POLSHORT[d.policy] ?? d.label}${d.status === "Partial" ? " (partial)" : ""}`, frameAnchor: "top", dy: -12 * (Math.min(pol.length, 6) - k) + 4, fill: ORANGE, fontSize: 10, textAnchor: "start", dx: 3})),
+      Plot.lineY(pts, {x: "year", y: "v", stroke: "who", strokeWidth: d => d.stabbr === "US" ? 1.5 : 2.4}),
+      Plot.text(pts, Plot.selectLast({x: "year", y: "v", z: "who", text: d => `${d.who} ${fv(d.v)}`, fill: "who", dx: 6, textAnchor: "start", fontSize: 10})),
+      Plot.tip(pts, Plot.pointerX({x: "year", y: "v", z: "who", title: d => `${d.who}, ${d.year}: ${fv(d.v)}`}))]
+  });
+}
+```
+
+```{ojs}
+//| output: false
+syncParams
+```

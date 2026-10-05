@@ -1,0 +1,869 @@
+org_id,exam,credits_s3,credits_s4,credits_s5
+14,Art History,3.0,6.0,6.0
+14,Biology,4.0,4.0,8.0
+14,Calculus AB,5.0,5.0,5.0
+14,Calculus BC,5.0,8.0,8.0
+14,Chemistry,4.0,5.0,9.0
+14,Chinese Language and Culture,5.0,10.0,15.0
+14,Comparative Government and Politics,3.0,3.0,3.0
+14,Computer Science A,4.0,4.0,4.0
+14,English Language and Composition,3.0,3.0,6.0
+14,English Literature and Composition,3.0,6.0,6.0
+14,Environmental Science,3.0,3.0,3.0
+14,European History,3.0,6.0,6.0
+14,French Language and Culture,3.0,6.0,9.0
+14,German Language and Culture,3.0,6.0,9.0
+14,Human Geography,3.0,3.0,3.0
+14,Italian Language and Culture,3.0,6.0,9.0
+14,Japanese Language and Culture,5.0,10.0,15.0
+14,Latin,3.0,6.0,9.0
+14,Macroeconomics,3.0,3.0,3.0
+14,Microeconomics,3.0,3.0,3.0
+14,Music Theory,3.0,3.0,3.0
+14,Physics C: Electricity and Magnetism,3.0,3.0,3.0
+14,Physics C: Mechanics,5.0,5.0,5.0
+14,Psychology,3.0,3.0,3.0
+14,Spanish Language and Culture,3.0,6.0,9.0
+14,Statistics,3.0,3.0,3.0
+14,2-D Art and Design,3.0,3.0,3.0
+14,3-D Art and Design,3.0,3.0,3.0
+14,Drawing,3.0,3.0,3.0
+14,United States Government and Politics,3.0,3.0,3.0
+14,United States History,3.0,6.0,6.0
+14,World History: Modern,3.0,6.0,6.0
+14,Physics 1,5.0,5.0,5.0
+14,Physics 2,5.0,5.0,5.0
+14,Seminar,0.0,6.0,6.0
+14,Research,0.0,6.0,6.0
+14,Computer Science Principles,3.0,3.0,3.0
+14,African American Studies,3.0,6.0,6.0
+369,Art History,3.0,3.0,6.0
+369,Biology,4.0,8.0,8.0
+369,Calculus AB,5.0,5.0,5.0
+369,Calculus BC,5.0,10.0,10.0
+369,Chemistry,4.0,5.0,10.0
+369,Chinese Language and Culture,3.0,6.0,9.0
+369,Comparative Government and Politics,3.0,3.0,3.0
+369,Computer Science A,3.0,4.0,4.0
+369,English Language and Composition,3.0,3.0,6.0
+369,English Literature and Composition,3.0,3.0,6.0
+369,Environmental Science,4.0,4.0,4.0
+369,European History,3.0,6.0,6.0
+369,French Language and Culture,3.0,6.0,9.0
+369,German Language and Culture,3.0,6.0,9.0
+369,Human Geography,3.0,3.0,3.0
+369,Italian Language and Culture,3.0,6.0,9.0
+369,Japanese Language and Culture,3.0,6.0,9.0
+369,Latin,3.0,6.0,9.0
+369,Macroeconomics,3.0,3.0,3.0
+369,Microeconomics,3.0,3.0,3.0
+369,Music Theory,3.0,3.0,3.0
+369,Physics C: Electricity and Magnetism,5.0,5.0,5.0
+369,Physics C: Mechanics,5.0,5.0,5.0
+369,Psychology,3.0,3.0,3.0
+369,Spanish Language and Culture,3.0,6.0,9.0
+369,Spanish Literature and Culture,3.0,6.0,9.0
+369,Statistics,3.0,3.0,3.0
+369,2-D Art and Design,3.0,3.0,3.0
+369,3-D Art and Design,3.0,3.0,3.0
+369,Drawing,3.0,3.0,3.0
+369,United States Government and Politics,3.0,3.0,3.0
+369,United States History,3.0,6.0,6.0
+369,World History: Modern,3.0,6.0,6.0
+369,Physics 1,4.0,4.0,4.0
+369,Physics 2,4.0,4.0,4.0
+369,Computer Science Principles,3.0,4.0,4.0
+369,African American Studies,3.0,3.0,3.0
+369,Pre-Calculus,5.0,5.0,5.0
+716,Art History,3.0,6.0,6.0
+716,Biology,8.0,8.0,8.0
+716,Calculus AB,4.0,4.0,4.0
+716,Calculus BC,4.0,8.0,8.0
+716,Chemistry,5.0,10.0,10.0
+716,Chinese Language and Culture,5.0,8.0,11.0
+716,Comparative Government and Politics,3.0,3.0,3.0
+716,Computer Science A,4.0,4.0,4.0
+716,English Language and Composition,3.0,3.0,3.0
+716,English Literature and Composition,3.0,6.0,6.0
+716,Environmental Science,3.0,3.0,3.0
+716,European History,3.0,6.0,6.0
+716,French Language and Culture,8.0,11.0,14.0
+716,German Language and Culture,11.0,14.0,17.0
+716,Human Geography,3.0,3.0,3.0
+716,Italian Language and Culture,5.0,8.0,11.0
+716,Japanese Language and Culture,5.0,8.0,11.0
+716,Latin,5.0,5.0,5.0
+716,Macroeconomics,3.0,3.0,3.0
+716,Microeconomics,3.0,3.0,3.0
+716,Music Theory,3.0,3.0,3.0
+716,Physics C: Electricity and Magnetism,5.0,5.0,5.0
+716,Physics C: Mechanics,5.0,5.0,5.0
+716,Psychology,3.0,3.0,3.0
+716,Spanish Language and Culture,11.0,14.0,17.0
+716,Spanish Literature and Culture,11.0,17.0,17.0
+716,Statistics,4.0,4.0,4.0
+716,2-D Art and Design,3.0,3.0,3.0
+716,3-D Art and Design,3.0,3.0,3.0
+716,Drawing,3.0,3.0,3.0
+716,United States Government and Politics,3.0,3.0,3.0
+716,United States History,3.0,6.0,6.0
+716,World History: Modern,3.0,6.0,6.0
+716,Physics 1,5.0,5.0,5.0
+716,Physics 2,5.0,5.0,5.0
+716,Computer Science Principles,4.0,4.0,4.0
+716,African American Studies,3.0,3.0,3.0
+716,Pre-Calculus,4.0,4.0,4.0
+723,Biology,5.0,10.0,10.0
+723,Calculus AB,5.0,5.0,5.0
+723,Calculus BC,5.0,10.0,10.0
+723,Chemistry,5.0,5.0,10.0
+723,Chinese Language and Culture,5.0,10.0,13.0
+723,Comparative Government and Politics,3.0,3.0,3.0
+723,Computer Science A,4.0,4.0,4.0
+723,English Language and Composition,3.0,3.0,3.0
+723,English Literature and Composition,3.0,3.0,3.0
+723,Environmental Science,4.0,4.0,4.0
+723,European History,3.0,6.0,6.0
+723,French Language and Culture,5.0,10.0,13.0
+723,German Language and Culture,5.0,10.0,13.0
+723,Human Geography,3.0,3.0,3.0
+723,Italian Language and Culture,5.0,10.0,13.0
+723,Japanese Language and Culture,5.0,10.0,13.0
+723,Latin,5.0,10.0,13.0
+723,Macroeconomics,3.0,3.0,3.0
+723,Microeconomics,3.0,3.0,3.0
+723,Physics C: Electricity and Magnetism,5.0,5.0,5.0
+723,Physics C: Mechanics,5.0,5.0,5.0
+723,Psychology,6.0,6.0,6.0
+723,Spanish Language and Culture,13.0,13.0,13.0
+723,Statistics,3.0,3.0,3.0
+723,2-D Art and Design,0.0,0.0,6.0
+723,3-D Art and Design,0.0,0.0,6.0
+723,United States Government and Politics,3.0,3.0,3.0
+723,United States History,3.0,3.0,3.0
+723,World History: Modern,6.0,6.0,6.0
+723,Physics 1,5.0,5.0,5.0
+723,Physics 2,5.0,5.0,5.0
+723,Computer Science Principles,3.0,3.0,3.0
+723,African American Studies,3.0,3.0,3.0
+723,Pre-Calculus,5.0,5.0,5.0
+838,African American Studies,3.0,3.0,3.0
+838,Pre-Calculus,5.0,5.0,5.0
+942,Art History,3.0,3.0,3.0
+942,Biology,5.0,5.0,5.0
+942,Calculus AB,5.0,5.0,5.0
+942,Calculus BC,5.0,5.0,5.0
+942,Chemistry,0.0,5.0,5.0
+942,Chinese Language and Culture,13.0,13.0,13.0
+942,Comparative Government and Politics,3.0,3.0,3.0
+942,Computer Science A,0.0,4.0,4.0
+942,English Language and Composition,3.0,3.0,3.0
+942,English Literature and Composition,3.0,3.0,3.0
+942,Environmental Science,3.0,3.0,3.0
+942,European History,3.0,3.0,3.0
+942,French Language and Culture,13.0,13.0,13.0
+942,German Language and Culture,13.0,13.0,13.0
+942,Human Geography,3.0,3.0,3.0
+942,Italian Language and Culture,13.0,13.0,13.0
+942,Japanese Language and Culture,13.0,13.0,13.0
+942,Latin,13.0,13.0,13.0
+942,Macroeconomics,3.0,3.0,3.0
+942,Microeconomics,3.0,3.0,3.0
+942,Music Theory,8.0,8.0,8.0
+942,Physics C: Electricity and Magnetism,5.0,5.0,5.0
+942,Physics C: Mechanics,5.0,5.0,5.0
+942,Psychology,6.0,6.0,6.0
+942,Spanish Language and Culture,10.0,10.0,10.0
+942,Spanish Literature and Culture,3.0,3.0,3.0
+942,Statistics,3.0,3.0,3.0
+942,2-D Art and Design,3.0,3.0,3.0
+942,3-D Art and Design,3.0,3.0,3.0
+942,Drawing,3.0,3.0,3.0
+942,United States Government and Politics,3.0,3.0,3.0
+942,United States History,3.0,3.0,3.0
+942,World History: Modern,6.0,6.0,6.0
+942,Physics 1,5.0,5.0,5.0
+942,Physics 2,5.0,5.0,5.0
+942,African American Studies,3.0,3.0,3.0
+986,Biology,0.0,4.0,4.0
+986,Calculus AB,0.0,3.0,3.0
+986,Calculus BC,0.0,3.0,3.0
+986,Chemistry,3.0,3.0,3.0
+986,Computer Science A,0.0,0.0,0.0
+986,English Language and Composition,0.0,0.0,3.0
+986,English Literature and Composition,0.0,0.0,3.0
+986,French Language and Culture,0.0,0.0,6.0
+986,German Language and Culture,0.0,0.0,6.0
+986,Macroeconomics,0.0,3.0,3.0
+986,Microeconomics,0.0,3.5,3.5
+986,Physics C: Electricity and Magnetism,0.0,4.0,4.0
+986,Physics C: Mechanics,0.0,4.0,4.0
+986,Psychology,0.0,0.0,3.0
+986,Spanish Language and Culture,0.0,0.0,6.0
+986,World History: Modern,0.0,0.0,3.0
+994,Art History,0.0,3.0,3.0
+994,Biology,4.0,8.0,8.0
+994,Calculus AB,3.0,5.0,5.0
+994,Calculus BC,5.0,10.0,10.0
+994,Chemistry,4.0,4.0,5.0
+994,Chinese Language and Culture,5.0,10.0,15.0
+994,Comparative Government and Politics,3.0,3.0,3.0
+994,Computer Science A,0.0,0.0,4.0
+994,English Language and Composition,3.0,3.0,3.0
+994,English Literature and Composition,3.0,3.0,3.0
+994,Environmental Science,4.0,4.0,4.0
+994,European History,3.0,3.0,3.0
+994,French Language and Culture,3.0,6.0,9.0
+994,German Language and Culture,4.0,8.0,8.0
+994,Human Geography,3.0,3.0,3.0
+994,Italian Language and Culture,5.0,8.0,11.0
+994,Japanese Language and Culture,5.0,10.0,15.0
+994,Latin,4.0,8.0,12.0
+994,Macroeconomics,3.0,4.0,4.0
+994,Microeconomics,3.0,4.0,4.0
+994,Music Theory,3.0,3.0,6.0
+994,Physics C: Electricity and Magnetism,4.0,4.0,4.0
+994,Physics C: Mechanics,4.0,4.0,4.0
+994,Psychology,3.0,3.0,3.0
+994,Spanish Language and Culture,3.0,6.0,11.0
+994,Spanish Literature and Culture,0.0,3.0,6.0
+994,Statistics,3.0,3.0,3.0
+994,2-D Art and Design,0.0,3.0,3.0
+994,3-D Art and Design,0.0,3.0,3.0
+994,Drawing,0.0,3.0,3.0
+994,United States Government and Politics,3.0,3.0,3.0
+994,United States History,3.0,3.0,3.0
+994,World History: Modern,3.0,3.0,3.0
+994,Physics 1,4.0,5.0,5.0
+994,Physics 2,4.0,5.0,5.0
+994,Seminar,0.0,3.0,3.0
+994,Research,0.0,3.0,3.0
+994,Computer Science Principles,0.0,0.0,4.0
+994,African American Studies,3.0,3.0,3.0
+994,Pre-Calculus,3.0,4.0,4.0
+995,Art History,4.0,4.0,8.0
+995,Biology,0.0,5.0,10.0
+995,Calculus AB,0.0,4.0,4.0
+995,Calculus BC,4.0,8.0,12.0
+995,Chemistry,0.0,4.0,12.0
+995,Chinese Language and Culture,4.0,8.0,12.0
+995,Comparative Government and Politics,0.0,4.0,4.0
+995,Computer Science A,0.0,3.0,8.0
+995,English Language and Composition,0.0,4.0,8.0
+995,English Literature and Composition,0.0,4.0,8.0
+995,Environmental Science,0.0,4.0,4.0
+995,European History,0.0,4.0,4.0
+995,French Language and Culture,4.0,8.0,12.0
+995,German Language and Culture,4.0,8.0,12.0
+995,Human Geography,0.0,4.0,8.0
+995,Italian Language and Culture,4.0,8.0,12.0
+995,Japanese Language and Culture,4.0,8.0,12.0
+995,Latin,4.0,8.0,12.0
+995,Macroeconomics,0.0,4.0,4.0
+995,Microeconomics,0.0,4.0,4.0
+995,Music Theory,0.0,8.0,8.0
+995,Physics C: Electricity and Magnetism,0.0,5.0,5.0
+995,Physics C: Mechanics,0.0,5.0,5.0
+995,Psychology,0.0,4.0,8.0
+995,Spanish Language and Culture,4.0,8.0,12.0
+995,Spanish Literature and Culture,4.0,8.0,12.0
+995,Statistics,0.0,4.0,4.0
+995,2-D Art and Design,5.0,5.0,5.0
+995,3-D Art and Design,4.0,4.0,4.0
+995,Drawing,4.0,4.0,4.0
+995,United States Government and Politics,0.0,4.0,4.0
+995,United States History,0.0,4.0,4.0
+995,Physics 1,0.0,5.0,5.0
+995,Physics 2,0.0,15.0,15.0
+995,Seminar,0.0,4.0,4.0
+995,Research,0.0,4.0,4.0
+995,Computer Science Principles,0.0,4.0,4.0
+995,African American Studies,0.0,4.0,4.0
+1104,Biology,5.0,10.0,10.0
+1104,Calculus AB,5.0,5.0,5.0
+1104,Calculus BC,5.0,10.0,10.0
+1104,Chemistry,5.0,5.0,10.0
+1104,Comparative Government and Politics,3.0,3.0,3.0
+1104,English Language and Composition,3.0,3.0,3.0
+1104,English Literature and Composition,3.0,3.0,3.0
+1104,Environmental Science,4.0,4.0,4.0
+1104,European History,3.0,6.0,6.0
+1104,Human Geography,3.0,3.0,3.0
+1104,Macroeconomics,3.0,3.0,3.0
+1104,Microeconomics,3.0,3.0,3.0
+1104,Physics C: Electricity and Magnetism,5.0,5.0,5.0
+1104,Psychology,6.0,6.0,6.0
+1104,Spanish Language and Culture,3.0,3.0,3.0
+1104,Statistics,3.0,3.0,3.0
+1104,United States Government and Politics,3.0,3.0,3.0
+1104,United States History,3.0,6.0,6.0
+1104,World History: Modern,6.0,6.0,6.0
+1104,Physics 1,5.0,5.0,5.0
+1104,Physics 2,5.0,5.0,5.0
+1104,African American Studies,3.0,3.0,3.0
+1104,Pre-Calculus,4.0,4.0,4.0
+1144,Biology,5.0,10.0,10.0
+1144,Calculus AB,5.0,5.0,5.0
+1144,Calculus BC,5.0,10.0,10.0
+1144,Chemistry,5.0,5.0,10.0
+1144,Comparative Government and Politics,3.0,3.0,3.0
+1144,English Language and Composition,3.0,3.0,3.0
+1144,English Literature and Composition,3.0,3.0,3.0
+1144,Environmental Science,4.0,4.0,4.0
+1144,European History,3.0,6.0,6.0
+1144,Human Geography,3.0,3.0,3.0
+1144,Macroeconomics,3.0,3.0,3.0
+1144,Microeconomics,3.0,3.0,3.0
+1144,Physics C: Electricity and Magnetism,0.0,5.0,5.0
+1144,Psychology,6.0,6.0,6.0
+1144,Spanish Language and Culture,3.0,6.0,6.0
+1144,Statistics,3.0,3.0,3.0
+1144,United States Government and Politics,3.0,3.0,3.0
+1144,United States History,3.0,6.0,6.0
+1144,World History: Modern,6.0,6.0,6.0
+1144,Physics 1,0.0,0.0,5.0
+1144,Physics 2,0.0,0.0,5.0
+1144,African American Studies,3.0,3.0,3.0
+1144,Pre-Calculus,5.0,5.0,5.0
+1284,Art History,3.0,3.0,3.0
+1284,Biology,4.0,4.0,4.0
+1284,Calculus AB,4.0,4.0,4.0
+1284,Calculus BC,4.0,8.0,8.0
+1284,Chemistry,4.0,4.0,8.0
+1284,Chinese Language and Culture,3.0,3.0,6.0
+1284,Comparative Government and Politics,3.0,3.0,3.0
+1284,Computer Science A,3.0,3.0,3.0
+1284,English Language and Composition,3.0,3.0,3.0
+1284,English Literature and Composition,3.0,3.0,3.0
+1284,Environmental Science,4.0,4.0,4.0
+1284,European History,3.0,3.0,6.0
+1284,French Language and Culture,3.0,3.0,6.0
+1284,German Language and Culture,3.0,3.0,6.0
+1284,Human Geography,3.0,3.0,3.0
+1284,Italian Language and Culture,3.0,3.0,6.0
+1284,Japanese Language and Culture,3.0,3.0,6.0
+1284,Latin,3.0,3.0,6.0
+1284,Macroeconomics,3.0,3.0,3.0
+1284,Microeconomics,3.0,3.0,3.0
+1284,Music Theory,5.0,5.0,5.0
+1284,Physics C: Electricity and Magnetism,8.0,8.0,8.0
+1284,Physics C: Mechanics,8.0,8.0,8.0
+1284,Psychology,3.0,3.0,3.0
+1284,Spanish Language and Culture,3.0,3.0,6.0
+1284,Statistics,3.0,3.0,3.0
+1284,2-D Art and Design,3.0,3.0,3.0
+1284,3-D Art and Design,3.0,3.0,3.0
+1284,Drawing,3.0,3.0,3.0
+1284,United States Government and Politics,3.0,3.0,3.0
+1284,United States History,3.0,3.0,6.0
+1284,World History: Modern,3.0,3.0,6.0
+1284,Physics 1,4.0,4.0,4.0
+1284,Physics 2,4.0,4.0,4.0
+1284,Computer Science Principles,3.0,3.0,3.0
+1284,African American Studies,3.0,3.0,3.0
+1284,Pre-Calculus,4.0,4.0,4.0
+1299,Art History,0.0,0.0,0.0
+1299,Biology,0.0,1.0,1.0
+1299,Calculus AB,1.0,1.0,1.0
+1299,Calculus BC,1.0,1.0,2.0
+1299,Chemistry,0.0,0.0,0.0
+1299,Comparative Government and Politics,0.0,1.0,1.0
+1299,Computer Science A,1.0,2.0,2.0
+1299,English Language and Composition,0.0,0.0,1.0
+1299,English Literature and Composition,0.0,0.0,1.0
+1299,Environmental Science,0.0,0.0,1.0
+1299,European History,0.0,1.0,1.0
+1299,French Language and Culture,0.0,1.0,2.0
+1299,German Language and Culture,1.0,2.0,2.0
+1299,Human Geography,0.0,0.0,0.0
+1299,Italian Language and Culture,0.0,1.0,2.0
+1299,Japanese Language and Culture,0.0,1.0,1.0
+1299,Latin,1.0,1.0,1.0
+1299,Macroeconomics,0.0,0.0,0.0
+1299,Microeconomics,0.0,0.0,0.0
+1299,Physics C: Electricity and Magnetism,0.0,1.0,1.0
+1299,Physics C: Mechanics,0.0,1.0,1.0
+1299,Psychology,0.0,0.0,0.0
+1299,Spanish Language and Culture,0.0,1.0,1.0
+1299,Spanish Literature and Culture,0.0,1.0,1.0
+1299,Statistics,0.0,0.0,0.0
+1299,2-D Art and Design,0.0,1.0,1.0
+1299,3-D Art and Design,0.0,1.0,1.0
+1299,Drawing,0.0,1.0,1.0
+1299,United States Government and Politics,0.0,1.0,1.0
+1299,United States History,0.0,1.0,1.0
+1299,World History: Modern,0.0,1.0,1.0
+1299,Physics 1,0.0,1.0,1.0
+1299,Physics 2,0.0,1.0,1.0
+1299,Computer Science Principles,1.0,1.0,1.0
+1300,Art History,0.0,3.0,3.0
+1300,Biology,3.0,3.0,3.0
+1300,Calculus AB,0.0,3.0,3.0
+1300,Calculus BC,0.0,3.0,3.0
+1300,Chemistry,3.0,3.0,3.0
+1300,Chinese Language and Culture,0.0,6.0,6.0
+1300,Comparative Government and Politics,0.0,3.0,3.0
+1300,Computer Science A,0.0,3.0,3.0
+1300,English Language and Composition,3.0,3.0,3.0
+1300,English Literature and Composition,3.0,3.0,3.0
+1300,Environmental Science,0.0,3.0,3.0
+1300,European History,0.0,3.0,3.0
+1300,French Language and Culture,0.0,6.0,6.0
+1300,German Language and Culture,0.0,6.0,6.0
+1300,Human Geography,0.0,3.0,3.0
+1300,Italian Language and Culture,0.0,6.0,6.0
+1300,Japanese Language and Culture,0.0,6.0,6.0
+1300,Latin,0.0,6.0,6.0
+1300,Macroeconomics,0.0,3.0,3.0
+1300,Microeconomics,0.0,3.0,3.0
+1300,Music Theory,0.0,3.0,3.0
+1300,Physics C: Electricity and Magnetism,0.0,3.0,3.0
+1300,Physics C: Mechanics,0.0,3.0,3.0
+1300,Psychology,3.0,3.0,3.0
+1300,Spanish Language and Culture,3.0,6.0,6.0
+1300,Spanish Literature and Culture,3.0,6.0,6.0
+1300,Statistics,0.0,3.0,3.0
+1300,2-D Art and Design,0.0,3.0,3.0
+1300,3-D Art and Design,0.0,3.0,3.0
+1300,Drawing,0.0,3.0,3.0
+1300,United States Government and Politics,3.0,3.0,3.0
+1300,United States History,3.0,3.0,3.0
+1300,World History: Modern,3.0,3.0,3.0
+1300,Computer Science Principles,0.0,3.0,3.0
+1300,African American Studies,0.0,3.0,3.0
+1301,Art History,3.0,6.0,6.0
+1301,Biology,4.0,4.0,8.0
+1301,Calculus AB,4.0,4.0,4.0
+1301,Calculus BC,8.0,8.0,8.0
+1301,Chemistry,4.0,5.0,5.0
+1301,Chinese Language and Culture,3.0,6.0,9.0
+1301,Comparative Government and Politics,3.0,3.0,3.0
+1301,Computer Science A,3.0,3.0,3.0
+1301,English Language and Composition,3.0,6.0,6.0
+1301,English Literature and Composition,3.0,6.0,6.0
+1301,Environmental Science,4.0,4.0,4.0
+1301,European History,3.0,6.0,6.0
+1301,French Language and Culture,3.0,6.0,9.0
+1301,German Language and Culture,3.0,6.0,9.0
+1301,Human Geography,3.0,3.0,3.0
+1301,Italian Language and Culture,3.0,3.0,3.0
+1301,Japanese Language and Culture,3.0,6.0,9.0
+1301,Latin,3.0,3.0,3.0
+1301,Macroeconomics,3.0,3.0,3.0
+1301,Microeconomics,3.0,3.0,3.0
+1301,Physics C: Electricity and Magnetism,5.0,5.0,5.0
+1301,Physics C: Mechanics,5.0,5.0,5.0
+1301,Psychology,3.0,3.0,3.0
+1301,Spanish Language and Culture,3.0,6.0,6.0
+1301,Spanish Literature and Culture,3.0,6.0,6.0
+1301,Statistics,3.0,3.0,3.0
+1301,2-D Art and Design,3.0,3.0,3.0
+1301,3-D Art and Design,3.0,3.0,3.0
+1301,Drawing,3.0,3.0,3.0
+1301,United States Government and Politics,3.0,3.0,3.0
+1301,United States History,3.0,6.0,6.0
+1301,World History: Modern,3.0,3.0,3.0
+1301,Physics 1,5.0,5.0,5.0
+1301,Physics 2,5.0,5.0,5.0
+1301,Seminar,3.0,3.0,3.0
+1301,Research,3.0,3.0,3.0
+1301,Computer Science Principles,3.0,3.0,3.0
+1301,African American Studies,3.0,3.0,3.0
+1301,Pre-Calculus,3.0,3.0,3.0
+1501,Art History,3.0,6.0,6.0
+1501,Biology,4.0,4.0,4.0
+1501,Calculus AB,5.0,5.0,5.0
+1501,Calculus BC,5.0,10.0,10.0
+1501,Chemistry,5.0,5.0,5.0
+1501,Comparative Government and Politics,3.0,3.0,3.0
+1501,Computer Science A,4.0,4.0,4.0
+1501,English Language and Composition,3.0,6.0,6.0
+1501,English Literature and Composition,3.0,6.0,6.0
+1501,Environmental Science,4.0,4.0,4.0
+1501,European History,6.0,6.0,6.0
+1501,French Language and Culture,6.0,6.0,6.0
+1501,German Language and Culture,6.0,6.0,6.0
+1501,Human Geography,3.0,3.0,3.0
+1501,Japanese Language and Culture,6.0,6.0,6.0
+1501,Macroeconomics,3.0,3.0,3.0
+1501,Microeconomics,3.0,3.0,3.0
+1501,Music Theory,3.0,3.0,3.0
+1501,Physics C: Electricity and Magnetism,5.0,5.0,5.0
+1501,Physics C: Mechanics,5.0,5.0,5.0
+1501,Psychology,3.0,3.0,3.0
+1501,Spanish Language and Culture,6.0,6.0,6.0
+1501,Spanish Literature and Culture,3.0,3.0,3.0
+1501,Statistics,3.0,3.0,3.0
+1501,2-D Art and Design,3.0,3.0,3.0
+1501,3-D Art and Design,3.0,3.0,3.0
+1501,Drawing,3.0,3.0,3.0
+1501,United States Government and Politics,3.0,3.0,3.0
+1501,United States History,6.0,6.0,6.0
+1501,World History: Modern,3.0,3.0,3.0
+1501,Physics 1,5.0,5.0,5.0
+1501,Physics 2,5.0,5.0,5.0
+1501,Seminar,3.0,3.0,3.0
+1501,Research,3.0,3.0,3.0
+1501,Computer Science Principles,3.0,3.0,3.0
+1501,African American Studies,3.0,3.0,3.0
+1501,Pre-Calculus,4.0,5.0,5.0
+2984,Art History,3.0,3.0,3.0
+2984,Biology,5.0,10.0,10.0
+2984,Calculus AB,5.0,5.0,5.0
+2984,Calculus BC,5.0,10.0,10.0
+2984,Chemistry,5.0,5.0,10.0
+2984,Chinese Language and Culture,5.0,10.0,13.0
+2984,Comparative Government and Politics,3.0,3.0,3.0
+2984,Computer Science A,4.0,4.0,4.0
+2984,English Language and Composition,3.0,3.0,3.0
+2984,English Literature and Composition,3.0,3.0,3.0
+2984,Environmental Science,4.0,4.0,4.0
+2984,European History,3.0,6.0,6.0
+2984,French Language and Culture,5.0,10.0,13.0
+2984,German Language and Culture,5.0,10.0,13.0
+2984,Human Geography,3.0,3.0,3.0
+2984,Italian Language and Culture,5.0,10.0,13.0
+2984,Japanese Language and Culture,5.0,10.0,13.0
+2984,Latin,5.0,10.0,13.0
+2984,Macroeconomics,3.0,3.0,3.0
+2984,Microeconomics,3.0,3.0,3.0
+2984,Music Theory,6.0,6.0,6.0
+2984,Physics C: Electricity and Magnetism,5.0,5.0,5.0
+2984,Physics C: Mechanics,5.0,5.0,5.0
+2984,Psychology,6.0,6.0,6.0
+2984,Spanish Language and Culture,13.0,13.0,13.0
+2984,Statistics,3.0,3.0,3.0
+2984,2-D Art and Design,3.0,3.0,3.0
+2984,3-D Art and Design,3.0,3.0,3.0
+2984,Drawing,3.0,3.0,3.0
+2984,United States Government and Politics,3.0,3.0,3.0
+2984,United States History,3.0,6.0,6.0
+2984,World History: Modern,3.0,3.0,3.0
+2984,Physics 1,5.0,5.0,5.0
+2984,Physics 2,5.0,5.0,5.0
+2984,Computer Science Principles,3.0,3.0,3.0
+2984,African American Studies,3.0,3.0,3.0
+2984,Pre-Calculus,5.0,5.0,5.0
+2989,Biology,5.0,10.0,10.0
+2989,Calculus AB,5.0,5.0,5.0
+2989,Calculus BC,5.0,10.0,10.0
+2989,Chemistry,5.0,5.0,10.0
+2989,Comparative Government and Politics,3.0,3.0,3.0
+2989,English Language and Composition,3.0,3.0,3.0
+2989,English Literature and Composition,3.0,3.0,3.0
+2989,Environmental Science,4.0,4.0,4.0
+2989,European History,3.0,6.0,6.0
+2989,Human Geography,3.0,3.0,3.0
+2989,Macroeconomics,3.0,3.0,3.0
+2989,Microeconomics,3.0,3.0,3.0
+2989,Physics C: Electricity and Magnetism,5.0,5.0,5.0
+2989,Physics C: Mechanics,5.0,5.0,5.0
+2989,Psychology,6.0,6.0,6.0
+2989,Spanish Language and Culture,10.0,10.0,10.0
+2989,Statistics,3.0,3.0,3.0
+2989,United States Government and Politics,3.0,3.0,3.0
+2989,United States History,3.0,6.0,6.0
+2989,World History: Modern,6.0,6.0,6.0
+2989,Physics 1,5.0,5.0,5.0
+2989,Physics 2,5.0,5.0,5.0
+2989,African American Studies,3.0,3.0,3.0
+3298,Art History,3.0,3.0,3.0
+3298,Biology,3.0,3.0,3.0
+3298,Calculus AB,3.0,3.0,3.0
+3298,Calculus BC,3.0,3.0,3.0
+3298,Chemistry,3.0,3.0,3.0
+3298,Chinese Language and Culture,3.0,3.0,3.0
+3298,Comparative Government and Politics,3.0,3.0,3.0
+3298,Computer Science A,3.0,3.0,3.0
+3298,English Language and Composition,3.0,3.0,3.0
+3298,English Literature and Composition,3.0,3.0,3.0
+3298,Environmental Science,3.0,3.0,3.0
+3298,European History,3.0,3.0,3.0
+3298,French Language and Culture,3.0,3.0,3.0
+3298,German Language and Culture,3.0,3.0,3.0
+3298,Human Geography,3.0,3.0,3.0
+3298,Italian Language and Culture,3.0,3.0,3.0
+3298,Japanese Language and Culture,3.0,3.0,3.0
+3298,Latin,3.0,3.0,3.0
+3298,Macroeconomics,3.0,3.0,3.0
+3298,Microeconomics,3.0,3.0,3.0
+3298,Music Theory,3.0,3.0,3.0
+3298,Physics C: Electricity and Magnetism,3.0,3.0,3.0
+3298,Physics C: Mechanics,3.0,3.0,3.0
+3298,Psychology,3.0,3.0,3.0
+3298,Spanish Language and Culture,3.0,3.0,3.0
+3298,Spanish Literature and Culture,3.0,3.0,3.0
+3298,Statistics,3.0,3.0,3.0
+3298,2-D Art and Design,3.0,3.0,3.0
+3298,3-D Art and Design,3.0,3.0,3.0
+3298,Drawing,3.0,3.0,3.0
+3298,United States Government and Politics,3.0,3.0,3.0
+3298,United States History,3.0,3.0,3.0
+3298,World History: Modern,3.0,3.0,3.0
+3298,Physics 1,3.0,3.0,3.0
+3298,Physics 2,3.0,3.0,3.0
+3298,Seminar,3.0,3.0,3.0
+3298,Research,3.0,3.0,3.0
+3298,Computer Science Principles,3.0,3.0,3.0
+3298,African American Studies,3.0,3.0,3.0
+3298,Pre-Calculus,3.0,3.0,3.0
+3657,Biology,5.0,10.0,10.0
+3657,Calculus AB,5.0,5.0,5.0
+3657,Calculus BC,5.0,10.0,10.0
+3657,Chemistry,5.0,5.0,10.0
+3657,Chinese Language and Culture,5.0,8.0,11.0
+3657,Comparative Government and Politics,3.0,3.0,3.0
+3657,Computer Science A,4.0,4.0,4.0
+3657,English Language and Composition,3.0,3.0,3.0
+3657,English Literature and Composition,3.0,3.0,3.0
+3657,Environmental Science,4.0,4.0,4.0
+3657,European History,3.0,6.0,6.0
+3657,French Language and Culture,5.0,8.0,11.0
+3657,German Language and Culture,5.0,8.0,11.0
+3657,Human Geography,3.0,3.0,3.0
+3657,Italian Language and Culture,5.0,8.0,11.0
+3657,Japanese Language and Culture,5.0,8.0,11.0
+3657,Latin,5.0,8.0,11.0
+3657,Macroeconomics,3.0,3.0,3.0
+3657,Microeconomics,3.0,3.0,3.0
+3657,Physics C: Electricity and Magnetism,5.0,5.0,5.0
+3657,Physics C: Mechanics,5.0,5.0,5.0
+3657,Psychology,6.0,6.0,6.0
+3657,Spanish Language and Culture,5.0,10.0,13.0
+3657,Statistics,3.0,3.0,3.0
+3657,United States Government and Politics,3.0,3.0,3.0
+3657,United States History,3.0,6.0,6.0
+3657,World History: Modern,3.0,6.0,6.0
+3657,Physics 1,5.0,5.0,5.0
+3657,Physics 2,5.0,5.0,5.0
+3657,African American Studies,3.0,3.0,3.0
+3657,Pre-Calculus,0.0,0.0,0.0
+3930,Art History,0.0,3.0,3.0
+3930,Biology,0.0,6.0,6.0
+3930,Calculus AB,0.0,4.0,4.0
+3930,Calculus BC,0.0,4.0,4.0
+3930,Chemistry,0.0,4.0,4.0
+3930,Comparative Government and Politics,0.0,3.0,3.0
+3930,Computer Science A,0.0,3.0,3.0
+3930,English Language and Composition,0.0,3.0,3.0
+3930,English Literature and Composition,0.0,3.0,3.0
+3930,Environmental Science,0.0,3.0,3.0
+3930,European History,0.0,6.0,6.0
+3930,French Language and Culture,0.0,0.0,0.0
+3930,German Language and Culture,0.0,0.0,0.0
+3930,Human Geography,0.0,3.0,3.0
+3930,Macroeconomics,0.0,3.0,3.0
+3930,Microeconomics,0.0,3.0,3.0
+3930,Physics C: Electricity and Magnetism,0.0,4.0,4.0
+3930,Physics C: Mechanics,0.0,4.0,4.0
+3930,Psychology,0.0,3.0,3.0
+3930,Spanish Language and Culture,0.0,0.0,0.0
+3930,Statistics,0.0,3.0,3.0
+3930,2-D Art and Design,0.0,6.0,6.0
+3930,3-D Art and Design,0.0,6.0,6.0
+3930,Drawing,0.0,6.0,6.0
+3930,United States Government and Politics,0.0,3.0,3.0
+3930,United States History,0.0,6.0,6.0
+3930,World History: Modern,0.0,3.0,3.0
+3930,Physics 1,0.0,4.0,4.0
+3930,Physics 2,0.0,4.0,4.0
+3933,Art History,0.0,6.0,6.0
+3933,Biology,0.0,4.0,4.0
+3933,Calculus AB,0.0,4.0,4.0
+3933,Calculus BC,0.0,8.0,8.0
+3933,Chemistry,0.0,5.0,5.0
+3933,Comparative Government and Politics,0.0,3.0,3.0
+3933,English Language and Composition,0.0,3.0,3.0
+3933,English Literature and Composition,0.0,3.0,3.0
+3933,Environmental Science,0.0,4.0,4.0
+3933,European History,0.0,3.0,3.0
+3933,Human Geography,0.0,3.0,3.0
+3933,Macroeconomics,0.0,3.0,3.0
+3933,Microeconomics,0.0,3.0,3.0
+3933,Music Theory,0.0,3.0,3.0
+3933,Psychology,0.0,3.0,3.0
+3933,Statistics,0.0,3.0,3.0
+3933,United States Government and Politics,0.0,3.0,3.0
+3933,United States History,0.0,3.0,3.0
+3933,World History: Modern,0.0,3.0,3.0
+3933,Physics 1,0.0,5.0,5.0
+3933,Physics 2,0.0,5.0,5.0
+3970,Art History,6.0,6.0,6.0
+3970,Biology,4.0,8.0,8.0
+3970,Calculus AB,3.0,4.0,4.0
+3970,Calculus BC,4.0,8.0,8.0
+3970,Chemistry,4.0,5.0,10.0
+3970,Chinese Language and Culture,0.0,6.0,6.0
+3970,Comparative Government and Politics,3.0,3.0,3.0
+3970,Computer Science A,0.0,3.0,3.0
+3970,English Language and Composition,3.0,6.0,6.0
+3970,English Literature and Composition,3.0,6.0,6.0
+3970,Environmental Science,4.0,4.0,4.0
+3970,European History,3.0,6.0,6.0
+3970,French Language and Culture,4.0,6.0,6.0
+3970,German Language and Culture,4.0,6.0,6.0
+3970,Human Geography,4.0,4.0,4.0
+3970,Japanese Language and Culture,4.0,6.0,6.0
+3970,Latin,3.0,6.0,6.0
+3970,Macroeconomics,3.0,3.0,3.0
+3970,Microeconomics,3.0,3.0,3.0
+3970,Music Theory,3.0,6.0,6.0
+3970,Physics C: Electricity and Magnetism,5.0,5.0,5.0
+3970,Physics C: Mechanics,5.0,5.0,5.0
+3970,Psychology,3.0,3.0,3.0
+3970,Spanish Language and Culture,3.0,6.0,6.0
+3970,Spanish Literature and Culture,3.0,6.0,6.0
+3970,Statistics,3.0,3.0,3.0
+3970,2-D Art and Design,3.0,3.0,3.0
+3970,3-D Art and Design,3.0,3.0,3.0
+3970,Drawing,3.0,3.0,3.0
+3970,United States Government and Politics,3.0,3.0,3.0
+3970,United States History,3.0,6.0,6.0
+3970,World History: Modern,3.0,6.0,6.0
+3970,Physics 1,4.0,4.0,4.0
+3970,Physics 2,4.0,4.0,4.0
+3970,Computer Science Principles,0.0,3.0,3.0
+3970,African American Studies,3.0,6.0,6.0
+3971,Art History,3.0,6.0,6.0
+3971,Biology,8.0,8.0,8.0
+3971,Calculus AB,3.0,4.0,4.0
+3971,Calculus BC,0.0,8.0,8.0
+3971,Chemistry,4.0,9.0,9.0
+3971,Chinese Language and Culture,3.0,6.0,6.0
+3971,Comparative Government and Politics,3.0,3.0,3.0
+3971,Computer Science A,0.0,3.0,3.0
+3971,English Language and Composition,3.0,3.0,3.0
+3971,English Literature and Composition,3.0,3.0,3.0
+3971,Environmental Science,4.0,4.0,4.0
+3971,European History,6.0,6.0,6.0
+3971,French Language and Culture,3.0,6.0,6.0
+3971,German Language and Culture,3.0,6.0,6.0
+3971,Human Geography,3.0,3.0,3.0
+3971,Italian Language and Culture,3.0,6.0,6.0
+3971,Japanese Language and Culture,3.0,6.0,6.0
+3971,Latin,3.0,6.0,6.0
+3971,Macroeconomics,3.0,3.0,3.0
+3971,Microeconomics,3.0,3.0,3.0
+3971,Music Theory,3.0,3.0,3.0
+3971,Physics C: Electricity and Magnetism,4.0,5.0,5.0
+3971,Physics C: Mechanics,4.0,5.0,5.0
+3971,Psychology,3.0,3.0,3.0
+3971,Spanish Language and Culture,3.0,6.0,6.0
+3971,Spanish Literature and Culture,3.0,3.0,6.0
+3971,Statistics,3.0,3.0,3.0
+3971,2-D Art and Design,3.0,3.0,3.0
+3971,3-D Art and Design,3.0,3.0,3.0
+3971,Drawing,3.0,3.0,3.0
+3971,United States Government and Politics,3.0,3.0,3.0
+3971,United States History,6.0,6.0,6.0
+3971,World History: Modern,6.0,6.0,6.0
+3971,Physics 1,4.0,5.0,5.0
+3971,Physics 2,4.0,5.0,5.0
+3971,Seminar,0.0,6.0,6.0
+3971,Research,0.0,6.0,6.0
+3971,African American Studies,3.0,3.0,3.0
+3971,Pre-Calculus,3.0,4.0,4.0
+3981,Art History,3.0,6.0,6.0
+3981,Biology,3.0,4.0,8.0
+3981,Calculus AB,4.0,4.0,4.0
+3981,Calculus BC,4.0,8.0,8.0
+3981,Chemistry,3.0,3.0,4.0
+3981,Chinese Language and Culture,3.0,3.0,3.0
+3981,Comparative Government and Politics,3.0,3.0,3.0
+3981,Computer Science A,0.0,3.0,3.0
+3981,English Language and Composition,3.0,3.0,6.0
+3981,English Literature and Composition,3.0,3.0,6.0
+3981,Environmental Science,3.0,4.0,4.0
+3981,European History,3.0,6.0,6.0
+3981,French Language and Culture,3.0,3.0,6.0
+3981,German Language and Culture,3.0,3.0,3.0
+3981,Human Geography,3.0,3.0,3.0
+3981,Italian Language and Culture,3.0,3.0,3.0
+3981,Japanese Language and Culture,3.0,3.0,3.0
+3981,Latin,3.0,3.0,3.0
+3981,Macroeconomics,3.0,3.0,3.0
+3981,Microeconomics,3.0,3.0,3.0
+3981,Music Theory,3.0,3.0,3.0
+3981,Physics C: Electricity and Magnetism,4.0,4.0,4.0
+3981,Physics C: Mechanics,4.0,4.0,4.0
+3981,Psychology,3.0,3.0,3.0
+3981,Spanish Language and Culture,3.0,6.0,9.0
+3981,Spanish Literature and Culture,6.0,6.0,12.0
+3981,Statistics,3.0,3.0,3.0
+3981,2-D Art and Design,6.0,6.0,6.0
+3981,3-D Art and Design,6.0,6.0,6.0
+3981,Drawing,6.0,6.0,6.0
+3981,United States Government and Politics,3.0,3.0,3.0
+3981,United States History,3.0,6.0,6.0
+3981,World History: Modern,3.0,6.0,6.0
+3981,Physics 1,4.0,4.0,4.0
+3981,Physics 2,4.0,4.0,4.0
+3981,Computer Science Principles,3.0,3.0,3.0
+3981,African American Studies,3.0,3.0,3.0
+3981,Pre-Calculus,4.0,4.0,4.0
+4124,Biology,4.0,5.0,5.0
+4124,Calculus AB,3.0,6.0,6.0
+4124,Calculus BC,5.0,10.0,10.0
+4124,Chemistry,5.0,10.0,10.0
+4124,Comparative Government and Politics,3.0,3.0,3.0
+4124,English Language and Composition,3.0,3.0,3.0
+4124,English Literature and Composition,3.0,3.0,6.0
+4124,Environmental Science,4.0,4.0,4.0
+4124,European History,3.0,3.0,3.0
+4124,Human Geography,3.0,3.0,3.0
+4124,Macroeconomics,3.0,3.0,3.0
+4124,Microeconomics,3.0,3.0,3.0
+4124,Physics C: Electricity and Magnetism,10.0,10.0,10.0
+4124,Physics C: Mechanics,10.0,10.0,10.0
+4124,Psychology,3.0,3.0,3.0
+4124,Spanish Language and Culture,3.0,11.0,14.0
+4124,Statistics,3.0,3.0,3.0
+4124,2-D Art and Design,0.0,3.0,3.0
+4124,3-D Art and Design,0.0,0.0,0.0
+4124,Drawing,0.0,0.0,0.0
+4124,United States Government and Politics,3.0,3.0,3.0
+4124,United States History,6.0,6.0,6.0
+4124,World History: Modern,6.0,6.0,6.0
+4124,Physics 1,5.0,5.0,5.0
+4124,Physics 2,5.0,5.0,5.0
+4124,African American Studies,3.0,3.0,3.0
+4124,Pre-Calculus,3.0,3.0,3.0
+227397,Biology,5.0,10.0,10.0
+227397,Calculus AB,5.0,5.0,5.0
+227397,Calculus BC,5.0,10.0,10.0
+227397,Chemistry,5.0,5.0,10.0
+227397,Chinese Language and Culture,5.0,8.0,11.0
+227397,Comparative Government and Politics,3.0,3.0,3.0
+227397,Computer Science A,4.0,4.0,4.0
+227397,English Language and Composition,3.0,3.0,3.0
+227397,English Literature and Composition,3.0,3.0,3.0
+227397,Environmental Science,4.0,4.0,4.0
+227397,European History,3.0,6.0,6.0
+227397,French Language and Culture,5.0,8.0,11.0
+227397,German Language and Culture,5.0,8.0,11.0
+227397,Human Geography,3.0,3.0,3.0
+227397,Italian Language and Culture,5.0,8.0,11.0
+227397,Japanese Language and Culture,5.0,8.0,11.0
+227397,Latin,5.0,8.0,11.0
+227397,Macroeconomics,3.0,3.0,3.0
+227397,Microeconomics,3.0,3.0,3.0
+227397,Music Theory,8.0,8.0,8.0
+227397,Physics C: Electricity and Magnetism,5.0,5.0,5.0
+227397,Physics C: Mechanics,5.0,5.0,5.0
+227397,Psychology,6.0,6.0,6.0
+227397,Spanish Language and Culture,5.0,10.0,13.0
+227397,Statistics,3.0,3.0,3.0
+227397,2-D Art and Design,0.0,0.0,3.0
+227397,3-D Art and Design,0.0,0.0,3.0
+227397,Drawing,3.0,3.0,3.0
+227397,United States Government and Politics,3.0,3.0,3.0
+227397,United States History,3.0,6.0,6.0
+227397,World History: Modern,3.0,6.0,6.0
+227397,Physics 1,5.0,5.0,5.0
+227397,Physics 2,5.0,5.0,5.0
+227397,Computer Science Principles,0.0,0.0,0.0
+276058,Calculus AB,0.0,0.0,0.0
+276058,2-D Art and Design,0.0,0.0,0.0
+276058,Physics 1,0.0,0.0,0.0
+276058,African American Studies,1.0,1.0,1.0
+276058,Pre-Calculus,3.0,3.0,3.0

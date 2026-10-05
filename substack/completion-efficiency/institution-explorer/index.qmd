@@ -1,0 +1,190 @@
+---
+title: "Institution explorer"
+subtitle: "Any college's ratio, its entering and graduating classes, and how institution types differ"
+page-layout: full
+execute:
+  echo: false
+---
+
+{{< include ../_nav.qmd >}}
+
+{{< include ../_common.qmd >}}
+
+```{ojs}
+IDX = FileAttachment("../data/inst_index.csv").csv({typed: true}).then(a => a.map(d => ({...d, online: d.online === true || d.online === "True"})))
+TYP = FileAttachment("../data/types_levels_2022.csv").csv({typed: true})
+TYC = FileAttachment("../data/types_change.csv").csv({typed: true})
+PLURAL = ({"Public university": "public universities", "Community college": "community colleges", "Private nonprofit 4-year": "private nonprofit 4-year colleges", "For-profit": "for-profit colleges", "Other": "other colleges"})
+```
+
+```{ojs}
+r1 = TYP.find(d => d.type === "Public R1"); p1 = TYP.find(d => d.type === "Private nonprofit R1")
+md`<div class="ce-lead">At public research universities, about <b>${pct(r1.outsourcing_share)}</b> of each degree's credit is taught somewhere else (AP, dual enrollment, transfer): <b>${f0(r1.I_pb)}</b> imported credits per bachelor's-degree equivalent, against <b>${f0(p1.I_pb)}</b> at private research universities. That is why public R1s teach only <b>${f0(r1.T)}</b> credits per degree, fewer than the 120 a degree requires, against ${f0(p1.T)} at private R1s.</div>`
+```
+
+## By institution type, 2022
+
+Credits taught per bachelor's-degree equivalent split by the identity `T = 120 + U − I + E`: **imported** credit (I) taught elsewhere and used here, **unused** credit (U) taught here but not ending in one of this college's degrees, and **excess** credit (E) taken by graduates beyond 120.
+
+```{ojs}
+viewof tview = Inputs.radio(new Map([["Components, 2022", "lev"], ["Change since 2010: where the gain came from", "chg"]]), {value: "lev", label: "Show"})
+```
+
+```{ojs}
+{
+  if (tview === "lev") {
+    const comp = [["ap_pb", "AP", "I"], ["transfer_pb", "Transfer", "I"], ["de_imp_pb", "Dual enrollment (reported)", "I"], ["de_unrep_pb", "Dual enrollment (unreported)", "I"],
+                  ["leavers_pb", "Leavers", "U"], ["exported_pb", "Exported (students who transfer out)", "U"], ["nondeg_pb", "Non-degree students", "U"], ["de_unused_pb", "DE taught, never used", "U"], ["certs_pb", "Certificates", "U"], ["E_pb", "Excess credit (residual)", "E"]];
+    const rows = TYP.flatMap(t => comp.map(([k, l, g]) => ({type: t.type, part: l, g, v: g === "I" ? -t[k] : t[k]})));
+    const order = TYP.map(d => d.type);
+    return html`${Plot.plot({
+      width, height: 40 + 30 * order.length, marginLeft: 230, marginRight: 80,
+      x: {label: "← imported credit (I)     credits per bachelor's-degree equivalent     unused (U) and excess (E) →", grid: true},
+      y: {domain: order, label: null},
+      color: {domain: comp.map(c => c[1]), range: ["#08306b", "#2171b5", "#6baed6", "#c6dbef", "#a63603", "#e6550d", "#fd8d3c", "#fdae6b", "#fdd0a2", "#7f7f7f"], legend: true},
+      marks: [Plot.barX(rows, {y: "type", x: "v", fill: "part", title: d => `${d.type}\n${d.part}: ${f2(Math.abs(d.v))} credits per degree`}), Plot.ruleX([0]),
+        Plot.text(TYP, {y: "type", x: d => d.U_pb + Math.max(0, d.E_pb), text: d => `T = ${f0(d.T)}`, dx: 6, textAnchor: "start", fontSize: 11})]
+    })}`;
+  } else {
+    const comp = [["imported_share", "Imported credit (AP, transfer, DE)"], ["other_items_share", "Other measured items"], ["residual_share", "Residual: fewer excess credits"]];
+    const rows = TYC.flatMap(t => comp.map(([k, l]) => ({type: t.type, part: l, v: t[k], rise: t.adj_rise})));
+    return Plot.plot({
+      width, height: 40 + 30 * TYC.length, marginLeft: 230, marginRight: 90,
+      x: {label: "Share of the timing-adjusted rise in the ER, 2010–2022", tickFormat: "%", grid: true}, y: {domain: TYC.map(d => d.type), label: null},
+      color: {domain: comp.map(c => c[1]), range: [BLUE, LIGHT, ORANGE], legend: true},
+      marks: [Plot.barX(rows, {y: "type", x: "v", fill: "part", title: d => `${d.type}\n${d.part}: ${pct(d.v)}`}), Plot.ruleX([0]),
+        Plot.text(TYC, {y: "type", x: 1, text: d => `rise ${d3.format("+.3f")(d.adj_rise)}`, dx: 30, textAnchor: "start", fontSize: 10})]
+    });
+  }
+}
+```
+
+::: {.ce-note}
+The split rests on common assumptions applied to every college of a type (credits per transfer graduate, the AP allocation, credits per leaver), so it is shown **by type only**. A per-college split would present an assumption as a measurement of a named school; it waits for the institution panel the paper describes (Task B). Source: white paper v5 Section 6.7 (Tables T48, T48a).
+:::
+
+## One institution
+
+```{ojs}
+viewof stp = Inputs.select(STLIST, {format: s => STNAME[s], value: param("s", "IN"), label: "State"})
+viewof grpSel = Inputs.checkbox(["Public university", "Community college", "Private nonprofit 4-year", "For-profit", "Other"], {value: ["Public university", "Community college", "Private nonprofit 4-year"], label: "Types"})
+viewof q = Inputs.search(IDX.filter(d => d.st === stp && grpSel.includes(d.group)), {placeholder: "Search by name", label: "Search"})
+```
+
+```{ojs}
+viewof pick = Inputs.table(q, {
+  columns: ["name", "group", "carnegie", "ER_m_2010", "ER_c_2010", "ER_m_2022", "ER_c_2022", "om_transfer_share_2022", "credits_last"],
+  header: {name: "Institution", group: "Type", carnegie: "Carnegie group", ER_m_2010: "ER 2010", ER_c_2010: "Adj. 2010", ER_m_2022: "ER 2022", ER_c_2022: "Adj. 2022", om_transfer_share_2022: "Transfer share of awards", credits_last: "Credits taught (latest)"},
+  format: {ER_m_2010: f2, ER_c_2010: f2, ER_m_2022: f2, ER_c_2022: f2, om_transfer_share_2022: pct, credits_last: f0},
+  sort: "credits_last", reverse: true, rows: 10, multiple: false,
+  value: q.find(d => String(d.unitid) === param("u", "")) ?? d3.greatest(q, d => d.credits_last)
+})
+```
+
+```{ojs}
+P = d3.csv(`../data/inst/${stp}.csv`, d3.autoType)
+I = pick ? P.filter(d => d.unitid === pick.unitid) : []
+```
+
+```{ojs}
+{ if (pick) setParam("u", pick.unitid); setParam("s", stp); return html``; }
+```
+
+{{< include ../_toggles.qmd >}}
+
+```{ojs}
+{
+  if (!pick || !I.length) return md`*Choose an institution in the table.*`;
+  const last = I.at(-1), y10 = I.find(d => d.year === 2010), y22 = I.find(d => d.year === 2022);
+  const notAdj = I.every(d => d.ER_c === d.ER_m);
+  return md`### ${pick.name}
+<div class="ce-kpis">
+<div class="ce-kpi"><div class="v">${y10 ? f2(y10.ER_c) : "–"} → ${y22 ? f2(y22.ER_c) : "–"}</div><div class="l">timing-adjusted ER, 2010 → 2022 (measured ${y10 ? f2(y10.ER_m) : "–"} → ${y22 ? f2(y22.ER_m) : "–"})</div></div>
+<div class="ce-kpi"><div class="v">${y22 ? f0(120 / y22.ER_c) : "–"}</div><div class="l">credits taught per bachelor's-degree equivalent, 2022 (adjusted)</div></div>
+<div class="ce-kpi"><div class="v">${pct(pick.om_transfer_share_2022)}</div><div class="l">of awards went to students who entered as transfers (Outcome Measures${pick.om_transfer_share_2010 != null ? `; ${pct(pick.om_transfer_share_2010)} for the 2010 data` : ""})</div></div>
+<div class="ce-kpi"><div class="v">${f0(last.credits)}</div><div class="l">semester credits taught, ${last.year}; ${f0(last.BA)} bachelor's, ${f0(last.AA)} associate degrees</div></div>
+</div>
+${notAdj ? `<p class="ce-note">This institution is not timing-adjusted (${pick.online ? "a large online university" : pick.group === "For-profit" ? "for-profits are not adjusted" : "no usable entering classes of its own"}), so the adjusted and measured ratios are the same.</p>` : ""}`;
+}
+```
+
+<div class="ce-two">
+
+```{ojs}
+{
+  if (!pick || !I.length) return html``;
+  const peers = P.filter(d => IDX.find(x => x.unitid === d.unitid && x.group === pick.group && x.st === stp));
+  const med = d3.rollups(peers, v => d3.median(v, d => val(d[`ER_${tcol === "measured" ? "m" : tcol[0]}`])), d => d.year).map(([year, v]) => ({year, v})).sort((a, b) => a.year - b.year);
+  const k = tcol === "measured" ? "m" : tcol[0];
+  const pts = I.map(d => ({...d, v: val(d[`ER_${k}`]), vm: val(d.ER_m), lo: val(d.ER_l), hi: val(d.ER_h)}));
+  return Plot.plot({
+    width: width / 2 - 20, height: 320, marginRight: 10, title: `${measure === "T" ? "Credits per degree" : "Efficiency ratio"} (${tlab})`,
+    x: {...yearAxis, domain: [1998, 2024]}, y: {grid: true, label: null, type: measure === "T" ? "log" : "linear", tickFormat: measure === "T" ? "d" : ".2f"},
+    marks: [
+      Plot.ruleY([measure === "T" ? 120 : 1], {stroke: "#bbb", strokeDasharray: "3,3"}),
+      Plot.lineY(med, {x: "year", y: "v", stroke: ORANGE, strokeWidth: 1.3}),
+      timing !== "measured" ? Plot.areaY(pts, {x: "year", y1: "lo", y2: "hi", fill: BLUE, fillOpacity: 0.12}) : null,
+      timing !== "measured" ? Plot.lineY(pts, {x: "year", y: "vm", stroke: BLUE, strokeOpacity: 0.4, strokeDasharray: "2,3"}) : null,
+      Plot.lineY(pts, {x: "year", y: "v", stroke: BLUE, strokeWidth: 2.3, marker: "dot"}),
+      Plot.tip(pts, Plot.pointerX({x: "year", y: "v", title: d => `${d.year}: ${fv(d.v)} (${tlab})\nmeasured ${fv(d.vm)}\n${f0(d.credits)} credits, ${f0(d.BA)} BA, ${f0(d.AA)} AA`}))
+    ],
+    caption: `Orange: median of ${PLURAL[pick.group] ?? pick.group} in ${STNAME[stp]}. Dotted: measured ratio; band: low to high timing case.`
+  });
+}
+```
+
+```{ojs}
+{
+  if (!pick || !I.length) return html``;
+  const pts = I.filter(d => d.G > 0);
+  if (!pts.length) return md`*No entering-class ratio for this institution.*`;
+  return Plot.plot({
+    width: width / 2 - 20, height: 320, title: "Entering classes relative to graduating classes (G)",
+    x: {...yearAxis, domain: [1998, 2024]}, y: {grid: true, label: null, type: "log", tickFormat: ".2f"},
+    marks: [Plot.ruleY([1], {stroke: INK}),
+      Plot.lineY(pts, {x: "year", y: "G", stroke: TEAL, strokeWidth: 2, marker: "dot"}),
+      Plot.dot(pts.filter(d => d.G_source === "i"), {x: "year", y: "G", stroke: ORANGE, r: 5}),
+      Plot.tip(pts, Plot.pointerX({x: "year", y: "G", title: d => `${d.year}: G = ${f2(d.G)}${d.G_source === "i" ? " (interpolated entering class)" : ""}\nfirst-time entrants ${f0(d.first_time_n)}`}))],
+    caption: "G above 1: entering classes larger than the classes now finishing, so the measured ratio is temporarily low. Orange rings: a year with an interpolated entering class."
+  });
+}
+```
+
+</div>
+
+```{ojs}
+{
+  if (!pick) return html``;
+  const peers = IDX.filter(d => d.group === pick.group && d.carnegie === pick.carnegie && d.ER_c_2022 > 0 && d.ER_c_2022 < 3 && !d.online);
+  return Plot.plot({
+    width, height: 150, marginLeft: 20, title: `${pick.name} among all ${peers.length} ${PLURAL[pick.group] ?? pick.group} in the ${pick.carnegie} group, 2022 (timing-adjusted ER)`,
+    x: {label: "Timing-adjusted ER, 2022", grid: true},
+    marks: [Plot.dotX(peers, Plot.dodgeY({x: "ER_c_2022", r: 3, fill: d => d.unitid === pick.unitid ? ORANGE : LIGHT, title: d => `${d.name} (${d.st}): ${f2(d.ER_c_2022)}`})),
+      Plot.ruleX([pick.ER_c_2022], {stroke: ORANGE, strokeWidth: 2})]
+  });
+}
+```
+
+## Biggest changes, 2010 to 2022
+
+```{ojs}
+viewof rkGrp = Inputs.select(["Public university", "Community college", "Private nonprofit 4-year", "For-profit"], {value: "Public university", label: "Type"})
+viewof rkSt = Inputs.select(["All states", ...STLIST], {format: s => STNAME[s] ?? s, value: "All states", label: "State"})
+```
+
+```{ojs}
+RK = IDX.filter(d => d.group === rkGrp && (rkSt === "All states" || d.st === rkSt) && !d.online && d.ER_c_2010 > 0.15 && d.ER_c_2022 > 0.15 && d.ER_c_2010 < 2.5 && d.ER_c_2022 < 2.5 && d.ER_c_2022 / d.ER_c_2010 < 2.5 && d.ER_c_2022 / d.ER_c_2010 > 0.4 && d.credits_last >= 20000)
+  .map(d => ({...d, chg: d.ER_c_2022 - d.ER_c_2010, T10: 120 / d.ER_c_2010, T22: 120 / d.ER_c_2022}))
+Inputs.table(RK, {columns: ["name", "st", "carnegie", "ER_c_2010", "ER_c_2022", "chg", "T10", "T22", "credits_last"],
+  header: {name: "Institution", st: "State", carnegie: "Carnegie group", ER_c_2010: "Adj. ER 2010", ER_c_2022: "Adj. ER 2022", chg: "Change", T10: "T 2010", T22: "T 2022", credits_last: "Credits taught"},
+  format: {ER_c_2010: f2, ER_c_2022: f2, chg: d3.format("+.2f"), T10: f0, T22: f0, credits_last: f0}, sort: "chg", reverse: true, rows: 15})
+```
+
+::: {.ce-note}
+Screens against reporting breaks: both years present; adjusted ER between 0.15 and 2.5 in both years; the ratio did not more than double or fall by more than 60%; at least 20,000 credits taught in the latest year; large online universities excluded. A big change can still reflect a merger, a change in what the college reports as credit activity, or a new bachelor's program at a community college; check the institution's own path above before reading anything into it. Outcome Measures transfer share: the share of an entering cohort's awards earned by students who entered as transfer or other non-first-time students. Sources: IPEDS completions, 12-month credit-hour activity, fall enrollment and Outcome Measures; author's calculations.
+:::
+
+```{ojs}
+//| output: false
+syncParams
+```

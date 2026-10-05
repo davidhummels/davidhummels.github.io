@@ -1,0 +1,65 @@
+om_release,entering_cohort,level,control,award_measure,awards_total,share_FTFT,share_FTPT,share_first_time_FT_plus_PT,share_non_first_time,entering_share_FTFT,entering_share_non_first_time,annual_awards_year_cohort_plus4,om_coverage_of_annual_awards
+2017,2009-10,2-year,All,associate + certificate within 8 yrs,1066187.0,0.3438,0.1064,0.4502,0.5498,0.2647,0.5639,963703,1.1063
+2018,2010-11,2-year,All,associate + certificate within 8 yrs,980921.0,0.3241,0.1124,0.4365,0.5635,0.2588,0.563,978816,1.0022
+2019,2011-12,2-year,All,associate + certificate within 8 yrs,963029.0,0.3067,0.117,0.4237,0.5763,0.25,0.5673,999173,0.9638
+2020,2012-13,2-year,All,associate + certificate within 8 yrs,949445.0,0.3057,0.1153,0.4209,0.5791,0.2533,0.5662,997691,0.9516
+2021,2013-14,2-year,All,associate + certificate within 8 yrs,791088.0,0.3633,0.1387,0.502,0.498,0.2968,0.4911,1014887,0.7795
+2022,2014-15,2-year,All,associate + certificate within 8 yrs,655455.0,0.4388,0.159,0.5978,0.4022,0.3513,0.405,1051560,0.6233
+2023,2015-16,2-year,All,associate + certificate within 8 yrs,660585.0,0.4468,0.1527,0.5994,0.4006,0.3563,0.4093,1101843,0.5995
+2024,2016-17,2-year,All,associate + certificate within 8 yrs,667817.0,0.4445,0.1495,0.594,0.406,0.3577,0.4096,1085771,0.6151
+2017,2009-10,2-year,Private for-profit,associate + certificate within 8 yrs,157626.0,0.7174,0.051,0.7683,0.2317,0.6763,0.2364,126874,1.2424
+2018,2010-11,2-year,Private for-profit,associate + certificate within 8 yrs,109888.0,0.6733,0.0482,0.7215,0.2785,0.6449,0.2777,97161,1.131
+2019,2011-12,2-year,Private for-profit,associate + certificate within 8 yrs,95581.0,0.6769,0.0337,0.7106,0.2894,0.6673,0.2863,86879,1.1002
+2020,2012-13,2-year,Private for-profit,associate + certificate within 8 yrs,88626.0,0.6181,0.0334,0.6514,0.3486,0.6134,0.3452,79929,1.1088
+2021,2013-14,2-year,Private for-profit,associate + certificate within 8 yrs,85640.0,0.6034,0.0225,0.6259,0.3741,0.5992,0.3718,74673,1.1469
+2022,2014-15,2-year,Private for-profit,associate + certificate within 8 yrs,85916.0,0.5818,0.0172,0.599,0.401,0.5759,0.3987,79528,1.0803
+2023,2015-16,2-year,Private for-profit,associate + certificate within 8 yrs,90057.0,0.5936,0.0152,0.6088,0.3912,0.5965,0.3825,84580,1.0648
+2024,2016-17,2-year,Private for-profit,associate + certificate within 8 yrs,88168.0,0.5921,0.0208,0.6128,0.3872,0.5974,0.3744,84036,1.0492
+2017,2009-10,2-year,Private nonprofit,associate + certificate within 8 yrs,12872.0,0.6653,0.0516,0.7169,0.2831,0.6281,0.2719,9582,1.3434
+2018,2010-11,2-year,Private nonprofit,associate + certificate within 8 yrs,14355.0,0.7209,0.0343,0.7552,0.2448,0.693,0.2405,8665,1.6567
+2019,2011-12,2-year,Private nonprofit,associate + certificate within 8 yrs,15430.0,0.7029,0.0264,0.7293,0.2707,0.6893,0.2572,9120,1.6919
+2020,2012-13,2-year,Private nonprofit,associate + certificate within 8 yrs,16105.0,0.7139,0.0281,0.742,0.258,0.7042,0.2424,8868,1.8161
+2021,2013-14,2-year,Private nonprofit,associate + certificate within 8 yrs,12562.0,0.3624,0.0251,0.3874,0.6126,0.3468,0.5926,8075,1.5557
+2022,2014-15,2-year,Private nonprofit,associate + certificate within 8 yrs,18488.0,0.4111,0.0194,0.4305,0.5695,0.4009,0.557,15099,1.2245
+2023,2015-16,2-year,Private nonprofit,associate + certificate within 8 yrs,17861.0,0.4073,0.0157,0.423,0.577,0.4104,0.5562,15072,1.185
+2024,2016-17,2-year,Private nonprofit,associate + certificate within 8 yrs,26110.0,0.3674,0.0099,0.3773,0.6227,0.3835,0.5889,14881,1.7546
+2017,2009-10,2-year,Public,associate + certificate within 8 yrs,895689.0,0.2734,0.117,0.3904,0.6096,0.2321,0.5898,827247,1.0827
+2018,2010-11,2-year,Public,associate + certificate within 8 yrs,856678.0,0.2727,0.1219,0.3946,0.6054,0.2345,0.5809,872990,0.9813
+2019,2011-12,2-year,Public,associate + certificate within 8 yrs,852018.0,0.258,0.128,0.386,0.614,0.2258,0.5836,903174,0.9434
+2020,2012-13,2-year,Public,associate + certificate within 8 yrs,844714.0,0.2651,0.1255,0.3906,0.6094,0.2314,0.5801,908894,0.9294
+2021,2013-14,2-year,Public,associate + certificate within 8 yrs,692886.0,0.3337,0.1551,0.4888,0.5112,0.2793,0.497,932139,0.7433
+2022,2014-15,2-year,Public,associate + certificate within 8 yrs,551051.0,0.4174,0.1858,0.6033,0.3967,0.3346,0.403,956933,0.5759
+2023,2015-16,2-year,Public,associate + certificate within 8 yrs,552667.0,0.4241,0.1795,0.6036,0.3964,0.3369,0.4089,1002191,0.5515
+2024,2016-17,2-year,Public,associate + certificate within 8 yrs,553539.0,0.4247,0.1765,0.6012,0.3988,0.3385,0.4081,986854,0.5609
+2017,2009-10,4-year,All,bachelor's within 8 yrs,1705998.0,0.553,0.011,0.564,0.436,0.4065,0.4922,1791320,0.9524
+2018,2010-11,4-year,All,bachelor's within 8 yrs,1742620.0,0.5486,0.0101,0.5587,0.4413,0.3983,0.5085,1855728,0.939
+2019,2011-12,4-year,All,bachelor's within 8 yrs,1752165.0,0.5543,0.0092,0.5635,0.4365,0.4004,0.5101,1873628,0.9352
+2020,2012-13,4-year,All,bachelor's within 8 yrs,1768807.0,0.5593,0.0096,0.5688,0.4312,0.4017,0.5066,1892202,0.9348
+2021,2013-14,4-year,All,bachelor's within 8 yrs,1799063.0,0.5636,0.0099,0.5734,0.4266,0.4224,0.4856,1929822,0.9322
+2022,2014-15,4-year,All,bachelor's within 8 yrs,1833091.0,0.5625,0.0104,0.5729,0.4271,0.4491,0.458,1974115,0.9286
+2023,2015-16,4-year,All,bachelor's within 8 yrs,1848166.0,0.5662,0.0107,0.5769,0.4231,0.4563,0.4512,2009775,0.9196
+2024,2016-17,4-year,All,bachelor's within 8 yrs,1854389.0,0.5698,0.0107,0.5805,0.4195,0.465,0.4479,2024954,0.9158
+2017,2009-10,4-year,Private for-profit,bachelor's within 8 yrs,119946.0,0.1972,0.0319,0.2291,0.7709,0.3469,0.5185,66648,1.7997
+2018,2010-11,4-year,Private for-profit,bachelor's within 8 yrs,96529.0,0.1626,0.0298,0.1924,0.8076,0.2634,0.6055,101211,0.9537
+2019,2011-12,4-year,Private for-profit,bachelor's within 8 yrs,85048.0,0.1652,0.0256,0.1908,0.8092,0.2577,0.6347,87823,0.9684
+2020,2012-13,4-year,Private for-profit,bachelor's within 8 yrs,79902.0,0.1586,0.0254,0.184,0.816,0.238,0.63,83369,0.9584
+2021,2013-14,4-year,Private for-profit,bachelor's within 8 yrs,77060.0,0.1481,0.0278,0.1759,0.8241,0.2289,0.6439,81403,0.9466
+2022,2014-15,4-year,Private for-profit,bachelor's within 8 yrs,78022.0,0.1442,0.0304,0.1746,0.8254,0.2234,0.6657,79259,0.9844
+2023,2015-16,4-year,Private for-profit,bachelor's within 8 yrs,68822.0,0.1301,0.0249,0.155,0.845,0.2217,0.6677,81168,0.8479
+2024,2016-17,4-year,Private for-profit,bachelor's within 8 yrs,70121.0,0.1404,0.025,0.1654,0.8346,0.2024,0.6884,81884,0.8563
+2017,2009-10,4-year,Private nonprofit,bachelor's within 8 yrs,536131.0,0.6099,0.0073,0.6173,0.3827,0.5425,0.4259,561824,0.9543
+2018,2010-11,4-year,Private nonprofit,bachelor's within 8 yrs,551837.0,0.6111,0.0072,0.6184,0.3816,0.5349,0.4308,568976,0.9699
+2019,2011-12,4-year,Private nonprofit,bachelor's within 8 yrs,552561.0,0.6132,0.0069,0.6201,0.3799,0.526,0.4389,579098,0.9542
+2020,2012-13,4-year,Private nonprofit,bachelor's within 8 yrs,557864.0,0.6143,0.0073,0.6216,0.3784,0.5276,0.4358,585762,0.9524
+2021,2013-14,4-year,Private nonprofit,bachelor's within 8 yrs,557127.0,0.6202,0.0076,0.6278,0.3722,0.5393,0.4244,588604,0.9465
+2022,2014-15,4-year,Private nonprofit,bachelor's within 8 yrs,564422.0,0.6197,0.0085,0.6282,0.3718,0.5384,0.4238,591742,0.9538
+2023,2015-16,4-year,Private nonprofit,bachelor's within 8 yrs,564140.0,0.6197,0.0096,0.6293,0.3707,0.5364,0.4186,596558,0.9457
+2024,2016-17,4-year,Private nonprofit,bachelor's within 8 yrs,558538.0,0.6276,0.0093,0.6369,0.3631,0.5438,0.4199,599914,0.931
+2017,2009-10,4-year,Public,bachelor's within 8 yrs,1049921.0,0.5647,0.0105,0.5751,0.4249,0.3807,0.5055,1162848,0.9029
+2018,2010-11,4-year,Public,bachelor's within 8 yrs,1094254.0,0.5512,0.0098,0.561,0.439,0.3804,0.5151,1185541,0.923
+2019,2011-12,4-year,Public,bachelor's within 8 yrs,1114556.0,0.5549,0.009,0.5639,0.4361,0.3833,0.5131,1206707,0.9236
+2020,2012-13,4-year,Public,bachelor's within 8 yrs,1131041.0,0.5604,0.0095,0.57,0.43,0.386,0.511,1223071,0.9248
+2021,2013-14,4-year,Public,bachelor's within 8 yrs,1164876.0,0.564,0.0098,0.5738,0.4262,0.4127,0.4826,1259815,0.9246
+2022,2014-15,4-year,Public,bachelor's within 8 yrs,1190647.0,0.5628,0.0101,0.5729,0.4271,0.4524,0.4384,1303114,0.9137
+2023,2015-16,4-year,Public,bachelor's within 8 yrs,1215204.0,0.5661,0.0104,0.5764,0.4236,0.4575,0.4358,1332049,0.9123
+2024,2016-17,4-year,Public,bachelor's within 8 yrs,1225730.0,0.568,0.0105,0.5785,0.4215,0.4694,0.4285,1343156,0.9126

@@ -1,0 +1,147 @@
+---
+title: "Where the gain came from"
+subtitle: "An exact accounting of the 2010–2022 rise, with every assumption on a dial"
+page-layout: full
+execute:
+  echo: false
+---
+
+{{< include ../_nav.qmd >}}
+
+{{< include ../_common.qmd >}}
+
+```{ojs}
+acc = FileAttachment("../data/accounting_national.csv").csv({typed: true})
+scen = FileAttachment("../data/accounting_scenarios.csv").csv({typed: true})
+K0 = FileAttachment("../data/accounting_constants.csv").csv({typed: true}).then(d => d[0])
+secsum = FileAttachment("../data/sector_split_summary.csv").csv({typed: true}).then(d => new Map(d.map(r => [r.item, r.value])))
+```
+
+```{ojs}
+resRow = acc.find(d => d.item.startsWith("Residual"))
+itRow = acc.find(d => d.item.startsWith("Sum of items"))
+md`<div class="ce-lead">Colleges taught <b>${f0(K0.T_measured_2010)}</b> credits per bachelor's-degree equivalent in 2010 and <b>${f0(K0.T_measured_2022)}</b> in 2022. After the timing adjustment, the channels we can measure (AP credit, fewer students leaving without a degree, dual enrollment, non-degree students, associate degrees counted twice, certificates) explain <b>${pct(itRow.share_central)}</b> of the rise. The other <b>${pct(resRow.share_central)}</b>, about <b>${f0(-resRow.change_in_T_central)}</b> fewer credits per degree, is the residual: fewer excess credits taken by students who finish, which is the paper's measure of efficiency.</div>`
+```
+
+## The accounting
+
+Every item is a quantity of credit per bachelor's-degree equivalent; the identity `T = 120 + U − I + E` turns changes in credits per degree into changes in the ratio exactly: `ER₁ − ER₀ = −(T₁ − T₀) · ER₀ · ER₁ / 120`. Items add up; the residual is whatever the measured items leave.
+
+```{ojs}
+ITEMS = [
+  ["1 AP credit", "AP credit"],
+  ["2 Fewer leavers", "Fewer students leaving without a degree"],
+  ["3 Unreported dual-enrollment credit", "Dual-enrollment credit not reported by colleges"],
+  ["3b Reported dual-enrollment credit never used", "Reported dual-enrollment credit never used in a degree"],
+  ["4 Less unused non-degree credit", "Less unused credit from non-degree students"],
+  ["5 Associate degrees counted twice", "Associate degrees counted twice (AA, then BA)"],
+  ["6 Certificate credit (not in D)", "Certificate credit (not counted as degrees)"]
+]
+byItem = new Map(ITEMS.map(([k]) => [k, scen.filter(d => d.item === k).sort((a, b) => a.contribution - b.contribution)]))
+viewof preset = Inputs.radio(["Central", "Smallest items", "Largest items"], {value: "Central", label: "Start dials at"})
+```
+
+<style>.ce-dials form { --label-width: 330px; } .ce-dials input[type=number] { display: none; }</style>
+
+::: {.ce-dials}
+```{ojs}
+viewof dials = Inputs.form(Object.fromEntries(ITEMS.map(([k, lab]) => {
+  const arr = byItem.get(k); const ci = arr.findIndex(d => d.central === true || d.central === "True");
+  const v = preset === "Central" ? ci : preset === "Smallest items" ? 0 : arr.length - 1;
+  return [k, Inputs.range([0, arr.length - 1], {step: 1, value: v, label: lab})];
+})))
+```
+:::
+
+```{ojs}
+viewof wcase = Inputs.radio(new Map([["None (measured rise)", "none"], ["Low", "low"], ["Central", "central"], ["High", "high"]]), {value: "central", label: "Timing adjustment"})
+viewof units = Inputs.radio(new Map([["Credits per degree", "cr"], ["ER points", "er"], ["Share of the rise", "sh"]]), {value: "cr", label: "Units"})
+```
+
+```{ojs}
+chosenScen = ITEMS.map(([k, lab]) => ({k, lab, ...byItem.get(k)[dials[k]]}))
+timingRemoved = wcase === "none" ? 0 : K0[`timing_${wcase}`]
+baseRise = K0.measured_rise - timingRemoved
+itemsSum = d3.sum(chosenScen, d => d.contribution)
+residual = baseRise - itemsSum
+conv = x => units === "er" ? x : units === "cr" ? x / K0.K : x / baseRise
+ufmt = x => units === "er" ? d3.format("+.3f")(x) : units === "cr" ? d3.format("+.1f")(x) : d3.format("+.0%")(x)
+steps = {
+  const s = []; let c = 0;
+  const push = (label, v, kind) => { s.push({label, x1: conv(c), x2: conv(c + v), v: conv(v), kind}); c += v; };
+  if (wcase !== "none") s.push({label: "Measured rise", x1: 0, x2: conv(K0.measured_rise), v: conv(K0.measured_rise), kind: "total"}), s.push({label: "Cohort timing (removed)", x1: conv(K0.measured_rise), x2: conv(baseRise), v: conv(-timingRemoved), kind: "timing"});
+  for (const d of chosenScen) push(d.lab, d.contribution, "item");
+  push("Residual: fewer excess credits, other", residual, "residual");
+  s.push({label: wcase === "none" ? "Measured rise" : "Timing-adjusted rise", x1: 0, x2: conv(baseRise), v: conv(baseRise), kind: "total"});
+  return s;
+}
+```
+
+```{ojs}
+Plot.plot({
+  width, height: 46 + 34 * steps.length, marginLeft: 330, marginRight: 70,
+  x: {label: units === "cr" ? "Fewer credits per bachelor's-degree equivalent, 2010 → 2022" : units === "er" ? "Change in the ER, 2010 → 2022" : "Share of the rise", grid: true, tickFormat: units === "sh" ? "%" : null},
+  y: {domain: steps.map(d => d.label), label: null},
+  marks: [
+    Plot.ruleX([0]),
+    Plot.barX(steps.filter(d => d.kind === "total"), {y: "label", x1: "x1", x2: "x2", fill: "#dfe5eb", stroke: INK}),
+    Plot.barX(steps.filter(d => d.kind === "timing"), {y: "label", x1: "x1", x2: "x2", fill: GRAY}),
+    Plot.barX(steps.filter(d => d.kind === "item"), {y: "label", x1: "x1", x2: "x2", fill: BLUE, insetTop: 3, insetBottom: 3}),
+    Plot.barX(steps.filter(d => d.kind === "residual"), {y: "label", x1: "x1", x2: "x2", fill: ORANGE}),
+    Plot.text(steps, {y: "label", x: d => Math.max(d.x1, d.x2), text: d => ufmt(d.v), dx: 5, textAnchor: "start", fontSize: 11}),
+    Plot.tip(steps, Plot.pointerY({y: "label", x: "x2", title: d => `${d.label}: ${ufmt(d.v)}`}))
+  ]
+})
+```
+
+```{ojs}
+{
+  // range of the residual share over every combination of the dials (each item independently at its min or max), given the timing case
+  const mins = ITEMS.map(([k]) => byItem.get(k)[0].contribution), maxs = ITEMS.map(([k]) => byItem.get(k).at(-1).contribution);
+  const lo = (baseRise - d3.sum(maxs)) / baseRise, hi = (baseRise - d3.sum(mins)) / baseRise;
+  return md`<div class="ce-kpis">
+  <div class="ce-kpi"><div class="v">${pct(residual / baseRise)}</div><div class="l">of the ${wcase === "none" ? "measured" : "timing-adjusted"} rise is the residual with these dials</div></div>
+  <div class="ce-kpi"><div class="v">${f0(residual / K0.K)}</div><div class="l">fewer excess credits per degree, unexplained by the items</div></div>
+  <div class="ce-kpi"><div class="v">${pct(lo)}–${pct(hi)}</div><div class="l">range of the residual share with every dial at its extreme</div></div>
+  </div>`;
+}
+```
+
+```{ojs}
+Inputs.table(chosenScen.map(d => ({Item: d.lab, Scenario: d.scenario, "Per degree 2010": d.per_ba_2010, "Per degree 2022": d.per_ba_2022, "ER points": d.contribution, "Credits per degree": d.contribution / K0.K})), {
+  format: {"Per degree 2010": f2, "Per degree 2022": f2, "ER points": d3.format("+.4f"), "Credits per degree": d3.format("+.1f")},
+  rows: 8, height: 250
+})
+```
+
+::: {.ce-note}
+Each dial steps through the scenarios computed in the paper's Appendix C (script 46), sorted from the smallest to the largest contribution; the paper's central case is the starting position. A positive number raises the ratio (fewer credits taught per degree). Dial labels give the scenario's parameters: for example AP "u" is the share of AP credit actually used, leavers "c_e"/"c_l" are credits per early and late leaver, non-degree "beta"/"theta"/"d" are credits per non-degree student, the full-year headcount factor and the share later used in a degree. Timing cases change only the base, not the items. Items are measured per measured degree, and contributions use the measured `ER₀·ER₁/120`, as in the paper.
+:::
+
+## Inside public systems: community colleges vs public universities
+
+Pooling each state's public universities and community colleges, the timing-adjusted rise splits exactly into a change *within* each sector and a change in the *mix* of degrees between them.
+
+```{ojs}
+{
+  const rows = [
+    {part: "Within community colleges", sh: secsum.get("share of adjusted rise: within Community colleges")},
+    {part: "Within public universities", sh: secsum.get("share of adjusted rise: within Public universities")},
+    {part: "Degree mix across sectors", sh: secsum.get("share of adjusted rise: composition")}
+  ];
+  return Plot.plot({
+    width: Math.min(width, 760), height: 170, marginLeft: 200, marginRight: 60,
+    x: {label: "Share of the timing-adjusted rise, credit-weighted mean across states", tickFormat: "%", grid: true},
+    y: {label: null, domain: rows.map(d => d.part)},
+    marks: [Plot.ruleX([0]), Plot.barX(rows, {y: "part", x: "sh", fill: d => d.sh < 0 ? GRAY : BLUE}), Plot.text(rows.filter(d => d.sh >= 0), {y: "part", x: "sh", text: d => pct(d.sh), dx: 5, textAnchor: "start"}), Plot.text(rows.filter(d => d.sh < 0), {y: "part", x: 0, text: d => pct(d.sh), dx: 5, textAnchor: "start"})]
+  });
+}
+```
+
+```{ojs}
+md`Credits taught per degree, all states' public systems pooled (timing-adjusted): **public universities** ${f0(secsum.get("all states: T Public universities 2010 (adjusted)"))} → ${f0(secsum.get("all states: T Public universities 2022 (adjusted)"))}; **community colleges** ${f0(secsum.get("all states: T Community colleges 2010 (adjusted)"))} → ${f0(secsum.get("all states: T Community colleges 2022 (adjusted)"))}. Most of the system's gain happened inside community colleges. The mix term is negative because degrees shifted toward community colleges, where credits per degree are highest. There is no sign that universities gained by pushing credit onto community colleges: across states the two sectors' changes are essentially uncorrelated. See the [state explorer](../state-explorer/index.qmd?mapm=within_cc) for each state's split.`
+```
+
+::: {.ce-note}
+Public institutions only (state systems exclude private colleges and the large online universities). Source: white paper v5 Section 8 (Tables T46, T50); IPEDS, College Board, National Student Clearinghouse; author's calculations.
+:::

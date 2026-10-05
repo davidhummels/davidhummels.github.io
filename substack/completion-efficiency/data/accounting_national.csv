@@ -1,0 +1,13 @@
+item,per_ba_2010,per_ba_2022,change_in_T_central,contribution_central,share_central,share_low,share_high,n_scenarios,note
+1 AP credit,2.80511,4.13995,-1.33484,0.00501,0.02299,0.00129,0.02896,16.0,"central = every qualifying exam, score-weighted credit; scores sent to colleges 0.003"
+2 Fewer leavers,14.75584,12.2798,-2.47604,0.0093,0.04265,0.01136,0.07119,162.0,range over the item-2 grid
+3 Unreported dual-enrollment credit,0.57535,1.03353,-0.45818,0.00172,0.00789,-0.0,0.03723,54.0,range = plausible cases; bound if none reported 0.058
+3b Reported dual-enrollment credit never used,1.82613,3.28034,1.45421,-0.00546,-0.02505,-0.02505,-0.00931,6.0,"central d = 0.5 (share of reported DE credit later used in a degree); range d 0.5-0.75, three volume series"
+4 Less unused non-degree credit,6.47782,2.3942,-4.08362,0.01534,0.07034,0.01925,0.11267,27.0,"range = beta 7.5-20.3, theta 1.0-1.25, d 0-0.5"
+5 Associate degrees counted twice,9.62033,10.84082,-1.22049,0.00458,0.02102,0.00857,0.02932,3.0,share of BA recipients with a prior associate: central 20.0% -> 22.5% (NSC); range 21.0-23.0% in 2022
+6 Certificate credit (not in D),6.51693,7.06979,0.55286,-0.00208,-0.00952,-0.0127,-0.00635,3.0,"certificate credit-equivalents; central 25% stacked into a later degree, range 0-50%"
+Sum of items (central),,,-7.56609,0.02842,0.13033,,,,
+"Residual: fewer excess credits by completers, other",,,-50.48819,0.18964,0.86967,,,,
+BASE: timing-adjusted rise (central elasticities),208.61873,151.27224,-58.05427,0.21806,1.0,,,,adjusted ER 0.5752 -> 0.7933
+Cohort timing (removed from the base),,,-4.888,0.01836,0.0842,0.04927,0.11456,,"share of measured rise 0.078 (low 0.045, high 0.106)"
+Measured: credits taught per BA-equivalent,212.95984,150.01757,-62.94227,0.23642,1.0842,,,,ER 0.5635 -> 0.7999; ER0 x ER1 / 120 = 0.00376 ER points per credit

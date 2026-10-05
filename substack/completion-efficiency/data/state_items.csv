@@ -1,0 +1,409 @@
+stabbr,item,per_ba_2010,per_ba_2022,change_in_T,contribution
+AK,AP credit,2.64398,4.15279,-1.50881,0.00394
+AK,Fewer leavers,39.49969,33.75515,-5.74454,0.01499
+AK,Unreported DE credit,1.17992,2.32927,-1.14934,0.003
+AK,Reported DE credit never used,3.74498,7.39289,3.64792,-0.00952
+AK,Less non-degree credit,53.96171,24.67236,-29.28935,0.07645
+AK,AA counted twice,9.01053,10.36216,-1.35164,0.00353
+AK,Certificate credit,5.81955,7.47104,1.65149,-0.00431
+AK,Net interstate credit inflow,11.00737,9.01198,-1.99538,0.00521
+AL,AP credit,2.56708,5.78371,-3.21663,0.01036
+AL,Fewer leavers,16.10819,13.81916,-2.28902,0.00737
+AL,Unreported DE credit,0.41815,0.91381,-0.49566,0.0016
+AL,Reported DE credit never used,1.32718,2.90036,1.57318,-0.00507
+AL,Less non-degree credit,2.02049,2.03521,0.01472,-5e-05
+AL,AA counted twice,9.92495,11.21941,-1.29446,0.00417
+AL,Certificate credit,4.2888,7.70897,3.42018,-0.01101
+AL,Net interstate credit inflow,5.12311,4.4446,0.67851,-0.00218
+AR,AP credit,2.15424,3.22235,-1.06812,0.00358
+AR,Fewer leavers,20.07875,15.26624,-4.81252,0.01615
+AR,Unreported DE credit,0.98619,1.23167,-0.24547,0.00082
+AR,Reported DE credit never used,3.13008,3.9092,0.77911,-0.00261
+AR,Less non-degree credit,5.64113,0.87925,-4.76187,0.01598
+AR,AA counted twice,8.91436,9.86873,-0.95437,0.0032
+AR,Certificate credit,16.07714,17.12209,1.04495,-0.00351
+AR,Net interstate credit inflow,2.45387,2.56811,-0.11424,0.00038
+AZ,AP credit,2.69936,3.9963,-1.29694,0.00384
+AZ,Fewer leavers,7.60799,16.80568,9.19769,-0.0272
+AZ,Unreported DE credit,1.04639,1.02039,0.02599,-8e-05
+AZ,Reported DE credit never used,3.32114,3.23864,-0.0825,0.00024
+AZ,Less non-degree credit,21.93911,4.69944,-17.23967,0.05099
+AZ,AA counted twice,9.10561,10.9644,-1.85879,0.0055
+AZ,Certificate credit,14.74097,12.42426,-2.31671,0.00685
+AZ,Net interstate credit inflow,6.69941,5.84532,0.85409,-0.00253
+CA,AP credit,6.8236,7.03018,-0.20658,0.00061
+CA,Fewer leavers,15.95093,17.34266,1.39173,-0.00411
+CA,Unreported DE credit,0.82375,0.91579,-0.09204,0.00027
+CA,Reported DE credit never used,2.6145,2.90664,0.29214,-0.00086
+CA,Less non-degree credit,9.34285,2.92619,-6.41666,0.01894
+CA,AA counted twice,8.95548,8.59526,0.36022,-0.00106
+CA,Certificate credit,6.3012,11.84786,5.54666,-0.01637
+CA,Net interstate credit inflow,1.58797,1.67268,0.08472,-0.00025
+CO,AP credit,3.69225,5.0772,-1.38495,0.00484
+CO,Fewer leavers,13.49665,11.15823,-2.33842,0.00817
+CO,Unreported DE credit,0.84055,1.85862,-1.01807,0.00356
+CO,Reported DE credit never used,2.66782,5.89909,3.23128,-0.01129
+CO,Less non-degree credit,9.41699,2.90434,-6.51265,0.02276
+CO,AA counted twice,10.49411,11.57668,-1.08257,0.00378
+CO,Certificate credit,7.11704,6.46489,-0.65215,0.00228
+CO,Net interstate credit inflow,2.73404,2.60407,0.12997,-0.00045
+CT,AP credit,1.92919,3.08931,-1.16012,0.00498
+CT,Fewer leavers,10.40686,10.56669,0.15983,-0.00069
+CT,Unreported DE credit,1.78814,2.13795,-0.34982,0.0015
+CT,Reported DE credit never used,5.67539,6.78568,1.11029,-0.00476
+CT,Less non-degree credit,8.09152,1.81408,-6.27744,0.02692
+CT,AA counted twice,9.86931,11.21579,-1.34648,0.00577
+CT,Certificate credit,1.52772,2.03921,0.51149,-0.00219
+CT,Net interstate credit inflow,4.74931,5.36429,0.61499,-0.00264
+DC,AP credit,4.09042,3.83433,0.25609,-0.00094
+DC,Fewer leavers,12.08604,4.6657,-7.42033,0.02723
+DC,Unreported DE credit,5.04686,3.39304,1.65383,-0.00607
+DC,Reported DE credit never used,16.0183,10.7692,-5.2491,0.01927
+DC,Less non-degree credit,0.0,1.30323,1.30323,-0.00478
+DC,AA counted twice,10.65294,10.65484,-0.0019,1e-05
+DC,Certificate credit,0.0,0.58065,0.58065,-0.00213
+DC,Net interstate credit inflow,43.80864,72.82075,29.01211,-0.10648
+DE,AP credit,4.54636,4.50437,0.04199,-0.00016
+DE,Fewer leavers,5.9929,13.09107,7.09817,-0.02718
+DE,Unreported DE credit,0.61375,0.70714,-0.0934,0.00036
+DE,Reported DE credit never used,1.94798,2.24441,0.29643,-0.00113
+DE,Less non-degree credit,2.7138,0.86856,-1.84524,0.00707
+DE,AA counted twice,10.04055,11.3161,-1.27555,0.00488
+DE,Certificate credit,3.79892,0.62454,-3.17438,0.01215
+DE,Net interstate credit inflow,4.71966,3.17988,1.53979,-0.0059
+FL,AP credit,3.66942,4.58289,-0.91348,0.00435
+FL,Fewer leavers,16.41445,13.58673,-2.82772,0.01345
+FL,Unreported DE credit,0.53218,1.0293,-0.49712,0.00236
+FL,Reported DE credit never used,1.68909,3.26691,1.57782,-0.00751
+FL,Less non-degree credit,9.2513,2.2205,-7.0308,0.03345
+FL,AA counted twice,7.61557,9.4157,-1.80013,0.00856
+FL,Certificate credit,4.86969,5.82254,0.95285,-0.00453
+FL,Net interstate credit inflow,0.53448,0.61499,0.08051,-0.00038
+GA,AP credit,3.95263,5.03993,-1.0873,0.00271
+GA,Fewer leavers,17.46461,11.11467,-6.34993,0.01582
+GA,Unreported DE credit,0.34006,1.23099,-0.89093,0.00222
+GA,Reported DE credit never used,1.07932,3.90706,2.82774,-0.00705
+GA,Less non-degree credit,3.11151,1.86599,-1.24553,0.0031
+GA,AA counted twice,9.9369,11.3112,-1.3743,0.00342
+GA,Certificate credit,21.90603,15.6019,-6.30414,0.01571
+GA,Net interstate credit inflow,1.84237,1.07446,-0.76791,0.00191
+HI,AP credit,2.22286,3.97588,-1.75302,0.00689
+HI,Fewer leavers,20.50236,17.61117,-2.89119,0.01136
+HI,Unreported DE credit,0.826,1.2468,-0.4208,0.00165
+HI,Reported DE credit never used,2.62166,3.95724,1.33557,-0.00525
+HI,Less non-degree credit,16.84157,11.45271,-5.38887,0.02118
+HI,AA counted twice,8.80637,9.99739,-1.19102,0.00468
+HI,Certificate credit,2.89522,5.46749,2.57227,-0.01011
+HI,Net interstate credit inflow,5.09062,5.76757,0.67695,-0.00266
+IA,AP credit,1.69017,3.1526,-1.46243,0.0045
+IA,Fewer leavers,21.22556,10.09559,-11.12997,0.03423
+IA,Unreported DE credit,2.24947,3.04502,-0.79555,0.00245
+IA,Reported DE credit never used,7.13962,9.66463,2.52501,-0.00777
+IA,Less non-degree credit,4.73802,4.11942,-0.6186,0.0019
+IA,AA counted twice,8.07914,9.8096,-1.73046,0.00532
+IA,Certificate credit,7.9984,8.50576,0.50736,-0.00156
+IA,Net interstate credit inflow,4.47789,4.74656,-0.26867,0.00083
+ID,AP credit,2.28144,3.55014,-1.2687,0.00421
+ID,Fewer leavers,16.87151,11.06662,-5.80488,0.01926
+ID,Unreported DE credit,1.38713,5.87327,-4.48614,0.01489
+ID,Reported DE credit never used,4.40264,18.64126,14.23862,-0.04725
+ID,Less non-degree credit,7.39412,1.1493,-6.24481,0.02072
+ID,AA counted twice,10.01284,10.62114,-0.6083,0.00202
+ID,Certificate credit,5.24804,11.09252,5.84448,-0.0194
+ID,Net interstate credit inflow,1.0753,0.49555,-1.57085,0.00521
+IL,AP credit,2.62776,4.72402,-2.09625,0.00539
+IL,Fewer leavers,12.273,13.30336,1.03036,-0.00265
+IL,Unreported DE credit,0.92581,2.12582,-1.20001,0.00309
+IL,Reported DE credit never used,2.93843,6.74716,3.80872,-0.00979
+IL,Less non-degree credit,26.36816,9.47472,-16.89344,0.04344
+IL,AA counted twice,8.50315,8.91068,-0.40753,0.00105
+IL,Certificate credit,10.59326,14.51014,3.91689,-0.01007
+IL,Net interstate credit inflow,5.16926,8.37228,3.20303,-0.00824
+IN,AP credit,2.29927,3.94481,-1.64555,0.00551
+IN,Fewer leavers,20.19981,9.09374,-11.10607,0.03715
+IN,Unreported DE credit,1.11138,3.404,-2.29262,0.00767
+IN,Reported DE credit never used,3.52743,10.80401,7.27658,-0.02434
+IN,Less non-degree credit,4.40242,2.17447,-2.22795,0.00745
+IN,AA counted twice,10.07112,11.6196,-1.54848,0.00518
+IN,Certificate credit,3.67472,15.65197,11.97725,-0.04007
+IN,Net interstate credit inflow,2.69852,2.72854,-0.03002,0.0001
+KS,AP credit,1.79628,2.92703,-1.13075,0.0041
+KS,Fewer leavers,13.65126,12.97483,-0.67643,0.00245
+KS,Unreported DE credit,1.08908,2.16459,-1.07551,0.0039
+KS,Reported DE credit never used,3.45664,6.87023,3.41359,-0.01238
+KS,Less non-degree credit,13.6896,5.38899,-8.30061,0.0301
+KS,AA counted twice,9.43442,10.50181,-1.06739,0.00387
+KS,Certificate credit,9.47164,9.67985,0.20822,-0.00076
+KS,Net interstate credit inflow,3.48245,3.99122,-0.50877,0.00184
+KY,AP credit,3.36211,5.61882,-2.25671,0.00809
+KY,Fewer leavers,19.70719,12.97996,-6.72723,0.02413
+KY,Unreported DE credit,1.31427,2.3356,-1.02133,0.00366
+KY,Reported DE credit never used,4.17139,7.41299,3.2416,-0.01163
+KY,Less non-degree credit,12.41477,3.69501,-8.71976,0.03127
+KY,AA counted twice,9.52848,10.5086,-0.98012,0.00351
+KY,Certificate credit,14.23246,17.97929,3.74683,-0.01344
+KY,Net interstate credit inflow,2.48868,2.41545,0.07323,-0.00026
+LA,AP credit,2.43275,5.16132,-2.72857,0.00735
+LA,Fewer leavers,12.80242,14.89721,2.09478,-0.00564
+LA,Unreported DE credit,0.96076,1.55591,-0.59516,0.0016
+LA,Reported DE credit never used,3.04936,4.93834,1.88898,-0.00509
+LA,Less non-degree credit,6.72158,2.19221,-4.52938,0.0122
+LA,AA counted twice,10.68142,11.72,-1.03858,0.0028
+LA,Certificate credit,21.38156,13.93709,-7.44447,0.02006
+LA,Net interstate credit inflow,0.60841,0.67756,-0.06915,0.00019
+MA,AP credit,1.90025,3.17735,-1.2771,0.00492
+MA,Fewer leavers,9.41218,7.52093,-1.89125,0.00729
+MA,Unreported DE credit,0.28583,0.65949,-0.37366,0.00144
+MA,Reported DE credit never used,0.90719,2.09317,1.18598,-0.00457
+MA,Less non-degree credit,10.83662,2.89705,-7.93957,0.03062
+MA,AA counted twice,9.20906,11.08518,-1.87612,0.00723
+MA,Certificate credit,2.61635,2.21501,-0.40133,0.00155
+MA,Net interstate credit inflow,3.05771,3.52252,0.46482,-0.00179
+MD,AP credit,3.15712,2.96746,0.18966,-0.00081
+MD,Fewer leavers,13.76087,11.9651,-1.79577,0.00768
+MD,Unreported DE credit,0.37588,0.68173,-0.30585,0.00131
+MD,Reported DE credit never used,1.19302,2.16377,0.97074,-0.00415
+MD,Less non-degree credit,8.06904,2.27955,-5.78949,0.02477
+MD,AA counted twice,9.54039,10.66099,-1.1206,0.0048
+MD,Certificate credit,5.1824,3.07049,-2.11191,0.00904
+MD,Net interstate credit inflow,0.64488,0.97297,0.32809,-0.0014
+ME,AP credit,1.99293,3.45,-1.45706,0.00569
+ME,Fewer leavers,13.7137,12.77861,-0.93509,0.00365
+ME,Unreported DE credit,0.56044,2.5334,-1.97297,0.0077
+ME,Reported DE credit never used,1.77878,8.04081,6.26203,-0.02445
+ME,Less non-degree credit,11.08373,5.15493,-5.92881,0.02315
+ME,AA counted twice,9.64598,10.99585,-1.34988,0.00527
+ME,Certificate credit,2.69391,2.90744,0.21353,-0.00083
+ME,Net interstate credit inflow,0.20437,3.9163,-3.71193,0.01449
+MI,AP credit,2.99499,5.36639,-2.3714,0.0089
+MI,Fewer leavers,14.93316,11.35833,-3.57483,0.01342
+MI,Unreported DE credit,0.44541,0.76293,-0.31752,0.00119
+MI,Reported DE credit never used,1.4137,2.42148,1.00778,-0.00378
+MI,Less non-degree credit,9.71985,1.9633,-7.75655,0.02912
+MI,AA counted twice,9.5535,11.01076,-1.45726,0.00547
+MI,Certificate credit,4.61782,3.69945,-0.91837,0.00345
+MI,Net interstate credit inflow,0.63573,0.84795,-0.21222,0.0008
+MN,AP credit,2.25288,3.48884,-1.23596,0.00404
+MN,Fewer leavers,10.65185,8.72943,-1.92242,0.00629
+MN,Unreported DE credit,1.06561,2.33933,-1.27372,0.00417
+MN,Reported DE credit never used,3.38215,7.42484,4.04268,-0.01323
+MN,Less non-degree credit,7.45,4.19001,-3.25999,0.01067
+MN,AA counted twice,8.76897,9.96153,-1.19256,0.0039
+MN,Certificate credit,12.68214,9.9129,-2.76924,0.00906
+MN,Net interstate credit inflow,3.58399,5.93921,2.35522,-0.00771
+MO,AP credit,2.58737,3.49213,-0.90475,0.00332
+MO,Fewer leavers,15.51635,13.40075,-2.1156,0.00777
+MO,Unreported DE credit,0.92381,2.16825,-1.24443,0.00457
+MO,Reported DE credit never used,2.9321,6.88182,3.94973,-0.01451
+MO,Less non-degree credit,7.73322,3.00306,-4.73016,0.01738
+MO,AA counted twice,9.5783,10.49163,-0.91333,0.00335
+MO,Certificate credit,2.25278,7.06127,4.80848,-0.01766
+MO,Net interstate credit inflow,0.11643,0.45712,0.34069,-0.00125
+MS,AP credit,1.76195,2.91534,-1.15339,0.00344
+MS,Fewer leavers,21.56425,17.59581,-3.96844,0.01182
+MS,Unreported DE credit,0.3252,1.33402,-1.00882,0.003
+MS,Reported DE credit never used,1.03214,4.23405,3.2019,-0.00954
+MS,Less non-degree credit,0.55865,1.96818,1.40953,-0.0042
+MS,AA counted twice,8.33003,8.96245,-0.63242,0.00188
+MS,Certificate credit,5.79275,10.11187,4.31911,-0.01286
+MS,Net interstate credit inflow,3.37837,6.06362,-2.68525,0.008
+MT,AP credit,2.49691,6.0293,-3.53239,0.01288
+MT,Fewer leavers,17.90448,15.68581,-2.21868,0.00809
+MT,Unreported DE credit,0.47227,1.40082,-0.92854,0.00338
+MT,Reported DE credit never used,1.49895,4.44607,2.94712,-0.01074
+MT,Less non-degree credit,4.13841,3.75847,-0.37994,0.00138
+MT,AA counted twice,10.22814,11.31119,-1.08304,0.00395
+MT,Certificate credit,2.86065,6.97978,4.11913,-0.01501
+MT,Net interstate credit inflow,2.9302,5.60718,-2.67698,0.00976
+NC,AP credit,4.41982,5.16133,-0.74151,0.00204
+NC,Fewer leavers,15.03408,11.29202,-3.74206,0.0103
+NC,Unreported DE credit,0.88983,1.5011,-0.61127,0.00168
+NC,Reported DE credit never used,2.82424,4.76437,1.94012,-0.00534
+NC,Less non-degree credit,7.04266,2.55364,-4.48902,0.01236
+NC,AA counted twice,9.13448,9.87669,-0.74221,0.00204
+NC,Certificate credit,8.21732,9.92235,1.70502,-0.0047
+NC,Net interstate credit inflow,1.84447,0.22581,1.61866,-0.00446
+ND,AP credit,2.06942,3.35306,-1.28364,0.00594
+ND,Fewer leavers,10.30963,9.88573,-0.4239,0.00196
+ND,Unreported DE credit,0.62211,1.11839,-0.49628,0.0023
+ND,Reported DE credit never used,1.97452,3.54967,1.57515,-0.00729
+ND,Less non-degree credit,4.67327,5.2552,0.58192,-0.00269
+ND,AA counted twice,9.97605,11.44863,-1.47258,0.00681
+ND,Certificate credit,3.10712,3.89147,0.78435,-0.00363
+ND,Net interstate credit inflow,6.51777,7.86763,-1.34987,0.00624
+NE,AP credit,1.67903,2.94365,-1.26462,0.00395
+NE,Fewer leavers,15.01547,12.16986,-2.84561,0.00888
+NE,Unreported DE credit,0.97741,2.26567,-1.28826,0.00402
+NE,Reported DE credit never used,3.10222,7.19104,4.08882,-0.01277
+NE,Less non-degree credit,21.31929,7.73678,-13.5825,0.04241
+NE,AA counted twice,9.43384,10.81343,-1.37959,0.00431
+NE,Certificate credit,4.56477,6.71382,2.14905,-0.00671
+NE,Net interstate credit inflow,0.17483,0.52231,-0.69714,0.00218
+NH,AP credit,2.26658,3.63135,-1.36477,0.0067
+NH,Fewer leavers,6.78229,9.09339,2.3111,-0.01135
+NH,Unreported DE credit,1.44279,1.86378,-0.42099,0.00207
+NH,Reported DE credit never used,4.5793,5.91547,1.33618,-0.00656
+NH,Less non-degree credit,6.33132,2.41833,-3.91299,0.01921
+NH,AA counted twice,10.1466,11.41593,-1.26933,0.00623
+NH,Certificate credit,1.73366,2.60925,0.8756,-0.0043
+NH,Net interstate credit inflow,3.1233,4.1879,-1.0646,0.00523
+NJ,AP credit,1.49717,2.15607,-0.6589,0.00236
+NJ,Fewer leavers,19.78424,14.62062,-5.16361,0.01851
+NJ,Unreported DE credit,0.39598,0.89809,-0.50212,0.0018
+NJ,Reported DE credit never used,1.25679,2.85047,1.59368,-0.00571
+NJ,Less non-degree credit,7.40627,2.22664,-5.17964,0.01856
+NJ,AA counted twice,8.6953,10.32372,-1.62842,0.00584
+NJ,Certificate credit,0.9438,0.98247,0.03867,-0.00014
+NJ,Net interstate credit inflow,5.77933,4.5064,-1.27294,0.00456
+NM,AP credit,2.55105,3.98924,-1.43819,0.00363
+NM,Fewer leavers,27.2623,24.079,-3.1833,0.00803
+NM,Unreported DE credit,1.16467,1.66877,-0.50411,0.00127
+NM,Reported DE credit never used,3.69655,5.29653,1.59999,-0.00404
+NM,Less non-degree credit,22.27316,6.42253,-15.85062,0.03998
+NM,AA counted twice,8.80095,9.07458,-0.27364,0.00069
+NM,Certificate credit,10.58595,16.68168,6.09572,-0.01538
+NM,Net interstate credit inflow,1.6246,1.21963,0.40497,-0.00102
+NV,AP credit,3.70206,6.13941,-2.43735,0.00661
+NV,Fewer leavers,25.68944,22.38607,-3.30337,0.00895
+NV,Unreported DE credit,1.82462,1.45056,0.37406,-0.00101
+NV,Reported DE credit never used,5.79118,4.60395,-1.18723,0.00322
+NV,Less non-degree credit,19.22276,3.04434,-16.17842,0.04384
+NV,AA counted twice,9.58191,10.26931,-0.6874,0.00186
+NV,Certificate credit,3.58517,4.04323,0.45806,-0.00124
+NV,Net interstate credit inflow,0.43501,0.57316,0.13815,-0.00037
+NY,AP credit,1.93989,2.73762,-0.79774,0.00321
+NY,Fewer leavers,14.12252,11.74206,-2.38046,0.00959
+NY,Unreported DE credit,1.10504,1.67655,-0.57151,0.0023
+NY,Reported DE credit never used,3.50729,5.32121,1.81392,-0.0073
+NY,Less non-degree credit,4.88446,1.31223,-3.57223,0.01439
+NY,AA counted twice,8.57327,10.46678,-1.89352,0.00763
+NY,Certificate credit,1.17168,0.84264,-0.32903,0.00133
+NY,Net interstate credit inflow,2.10247,1.69074,-0.41173,0.00166
+OH,AP credit,3.31006,5.57506,-2.265,0.00749
+OH,Fewer leavers,17.0788,10.99995,-6.07885,0.02009
+OH,Unreported DE credit,0.5999,1.58989,-0.98998,0.00327
+OH,Reported DE credit never used,1.90404,5.04617,3.14212,-0.01038
+OH,Less non-degree credit,10.89024,4.06463,-6.82561,0.02256
+OH,AA counted twice,9.57606,10.29147,-0.71541,0.00236
+OH,Certificate credit,3.44526,6.001,2.55575,-0.00845
+OH,Net interstate credit inflow,0.28342,1.81678,-2.1002,0.00694
+OK,AP credit,3.31434,4.37255,-1.05821,0.00462
+OK,Fewer leavers,20.64626,17.64125,-3.00501,0.01313
+OK,Unreported DE credit,0.41505,0.86365,-0.44861,0.00196
+OK,Reported DE credit never used,1.31732,2.74116,1.42384,-0.00622
+OK,Less non-degree credit,2.94143,3.85167,0.91025,-0.00398
+OK,AA counted twice,9.53167,10.43984,-0.90817,0.00397
+OK,Certificate credit,0.78672,1.30376,0.51704,-0.00226
+OK,Net interstate credit inflow,2.50305,2.33261,0.17044,-0.00074
+OR,AP credit,3.20611,5.17009,-1.96397,0.00831
+OR,Fewer leavers,16.03511,14.80895,-1.22615,0.00519
+OR,Unreported DE credit,1.56881,2.11133,-0.54252,0.0023
+OR,Reported DE credit never used,4.97927,6.70117,1.7219,-0.00729
+OR,Less non-degree credit,6.84477,1.5571,-5.28767,0.02238
+OR,AA counted twice,10.16444,11.34299,-1.17855,0.00499
+OR,Certificate credit,3.04984,3.35596,0.30613,-0.0013
+OR,Net interstate credit inflow,4.58372,4.59258,-0.00886,4e-05
+PA,AP credit,2.29283,3.39474,-1.10191,0.00458
+PA,Fewer leavers,9.7111,8.54956,-1.16154,0.00483
+PA,Unreported DE credit,0.45875,1.07369,-0.61494,0.00256
+PA,Reported DE credit never used,1.45603,3.4078,1.95177,-0.00812
+PA,Less non-degree credit,3.8425,0.90943,-2.93307,0.0122
+PA,AA counted twice,10.21315,11.48269,-1.26954,0.00528
+PA,Certificate credit,1.89743,2.86543,0.96799,-0.00403
+PA,Net interstate credit inflow,0.31872,0.31914,0.63786,-0.00265
+RI,AP credit,2.47545,3.53834,-1.06289,0.00432
+RI,Fewer leavers,7.89963,7.35656,-0.54307,0.00221
+RI,Unreported DE credit,0.96498,1.46737,-0.50239,0.00204
+RI,Reported DE credit never used,3.06277,4.65731,1.59454,-0.00649
+RI,Less non-degree credit,3.76631,0.66255,-3.10376,0.01263
+RI,AA counted twice,10.32276,11.14825,-0.82549,0.00336
+RI,Certificate credit,1.33572,1.24005,-0.09567,0.00039
+RI,Net interstate credit inflow,6.34084,3.33421,3.00663,-0.01223
+SC,AP credit,4.41967,7.56076,-3.14108,0.00888
+SC,Fewer leavers,15.48092,11.69641,-3.78451,0.0107
+SC,Unreported DE credit,0.58808,1.10382,-0.51574,0.00146
+SC,Reported DE credit never used,1.86651,3.50344,1.63692,-0.00463
+SC,Less non-degree credit,2.62364,0.97116,-1.65248,0.00467
+SC,AA counted twice,9.70067,11.01436,-1.31369,0.00371
+SC,Certificate credit,6.271,6.20885,-0.06215,0.00018
+SC,Net interstate credit inflow,4.75172,4.27091,0.48081,-0.00136
+SD,AP credit,2.00454,3.14787,-1.14333,0.00437
+SD,Fewer leavers,10.53562,9.3691,-1.16652,0.00445
+SD,Unreported DE credit,0.12985,1.76741,-1.63756,0.00625
+SD,Reported DE credit never used,0.41212,5.6096,5.19748,-0.01985
+SD,Less non-degree credit,13.19701,7.62523,-5.57178,0.02128
+SD,AA counted twice,9.87291,11.13576,-1.26285,0.00482
+SD,Certificate credit,6.99532,5.57412,-1.42119,0.00543
+SD,Net interstate credit inflow,2.33484,4.97374,-2.6389,0.01008
+TN,AP credit,2.2381,3.91378,-1.67568,0.00577
+TN,Fewer leavers,16.65879,15.53705,-1.12174,0.00386
+TN,Unreported DE credit,0.6366,1.51435,-0.87775,0.00302
+TN,Reported DE credit never used,2.02051,4.80642,2.78591,-0.00959
+TN,Less non-degree credit,5.18485,1.25521,-3.92963,0.01352
+TN,AA counted twice,9.90425,10.59991,-0.69566,0.00239
+TN,Certificate credit,1.98649,2.89488,0.90839,-0.00313
+TN,Net interstate credit inflow,1.4149,0.74068,-0.67422,0.00232
+TX,AP credit,4.64972,6.11523,-1.46551,0.00464
+TX,Fewer leavers,19.04421,16.5008,-2.54341,0.00805
+TX,Unreported DE credit,1.28706,1.65521,-0.36815,0.00116
+TX,Reported DE credit never used,4.08502,5.25348,1.16846,-0.0037
+TX,Less non-degree credit,6.17754,1.50523,-4.67231,0.01478
+TX,AA counted twice,9.50356,10.06477,-0.5612,0.00178
+TX,Certificate credit,5.09898,5.53517,0.43619,-0.00138
+TX,Net interstate credit inflow,1.13302,1.33563,0.20262,-0.00064
+UT,AP credit,3.02269,4.91635,-1.89366,0.00857
+UT,Fewer leavers,10.6401,9.0255,-1.61461,0.00731
+UT,Unreported DE credit,1.78863,2.46737,-0.67873,0.00307
+UT,Reported DE credit never used,5.67696,7.8312,2.15424,-0.00975
+UT,Less non-degree credit,3.9399,1.97038,-1.96951,0.00891
+UT,AA counted twice,8.68363,9.49925,-0.81562,0.00369
+UT,Certificate credit,2.21594,9.66293,7.44699,-0.03371
+UT,Net interstate credit inflow,2.26164,3.4531,-1.19146,0.00539
+VA,AP credit,4.23792,4.63313,-0.39521,0.00144
+VA,Fewer leavers,10.07755,8.80525,-1.2723,0.00462
+VA,Unreported DE credit,0.95707,1.23877,-0.2817,0.00102
+VA,Reported DE credit never used,3.03767,3.93175,0.89408,-0.00325
+VA,Less non-degree credit,8.01684,1.88749,-6.12935,0.02228
+VA,AA counted twice,9.81325,10.93877,-1.12552,0.00409
+VA,Certificate credit,4.12108,7.95706,3.83598,-0.01394
+VA,Net interstate credit inflow,0.58637,0.40578,0.18058,-0.00066
+VT,AP credit,2.22824,3.30563,-1.07739,0.0055
+VT,Fewer leavers,7.67168,6.75088,-0.9208,0.0047
+VT,Unreported DE credit,0.47382,1.12381,-0.64999,0.00332
+VT,Reported DE credit never used,1.50387,3.56689,2.06301,-0.01053
+VT,Less non-degree credit,6.99127,6.54643,-0.44485,0.00227
+VT,AA counted twice,10.48569,12.19976,-1.71407,0.00875
+VT,Certificate credit,2.33134,2.58777,0.25643,-0.00131
+VT,Net interstate credit inflow,6.11398,7.01445,-0.90048,0.0046
+WA,AP credit,3.25423,4.73286,-1.47863,0.00524
+WA,Fewer leavers,14.78838,15.83584,1.04745,-0.00371
+WA,Unreported DE credit,2.00417,1.88292,0.12126,-0.00043
+WA,Reported DE credit never used,6.36108,5.97622,-0.38486,0.00136
+WA,Less non-degree credit,28.8829,6.12845,-22.75445,0.08064
+WA,AA counted twice,8.10487,9.33284,-1.22797,0.00435
+WA,Certificate credit,10.45449,5.7076,-4.74689,0.01682
+WA,Net interstate credit inflow,2.4929,1.02057,-1.47233,0.00522
+WI,AP credit,3.2758,5.78672,-2.51093,0.00912
+WI,Fewer leavers,8.22549,7.2992,-0.92629,0.00336
+WI,Unreported DE credit,0.54209,2.07622,-1.53413,0.00557
+WI,Reported DE credit never used,1.72056,6.58976,4.8692,-0.01768
+WI,Less non-degree credit,11.01856,3.85062,-7.16794,0.02603
+WI,AA counted twice,9.80896,11.22926,-1.4203,0.00516
+WI,Certificate credit,11.96945,13.80864,1.83918,-0.00668
+WI,Net interstate credit inflow,0.33217,1.35338,-1.02121,0.00371
+WV,AP credit,2.40562,4.2745,-1.86889,0.00689
+WV,Fewer leavers,15.4243,14.17273,-1.25157,0.00462
+WV,Unreported DE credit,0.72579,1.07047,-0.34468,0.00127
+WV,Reported DE credit never used,2.30359,3.39757,1.09398,-0.00403
+WV,Less non-degree credit,8.89465,5.34293,-3.55172,0.0131
+WV,AA counted twice,10.3068,11.2916,-0.9848,0.00363
+WV,Certificate credit,1.73949,3.46476,1.72527,-0.00636
+WV,Net interstate credit inflow,6.99187,4.62008,2.37179,-0.00875
+WY,AP credit,1.19089,2.02273,-0.83184,0.00229
+WY,Fewer leavers,20.30394,15.42954,-4.8744,0.01344
+WY,Unreported DE credit,1.69701,2.83635,-1.13934,0.00314
+WY,Reported DE credit never used,5.38617,9.00233,3.61615,-0.00997
+WY,Less non-degree credit,23.41825,10.37317,-13.04508,0.03598
+WY,AA counted twice,7.18469,8.63158,-1.44689,0.00399
+WY,Certificate credit,7.66572,8.23212,0.5664,-0.00156
+WY,Net interstate credit inflow,7.50688,6.04759,1.4593,-0.00402

@@ -1,0 +1,5 @@
+scenario,nat_tuition_per_credit_2024,nat_er_idx_2024,nat_tuition_per_degree_2024,nat_rev_per_degree_2024,nat_netcost_per_degree_2024,peak_year_tuition_per_degree,nat_tuition_per_degree_2010,counterfactual_2010_er_pct_higher_2024,states_median_tuition_per_credit,states_median_tuition_per_degree,states_below_100_tuition,states_median_rev_per_degree,states_below_100_rev,states_median_netcost_per_degree,states_below_100_netcost,n_states
+measured,155.294,131.171,118.39,98.792,92.117,2010,138.332,32.903,171.571,125.284,3,112.31,15,101.719,23,51
+low,155.294,129.786,119.654,99.915,93.098,2011,139.63,32.734,171.571,127.536,4,112.358,14,105.864,22,51
+central,155.294,129.424,119.989,100.203,93.335,2011,139.842,32.563,171.571,127.557,5,112.968,15,103.886,22,51
+high,155.294,128.536,120.818,100.949,93.979,2011,140.787,32.544,171.571,130.987,4,112.554,15,104.978,23,51

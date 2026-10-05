@@ -1,0 +1,121 @@
+---
+title: "National trends"
+subtitle: "Degrees produced per credit taught, 1998–2024"
+page-layout: full
+execute:
+  echo: false
+---
+
+{{< include ../_nav.qmd >}}
+
+{{< include ../_common.qmd >}}
+
+```{ojs}
+nat = FileAttachment("../data/national_series.csv").csv({typed: true})
+above = FileAttachment("../data/share_above_1.csv").csv({typed: true})
+tg = FileAttachment("../data/timing_growth.csv").csv({typed: true})
+```
+
+```{ojs}
+allI = nat.filter(d => d.label === "All institutions")
+v10 = allI.find(d => d.year === 2010); v22 = allI.find(d => d.year === 2022); v24 = allI.find(d => d.year === 2024)
+md`<div class="ce-lead">For every credit colleges taught in 2010 they awarded <b>${f2(v10.measured)}</b> credits' worth of degrees; by 2022 they awarded <b>${f2(v22.measured)}</b>, a rise of <b>${pct((v22.measured / v10.measured) - 1)}</b>. Put the other way, colleges taught <b>${f0(120 / v10.measured)}</b> credits for each bachelor's-degree equivalent in 2010 and <b>${f0(120 / v22.measured)}</b> in 2022. Shrinking entering classes explain only a small part of the rise: on the timing-adjusted ratio it is <b>${pct((v22.central / v10.central) - 1)}</b>.</div>`
+```
+
+{{< include ../_toggles.qmd >}}
+
+## The ratio by sector or Carnegie group
+
+```{ojs}
+viewof kind = Inputs.radio(new Map([["Sectors", "sector"], ["Carnegie groups", "carnegie"]]), {value: param("k", "sector"), label: "Groups"})
+```
+
+```{ojs}
+groupsAvail = [...new Set(nat.filter(d => d.kind === kind).map(d => d.label))]
+defaultsSel = kind === "sector" ? ["All institutions", "Public universities", "Community colleges", "Private nonprofit 4-year"] : ["Public 4-year | R1 (very high research)", "Private nonprofit 4-year | R1 (very high research)", "Public 4-year | Master's", "Private nonprofit 4-year | Baccalaureate"]
+viewof chosen = Inputs.checkbox(groupsAvail, {value: defaultsSel.filter(g => groupsAvail.includes(g)), label: "Show"})
+```
+
+```{ojs}
+{
+  setParam("k", kind);
+  const rows = nat.filter(d => d.kind === kind && chosen.includes(d.label));
+  const pts = rows.map(d => ({...d, v: val(d[tcol]), lo: val(d.low), hi: val(d.high), vm: val(d.measured)}));
+  const showBand = timing !== "measured";
+  return Plot.plot({
+    width, height: 430, marginRight: 190,
+    x: {...yearAxis, domain: [1998, 2024]},
+    y: {label: `${mlab} (${tlab})`, grid: true, type: measure === "T" ? "log" : "linear", tickFormat: measure === "T" ? "d" : ".2f"},
+    color: {domain: chosen, scheme: "tableau10"},
+    marks: [
+      Plot.ruleY(measure === "ER" ? [1] : [120], {stroke: "#bbb", strokeDasharray: "3,3"}),
+      Plot.rectX([{x1: 2010.5, x2: 2022.5}], {x1: "x1", x2: "x2", fill: "#f1f4f7"}),
+      showBand ? Plot.areaY(pts, {x: "year", y1: "lo", y2: "hi", z: "label", fill: "label", fillOpacity: 0.15}) : null,
+      showBand ? Plot.lineY(pts, {x: "year", y: "vm", z: "label", stroke: "label", strokeOpacity: 0.35, strokeDasharray: "2,3"}) : null,
+      Plot.lineY(pts, {x: "year", y: "v", stroke: "label", strokeWidth: 2.2}),
+      Plot.text(pts, Plot.selectLast({x: "year", y: "v", z: "label", text: d => `${d.label.replace(" | ", " · ")}  ${fv(d.v)}`, fill: "label", textAnchor: "start", dx: 6, fontSize: 11})),
+      Plot.tip(pts, Plot.pointerX({x: "year", y: "v", title: d => `${d.label}\n${d.year}: ${fv(d.v)} (${tlab})\nmeasured ${fv(d.vm)}\n${d.n} institutions`}))
+    ]
+  });
+}
+```
+
+::: {.ce-note}
+Shaded years: 2010–2022, the window the paper's accounting uses. With the timing-adjusted ratio, the dotted line is the measured ratio and the band runs from the low to the high timing case. The ER counts 120 credits per bachelor's and 60 per associate degree; credit-hour weighted (ratio of sums). `T` uses a log scale.
+:::
+
+## Where the ratio is above 1
+
+Four-year institutions whose degree credits exceed the credits they teach must be importing credit from elsewhere: AP, dual enrollment, transfer.
+
+```{ojs}
+{
+  const col = timing === "measured" ? "share_above_1_measured" : "share_above_1_adjusted";
+  return Plot.plot({
+    width, height: 300, marginRight: 140,
+    x: {...yearAxis}, y: {label: `Share of 4-year institutions with ER > 1 (${timing === "measured" ? "measured" : "adjusted, central"})`, tickFormat: "%", grid: true},
+    color: {domain: ["Public", "Private nonprofit", "Private for-profit"], range: [BLUE, ORANGE, GRAY]},
+    marks: [
+      Plot.lineY(above, {x: "year", y: col, stroke: "control_lab", strokeWidth: 2}),
+      Plot.text(above, Plot.selectLast({x: "year", y: col, z: "control_lab", text: d => `${d.control_lab} ${pct(d[col])}`, fill: "control_lab", dx: 6, textAnchor: "start"})),
+      Plot.tip(above, Plot.pointerX({x: "year", y: col, title: d => `${d.control_lab} ${d.year}: ${pct1(d[col])} of ${d.n}`}))
+    ]
+  });
+}
+```
+
+## Entering classes vs graduating classes: the timing adjustment
+
+A college whose entering classes are larger than the classes now graduating teaches credits to students who have not yet graduated, so its ratio is temporarily low; when entering classes shrink, the ratio is temporarily high. The adjustment asks what each institution's ratio would be if **its own** entering classes equalled its own graduating classes that year (`G = 1`). For four-year institutions `G = (E_t + E_t−1) / (E_t−3 + E_t−4)`; for community colleges `G = E_t / mean(E_t−1, E_t−2)`. The adjustment factor is `G^(−e)`, with `e` = 0.35 (public and nonprofit four-year) and 0.25 (community colleges) in the central case.
+
+```{ojs}
+viewof tview = Inputs.radio(new Map([["Entering / graduating classes (G)", "G"], ["Degree credits after adjustment, % of measured", "f"]]), {value: "G", label: "Plot"})
+```
+
+```{ojs}
+{
+  const col = tview === "G" ? "G" : `factor_${tcase}`;
+  return Plot.plot({
+    width, height: 330, marginRight: 170,
+    x: {...yearAxis, domain: [1998, 2024]},
+    y: {label: tview === "G" ? "G, degree-credit-weighted geometric mean of institutions' own G" : `Adjusted / measured degree credits (${tcase} case)`, grid: true, tickFormat: tview === "G" ? ".2f" : "+.1%", transform: tview === "G" ? null : d => d - 1},
+    color: {domain: ["Public universities", "Private nonprofit 4-year", "Community colleges"], range: [BLUE, ORANGE, TEAL]},
+    marks: [
+      Plot.ruleY([tview === "G" ? 1 : 0], {stroke: "#999"}),
+      tview === "G" ? Plot.areaY(tg, {x: "year", y1: "G_p25", y2: "G_p75", fill: "group", fillOpacity: 0.12}) : null,
+      Plot.lineY(tg, {x: "year", y: col, stroke: "group", strokeWidth: 2}),
+      Plot.text(tg, Plot.selectLast({x: "year", y: col, z: "group", text: "group", fill: "group", dx: 6, textAnchor: "start"})),
+      Plot.tip(tg, Plot.pointerX({x: "year", y: col, title: d => `${d.group} ${d.year}\nG ${f3(d.G)} (middle half ${f2(d.G_p25)}–${f2(d.G_p75)})\nadjusted/measured: low ${f3(d.factor_low)}, central ${f3(d.factor_central)}, high ${f3(d.factor_high)}\n${d.n} institutions`}))
+    ]
+  });
+}
+```
+
+::: {.ce-note}
+Bands: the middle half of institutions' own G. For-profits and the large online universities are not adjusted. Missing entering-class counts (up to three years) are filled from the institution's own counts; institutions with no entering classes of their own are left unadjusted. Source: IPEDS fall enrollment (first-time degree-seeking students), completions and 12-month credit-hour activity; author's calculations, white paper v5 Section 4.2 and Appendix B.
+:::
+
+```{ojs}
+//| output: false
+syncParams
+```

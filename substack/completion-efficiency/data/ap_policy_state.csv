@@ -1,0 +1,2201 @@
+state,exam_code,exam,n_colleges,mean_credits_score3,mean_credits_score4,mean_credits_score5
+AK,1,Art History,4,5.5,5.5,5.5
+AK,10,English Language and Composition,4,3.3,3.3,3.3
+AK,11,English Literature and Composition,4,3.3,3.3,3.3
+AK,12,Environmental Science,4,4.0,4.0,4.0
+AK,13,European History,4,4.8,4.8,4.8
+AK,14,French Language and Culture,4,2.8,6.8,6.8
+AK,16,German Language and Culture,4,4.8,6.8,6.8
+AK,17,Human Geography,4,3.3,3.3,3.3
+AK,18,Italian Language and Culture,4,3.0,5.0,5.0
+AK,19,Japanese Language and Culture,4,7.5,7.5,7.5
+AK,2,Biology,4,5.0,7.0,7.0
+AK,21,Latin,4,4.8,4.8,4.8
+AK,22,Macroeconomics,4,3.0,3.0,3.0
+AK,23,Microeconomics,4,3.0,3.0,3.0
+AK,24,Music Theory,4,2.5,3.8,3.8
+AK,26,Physics C: Electricity and Magnetism,4,3.0,4.0,4.0
+AK,27,Physics C: Mechanics,4,2.0,3.0,3.0
+AK,28,Psychology,4,3.3,3.3,3.3
+AK,29,Spanish Language and Culture,4,2.8,6.8,6.8
+AK,3,Calculus AB,4,2.0,4.0,4.0
+AK,30,Spanish Literature and Culture,4,2.3,5.8,5.8
+AK,31,Statistics,4,3.0,3.0,3.0
+AK,32,2-D Art and Design,4,3.3,3.3,3.3
+AK,33,3-D Art and Design,4,3.3,3.3,3.3
+AK,34,Drawing,4,4.0,4.0,4.0
+AK,35,United States Government and Politics,4,3.3,3.3,3.3
+AK,36,United States History,4,5.5,5.5,5.5
+AK,37,World History: Modern,4,4.0,4.0,4.0
+AK,38,Physics 1,4,3.0,3.0,3.0
+AK,39,Physics 2,4,2.0,3.0,3.0
+AK,4,Calculus BC,4,2.0,6.0,6.0
+AK,40,Seminar,4,0.8,0.8,0.8
+AK,41,Research,4,0.8,0.8,0.8
+AK,42,Computer Science Principles,4,2.3,2.3,2.3
+AK,43,African American Studies,4,0.0,0.0,0.0
+AK,44,Pre-Calculus,4,0.0,0.0,0.0
+AK,5,Chemistry,4,6.0,7.0,7.0
+AK,6,Chinese Language and Culture,4,4.5,4.5,4.5
+AK,7,Comparative Government and Politics,4,3.3,3.3,3.3
+AK,8,Computer Science A,4,3.3,3.3,3.3
+AL,1,Art History,29,2.2,3.4,3.6
+AL,10,English Language and Composition,29,3.0,4.5,5.0
+AL,11,English Literature and Composition,29,2.2,3.6,3.9
+AL,12,Environmental Science,29,2.0,2.2,2.2
+AL,13,European History,29,2.4,3.4,3.6
+AL,14,French Language and Culture,29,3.6,4.8,5.5
+AL,16,German Language and Culture,29,3.1,4.3,5.1
+AL,17,Human Geography,29,1.6,2.0,2.0
+AL,18,Italian Language and Culture,29,1.6,2.1,2.3
+AL,19,Japanese Language and Culture,29,1.9,2.3,2.5
+AL,2,Biology,29,5.2,6.1,6.4
+AL,21,Latin,29,1.8,2.2,2.5
+AL,22,Macroeconomics,29,2.1,2.4,2.4
+AL,23,Microeconomics,29,2.1,2.4,2.4
+AL,24,Music Theory,29,2.1,2.7,2.9
+AL,26,Physics C: Electricity and Magnetism,29,2.4,3.3,3.3
+AL,27,Physics C: Mechanics,29,2.5,3.5,3.5
+AL,28,Psychology,29,2.3,2.6,2.6
+AL,29,Spanish Language and Culture,29,3.8,5.4,6.0
+AL,3,Calculus AB,29,3.8,4.0,4.0
+AL,30,Spanish Literature and Culture,29,2.1,2.7,2.9
+AL,31,Statistics,29,2.4,2.4,2.4
+AL,32,2-D Art and Design,29,0.9,2.3,2.4
+AL,33,3-D Art and Design,29,0.8,2.1,2.2
+AL,34,Drawing,29,1.2,2.4,2.6
+AL,35,United States Government and Politics,29,2.1,2.5,2.5
+AL,36,United States History,29,3.2,4.7,5.0
+AL,37,World History: Modern,29,2.7,3.9,4.3
+AL,38,Physics 1,29,1.9,2.3,2.3
+AL,39,Physics 2,29,1.8,1.9,2.1
+AL,4,Calculus BC,29,6.2,6.6,6.7
+AL,40,Seminar,29,0.5,0.6,0.6
+AL,41,Research,29,0.3,0.3,0.5
+AL,42,Computer Science Principles,29,1.0,1.5,1.5
+AL,43,African American Studies,29,0.1,0.3,0.3
+AL,44,Pre-Calculus,29,1.4,1.9,2.0
+AL,5,Chemistry,29,4.1,5.4,6.5
+AL,6,Chinese Language and Culture,29,1.7,2.4,2.7
+AL,7,Comparative Government and Politics,29,1.3,1.7,1.7
+AL,8,Computer Science A,29,1.1,2.1,2.1
+AR,1,Art History,35,1.2,1.5,1.6
+AR,10,English Language and Composition,35,1.3,2.1,2.4
+AR,11,English Literature and Composition,35,1.0,2.0,2.2
+AR,12,Environmental Science,35,0.9,1.1,1.1
+AR,13,European History,35,0.8,1.0,1.4
+AR,14,French Language and Culture,35,1.1,1.5,1.9
+AR,16,German Language and Culture,35,1.1,1.4,1.8
+AR,17,Human Geography,35,0.9,1.0,1.0
+AR,18,Italian Language and Culture,35,0.5,0.6,0.7
+AR,19,Japanese Language and Culture,35,0.3,0.5,0.5
+AR,2,Biology,35,1.5,1.9,1.9
+AR,21,Latin,35,0.5,0.6,0.6
+AR,22,Macroeconomics,35,1.1,1.3,1.3
+AR,23,Microeconomics,35,1.2,1.3,1.3
+AR,24,Music Theory,35,0.9,1.3,1.4
+AR,26,Physics C: Electricity and Magnetism,35,1.1,1.6,1.6
+AR,27,Physics C: Mechanics,35,1.1,1.5,1.5
+AR,28,Psychology,35,1.4,1.5,1.5
+AR,29,Spanish Language and Culture,35,1.8,2.2,2.8
+AR,3,Calculus AB,35,1.5,1.7,1.8
+AR,30,Spanish Literature and Culture,35,0.6,0.7,0.7
+AR,31,Statistics,35,1.1,1.2,1.2
+AR,32,2-D Art and Design,35,0.6,0.8,0.8
+AR,33,3-D Art and Design,35,0.4,0.5,0.5
+AR,34,Drawing,35,0.6,0.8,0.8
+AR,35,United States Government and Politics,35,1.1,1.5,1.5
+AR,36,United States History,35,1.3,2.2,2.4
+AR,37,World History: Modern,35,1.0,1.6,1.9
+AR,38,Physics 1,35,1.1,1.4,1.4
+AR,39,Physics 2,35,1.1,1.5,1.5
+AR,4,Calculus BC,35,1.6,2.2,2.3
+AR,40,Seminar,35,0.1,0.1,0.1
+AR,41,Research,35,0.1,0.1,0.1
+AR,42,Computer Science Principles,35,0.5,0.6,0.6
+AR,43,African American Studies,35,0.2,0.2,0.2
+AR,44,Pre-Calculus,35,0.4,0.4,0.4
+AR,5,Chemistry,35,1.3,1.8,2.1
+AR,6,Chinese Language and Culture,35,0.3,0.3,0.3
+AR,7,Comparative Government and Politics,35,0.5,0.6,0.6
+AR,8,Computer Science A,35,0.8,1.1,1.1
+AZ,1,Art History,23,3.1,5.5,5.5
+AZ,10,English Language and Composition,23,0.5,3.1,3.1
+AZ,11,English Literature and Composition,23,0.5,3.1,3.1
+AZ,12,Environmental Science,23,0.4,3.2,3.2
+AZ,13,European History,23,0.7,5.6,5.6
+AZ,14,French Language and Culture,23,9.7,10.6,11.4
+AZ,16,German Language and Culture,23,9.6,10.8,11.9
+AZ,17,Human Geography,23,0.4,2.6,2.6
+AZ,18,Italian Language and Culture,23,5.1,7.6,9.7
+AZ,19,Japanese Language and Culture,23,6.8,9.9,12.8
+AZ,2,Biology,23,3.9,7.3,7.3
+AZ,21,Latin,23,5.4,7.8,10.0
+AZ,22,Macroeconomics,23,0.4,2.9,2.9
+AZ,23,Microeconomics,23,0.4,2.9,2.9
+AZ,24,Music Theory,23,0.8,3.7,3.8
+AZ,26,Physics C: Electricity and Magnetism,23,3.4,3.7,3.7
+AZ,27,Physics C: Mechanics,23,3.6,3.8,3.8
+AZ,28,Psychology,23,0.4,2.9,2.9
+AZ,29,Spanish Language and Culture,23,10.7,12.6,13.5
+AZ,3,Calculus AB,23,3.9,4.0,4.0
+AZ,30,Spanish Literature and Culture,23,9.3,10.3,11.5
+AZ,31,Statistics,23,2.9,2.9,2.9
+AZ,32,2-D Art and Design,23,0.5,3.0,3.1
+AZ,33,3-D Art and Design,23,0.5,3.0,3.0
+AZ,34,Drawing,23,0.5,3.0,3.1
+AZ,35,United States Government and Politics,23,0.3,2.7,2.7
+AZ,36,United States History,23,0.7,5.5,5.5
+AZ,37,World History: Modern,23,0.7,2.4,2.4
+AZ,38,Physics 1,23,0.3,3.4,3.4
+AZ,39,Physics 2,23,0.1,3.3,3.3
+AZ,4,Calculus BC,23,4.0,7.7,7.7
+AZ,40,Seminar,23,1.4,1.4,1.4
+AZ,41,Research,23,1.4,1.4,1.4
+AZ,42,Computer Science Principles,23,1.1,1.1,1.5
+AZ,43,African American Studies,23,0.4,0.4,0.4
+AZ,44,Pre-Calculus,23,1.6,1.6,1.6
+AZ,5,Chemistry,23,0.7,4.4,7.7
+AZ,6,Chinese Language and Culture,23,6.0,8.7,11.2
+AZ,7,Comparative Government and Politics,23,0.4,2.6,2.6
+AZ,8,Computer Science A,23,0.4,2.6,2.6
+CA,1,Art History,190,4.2,4.5,4.6
+CA,10,English Language and Composition,190,4.0,4.4,4.5
+CA,11,English Literature and Composition,190,4.8,5.2,5.3
+CA,12,Environmental Science,190,2.9,3.3,3.3
+CA,13,European History,190,4.0,4.4,4.4
+CA,14,French Language and Culture,190,5.1,5.5,5.7
+CA,16,German Language and Culture,190,4.7,5.2,5.3
+CA,17,Human Geography,190,2.6,2.9,2.9
+CA,18,Italian Language and Culture,190,4.4,4.8,5.0
+CA,19,Japanese Language and Culture,190,4.5,5.0,5.2
+CA,2,Biology,190,4.3,4.8,4.8
+CA,21,Latin,190,3.9,4.3,4.4
+CA,22,Macroeconomics,190,2.7,3.0,3.0
+CA,23,Microeconomics,190,2.7,3.0,3.0
+CA,24,Music Theory,190,3.3,3.7,3.8
+CA,26,Physics C: Electricity and Magnetism,190,3.3,3.7,3.8
+CA,27,Physics C: Mechanics,190,3.4,3.7,3.8
+CA,28,Psychology,190,2.7,3.0,3.1
+CA,29,Spanish Language and Culture,190,5.2,5.7,6.0
+CA,3,Calculus AB,190,3.3,3.9,3.9
+CA,30,Spanish Literature and Culture,190,4.2,4.7,4.7
+CA,31,Statistics,190,3.0,3.4,3.4
+CA,32,2-D Art and Design,190,2.7,2.9,2.9
+CA,33,3-D Art and Design,190,2.6,2.8,2.8
+CA,34,Drawing,190,2.6,2.9,2.9
+CA,35,United States Government and Politics,190,2.7,3.0,3.0
+CA,36,United States History,190,4.4,4.8,4.9
+CA,37,World History: Modern,190,3.6,4.0,4.1
+CA,38,Physics 1,190,3.2,3.6,3.6
+CA,39,Physics 2,190,3.1,3.5,3.6
+CA,4,Calculus BC,190,5.1,6.0,6.2
+CA,40,Seminar,190,0.9,1.0,1.0
+CA,41,Research,190,0.3,0.4,0.4
+CA,42,Computer Science Principles,190,2.8,3.0,3.0
+CA,43,African American Studies,190,0.6,0.7,0.8
+CA,44,Pre-Calculus,190,1.3,1.4,1.5
+CA,5,Chemistry,190,4.6,5.1,5.3
+CA,6,Chinese Language and Culture,190,4.5,4.9,5.0
+CA,7,Comparative Government and Politics,190,2.6,2.9,3.0
+CA,8,Computer Science A,190,2.7,3.1,3.2
+CO,1,Art History,28,1.54,2.7,2.99
+CO,10,English Language and Composition,28,2.22,2.89,3.57
+CO,11,English Literature and Composition,28,2.22,3.18,3.76
+CO,12,Environmental Science,28,2.7,3.18,3.28
+CO,13,European History,28,2.31,4.34,4.44
+CO,14,French Language and Culture,28,2.8,4.53,6.08
+CO,16,German Language and Culture,28,2.99,4.73,6.08
+CO,17,Human Geography,28,2.22,2.6,2.8
+CO,18,Italian Language and Culture,28,2.41,3.95,5.11
+CO,19,Japanese Language and Culture,28,2.89,4.63,6.08
+CO,2,Biology,28,3.47,5.98,6.56
+CO,21,Latin,28,2.51,4.05,5.11
+CO,22,Macroeconomics,28,2.12,2.8,2.8
+CO,23,Microeconomics,28,2.12,2.8,2.8
+CO,24,Music Theory,28,1.93,2.51,2.6
+CO,26,Physics C: Electricity and Magnetism,28,3.47,4.24,4.24
+CO,27,Physics C: Mechanics,28,3.28,3.95,3.95
+CO,28,Psychology,28,3.09,3.47,3.76
+CO,29,Spanish Language and Culture,28,4.15,6.08,7.42
+CO,3,Calculus AB,28,3.09,4.05,4.05
+CO,30,Spanish Literature and Culture,28,1.64,2.51,3.18
+CO,31,Statistics,28,2.22,2.6,2.6
+CO,32,2-D Art and Design,28,1.54,2.12,2.51
+CO,33,3-D Art and Design,28,1.54,2.02,2.31
+CO,34,Drawing,28,1.64,2.12,2.12
+CO,35,United States Government and Politics,28,2.22,2.6,2.6
+CO,36,United States History,28,2.6,4.34,4.44
+CO,37,World History: Modern,28,2.99,4.05,4.24
+CO,38,Physics 1,28,3.09,3.76,3.86
+CO,39,Physics 2,28,3.09,4.05,4.24
+CO,4,Calculus BC,28,3.47,7.14,7.33
+CO,40,Seminar,28,0.29,0.96,0.96
+CO,41,Research,28,0.29,0.96,0.96
+CO,42,Computer Science Principles,28,1.16,1.54,1.64
+CO,43,African American Studies,28,2.16,2.64,2.64
+CO,44,Pre-Calculus,28,2.23,2.32,2.32
+CO,5,Chemistry,28,3.18,4.53,6.75
+CO,6,Chinese Language and Culture,28,2.51,4.44,5.79
+CO,7,Comparative Government and Politics,28,2.12,2.6,2.6
+CO,8,Computer Science A,28,1.45,2.31,2.6
+CT,1,Art History,21,2.1,3.4,3.4
+CT,10,English Language and Composition,21,1.1,2.9,3.1
+CT,11,English Literature and Composition,21,1.1,2.8,3.0
+CT,12,Environmental Science,21,1.7,2.7,2.7
+CT,13,European History,21,1.9,3.0,3.3
+CT,14,French Language and Culture,21,2.3,4.0,4.3
+CT,16,German Language and Culture,21,2.6,3.9,4.3
+CT,17,Human Geography,21,1.4,2.1,2.2
+CT,18,Italian Language and Culture,21,2.1,4.0,4.2
+CT,19,Japanese Language and Culture,21,1.8,2.8,3.1
+CT,2,Biology,21,3.0,4.8,4.9
+CT,21,Latin,21,1.7,2.9,3.0
+CT,22,Macroeconomics,21,1.4,2.6,2.6
+CT,23,Microeconomics,21,1.4,2.6,2.6
+CT,24,Music Theory,21,1.9,3.0,3.0
+CT,26,Physics C: Electricity and Magnetism,21,1.7,3.0,3.0
+CT,27,Physics C: Mechanics,21,1.7,3.0,3.0
+CT,28,Psychology,21,1.4,2.4,2.4
+CT,29,Spanish Language and Culture,21,2.1,4.0,4.4
+CT,3,Calculus AB,21,1.9,3.4,3.5
+CT,30,Spanish Literature and Culture,21,1.7,3.0,3.0
+CT,31,Statistics,21,1.4,2.6,2.6
+CT,32,2-D Art and Design,21,1.3,2.2,2.2
+CT,33,3-D Art and Design,21,1.3,2.2,2.2
+CT,34,Drawing,21,1.4,2.4,2.4
+CT,35,United States Government and Politics,21,1.4,2.6,2.7
+CT,36,United States History,21,2.1,3.7,3.9
+CT,37,World History: Modern,21,2.0,3.3,3.4
+CT,38,Physics 1,21,1.5,2.8,2.8
+CT,39,Physics 2,21,1.7,3.0,3.0
+CT,4,Calculus BC,21,3.4,5.8,5.9
+CT,40,Seminar,21,0.9,1.0,1.0
+CT,41,Research,21,0.9,1.0,1.0
+CT,42,Computer Science Principles,21,1.1,1.8,1.8
+CT,43,African American Studies,21,1.0,1.5,1.5
+CT,44,Pre-Calculus,21,1.1,1.3,1.3
+CT,5,Chemistry,21,2.7,5.0,5.0
+CT,6,Chinese Language and Culture,21,1.7,2.7,2.9
+CT,7,Comparative Government and Politics,21,1.6,2.5,2.7
+CT,8,Computer Science A,21,1.7,2.6,2.6
+DC,1,Art History,6,0.5,3.0,3.0
+DC,10,English Language and Composition,6,1.5,2.5,3.0
+DC,11,English Literature and Composition,6,1.5,3.5,4.5
+DC,12,Environmental Science,6,1.0,3.0,3.0
+DC,13,European History,6,1.0,3.0,3.5
+DC,14,French Language and Culture,6,2.0,3.5,5.2
+DC,16,German Language and Culture,6,3.7,5.7,6.8
+DC,17,Human Geography,6,0.5,2.5,2.5
+DC,18,Italian Language and Culture,6,2.0,2.8,4.5
+DC,19,Japanese Language and Culture,6,2.0,4.2,5.7
+DC,2,Biology,6,1.3,5.7,6.3
+DC,21,Latin,6,0.5,3.2,3.2
+DC,22,Macroeconomics,6,1.0,2.5,3.0
+DC,23,Microeconomics,6,1.0,2.5,3.0
+DC,24,Music Theory,6,0.5,1.5,3.0
+DC,26,Physics C: Electricity and Magnetism,6,1.3,4.0,4.8
+DC,27,Physics C: Mechanics,6,1.3,4.0,4.8
+DC,28,Psychology,6,0.5,2.5,2.5
+DC,29,Spanish Language and Culture,6,3.0,4.5,6.2
+DC,3,Calculus AB,6,0.7,3.0,3.7
+DC,30,Spanish Literature and Culture,6,2.5,5.0,6.0
+DC,31,Statistics,6,1.0,3.3,4.0
+DC,32,2-D Art and Design,6,0.5,1.5,2.0
+DC,33,3-D Art and Design,6,0.0,1.5,2.0
+DC,34,Drawing,6,1.0,2.5,2.5
+DC,35,United States Government and Politics,6,0.5,2.5,2.5
+DC,36,United States History,6,1.5,4.0,4.5
+DC,37,World History: Modern,6,1.0,3.5,4.5
+DC,38,Physics 1,6,0.0,2.7,2.7
+DC,39,Physics 2,6,0.0,2.7,2.7
+DC,4,Calculus BC,6,1.0,5.7,6.3
+DC,40,Seminar,6,0.0,0.5,0.5
+DC,41,Research,6,0.0,0.5,0.5
+DC,42,Computer Science Principles,6,0.5,2.7,2.7
+DC,43,African American Studies,6,0.5,1.5,1.5
+DC,44,Pre-Calculus,6,0.0,1.0,1.0
+DC,5,Chemistry,6,1.3,5.3,6.7
+DC,6,Chinese Language and Culture,6,2.0,3.7,5.2
+DC,7,Comparative Government and Politics,6,0.5,2.5,2.5
+DC,8,Computer Science A,6,0.5,2.7,2.7
+DE,1,Art History,4,4.5,4.5,4.5
+DE,10,English Language and Composition,4,4.5,4.5,6.0
+DE,11,English Literature and Composition,4,4.5,4.5,6.0
+DE,12,Environmental Science,4,2.5,2.5,2.5
+DE,13,European History,4,4.5,4.5,4.5
+DE,14,French Language and Culture,4,5.3,6.8,7.5
+DE,16,German Language and Culture,4,5.3,6.8,8.3
+DE,17,Human Geography,4,2.3,3.0,3.0
+DE,18,Italian Language and Culture,4,3.0,4.5,6.0
+DE,19,Japanese Language and Culture,4,3.8,5.3,6.8
+DE,2,Biology,4,4.3,5.5,6.5
+DE,21,Latin,4,3.8,4.5,5.3
+DE,22,Macroeconomics,4,3.8,3.8,3.8
+DE,23,Microeconomics,4,3.8,3.8,3.8
+DE,24,Music Theory,4,4.0,5.0,5.0
+DE,26,Physics C: Electricity and Magnetism,4,2.5,2.8,2.8
+DE,27,Physics C: Mechanics,4,3.0,3.3,3.3
+DE,28,Psychology,4,3.8,3.8,3.8
+DE,29,Spanish Language and Culture,4,4.5,6.0,7.5
+DE,3,Calculus AB,4,4.0,4.3,4.3
+DE,30,Spanish Literature and Culture,4,4.5,6.0,7.5
+DE,31,Statistics,4,3.8,3.8,3.8
+DE,32,2-D Art and Design,4,3.8,3.8,3.8
+DE,33,3-D Art and Design,4,3.8,3.8,3.8
+DE,34,Drawing,4,4.5,4.5,4.5
+DE,35,United States Government and Politics,4,3.8,3.8,3.8
+DE,36,United States History,4,4.5,5.3,6.0
+DE,37,World History: Modern,4,3.8,3.8,3.8
+DE,38,Physics 1,4,4.0,4.3,4.3
+DE,39,Physics 2,4,1.5,1.8,1.8
+DE,4,Calculus BC,4,4.8,6.0,6.0
+DE,40,Seminar,4,1.5,1.5,1.5
+DE,41,Research,4,1.5,1.5,1.5
+DE,42,Computer Science Principles,4,0.8,1.5,1.5
+DE,43,African American Studies,4,1.5,1.5,2.3
+DE,44,Pre-Calculus,4,1.8,2.0,2.0
+DE,5,Chemistry,4,5.8,6.0,7.0
+DE,6,Chinese Language and Culture,4,3.8,5.3,6.8
+DE,7,Comparative Government and Politics,4,2.3,2.3,2.3
+DE,8,Computer Science A,4,1.5,2.3,2.3
+FL,1,Art History,72,2.6,4.6,4.7
+FL,10,English Language and Composition,72,2.7,4.9,5.1
+FL,11,English Literature and Composition,72,2.7,4.8,5.0
+FL,12,Environmental Science,72,2.5,2.7,2.8
+FL,13,European History,72,2.5,4.6,4.7
+FL,14,French Language and Culture,72,2.8,5.5,5.7
+FL,16,German Language and Culture,72,2.7,5.2,5.4
+FL,17,Human Geography,72,2.4,2.6,2.6
+FL,18,Italian Language and Culture,72,2.5,4.8,5.0
+FL,19,Japanese Language and Culture,72,2.4,4.7,4.8
+FL,2,Biology,72,3.2,4.0,6.6
+FL,21,Latin,72,2.3,3.0,3.1
+FL,22,Macroeconomics,72,2.6,2.8,2.9
+FL,23,Microeconomics,72,2.6,2.8,2.9
+FL,24,Music Theory,72,2.6,3.0,3.2
+FL,26,Physics C: Electricity and Magnetism,72,3.0,3.6,3.7
+FL,27,Physics C: Mechanics,72,3.1,3.6,3.7
+FL,28,Psychology,72,2.5,2.8,2.9
+FL,29,Spanish Language and Culture,72,2.9,5.6,5.8
+FL,3,Calculus AB,72,3.4,3.8,3.9
+FL,30,Spanish Literature and Culture,72,2.4,4.3,4.4
+FL,31,Statistics,72,2.5,2.8,2.8
+FL,32,2-D Art and Design,72,2.3,2.6,2.6
+FL,33,3-D Art and Design,72,2.3,2.6,2.6
+FL,34,Drawing,72,2.3,2.6,2.6
+FL,35,United States Government and Politics,72,2.6,2.9,2.9
+FL,36,United States History,72,2.8,5.1,5.2
+FL,37,World History: Modern,72,2.6,2.9,3.1
+FL,38,Physics 1,72,2.7,3.0,3.1
+FL,39,Physics 2,72,2.7,2.9,3.0
+FL,4,Calculus BC,72,3.4,6.7,6.8
+FL,40,Seminar,72,1.6,1.6,1.7
+FL,41,Research,72,1.6,1.6,1.7
+FL,42,Computer Science Principles,72,2.0,2.1,2.1
+FL,43,African American Studies,72,0.5,0.6,0.6
+FL,44,Pre-Calculus,72,1.2,2.1,2.1
+FL,5,Chemistry,72,3.2,4.1,6.8
+FL,6,Chinese Language and Culture,72,2.5,4.9,5.0
+FL,7,Comparative Government and Politics,72,2.3,2.5,2.5
+FL,8,Computer Science A,72,2.6,2.9,2.9
+GA,1,Art History,60,1.6,2.5,3.0
+GA,10,English Language and Composition,60,2.0,2.7,3.8
+GA,11,English Literature and Composition,60,1.9,2.6,3.9
+GA,12,Environmental Science,60,1.5,2.3,2.4
+GA,13,European History,60,1.3,2.1,2.4
+GA,14,French Language and Culture,60,2.6,4.5,5.4
+GA,16,German Language and Culture,60,1.9,3.5,4.2
+GA,17,Human Geography,60,1.4,1.8,1.9
+GA,18,Italian Language and Culture,60,0.8,1.5,2.0
+GA,19,Japanese Language and Culture,60,1.2,2.1,2.4
+GA,2,Biology,60,2.9,5.0,5.8
+GA,21,Latin,60,1.6,2.6,3.1
+GA,22,Macroeconomics,60,2.1,2.5,2.6
+GA,23,Microeconomics,60,2.1,2.5,2.6
+GA,24,Music Theory,60,1.4,2.1,2.3
+GA,26,Physics C: Electricity and Magnetism,60,1.5,2.6,2.9
+GA,27,Physics C: Mechanics,60,1.5,2.7,2.9
+GA,28,Psychology,60,2.1,2.5,2.7
+GA,29,Spanish Language and Culture,60,3.2,5.2,6.3
+GA,3,Calculus AB,60,2.0,3.9,3.9
+GA,30,Spanish Literature and Culture,60,1.4,2.4,3.3
+GA,31,Statistics,60,2.2,2.6,2.6
+GA,32,2-D Art and Design,60,1.1,1.7,2.0
+GA,33,3-D Art and Design,60,0.8,1.4,1.7
+GA,34,Drawing,60,1.0,1.7,2.0
+GA,35,United States Government and Politics,60,1.9,2.5,2.6
+GA,36,United States History,60,2.1,3.3,3.9
+GA,37,World History: Modern,60,2.0,3.0,3.5
+GA,38,Physics 1,60,1.8,2.9,2.9
+GA,39,Physics 2,60,1.6,2.6,2.7
+GA,4,Calculus BC,60,3.3,5.8,6.0
+GA,40,Seminar,60,0.4,0.4,0.4
+GA,41,Research,60,0.3,0.3,0.3
+GA,42,Computer Science Principles,60,1.2,1.4,1.6
+GA,43,African American Studies,60,0.4,0.6,0.6
+GA,44,Pre-Calculus,60,0.8,1.5,1.5
+GA,5,Chemistry,60,2.8,4.6,5.8
+GA,6,Chinese Language and Culture,60,1.3,2.4,2.9
+GA,7,Comparative Government and Politics,60,1.3,1.7,1.9
+GA,8,Computer Science A,60,2.0,2.7,2.7
+GU,1,Art History,1,0.0,0.0,0.0
+GU,10,English Language and Composition,1,0.0,3.0,3.0
+GU,11,English Literature and Composition,1,0.0,3.0,3.0
+GU,12,Environmental Science,1,0.0,0.0,0.0
+GU,13,European History,1,0.0,0.0,0.0
+GU,14,French Language and Culture,1,0.0,0.0,0.0
+GU,16,German Language and Culture,1,0.0,0.0,0.0
+GU,17,Human Geography,1,0.0,0.0,0.0
+GU,18,Italian Language and Culture,1,0.0,0.0,0.0
+GU,19,Japanese Language and Culture,1,0.0,0.0,0.0
+GU,2,Biology,1,0.0,0.0,0.0
+GU,21,Latin,1,0.0,0.0,0.0
+GU,22,Macroeconomics,1,0.0,0.0,0.0
+GU,23,Microeconomics,1,0.0,3.0,3.0
+GU,24,Music Theory,1,0.0,0.0,0.0
+GU,26,Physics C: Electricity and Magnetism,1,0.0,0.0,0.0
+GU,27,Physics C: Mechanics,1,0.0,0.0,0.0
+GU,28,Psychology,1,3.0,3.0,3.0
+GU,29,Spanish Language and Culture,1,0.0,0.0,0.0
+GU,3,Calculus AB,1,5.0,5.0,5.0
+GU,30,Spanish Literature and Culture,1,0.0,0.0,0.0
+GU,31,Statistics,1,3.0,3.0,3.0
+GU,32,2-D Art and Design,1,0.0,3.0,3.0
+GU,33,3-D Art and Design,1,0.0,0.0,0.0
+GU,34,Drawing,1,0.0,0.0,0.0
+GU,35,United States Government and Politics,1,3.0,3.0,3.0
+GU,36,United States History,1,0.0,0.0,0.0
+GU,37,World History: Modern,1,0.0,3.0,3.0
+GU,38,Physics 1,1,0.0,0.0,0.0
+GU,39,Physics 2,1,0.0,0.0,0.0
+GU,4,Calculus BC,1,5.0,5.0,5.0
+GU,40,Seminar,1,0.0,0.0,0.0
+GU,41,Research,1,0.0,0.0,0.0
+GU,42,Computer Science Principles,1,0.0,0.0,0.0
+GU,43,African American Studies,1,0.0,0.0,0.0
+GU,44,Pre-Calculus,1,0.0,0.0,0.0
+GU,5,Chemistry,1,0.0,0.0,0.0
+GU,6,Chinese Language and Culture,1,0.0,0.0,0.0
+GU,7,Comparative Government and Politics,1,0.0,3.0,3.0
+GU,8,Computer Science A,1,0.0,0.0,0.0
+HI,1,Art History,6,2.0,3.0,3.0
+HI,10,English Language and Composition,6,1.5,3.0,3.5
+HI,11,English Literature and Composition,6,1.5,2.5,3.0
+HI,12,Environmental Science,6,2.5,3.0,3.0
+HI,13,European History,6,2.5,4.0,4.0
+HI,14,French Language and Culture,6,5.3,6.0,6.5
+HI,16,German Language and Culture,6,4.3,5.5,5.5
+HI,17,Human Geography,6,3.0,3.0,3.0
+HI,18,Italian Language and Culture,6,2.5,2.5,3.0
+HI,19,Japanese Language and Culture,6,3.7,5.7,7.0
+HI,2,Biology,6,3.5,5.7,7.2
+HI,21,Latin,6,3.3,5.0,5.0
+HI,22,Macroeconomics,6,3.0,3.0,3.0
+HI,23,Microeconomics,6,3.0,3.0,3.0
+HI,24,Music Theory,6,2.3,2.8,2.8
+HI,26,Physics C: Electricity and Magnetism,6,1.7,3.3,3.3
+HI,27,Physics C: Mechanics,6,2.0,3.7,3.7
+HI,28,Psychology,6,3.0,3.0,3.0
+HI,29,Spanish Language and Culture,6,4.8,5.5,5.5
+HI,3,Calculus AB,6,2.8,4.5,4.5
+HI,30,Spanish Literature and Culture,6,3.8,4.5,5.5
+HI,31,Statistics,6,3.0,3.0,3.0
+HI,32,2-D Art and Design,6,2.5,3.0,3.0
+HI,33,3-D Art and Design,6,2.5,3.0,3.0
+HI,34,Drawing,6,2.5,3.0,3.0
+HI,35,United States Government and Politics,6,3.0,3.0,3.0
+HI,36,United States History,6,3.0,5.0,5.0
+HI,37,World History: Modern,6,4.0,5.0,5.0
+HI,38,Physics 1,6,3.2,3.8,3.8
+HI,39,Physics 2,6,3.2,3.8,3.8
+HI,4,Calculus BC,6,4.3,6.7,6.7
+HI,40,Seminar,6,1.5,1.5,1.5
+HI,41,Research,6,1.5,1.5,1.5
+HI,42,Computer Science Principles,6,2.0,2.5,2.5
+HI,43,African American Studies,6,1.5,2.0,3.0
+HI,44,Pre-Calculus,6,0.5,1.2,1.2
+HI,5,Chemistry,6,4.0,4.3,7.0
+HI,6,Chinese Language and Culture,6,2.3,5.7,6.3
+HI,7,Comparative Government and Politics,6,3.0,3.0,3.0
+HI,8,Computer Science A,6,2.7,3.5,3.5
+IA,1,Art History,29,2.0,3.3,3.4
+IA,10,English Language and Composition,29,2.2,3.7,3.7
+IA,11,English Literature and Composition,29,2.1,3.6,3.6
+IA,12,Environmental Science,29,2.1,3.1,3.1
+IA,13,European History,29,1.9,3.4,3.4
+IA,14,French Language and Culture,29,2.9,4.5,4.8
+IA,16,German Language and Culture,29,2.9,4.3,4.4
+IA,17,Human Geography,29,1.7,2.7,2.7
+IA,18,Italian Language and Culture,29,1.4,2.0,2.1
+IA,19,Japanese Language and Culture,29,1.3,2.1,2.2
+IA,2,Biology,29,2.1,4.2,4.3
+IA,21,Latin,29,2.1,3.1,3.2
+IA,22,Macroeconomics,29,2.1,2.9,2.9
+IA,23,Microeconomics,29,2.1,3.0,3.0
+IA,24,Music Theory,29,1.2,3.3,3.5
+IA,26,Physics C: Electricity and Magnetism,29,1.7,3.2,3.2
+IA,27,Physics C: Mechanics,29,1.7,3.5,3.5
+IA,28,Psychology,29,1.7,3.0,3.0
+IA,29,Spanish Language and Culture,29,4.0,5.5,5.9
+IA,3,Calculus AB,29,2.0,3.7,3.7
+IA,30,Spanish Literature and Culture,29,2.2,3.6,3.7
+IA,31,Statistics,29,2.1,3.2,3.2
+IA,32,2-D Art and Design,29,0.8,1.6,1.6
+IA,33,3-D Art and Design,29,1.0,2.0,2.0
+IA,34,Drawing,29,1.4,2.2,2.3
+IA,35,United States Government and Politics,29,1.8,2.8,2.8
+IA,36,United States History,29,2.7,4.2,4.2
+IA,37,World History: Modern,29,2.4,3.8,3.8
+IA,38,Physics 1,29,1.9,3.0,3.3
+IA,39,Physics 2,29,1.9,3.1,3.2
+IA,4,Calculus BC,29,3.1,5.3,5.6
+IA,40,Seminar,29,0.6,1.0,1.0
+IA,41,Research,29,0.3,0.9,0.9
+IA,42,Computer Science Principles,29,0.9,1.8,1.8
+IA,43,African American Studies,29,0.1,0.6,0.6
+IA,44,Pre-Calculus,29,0.4,0.9,0.9
+IA,5,Chemistry,29,2.7,4.8,5.1
+IA,6,Chinese Language and Culture,29,1.8,2.7,3.0
+IA,7,Comparative Government and Politics,29,1.6,2.5,2.5
+IA,8,Computer Science A,29,1.6,2.9,3.0
+ID,1,Art History,11,2.7,2.7,2.7
+ID,10,English Language and Composition,11,2.7,3.5,4.9
+ID,11,English Literature and Composition,11,2.7,3.0,3.3
+ID,12,Environmental Science,11,2.5,2.9,2.9
+ID,13,European History,11,2.5,3.0,3.0
+ID,14,French Language and Culture,11,4.7,7.4,9.4
+ID,16,German Language and Culture,11,4.5,6.5,8.1
+ID,17,Human Geography,11,2.2,2.2,2.2
+ID,18,Italian Language and Culture,11,4.3,6.1,7.9
+ID,19,Japanese Language and Culture,11,4.6,6.8,9.0
+ID,2,Biology,11,3.2,3.9,4.0
+ID,21,Latin,11,4.3,6.1,7.5
+ID,22,Macroeconomics,11,2.5,2.7,2.7
+ID,23,Microeconomics,11,2.5,2.7,2.7
+ID,24,Music Theory,11,1.6,2.5,2.5
+ID,26,Physics C: Electricity and Magnetism,11,1.2,2.6,2.6
+ID,27,Physics C: Mechanics,11,2.4,3.4,3.4
+ID,28,Psychology,11,2.2,2.7,2.7
+ID,29,Spanish Language and Culture,11,4.9,7.6,10.1
+ID,3,Calculus AB,11,3.0,3.6,3.6
+ID,30,Spanish Literature and Culture,11,2.7,3.3,3.3
+ID,31,Statistics,11,2.5,2.7,2.7
+ID,32,2-D Art and Design,11,2.1,2.4,2.4
+ID,33,3-D Art and Design,11,1.9,2.2,2.2
+ID,34,Drawing,11,2.4,2.6,2.6
+ID,35,United States Government and Politics,11,2.2,2.7,2.7
+ID,36,United States History,11,4.9,5.2,5.2
+ID,37,World History: Modern,11,3.8,4.1,4.1
+ID,38,Physics 1,11,2.3,3.0,3.0
+ID,39,Physics 2,11,2.3,2.9,2.9
+ID,4,Calculus BC,11,4.9,5.9,6.0
+ID,40,Seminar,11,0.8,0.8,0.8
+ID,41,Research,11,0.8,0.8,0.8
+ID,42,Computer Science Principles,11,1.4,1.7,1.7
+ID,43,African American Studies,11,0.8,0.8,0.8
+ID,44,Pre-Calculus,11,2.6,2.6,2.6
+ID,5,Chemistry,11,2.8,4.9,5.0
+ID,6,Chinese Language and Culture,11,4.6,6.5,8.3
+ID,7,Comparative Government and Politics,11,1.9,2.2,2.2
+ID,8,Computer Science A,11,1.6,2.8,3.0
+IL,1,Art History,97,2.7,3.0,4.3
+IL,10,English Language and Composition,97,2.5,3.1,4.4
+IL,11,English Literature and Composition,97,2.6,3.3,4.4
+IL,12,Environmental Science,97,2.3,2.6,3.7
+IL,13,European History,97,2.5,3.5,4.7
+IL,14,French Language and Culture,97,3.1,4.6,5.2
+IL,16,German Language and Culture,97,2.9,4.3,4.9
+IL,17,Human Geography,97,2.0,2.3,2.4
+IL,18,Italian Language and Culture,97,2.3,3.1,4.0
+IL,19,Japanese Language and Culture,97,2.2,3.2,4.0
+IL,2,Biology,97,3.1,5.2,5.8
+IL,21,Latin,97,2.5,3.4,3.8
+IL,22,Macroeconomics,97,2.3,2.6,2.7
+IL,23,Microeconomics,97,2.3,2.6,2.7
+IL,24,Music Theory,97,2.2,2.9,4.0
+IL,26,Physics C: Electricity and Magnetism,97,2.7,3.3,4.4
+IL,27,Physics C: Mechanics,97,2.6,3.3,4.4
+IL,28,Psychology,97,2.3,2.8,2.8
+IL,29,Spanish Language and Culture,97,3.9,5.6,6.6
+IL,3,Calculus AB,97,3.3,4.0,4.0
+IL,30,Spanish Literature and Culture,97,2.8,3.6,3.9
+IL,31,Statistics,97,2.5,3.0,3.0
+IL,32,2-D Art and Design,97,2.1,2.3,3.4
+IL,33,3-D Art and Design,97,2.0,2.2,3.3
+IL,34,Drawing,97,2.2,2.4,3.4
+IL,35,United States Government and Politics,97,2.3,2.7,2.7
+IL,36,United States History,97,3.1,4.0,5.4
+IL,37,World History: Modern,97,2.3,2.9,4.3
+IL,38,Physics 1,97,2.6,3.4,3.4
+IL,39,Physics 2,97,2.7,3.5,3.5
+IL,4,Calculus BC,97,4.3,6.3,6.4
+IL,40,Seminar,97,1.1,1.2,1.2
+IL,41,Research,97,1.1,1.2,1.2
+IL,42,Computer Science Principles,97,1.9,2.2,2.2
+IL,43,African American Studies,97,0.8,1.1,2.1
+IL,44,Pre-Calculus,97,1.3,1.5,1.6
+IL,5,Chemistry,97,3.1,4.5,6.4
+IL,6,Chinese Language and Culture,97,2.4,3.5,4.5
+IL,7,Comparative Government and Politics,97,1.9,2.3,2.3
+IL,8,Computer Science A,97,2.0,2.8,2.9
+IN,1,Art History,42,2.2,3.2,3.4
+IN,10,English Language and Composition,42,1.9,3.1,3.3
+IN,11,English Literature and Composition,42,2.0,3.1,3.2
+IN,12,Environmental Science,42,2.0,3.0,3.0
+IN,13,European History,42,2.2,3.3,3.5
+IN,14,French Language and Culture,42,3.9,6.5,7.3
+IN,16,German Language and Culture,42,4.2,6.4,7.3
+IN,17,Human Geography,42,2.0,2.6,2.6
+IN,18,Italian Language and Culture,42,3.2,5.1,6.0
+IN,19,Japanese Language and Culture,42,3.1,5.0,5.9
+IN,2,Biology,42,2.4,4.5,5.4
+IN,21,Latin,42,3.0,4.7,5.3
+IN,22,Macroeconomics,42,2.0,2.7,2.8
+IN,23,Microeconomics,42,1.9,2.7,2.7
+IN,24,Music Theory,42,1.9,2.9,3.3
+IN,26,Physics C: Electricity and Magnetism,42,1.9,3.9,4.0
+IN,27,Physics C: Mechanics,42,2.1,3.8,4.0
+IN,28,Psychology,42,2.1,2.7,2.8
+IN,29,Spanish Language and Culture,42,4.2,6.7,7.9
+IN,3,Calculus AB,42,2.1,3.9,4.2
+IN,30,Spanish Literature and Culture,42,2.9,4.5,5.2
+IN,31,Statistics,42,1.9,2.9,3.0
+IN,32,2-D Art and Design,42,1.8,2.2,2.3
+IN,33,3-D Art and Design,42,1.8,2.1,2.2
+IN,34,Drawing,42,1.9,2.5,2.5
+IN,35,United States Government and Politics,42,2.0,2.7,2.7
+IN,36,United States History,42,2.5,4.1,4.7
+IN,37,World History: Modern,42,2.3,3.1,3.5
+IN,38,Physics 1,42,2.4,3.3,3.6
+IN,39,Physics 2,42,2.0,3.5,3.7
+IN,4,Calculus BC,42,2.5,6.7,7.2
+IN,40,Seminar,42,0.9,1.1,1.1
+IN,41,Research,42,0.8,1.1,1.1
+IN,42,Computer Science Principles,42,1.4,2.0,2.0
+IN,43,African American Studies,42,0.8,1.2,1.3
+IN,44,Pre-Calculus,42,1.5,2.5,2.5
+IN,5,Chemistry,42,3.1,4.9,6.0
+IN,6,Chinese Language and Culture,42,3.0,5.0,5.8
+IN,7,Comparative Government and Politics,42,1.8,2.5,2.6
+IN,8,Computer Science A,42,1.9,3.3,3.4
+KS,1,Art History,29,1.9,3.2,3.2
+KS,10,English Language and Composition,29,3.1,4.0,4.1
+KS,11,English Literature and Composition,29,3.1,3.9,4.0
+KS,12,Environmental Science,29,2.6,2.9,2.9
+KS,13,European History,29,2.7,3.5,3.6
+KS,14,French Language and Culture,29,3.8,4.0,4.2
+KS,16,German Language and Culture,29,3.6,4.1,4.4
+KS,17,Human Geography,29,2.1,2.2,2.2
+KS,18,Italian Language and Culture,29,2.5,2.6,2.6
+KS,19,Japanese Language and Culture,29,2.5,2.5,2.5
+KS,2,Biology,29,3.5,4.1,4.3
+KS,21,Latin,29,2.5,2.5,2.6
+KS,22,Macroeconomics,29,2.5,2.8,2.8
+KS,23,Microeconomics,29,2.5,2.8,2.8
+KS,24,Music Theory,29,2.5,2.7,2.7
+KS,26,Physics C: Electricity and Magnetism,29,1.7,2.9,3.4
+KS,27,Physics C: Mechanics,29,1.7,2.9,3.2
+KS,28,Psychology,29,2.6,2.7,2.7
+KS,29,Spanish Language and Culture,29,5.3,6.1,6.4
+KS,3,Calculus AB,29,3.6,4.3,4.3
+KS,30,Spanish Literature and Culture,29,2.9,3.1,3.1
+KS,31,Statistics,29,2.7,2.8,2.8
+KS,32,2-D Art and Design,29,2.0,2.0,2.0
+KS,33,3-D Art and Design,29,1.8,1.8,1.8
+KS,34,Drawing,29,2.2,2.2,2.2
+KS,35,United States Government and Politics,29,2.4,2.6,2.7
+KS,36,United States History,29,3.8,4.9,5.0
+KS,37,World History: Modern,29,3.4,3.7,3.8
+KS,38,Physics 1,29,1.0,3.2,3.2
+KS,39,Physics 2,29,1.0,3.1,3.1
+KS,4,Calculus BC,29,5.5,6.7,6.7
+KS,40,Seminar,29,0.5,0.5,0.5
+KS,41,Research,29,0.5,0.5,0.5
+KS,42,Computer Science Principles,29,1.6,1.6,1.6
+KS,43,African American Studies,29,0.7,0.7,0.7
+KS,44,Pre-Calculus,29,1.2,1.3,1.3
+KS,5,Chemistry,29,3.9,5.6,5.8
+KS,6,Chinese Language and Culture,29,2.7,2.9,2.9
+KS,7,Comparative Government and Politics,29,1.9,2.0,2.0
+KS,8,Computer Science A,29,1.9,2.2,2.2
+KY,1,Art History,42,2.6,3.9,4.0
+KY,10,English Language and Composition,42,2.6,2.9,3.1
+KY,11,English Literature and Composition,42,2.6,3.1,3.3
+KY,12,Environmental Science,42,3.0,3.2,3.2
+KY,13,European History,42,4.0,4.3,4.4
+KY,14,French Language and Culture,42,3.3,5.2,5.5
+KY,16,German Language and Culture,42,3.0,5.0,5.4
+KY,17,Human Geography,42,2.5,2.5,2.5
+KY,18,Italian Language and Culture,42,2.4,4.0,4.2
+KY,19,Japanese Language and Culture,42,2.5,4.2,4.5
+KY,2,Biology,42,3.0,3.5,3.9
+KY,21,Latin,42,2.9,4.9,5.3
+KY,22,Macroeconomics,42,2.4,2.6,2.6
+KY,23,Microeconomics,42,2.5,2.7,2.7
+KY,24,Music Theory,42,2.2,2.5,2.7
+KY,26,Physics C: Electricity and Magnetism,42,2.3,2.4,2.6
+KY,27,Physics C: Mechanics,42,2.3,2.5,2.6
+KY,28,Psychology,42,2.7,2.8,2.8
+KY,29,Spanish Language and Culture,42,3.2,5.3,5.8
+KY,3,Calculus AB,42,3.7,4.0,4.0
+KY,30,Spanish Literature and Culture,42,2.4,2.9,3.0
+KY,31,Statistics,42,2.6,2.8,2.8
+KY,32,2-D Art and Design,42,2.4,2.5,2.5
+KY,33,3-D Art and Design,42,2.2,2.3,2.3
+KY,34,Drawing,42,2.3,2.5,2.6
+KY,35,United States Government and Politics,42,2.6,2.7,2.7
+KY,36,United States History,42,4.4,4.7,5.0
+KY,37,World History: Modern,42,2.9,3.0,3.1
+KY,38,Physics 1,42,2.7,3.0,3.0
+KY,39,Physics 2,42,2.7,2.9,2.9
+KY,4,Calculus BC,42,6.0,7.1,7.1
+KY,40,Seminar,42,1.4,1.4,1.4
+KY,41,Research,42,1.2,1.3,1.3
+KY,42,Computer Science Principles,42,1.9,2.0,2.0
+KY,43,African American Studies,42,1.6,1.7,1.7
+KY,44,Pre-Calculus,42,2.4,2.5,2.5
+KY,5,Chemistry,42,3.1,5.1,5.6
+KY,6,Chinese Language and Culture,42,2.8,4.9,5.3
+KY,7,Comparative Government and Politics,42,2.3,2.5,2.5
+KY,8,Computer Science A,42,2.6,2.7,2.7
+LA,1,Art History,23,2.4,3.9,4.0
+LA,10,English Language and Composition,23,2.9,4.5,5.6
+LA,11,English Literature and Composition,23,2.5,4.1,5.0
+LA,12,Environmental Science,23,1.9,2.4,2.4
+LA,13,European History,23,2.1,3.2,3.2
+LA,14,French Language and Culture,23,4.8,6.9,7.9
+LA,16,German Language and Culture,23,3.2,3.7,4.1
+LA,17,Human Geography,23,1.7,2.4,2.4
+LA,18,Italian Language and Culture,23,0.7,1.0,1.0
+LA,19,Japanese Language and Culture,23,0.7,1.0,1.0
+LA,2,Biology,23,4.2,5.3,6.0
+LA,21,Latin,23,2.7,3.5,3.9
+LA,22,Macroeconomics,23,2.1,2.9,3.0
+LA,23,Microeconomics,23,2.1,2.9,3.0
+LA,24,Music Theory,23,1.5,2.4,2.7
+LA,26,Physics C: Electricity and Magnetism,23,2.8,3.6,3.6
+LA,27,Physics C: Mechanics,23,2.9,3.4,3.4
+LA,28,Psychology,23,2.4,2.9,2.9
+LA,29,Spanish Language and Culture,23,4.9,6.7,7.7
+LA,3,Calculus AB,23,4.3,5.7,5.9
+LA,30,Spanish Literature and Culture,23,1.7,2.7,3.2
+LA,31,Statistics,23,2.0,2.4,2.4
+LA,32,2-D Art and Design,23,1.8,1.9,1.9
+LA,33,3-D Art and Design,23,1.6,1.8,1.8
+LA,34,Drawing,23,2.0,2.2,2.2
+LA,35,United States Government and Politics,23,2.5,2.9,2.9
+LA,36,United States History,23,2.6,4.9,4.9
+LA,37,World History: Modern,23,2.2,3.5,3.5
+LA,38,Physics 1,23,2.0,2.5,2.5
+LA,39,Physics 2,23,1.8,2.3,2.6
+LA,4,Calculus BC,23,5.3,7.4,8.0
+LA,40,Seminar,23,0.0,0.0,0.0
+LA,41,Research,23,0.0,0.0,0.0
+LA,42,Computer Science Principles,23,0.6,0.7,0.7
+LA,43,African American Studies,23,0.4,0.4,0.4
+LA,44,Pre-Calculus,23,1.0,1.3,1.3
+LA,5,Chemistry,23,3.8,5.4,5.9
+LA,6,Chinese Language and Culture,23,1.0,1.4,1.5
+LA,7,Comparative Government and Politics,23,1.4,1.7,1.7
+LA,8,Computer Science A,23,2.2,2.7,3.0
+MA,1,Art History,70,2.0,3.1,3.3
+MA,10,English Language and Composition,70,1.9,3.2,3.6
+MA,11,English Literature and Composition,70,2.0,3.4,3.7
+MA,12,Environmental Science,70,1.8,3.1,3.1
+MA,13,European History,70,2.1,3.5,3.7
+MA,14,French Language and Culture,70,2.9,4.2,4.7
+MA,16,German Language and Culture,70,2.5,3.7,4.3
+MA,17,Human Geography,70,1.7,2.6,2.7
+MA,18,Italian Language and Culture,70,2.4,3.5,3.9
+MA,19,Japanese Language and Culture,70,2.0,3.0,3.4
+MA,2,Biology,70,2.6,4.3,4.5
+MA,21,Latin,70,1.9,3.0,3.6
+MA,22,Macroeconomics,70,1.6,2.7,2.8
+MA,23,Microeconomics,70,1.6,2.7,2.8
+MA,24,Music Theory,70,1.6,2.4,2.6
+MA,26,Physics C: Electricity and Magnetism,70,1.3,2.8,2.9
+MA,27,Physics C: Mechanics,70,1.5,3.1,3.1
+MA,28,Psychology,70,1.7,2.8,2.8
+MA,29,Spanish Language and Culture,70,3.0,4.3,4.7
+MA,3,Calculus AB,70,1.8,3.3,3.3
+MA,30,Spanish Literature and Culture,70,1.9,3.1,3.4
+MA,31,Statistics,70,1.8,2.9,2.9
+MA,32,2-D Art and Design,70,1.4,2.2,2.4
+MA,33,3-D Art and Design,70,1.4,2.0,2.2
+MA,34,Drawing,70,1.6,2.3,2.5
+MA,35,United States Government and Politics,70,1.7,2.8,3.0
+MA,36,United States History,70,2.6,4.2,4.3
+MA,37,World History: Modern,70,2.4,3.8,4.0
+MA,38,Physics 1,70,1.6,2.6,2.6
+MA,39,Physics 2,70,1.3,2.4,2.5
+MA,4,Calculus BC,70,2.9,5.2,5.3
+MA,40,Seminar,70,0.6,0.8,0.9
+MA,41,Research,70,0.6,0.7,0.9
+MA,42,Computer Science Principles,70,1.2,2.0,2.0
+MA,43,African American Studies,70,0.6,1.1,1.1
+MA,44,Pre-Calculus,70,0.8,1.1,1.1
+MA,5,Chemistry,70,2.6,4.5,4.7
+MA,6,Chinese Language and Culture,70,2.2,3.3,3.8
+MA,7,Comparative Government and Politics,70,1.5,2.4,2.6
+MA,8,Computer Science A,70,1.3,2.5,2.6
+MD,1,Art History,42,2.8,3.5,3.7
+MD,10,English Language and Composition,42,2.2,3.3,3.5
+MD,11,English Literature and Composition,42,2.2,3.6,3.6
+MD,12,Environmental Science,42,2.3,3.1,3.2
+MD,13,European History,42,2.5,3.6,3.7
+MD,14,French Language and Culture,42,3.7,5.2,5.9
+MD,16,German Language and Culture,42,3.6,5.1,5.5
+MD,17,Human Geography,42,2.0,2.5,2.5
+MD,18,Italian Language and Culture,42,2.4,3.6,4.0
+MD,19,Japanese Language and Culture,42,2.0,2.7,3.0
+MD,2,Biology,42,3.1,5.2,6.2
+MD,21,Latin,42,1.9,2.7,2.9
+MD,22,Macroeconomics,42,2.2,2.5,2.7
+MD,23,Microeconomics,42,2.2,2.5,2.7
+MD,24,Music Theory,42,2.4,3.3,3.5
+MD,26,Physics C: Electricity and Magnetism,42,2.4,3.8,3.8
+MD,27,Physics C: Mechanics,42,2.4,3.6,3.6
+MD,28,Psychology,42,2.2,2.8,2.9
+MD,29,Spanish Language and Culture,42,3.7,5.3,5.9
+MD,3,Calculus AB,42,2.6,3.7,3.9
+MD,30,Spanish Literature and Culture,42,2.4,3.1,3.4
+MD,31,Statistics,42,2.7,3.1,3.1
+MD,32,2-D Art and Design,42,1.7,2.2,2.2
+MD,33,3-D Art and Design,42,1.6,2.2,2.2
+MD,34,Drawing,42,1.8,2.3,2.3
+MD,35,United States Government and Politics,42,2.5,3.0,3.0
+MD,36,United States History,42,3.1,4.4,4.6
+MD,37,World History: Modern,42,2.6,3.6,3.6
+MD,38,Physics 1,42,2.0,3.0,3.2
+MD,39,Physics 2,42,2.1,3.1,3.3
+MD,4,Calculus BC,42,3.5,6.6,6.8
+MD,40,Seminar,42,1.0,1.0,1.0
+MD,41,Research,42,1.1,1.1,1.1
+MD,42,Computer Science Principles,42,1.6,1.9,1.9
+MD,43,African American Studies,42,1.1,1.1,1.1
+MD,44,Pre-Calculus,42,1.2,1.8,1.8
+MD,5,Chemistry,42,3.1,4.9,6.9
+MD,6,Chinese Language and Culture,42,2.0,3.1,3.8
+MD,7,Comparative Government and Politics,42,1.7,2.2,2.3
+MD,8,Computer Science A,42,2.1,2.9,3.4
+ME,1,Art History,20,2.3,2.8,2.8
+ME,10,English Language and Composition,20,2.1,3.0,3.0
+ME,11,English Literature and Composition,20,2.5,3.5,3.5
+ME,12,Environmental Science,20,2.1,2.5,2.6
+ME,13,European History,20,2.4,3.0,3.0
+ME,14,French Language and Culture,20,3.0,3.7,4.0
+ME,16,German Language and Culture,20,3.1,3.9,4.1
+ME,17,Human Geography,20,1.4,1.8,1.8
+ME,18,Italian Language and Culture,20,2.1,2.7,2.9
+ME,19,Japanese Language and Culture,20,1.9,2.4,2.8
+ME,2,Biology,20,2.9,4.1,4.1
+ME,21,Latin,20,2.4,3.0,3.2
+ME,22,Macroeconomics,20,2.0,2.3,2.3
+ME,23,Microeconomics,20,2.0,2.3,2.3
+ME,24,Music Theory,20,1.5,2.1,2.1
+ME,26,Physics C: Electricity and Magnetism,20,2.1,2.4,2.4
+ME,27,Physics C: Mechanics,20,1.9,2.3,2.3
+ME,28,Psychology,20,2.0,2.3,2.3
+ME,29,Spanish Language and Culture,20,3.3,4.1,4.5
+ME,3,Calculus AB,20,2.3,2.7,2.7
+ME,30,Spanish Literature and Culture,20,1.9,2.6,2.9
+ME,31,Statistics,20,2.1,2.4,2.4
+ME,32,2-D Art and Design,20,1.6,2.0,2.0
+ME,33,3-D Art and Design,20,1.6,2.0,2.0
+ME,34,Drawing,20,1.5,1.9,1.9
+ME,35,United States Government and Politics,20,1.9,2.1,2.3
+ME,36,United States History,20,2.7,3.5,3.6
+ME,37,World History: Modern,20,2.4,3.2,3.4
+ME,38,Physics 1,20,1.8,2.1,2.1
+ME,39,Physics 2,20,1.8,2.1,2.1
+ME,4,Calculus BC,20,4.0,4.7,4.7
+ME,40,Seminar,20,0.8,0.8,0.8
+ME,41,Research,20,0.8,0.8,0.8
+ME,42,Computer Science Principles,20,0.9,0.9,0.9
+ME,43,African American Studies,20,0.5,0.5,0.5
+ME,44,Pre-Calculus,20,0.6,0.6,0.6
+ME,5,Chemistry,20,3.2,4.1,4.5
+ME,6,Chinese Language and Culture,20,2.4,3.1,3.3
+ME,7,Comparative Government and Politics,20,1.6,1.9,1.9
+ME,8,Computer Science A,20,1.7,2.1,2.1
+MI,1,Art History,62,2.5,3.5,3.5
+MI,10,English Language and Composition,62,2.6,3.8,4.0
+MI,11,English Literature and Composition,62,2.5,3.7,3.9
+MI,12,Environmental Science,62,1.9,2.9,2.9
+MI,13,European History,62,2.4,3.6,3.8
+MI,14,French Language and Culture,62,4.0,5.7,6.9
+MI,16,German Language and Culture,62,3.9,5.3,6.5
+MI,17,Human Geography,62,1.6,2.2,2.2
+MI,18,Italian Language and Culture,62,1.6,2.5,3.0
+MI,19,Japanese Language and Culture,62,2.0,3.0,3.8
+MI,2,Biology,62,3.1,4.9,5.3
+MI,21,Latin,62,2.1,2.9,3.2
+MI,22,Macroeconomics,62,2.1,2.9,2.9
+MI,23,Microeconomics,62,2.0,2.8,2.8
+MI,24,Music Theory,62,2.1,3.2,3.4
+MI,26,Physics C: Electricity and Magnetism,62,2.0,3.9,4.0
+MI,27,Physics C: Mechanics,62,2.3,4.0,4.1
+MI,28,Psychology,62,2.3,3.2,3.2
+MI,29,Spanish Language and Culture,62,4.2,6.0,7.3
+MI,3,Calculus AB,62,3.0,4.0,4.0
+MI,30,Spanish Literature and Culture,62,2.5,3.7,4.5
+MI,31,Statistics,62,2.5,3.3,3.3
+MI,32,2-D Art and Design,62,1.7,2.5,2.6
+MI,33,3-D Art and Design,62,1.6,2.4,2.5
+MI,34,Drawing,62,1.7,2.5,2.6
+MI,35,United States Government and Politics,62,2.3,3.1,3.1
+MI,36,United States History,62,3.1,4.6,4.8
+MI,37,World History: Modern,62,2.2,3.2,3.2
+MI,38,Physics 1,62,2.1,3.0,3.2
+MI,39,Physics 2,62,1.8,3.1,3.4
+MI,4,Calculus BC,62,5.2,6.9,7.1
+MI,40,Seminar,62,0.8,1.1,1.1
+MI,41,Research,62,0.8,1.1,1.1
+MI,42,Computer Science Principles,62,1.6,2.3,2.3
+MI,43,African American Studies,62,0.8,1.3,1.3
+MI,44,Pre-Calculus,62,1.5,2.4,2.4
+MI,5,Chemistry,62,3.5,5.7,6.5
+MI,6,Chinese Language and Culture,62,2.1,2.9,3.5
+MI,7,Comparative Government and Politics,62,2.0,2.7,2.8
+MI,8,Computer Science A,62,1.8,2.9,3.0
+MN,1,Art History,49,3.1,3.6,4.0
+MN,10,English Language and Composition,49,2.7,3.8,4.0
+MN,11,English Literature and Composition,49,3.2,4.3,4.3
+MN,12,Environmental Science,49,2.6,3.2,3.2
+MN,13,European History,49,3.0,4.0,4.0
+MN,14,French Language and Culture,49,3.5,4.3,4.8
+MN,16,German Language and Culture,49,3.9,4.9,5.5
+MN,17,Human Geography,49,2.5,2.9,2.9
+MN,18,Italian Language and Culture,49,2.6,3.2,3.5
+MN,19,Japanese Language and Culture,49,2.4,3.3,3.6
+MN,2,Biology,49,3.3,4.6,4.8
+MN,21,Latin,49,3.1,3.6,4.0
+MN,22,Macroeconomics,49,2.4,2.8,3.0
+MN,23,Microeconomics,49,2.4,2.8,3.0
+MN,24,Music Theory,49,2.6,3.1,3.5
+MN,26,Physics C: Electricity and Magnetism,49,2.9,3.4,3.5
+MN,27,Physics C: Mechanics,49,2.9,3.4,3.5
+MN,28,Psychology,49,2.4,3.4,3.4
+MN,29,Spanish Language and Culture,49,4.3,5.5,6.2
+MN,3,Calculus AB,49,3.2,4.2,4.2
+MN,30,Spanish Literature and Culture,49,2.7,4.1,4.5
+MN,31,Statistics,49,2.5,3.3,3.3
+MN,32,2-D Art and Design,49,2.5,3.1,3.1
+MN,33,3-D Art and Design,49,2.5,3.1,3.1
+MN,34,Drawing,49,2.6,3.1,3.1
+MN,35,United States Government and Politics,49,2.5,3.0,3.1
+MN,36,United States History,49,3.2,4.4,4.7
+MN,37,World History: Modern,49,3.0,3.9,3.9
+MN,38,Physics 1,49,3.1,3.4,3.5
+MN,39,Physics 2,49,3.1,3.3,3.4
+MN,4,Calculus BC,49,4.5,7.1,7.1
+MN,40,Seminar,49,1.1,1.4,1.4
+MN,41,Research,49,0.9,1.2,1.2
+MN,42,Computer Science Principles,49,1.6,2.2,2.3
+MN,43,African American Studies,49,0.9,1.1,1.1
+MN,44,Pre-Calculus,49,1.0,1.5,1.5
+MN,5,Chemistry,49,3.2,5.1,6.2
+MN,6,Chinese Language and Culture,49,3.2,4.0,4.4
+MN,7,Comparative Government and Politics,49,2.5,2.9,3.2
+MN,8,Computer Science A,49,2.4,3.2,3.2
+MO,1,Art History,42,2.6,3.3,3.3
+MO,10,English Language and Composition,42,2.6,3.3,3.6
+MO,11,English Literature and Composition,42,2.9,3.6,3.9
+MO,12,Environmental Science,42,2.2,2.7,2.7
+MO,13,European History,42,2.9,3.6,3.8
+MO,14,French Language and Culture,42,4.3,5.5,6.4
+MO,16,German Language and Culture,42,3.3,4.4,5.2
+MO,17,Human Geography,42,2.0,2.2,2.2
+MO,18,Italian Language and Culture,42,2.0,2.4,3.1
+MO,19,Japanese Language and Culture,42,2.0,2.5,3.2
+MO,2,Biology,42,3.0,4.3,4.4
+MO,21,Latin,42,2.8,3.5,3.9
+MO,22,Macroeconomics,42,2.1,2.7,2.8
+MO,23,Microeconomics,42,2.1,2.7,2.8
+MO,24,Music Theory,42,2.0,2.9,3.1
+MO,26,Physics C: Electricity and Magnetism,42,2.9,3.6,3.8
+MO,27,Physics C: Mechanics,42,2.9,3.8,4.0
+MO,28,Psychology,42,2.2,2.9,2.9
+MO,29,Spanish Language and Culture,42,4.2,5.7,6.5
+MO,3,Calculus AB,42,3.9,4.6,4.7
+MO,30,Spanish Literature and Culture,42,2.9,3.7,4.6
+MO,31,Statistics,42,2.2,2.7,2.8
+MO,32,2-D Art and Design,42,2.0,2.3,2.4
+MO,33,3-D Art and Design,42,1.9,2.2,2.2
+MO,34,Drawing,42,2.1,2.5,2.6
+MO,35,United States Government and Politics,42,2.2,2.9,2.9
+MO,36,United States History,42,3.2,4.1,4.4
+MO,37,World History: Modern,42,2.5,3.3,3.5
+MO,38,Physics 1,42,2.7,3.5,3.5
+MO,39,Physics 2,42,2.7,3.3,3.4
+MO,4,Calculus BC,42,5.8,7.7,7.9
+MO,40,Seminar,42,1.1,1.6,1.6
+MO,41,Research,42,1.2,1.7,1.7
+MO,42,Computer Science Principles,42,1.6,1.9,1.9
+MO,43,African American Studies,42,0.8,1.0,1.0
+MO,44,Pre-Calculus,42,1.3,1.5,1.5
+MO,5,Chemistry,42,3.5,4.9,6.0
+MO,6,Chinese Language and Culture,42,2.2,2.8,3.7
+MO,7,Comparative Government and Politics,42,2.1,2.7,2.7
+MO,8,Computer Science A,42,2.3,2.9,3.0
+MP,1,Art History,1,0.0,0.0,0.0
+MP,10,English Language and Composition,1,3.0,3.0,3.0
+MP,11,English Literature and Composition,1,3.0,3.0,3.0
+MP,12,Environmental Science,1,0.0,0.0,0.0
+MP,13,European History,1,0.0,0.0,0.0
+MP,14,French Language and Culture,1,0.0,0.0,0.0
+MP,16,German Language and Culture,1,0.0,0.0,0.0
+MP,17,Human Geography,1,0.0,0.0,0.0
+MP,18,Italian Language and Culture,1,0.0,0.0,0.0
+MP,19,Japanese Language and Culture,1,0.0,0.0,0.0
+MP,2,Biology,1,4.0,4.0,4.0
+MP,21,Latin,1,0.0,0.0,0.0
+MP,22,Macroeconomics,1,3.0,3.0,3.0
+MP,23,Microeconomics,1,3.0,3.0,3.0
+MP,24,Music Theory,1,0.0,0.0,0.0
+MP,26,Physics C: Electricity and Magnetism,1,0.0,0.0,0.0
+MP,27,Physics C: Mechanics,1,0.0,0.0,0.0
+MP,28,Psychology,1,3.0,3.0,3.0
+MP,29,Spanish Language and Culture,1,4.0,4.0,4.0
+MP,3,Calculus AB,1,5.0,5.0,5.0
+MP,30,Spanish Literature and Culture,1,0.0,0.0,0.0
+MP,31,Statistics,1,0.0,0.0,0.0
+MP,32,2-D Art and Design,1,0.0,0.0,0.0
+MP,33,3-D Art and Design,1,0.0,0.0,0.0
+MP,34,Drawing,1,3.0,3.0,3.0
+MP,35,United States Government and Politics,1,3.0,3.0,3.0
+MP,36,United States History,1,6.0,6.0,6.0
+MP,37,World History: Modern,1,6.0,6.0,6.0
+MP,38,Physics 1,1,0.0,0.0,0.0
+MP,39,Physics 2,1,0.0,0.0,0.0
+MP,4,Calculus BC,1,5.0,5.0,5.0
+MP,40,Seminar,1,0.0,0.0,0.0
+MP,41,Research,1,0.0,0.0,0.0
+MP,42,Computer Science Principles,1,0.0,0.0,0.0
+MP,43,African American Studies,1,0.0,0.0,0.0
+MP,44,Pre-Calculus,1,0.0,0.0,0.0
+MP,5,Chemistry,1,4.0,4.0,4.0
+MP,6,Chinese Language and Culture,1,0.0,0.0,0.0
+MP,7,Comparative Government and Politics,1,0.0,0.0,0.0
+MP,8,Computer Science A,1,3.0,3.0,3.0
+MS,1,Art History,27,1.7,1.8,1.8
+MS,10,English Language and Composition,27,2.1,3.7,3.7
+MS,11,English Literature and Composition,27,1.8,3.0,3.0
+MS,12,Environmental Science,27,1.8,1.9,1.9
+MS,13,European History,27,1.8,2.7,2.8
+MS,14,French Language and Culture,27,1.9,3.3,3.4
+MS,16,German Language and Culture,27,1.4,2.3,2.4
+MS,17,Human Geography,27,1.3,1.5,1.5
+MS,18,Italian Language and Culture,27,1.0,1.5,1.5
+MS,19,Japanese Language and Culture,27,1.0,1.5,1.5
+MS,2,Biology,27,3.0,4.2,4.4
+MS,21,Latin,27,1.1,1.8,1.8
+MS,22,Macroeconomics,27,1.9,2.1,2.1
+MS,23,Microeconomics,27,1.8,2.0,2.0
+MS,24,Music Theory,27,1.7,2.2,2.6
+MS,26,Physics C: Electricity and Magnetism,27,1.7,2.0,2.0
+MS,27,Physics C: Mechanics,27,1.7,2.0,2.0
+MS,28,Psychology,27,2.1,2.3,2.4
+MS,29,Spanish Language and Culture,27,2.3,3.7,4.2
+MS,3,Calculus AB,27,2.1,2.9,2.9
+MS,30,Spanish Literature and Culture,27,1.3,1.9,2.2
+MS,31,Statistics,27,1.9,2.0,2.1
+MS,32,2-D Art and Design,27,1.4,1.6,1.6
+MS,33,3-D Art and Design,27,1.1,1.3,1.3
+MS,34,Drawing,27,1.3,1.8,1.8
+MS,35,United States Government and Politics,27,2.0,2.3,2.3
+MS,36,United States History,27,2.4,4.1,4.2
+MS,37,World History: Modern,27,2.2,3.1,3.3
+MS,38,Physics 1,27,2.4,2.9,2.9
+MS,39,Physics 2,27,2.0,2.4,2.4
+MS,4,Calculus BC,27,2.6,3.9,3.9
+MS,40,Seminar,27,0.4,0.4,0.4
+MS,41,Research,27,0.4,0.4,0.4
+MS,42,Computer Science Principles,27,1.0,1.1,1.1
+MS,43,African American Studies,27,2.3,2.3,2.3
+MS,44,Pre-Calculus,27,0.3,0.4,0.4
+MS,5,Chemistry,27,2.7,4.1,4.2
+MS,6,Chinese Language and Culture,27,0.9,1.4,1.4
+MS,7,Comparative Government and Politics,27,1.3,1.6,1.6
+MS,8,Computer Science A,27,1.5,1.9,1.9
+MT,1,Art History,13,3.8,4.0,4.0
+MT,10,English Language and Composition,13,2.8,3.9,4.0
+MT,11,English Literature and Composition,13,3.7,4.4,4.4
+MT,12,Environmental Science,13,2.7,2.9,2.9
+MT,13,European History,13,5.1,5.3,5.3
+MT,14,French Language and Culture,13,5.8,6.8,7.5
+MT,16,German Language and Culture,13,5.7,6.7,7.5
+MT,17,Human Geography,13,2.5,2.8,2.8
+MT,18,Italian Language and Culture,13,3.9,4.8,5.6
+MT,19,Japanese Language and Culture,13,3.1,4.1,5.0
+MT,2,Biology,13,5.6,6.3,6.3
+MT,21,Latin,13,3.7,4.2,4.5
+MT,22,Macroeconomics,13,2.8,3.0,3.0
+MT,23,Microeconomics,13,2.8,3.0,3.0
+MT,24,Music Theory,13,2.6,2.9,2.9
+MT,26,Physics C: Electricity and Magnetism,13,3.0,3.3,3.3
+MT,27,Physics C: Mechanics,13,3.0,3.3,3.3
+MT,28,Psychology,13,2.6,2.9,2.9
+MT,29,Spanish Language and Culture,13,5.5,6.5,7.2
+MT,3,Calculus AB,13,3.4,3.7,3.7
+MT,30,Spanish Literature and Culture,13,3.7,4.2,4.2
+MT,31,Statistics,13,2.5,2.7,2.7
+MT,32,2-D Art and Design,13,3.0,3.2,3.2
+MT,33,3-D Art and Design,13,2.5,2.8,2.8
+MT,34,Drawing,13,3.0,3.2,3.2
+MT,35,United States Government and Politics,13,2.5,2.8,2.8
+MT,36,United States History,13,5.3,5.5,5.5
+MT,37,World History: Modern,13,3.5,3.7,3.7
+MT,38,Physics 1,13,3.5,3.8,3.8
+MT,39,Physics 2,13,3.5,3.8,3.8
+MT,4,Calculus BC,13,5.9,6.2,6.5
+MT,40,Seminar,13,0.5,0.5,0.5
+MT,41,Research,13,0.5,0.5,0.5
+MT,42,Computer Science Principles,13,1.6,1.9,1.9
+MT,43,African American Studies,13,0.5,0.5,0.5
+MT,44,Pre-Calculus,13,1.5,1.5,1.5
+MT,5,Chemistry,13,4.1,4.6,5.2
+MT,6,Chinese Language and Culture,13,3.2,4.5,5.3
+MT,7,Comparative Government and Politics,13,1.9,2.1,2.1
+MT,8,Computer Science A,13,2.3,2.9,2.9
+NC,1,Art History,89,2.6,3.3,3.7
+NC,10,English Language and Composition,89,2.7,3.9,4.2
+NC,11,English Literature and Composition,89,2.5,3.4,3.7
+NC,12,Environmental Science,89,2.5,3.0,3.0
+NC,13,European History,89,2.7,3.3,3.8
+NC,14,French Language and Culture,89,2.9,4.4,5.0
+NC,16,German Language and Culture,89,2.3,3.5,3.8
+NC,17,Human Geography,89,1.7,2.0,2.0
+NC,18,Italian Language and Culture,89,1.4,2.3,2.5
+NC,19,Japanese Language and Culture,89,1.5,2.2,2.4
+NC,2,Biology,89,3.4,5.0,5.8
+NC,21,Latin,89,1.9,2.8,3.1
+NC,22,Macroeconomics,89,2.3,2.7,2.7
+NC,23,Microeconomics,89,2.4,2.7,2.8
+NC,24,Music Theory,89,2.2,2.8,3.0
+NC,26,Physics C: Electricity and Magnetism,89,2.4,3.1,3.2
+NC,27,Physics C: Mechanics,89,2.6,3.1,3.2
+NC,28,Psychology,89,2.5,2.9,2.9
+NC,29,Spanish Language and Culture,89,3.5,5.3,5.9
+NC,3,Calculus AB,89,3.5,3.8,3.8
+NC,30,Spanish Literature and Culture,89,1.9,3.0,3.4
+NC,31,Statistics,89,2.7,3.1,3.2
+NC,32,2-D Art and Design,89,1.6,2.0,2.0
+NC,33,3-D Art and Design,89,1.4,1.8,1.8
+NC,34,Drawing,89,1.7,2.1,2.2
+NC,35,United States Government and Politics,89,2.4,2.8,2.8
+NC,36,United States History,89,3.3,4.4,4.8
+NC,37,World History: Modern,89,2.7,3.6,4.0
+NC,38,Physics 1,89,2.1,2.5,2.5
+NC,39,Physics 2,89,1.9,2.2,2.2
+NC,4,Calculus BC,89,5.2,6.0,6.2
+NC,40,Seminar,89,0.4,0.5,0.5
+NC,41,Research,89,0.3,0.4,0.4
+NC,42,Computer Science Principles,89,1.1,1.4,1.4
+NC,43,African American Studies,89,0.7,0.8,0.8
+NC,44,Pre-Calculus,89,1.4,1.7,1.8
+NC,5,Chemistry,89,3.4,5.5,6.3
+NC,6,Chinese Language and Culture,89,1.7,2.4,2.7
+NC,7,Comparative Government and Politics,89,2.0,2.3,2.4
+NC,8,Computer Science A,89,2.3,2.6,2.7
+ND,1,Art History,13,4.8,4.8,4.8
+ND,10,English Language and Composition,13,2.5,2.6,2.6
+ND,11,English Literature and Composition,13,2.5,4.6,4.6
+ND,12,Environmental Science,13,3.2,3.2,3.2
+ND,13,European History,13,4.6,4.6,4.6
+ND,14,French Language and Culture,13,5.8,5.8,5.8
+ND,16,German Language and Culture,13,5.6,5.6,5.6
+ND,17,Human Geography,13,2.3,2.3,2.3
+ND,18,Italian Language and Culture,13,0.7,0.7,0.7
+ND,19,Japanese Language and Culture,13,0.7,0.7,0.7
+ND,2,Biology,13,3.4,6.2,6.2
+ND,21,Latin,13,4.5,4.5,4.5
+ND,22,Macroeconomics,13,2.5,2.5,2.5
+ND,23,Microeconomics,13,2.5,2.5,2.5
+ND,24,Music Theory,13,4.3,4.3,4.3
+ND,26,Physics C: Electricity and Magnetism,13,2.5,3.1,3.1
+ND,27,Physics C: Mechanics,13,2.8,3.3,3.3
+ND,28,Psychology,13,2.5,2.5,2.5
+ND,29,Spanish Language and Culture,13,5.8,6.2,6.5
+ND,3,Calculus AB,13,2.7,2.9,2.9
+ND,30,Spanish Literature and Culture,13,1.3,1.6,1.9
+ND,31,Statistics,13,2.8,2.8,2.8
+ND,32,2-D Art and Design,13,2.5,2.5,2.5
+ND,33,3-D Art and Design,13,2.5,2.5,2.5
+ND,34,Drawing,13,4.8,4.8,4.8
+ND,35,United States Government and Politics,13,2.5,2.5,2.5
+ND,36,United States History,13,4.6,4.6,4.6
+ND,37,World History: Modern,13,3.2,3.2,3.2
+ND,38,Physics 1,13,0.7,3.5,3.5
+ND,39,Physics 2,13,0.4,3.5,3.5
+ND,4,Calculus BC,13,5.2,5.8,5.8
+ND,40,Seminar,13,2.3,2.3,2.3
+ND,41,Research,13,2.1,2.1,2.1
+ND,42,Computer Science Principles,13,1.0,1.2,1.2
+ND,43,African American Studies,13,2.3,2.3,2.3
+ND,44,Pre-Calculus,13,2.1,2.1,2.1
+ND,5,Chemistry,13,3.5,6.4,6.4
+ND,6,Chinese Language and Culture,13,0.7,0.7,0.7
+ND,7,Comparative Government and Politics,13,2.5,2.5,2.5
+ND,8,Computer Science A,13,2.9,2.9,2.9
+NE,1,Art History,15,2.1,3.4,3.4
+NE,10,English Language and Composition,15,2.3,3.0,3.2
+NE,11,English Literature and Composition,15,2.5,3.4,3.4
+NE,12,Environmental Science,15,1.1,2.1,2.1
+NE,13,European History,15,1.3,3.0,3.2
+NE,14,French Language and Culture,15,3.1,5.4,6.1
+NE,16,German Language and Culture,15,3.1,5.4,6.0
+NE,17,Human Geography,15,1.7,2.6,2.6
+NE,18,Italian Language and Culture,15,1.7,3.3,3.3
+NE,19,Japanese Language and Culture,15,1.7,3.0,3.9
+NE,2,Biology,15,2.6,4.5,4.7
+NE,21,Latin,15,2.4,3.9,4.2
+NE,22,Macroeconomics,15,1.9,2.8,2.8
+NE,23,Microeconomics,15,2.1,3.0,3.0
+NE,24,Music Theory,15,1.6,2.4,2.8
+NE,26,Physics C: Electricity and Magnetism,15,1.0,1.8,1.8
+NE,27,Physics C: Mechanics,15,1.3,2.3,2.3
+NE,28,Psychology,15,2.4,3.0,3.0
+NE,29,Spanish Language and Culture,15,3.8,6.4,7.2
+NE,3,Calculus AB,15,3.6,4.4,4.4
+NE,30,Spanish Literature and Culture,15,0.6,2.9,2.9
+NE,31,Statistics,15,2.1,3.0,3.0
+NE,32,2-D Art and Design,15,1.1,1.6,1.6
+NE,33,3-D Art and Design,15,1.1,1.8,1.8
+NE,34,Drawing,15,1.5,2.0,2.0
+NE,35,United States Government and Politics,15,1.9,3.2,3.2
+NE,36,United States History,15,1.6,4.3,4.5
+NE,37,World History: Modern,15,2.4,3.8,3.8
+NE,38,Physics 1,15,2.8,3.6,3.8
+NE,39,Physics 2,15,2.5,3.3,3.6
+NE,4,Calculus BC,15,4.7,6.3,6.3
+NE,40,Seminar,15,0.4,0.8,0.8
+NE,41,Research,15,0.2,0.6,0.6
+NE,42,Computer Science Principles,15,1.0,1.6,1.6
+NE,43,African American Studies,15,0.4,0.7,0.7
+NE,44,Pre-Calculus,15,1.1,1.6,1.6
+NE,5,Chemistry,15,3.1,4.1,4.4
+NE,6,Chinese Language and Culture,15,2.3,2.5,3.3
+NE,7,Comparative Government and Politics,15,0.6,1.9,1.9
+NE,8,Computer Science A,15,1.9,2.6,2.6
+NH,1,Art History,14,3.2,3.2,3.5
+NH,10,English Language and Composition,14,3.8,4.1,4.1
+NH,11,English Literature and Composition,14,3.7,4.0,4.0
+NH,12,Environmental Science,14,2.6,3.0,3.3
+NH,13,European History,14,3.7,3.9,4.8
+NH,14,French Language and Culture,14,3.4,4.1,4.9
+NH,16,German Language and Culture,14,4.6,5.4,6.3
+NH,17,Human Geography,14,2.5,2.7,3.0
+NH,18,Italian Language and Culture,14,3.1,3.7,4.4
+NH,19,Japanese Language and Culture,14,3.5,4.3,5.1
+NH,2,Biology,14,3.1,3.9,4.2
+NH,21,Latin,14,3.4,4.0,4.7
+NH,22,Macroeconomics,14,2.7,2.7,3.0
+NH,23,Microeconomics,14,2.7,2.7,3.1
+NH,24,Music Theory,14,2.6,3.5,4.1
+NH,26,Physics C: Electricity and Magnetism,14,2.9,3.1,3.4
+NH,27,Physics C: Mechanics,14,2.9,3.1,3.4
+NH,28,Psychology,14,3.0,3.3,3.3
+NH,29,Spanish Language and Culture,14,3.7,4.9,5.4
+NH,3,Calculus AB,14,3.1,3.6,3.9
+NH,30,Spanish Literature and Culture,14,3.4,3.6,5.6
+NH,31,Statistics,14,2.8,3.5,3.8
+NH,32,2-D Art and Design,14,2.8,2.8,3.1
+NH,33,3-D Art and Design,14,2.8,2.8,3.1
+NH,34,Drawing,14,2.9,2.9,3.1
+NH,35,United States Government and Politics,14,2.6,2.8,3.1
+NH,36,United States History,14,4.1,4.4,5.2
+NH,37,World History: Modern,14,3.5,3.7,4.6
+NH,38,Physics 1,14,2.8,3.0,3.3
+NH,39,Physics 2,14,2.8,3.0,3.3
+NH,4,Calculus BC,14,4.3,6.1,7.0
+NH,40,Seminar,14,2.1,2.4,2.4
+NH,41,Research,14,2.1,2.4,2.4
+NH,42,Computer Science Principles,14,2.1,2.1,2.4
+NH,43,African American Studies,14,1.8,1.8,1.8
+NH,44,Pre-Calculus,14,2.0,2.0,2.0
+NH,5,Chemistry,14,2.9,5.7,6.3
+NH,6,Chinese Language and Culture,14,3.9,4.4,5.3
+NH,7,Comparative Government and Politics,14,2.6,2.8,3.1
+NH,8,Computer Science A,14,3.1,3.5,3.8
+NJ,1,Art History,32,1.8,3.3,3.3
+NJ,10,English Language and Composition,32,1.3,2.9,3.1
+NJ,11,English Literature and Composition,32,1.4,3.0,3.2
+NJ,12,Environmental Science,32,1.2,2.7,2.8
+NJ,13,European History,32,2.0,3.5,3.5
+NJ,14,French Language and Culture,32,2.2,4.2,4.5
+NJ,16,German Language and Culture,32,2.1,4.4,4.8
+NJ,17,Human Geography,32,1.4,2.4,2.4
+NJ,18,Italian Language and Culture,32,2.1,4.2,4.9
+NJ,19,Japanese Language and Culture,32,1.8,3.7,4.0
+NJ,2,Biology,32,1.7,4.3,5.0
+NJ,21,Latin,32,2.1,4.1,4.3
+NJ,22,Macroeconomics,32,1.5,2.5,2.5
+NJ,23,Microeconomics,32,1.5,2.5,2.5
+NJ,24,Music Theory,32,1.7,2.9,3.1
+NJ,26,Physics C: Electricity and Magnetism,32,1.6,3.2,3.3
+NJ,27,Physics C: Mechanics,32,1.4,3.2,3.2
+NJ,28,Psychology,32,1.4,2.5,2.5
+NJ,29,Spanish Language and Culture,32,2.3,4.3,4.5
+NJ,3,Calculus AB,32,1.3,3.3,3.3
+NJ,30,Spanish Literature and Culture,32,2.2,3.8,3.8
+NJ,31,Statistics,32,1.4,2.5,2.6
+NJ,32,2-D Art and Design,32,1.6,2.4,2.4
+NJ,33,3-D Art and Design,32,1.4,2.2,2.2
+NJ,34,Drawing,32,1.4,2.3,2.4
+NJ,35,United States Government and Politics,32,1.5,2.5,2.5
+NJ,36,United States History,32,2.3,3.8,3.8
+NJ,37,World History: Modern,32,1.8,3.4,3.4
+NJ,38,Physics 1,32,1.5,3.0,3.1
+NJ,39,Physics 2,32,1.5,3.0,3.1
+NJ,4,Calculus BC,32,2.5,5.9,6.2
+NJ,40,Seminar,32,0.9,1.2,1.2
+NJ,41,Research,32,0.9,1.2,1.2
+NJ,42,Computer Science Principles,32,1.0,1.8,1.8
+NJ,43,African American Studies,32,0.9,1.6,1.6
+NJ,44,Pre-Calculus,32,0.7,1.8,1.9
+NJ,5,Chemistry,32,1.6,3.8,5.0
+NJ,6,Chinese Language and Culture,32,2.0,4.0,4.1
+NJ,7,Comparative Government and Politics,32,1.5,2.5,2.5
+NJ,8,Computer Science A,32,1.3,2.5,2.6
+NM,1,Art History,19,1.9,3.0,3.3
+NM,10,English Language and Composition,19,2.2,2.2,2.5
+NM,11,English Literature and Composition,19,2.2,2.4,2.5
+NM,12,Environmental Science,19,1.3,1.3,1.3
+NM,13,European History,19,1.7,3.3,3.3
+NM,14,French Language and Culture,19,2.0,3.3,4.3
+NM,16,German Language and Culture,19,1.8,2.7,3.3
+NM,17,Human Geography,19,0.8,0.8,0.8
+NM,18,Italian Language and Culture,19,0.5,1.1,1.2
+NM,19,Japanese Language and Culture,19,0.9,1.6,2.8
+NM,2,Biology,19,1.7,3.0,3.6
+NM,21,Latin,19,0.9,1.4,1.7
+NM,22,Macroeconomics,19,2.2,2.2,2.2
+NM,23,Microeconomics,19,2.2,2.2,2.2
+NM,24,Music Theory,19,1.7,2.2,2.6
+NM,26,Physics C: Electricity and Magnetism,19,1.6,1.8,1.8
+NM,27,Physics C: Mechanics,19,1.6,2.1,2.1
+NM,28,Psychology,19,2.0,2.2,2.2
+NM,29,Spanish Language and Culture,19,2.8,4.6,6.2
+NM,3,Calculus AB,19,1.8,2.7,2.7
+NM,30,Spanish Literature and Culture,19,0.9,1.3,1.4
+NM,31,Statistics,19,2.0,2.0,2.0
+NM,32,2-D Art and Design,19,1.7,2.8,2.8
+NM,33,3-D Art and Design,19,1.9,2.8,2.8
+NM,34,Drawing,19,1.1,1.1,1.1
+NM,35,United States Government and Politics,19,1.7,1.9,1.9
+NM,36,United States History,19,2.5,4.1,4.3
+NM,37,World History: Modern,19,1.9,3.0,3.0
+NM,38,Physics 1,19,2.2,2.6,2.6
+NM,39,Physics 2,19,1.9,2.4,2.6
+NM,4,Calculus BC,19,2.2,4.0,4.3
+NM,40,Seminar,19,0.5,0.5,0.5
+NM,41,Research,19,0.5,0.5,0.5
+NM,42,Computer Science Principles,19,1.1,1.3,1.3
+NM,43,African American Studies,19,0.6,0.6,0.6
+NM,44,Pre-Calculus,19,0.5,0.9,0.9
+NM,5,Chemistry,19,1.9,2.3,4.4
+NM,6,Chinese Language and Culture,19,0.9,1.8,2.1
+NM,7,Comparative Government and Politics,19,1.1,1.1,1.1
+NM,8,Computer Science A,19,1.5,2.3,2.3
+NV,1,Art History,8,2.6,3.0,3.0
+NV,10,English Language and Composition,8,3.0,5.3,5.3
+NV,11,English Literature and Composition,8,2.6,5.3,5.3
+NV,12,Environmental Science,8,1.9,3.0,3.0
+NV,13,European History,8,4.1,5.6,5.6
+NV,14,French Language and Culture,8,5.1,7.5,7.5
+NV,16,German Language and Culture,8,3.3,5.1,5.1
+NV,17,Human Geography,8,2.3,2.6,2.6
+NV,18,Italian Language and Culture,8,4.3,5.1,5.1
+NV,19,Japanese Language and Culture,8,4.3,5.1,5.1
+NV,2,Biology,8,2.6,4.5,4.9
+NV,21,Latin,8,2.8,4.4,4.4
+NV,22,Macroeconomics,8,3.0,3.0,3.0
+NV,23,Microeconomics,8,3.0,3.0,3.0
+NV,24,Music Theory,8,2.6,2.6,2.6
+NV,26,Physics C: Electricity and Magnetism,8,3.0,3.0,3.0
+NV,27,Physics C: Mechanics,8,3.0,3.0,3.0
+NV,28,Psychology,8,3.0,3.0,3.0
+NV,29,Spanish Language and Culture,8,5.4,8.0,8.0
+NV,3,Calculus AB,8,4.0,4.0,4.0
+NV,30,Spanish Literature and Culture,8,3.9,7.6,8.0
+NV,31,Statistics,8,2.6,2.6,2.6
+NV,32,2-D Art and Design,8,2.3,2.3,2.3
+NV,33,3-D Art and Design,8,2.3,2.3,2.3
+NV,34,Drawing,8,2.6,2.6,2.6
+NV,35,United States Government and Politics,8,2.8,2.8,2.8
+NV,36,United States History,8,4.1,6.0,6.0
+NV,37,World History: Modern,8,3.8,3.8,3.8
+NV,38,Physics 1,8,2.6,3.1,3.1
+NV,39,Physics 2,8,2.6,3.1,3.1
+NV,4,Calculus BC,8,7.0,7.5,7.5
+NV,40,Seminar,8,1.1,1.1,1.1
+NV,41,Research,8,1.1,1.1,1.1
+NV,42,Computer Science Principles,8,2.6,3.0,3.0
+NV,43,African American Studies,8,0.8,0.8,0.8
+NV,44,Pre-Calculus,8,1.5,1.9,2.4
+NV,5,Chemistry,8,3.1,6.3,6.3
+NV,6,Chinese Language and Culture,8,3.3,4.1,4.1
+NV,7,Comparative Government and Politics,8,2.6,2.6,2.6
+NV,8,Computer Science A,8,3.0,3.0,3.0
+NY,1,Art History,143,2.7,3.5,3.6
+NY,10,English Language and Composition,143,2.4,3.5,3.5
+NY,11,English Literature and Composition,143,2.5,3.5,3.6
+NY,12,Environmental Science,143,2.1,2.8,2.9
+NY,13,European History,143,2.6,3.5,3.8
+NY,14,French Language and Culture,143,2.8,4.0,4.3
+NY,16,German Language and Culture,143,2.7,3.9,4.3
+NY,17,Human Geography,143,1.8,2.4,2.4
+NY,18,Italian Language and Culture,143,2.4,3.5,3.7
+NY,19,Japanese Language and Culture,143,2.3,3.3,3.5
+NY,2,Biology,143,3.0,4.6,5.1
+NY,21,Latin,143,2.4,3.4,3.6
+NY,22,Macroeconomics,143,1.9,2.6,2.7
+NY,23,Microeconomics,143,1.9,2.6,2.6
+NY,24,Music Theory,143,2.3,3.1,3.1
+NY,26,Physics C: Electricity and Magnetism,143,1.9,3.2,3.2
+NY,27,Physics C: Mechanics,143,2.1,3.2,3.3
+NY,28,Psychology,143,1.9,2.6,2.6
+NY,29,Spanish Language and Culture,143,2.9,4.1,4.5
+NY,3,Calculus AB,143,2.1,3.3,3.4
+NY,30,Spanish Literature and Culture,143,2.4,3.5,3.7
+NY,31,Statistics,143,2.0,2.7,2.8
+NY,32,2-D Art and Design,143,1.8,2.4,2.5
+NY,33,3-D Art and Design,143,1.7,2.3,2.4
+NY,34,Drawing,143,2.0,2.6,2.8
+NY,35,United States Government and Politics,143,1.8,2.5,2.6
+NY,36,United States History,143,2.8,3.8,4.1
+NY,37,World History: Modern,143,2.4,3.4,3.7
+NY,38,Physics 1,143,1.9,2.9,3.0
+NY,39,Physics 2,143,1.8,2.7,2.8
+NY,4,Calculus BC,143,2.9,5.6,5.7
+NY,40,Seminar,143,0.9,1.1,1.1
+NY,41,Research,143,0.9,1.1,1.1
+NY,42,Computer Science Principles,143,1.3,1.9,1.9
+NY,43,African American Studies,143,0.9,1.2,1.2
+NY,44,Pre-Calculus,143,1.0,1.2,1.2
+NY,5,Chemistry,143,2.5,4.6,5.3
+NY,6,Chinese Language and Culture,143,2.2,3.3,3.6
+NY,7,Comparative Government and Politics,143,1.8,2.5,2.6
+NY,8,Computer Science A,143,1.9,2.9,2.9
+OH,1,Art History,104,2.3,3.3,3.4
+OH,10,English Language and Composition,104,2.5,3.1,3.3
+OH,11,English Literature and Composition,104,2.3,3.0,3.4
+OH,12,Environmental Science,104,2.5,3.2,3.2
+OH,13,European History,104,2.4,3.0,3.1
+OH,14,French Language and Culture,104,5.0,7.0,8.4
+OH,16,German Language and Culture,104,4.9,6.8,8.0
+OH,17,Human Geography,104,2.0,2.4,2.6
+OH,18,Italian Language and Culture,104,4.8,6.3,7.3
+OH,19,Japanese Language and Culture,104,4.7,6.5,7.7
+OH,2,Biology,104,3.1,4.5,5.3
+OH,21,Latin,104,4.6,6.3,7.1
+OH,22,Macroeconomics,104,2.2,2.7,2.7
+OH,23,Microeconomics,104,2.2,2.6,2.7
+OH,24,Music Theory,104,2.1,3.0,3.2
+OH,26,Physics C: Electricity and Magnetism,104,3.3,3.9,3.9
+OH,27,Physics C: Mechanics,104,3.3,3.8,3.8
+OH,28,Psychology,104,2.4,2.8,2.8
+OH,29,Spanish Language and Culture,104,5.2,7.7,8.9
+OH,3,Calculus AB,104,3.2,3.8,3.9
+OH,30,Spanish Literature and Culture,104,6.0,7.6,7.9
+OH,31,Statistics,104,2.6,3.0,3.3
+OH,32,2-D Art and Design,104,2.1,2.6,2.6
+OH,33,3-D Art and Design,104,2.0,2.6,2.6
+OH,34,Drawing,104,2.1,2.6,2.7
+OH,35,United States Government and Politics,104,2.3,2.7,2.9
+OH,36,United States History,104,3.9,4.7,4.9
+OH,37,World History: Modern,104,3.7,4.4,4.6
+OH,38,Physics 1,104,3.2,3.5,3.7
+OH,39,Physics 2,104,3.1,3.4,3.5
+OH,4,Calculus BC,104,5.8,7.0,7.3
+OH,40,Seminar,104,1.6,1.8,1.8
+OH,41,Research,104,1.7,1.9,1.9
+OH,42,Computer Science Principles,104,2.0,2.4,2.4
+OH,43,African American Studies,104,1.0,1.2,1.3
+OH,44,Pre-Calculus,104,1.9,2.1,2.1
+OH,5,Chemistry,104,3.1,4.7,5.9
+OH,6,Chinese Language and Culture,104,4.8,6.5,7.6
+OH,7,Comparative Government and Politics,104,2.1,2.7,2.8
+OH,8,Computer Science A,104,2.4,3.2,3.5
+OK,1,Art History,31,1.7,1.8,1.8
+OK,10,English Language and Composition,31,2.1,3.7,3.8
+OK,11,English Literature and Composition,31,2.2,3.8,4.0
+OK,12,Environmental Science,31,1.4,1.6,1.6
+OK,13,European History,31,2.2,2.5,2.6
+OK,14,French Language and Culture,31,3.9,5.0,6.0
+OK,16,German Language and Culture,31,3.2,4.1,4.9
+OK,17,Human Geography,31,1.6,1.8,1.8
+OK,18,Italian Language and Culture,31,1.3,1.7,1.8
+OK,19,Japanese Language and Culture,31,1.3,1.7,1.9
+OK,2,Biology,31,2.8,3.1,3.3
+OK,21,Latin,31,2.5,3.4,3.7
+OK,22,Macroeconomics,31,2.1,2.2,2.2
+OK,23,Microeconomics,31,2.1,2.2,2.2
+OK,24,Music Theory,31,1.3,1.9,2.0
+OK,26,Physics C: Electricity and Magnetism,31,2.3,2.7,2.7
+OK,27,Physics C: Mechanics,31,2.3,2.7,2.7
+OK,28,Psychology,31,2.2,2.2,2.2
+OK,29,Spanish Language and Culture,31,5.7,7.1,8.2
+OK,3,Calculus AB,31,3.3,3.4,3.4
+OK,30,Spanish Literature and Culture,31,3.6,4.1,4.4
+OK,31,Statistics,31,2.1,2.2,2.2
+OK,32,2-D Art and Design,31,1.6,1.7,1.7
+OK,33,3-D Art and Design,31,1.4,1.6,1.6
+OK,34,Drawing,31,1.4,1.6,1.6
+OK,35,United States Government and Politics,31,2.0,2.2,2.2
+OK,36,United States History,31,3.3,3.6,3.8
+OK,37,World History: Modern,31,1.8,2.0,2.2
+OK,38,Physics 1,31,2.5,2.7,2.7
+OK,39,Physics 2,31,2.5,2.9,2.9
+OK,4,Calculus BC,31,4.8,5.4,5.6
+OK,40,Seminar,31,0.5,0.6,0.6
+OK,41,Research,31,0.6,0.6,0.6
+OK,42,Computer Science Principles,31,1.0,1.0,1.0
+OK,43,African American Studies,31,0.2,0.3,0.3
+OK,44,Pre-Calculus,31,1.0,1.1,1.2
+OK,5,Chemistry,31,3.5,5.7,5.7
+OK,6,Chinese Language and Culture,31,1.8,2.5,2.9
+OK,7,Comparative Government and Politics,31,1.4,1.6,1.6
+OK,8,Computer Science A,31,1.9,1.9,1.9
+OR,1,Art History,29,3.5,6.1,6.3
+OR,10,English Language and Composition,29,2.9,3.7,3.7
+OR,11,English Literature and Composition,29,2.9,3.8,3.8
+OR,12,Environmental Science,29,2.9,3.8,3.8
+OR,13,European History,29,3.7,5.8,5.9
+OR,14,French Language and Culture,29,7.3,8.9,9.2
+OR,16,German Language and Culture,29,7.0,8.5,8.8
+OR,17,Human Geography,29,2.7,3.4,3.4
+OR,18,Italian Language and Culture,29,5.1,6.8,7.1
+OR,19,Japanese Language and Culture,29,7.4,8.9,9.2
+OR,2,Biology,29,5.7,9.7,10.1
+OR,21,Latin,29,6.5,7.9,8.0
+OR,22,Macroeconomics,29,2.9,3.5,3.5
+OR,23,Microeconomics,29,2.9,3.5,3.5
+OR,24,Music Theory,29,3.0,5.5,5.8
+OR,26,Physics C: Electricity and Magnetism,29,2.7,4.2,4.2
+OR,27,Physics C: Mechanics,29,2.6,4.3,4.3
+OR,28,Psychology,29,2.9,3.8,4.0
+OR,29,Spanish Language and Culture,29,8.2,9.9,10.2
+OR,3,Calculus AB,29,3.2,6.6,6.7
+OR,30,Spanish Literature and Culture,29,2.7,3.7,4.0
+OR,31,Statistics,29,2.5,3.7,3.7
+OR,32,2-D Art and Design,29,2.2,3.3,3.3
+OR,33,3-D Art and Design,29,2.1,3.1,3.1
+OR,34,Drawing,29,2.2,3.4,3.4
+OR,35,United States Government and Politics,29,2.1,3.7,3.7
+OR,36,United States History,29,4.3,6.1,6.2
+OR,37,World History: Modern,29,3.5,5.6,5.7
+OR,38,Physics 1,29,2.4,5.7,5.8
+OR,39,Physics 2,29,2.5,6.0,6.0
+OR,4,Calculus BC,29,5.5,10.1,10.5
+OR,40,Seminar,29,0.6,0.8,0.8
+OR,41,Research,29,0.7,1.0,1.0
+OR,42,Computer Science Principles,29,2.3,3.0,3.0
+OR,43,African American Studies,29,1.1,1.5,1.6
+OR,44,Pre-Calculus,29,1.4,2.5,2.9
+OR,5,Chemistry,29,3.5,10.7,11.0
+OR,6,Chinese Language and Culture,29,7.4,9.1,9.4
+OR,7,Comparative Government and Politics,29,2.2,3.3,3.3
+OR,8,Computer Science A,29,2.3,4.1,4.1
+PA,1,Art History,113,2.0,2.7,3.0
+PA,10,English Language and Composition,113,1.2,2.3,2.6
+PA,11,English Literature and Composition,113,1.3,2.8,3.0
+PA,12,Environmental Science,113,1.8,2.6,2.7
+PA,13,European History,113,1.3,2.7,2.9
+PA,14,French Language and Culture,113,3.9,5.7,6.7
+PA,16,German Language and Culture,113,3.8,5.7,6.5
+PA,17,Human Geography,113,1.8,2.5,2.5
+PA,18,Italian Language and Culture,113,1.9,3.5,4.3
+PA,19,Japanese Language and Culture,113,2.5,4.1,4.3
+PA,2,Biology,113,1.8,3.8,4.3
+PA,21,Latin,113,1.1,2.8,3.9
+PA,22,Macroeconomics,113,1.3,2.5,2.6
+PA,23,Microeconomics,113,1.3,2.5,2.6
+PA,24,Music Theory,113,1.8,2.4,2.6
+PA,26,Physics C: Electricity and Magnetism,113,1.3,2.9,3.1
+PA,27,Physics C: Mechanics,113,1.3,3.0,3.3
+PA,28,Psychology,113,1.2,2.1,2.6
+PA,29,Spanish Language and Culture,113,4.0,5.7,6.1
+PA,3,Calculus AB,113,1.4,3.4,3.5
+PA,30,Spanish Literature and Culture,113,1.1,2.6,2.8
+PA,31,Statistics,113,1.7,2.8,2.9
+PA,32,2-D Art and Design,113,1.7,2.3,2.4
+PA,33,3-D Art and Design,113,1.6,2.2,2.3
+PA,34,Drawing,113,1.7,2.4,2.6
+PA,35,United States Government and Politics,113,1.3,2.6,2.7
+PA,36,United States History,113,1.6,3.1,3.5
+PA,37,World History: Modern,113,1.4,2.8,3.0
+PA,38,Physics 1,113,1.2,2.6,2.9
+PA,39,Physics 2,113,1.2,2.7,2.8
+PA,4,Calculus BC,113,2.8,5.3,5.8
+PA,40,Seminar,113,1.0,1.3,1.3
+PA,41,Research,113,1.0,1.2,1.2
+PA,42,Computer Science Principles,113,0.9,2.2,2.2
+PA,43,African American Studies,113,0.7,1.5,1.6
+PA,44,Pre-Calculus,113,0.6,1.6,1.6
+PA,5,Chemistry,113,1.7,3.9,5.3
+PA,6,Chinese Language and Culture,113,2.7,4.6,4.8
+PA,7,Comparative Government and Politics,113,1.1,2.5,2.6
+PA,8,Computer Science A,113,1.1,2.6,2.8
+PR,1,Art History,5,0.0,0.0,0.0
+PR,10,English Language and Composition,5,0.6,0.6,0.6
+PR,11,English Literature and Composition,5,0.6,1.2,1.2
+PR,12,Environmental Science,5,0.6,1.2,1.2
+PR,13,European History,5,0.0,0.0,0.0
+PR,14,French Language and Culture,5,0.0,0.0,0.0
+PR,16,German Language and Culture,5,0.0,0.0,0.0
+PR,17,Human Geography,5,0.0,0.0,0.0
+PR,18,Italian Language and Culture,5,0.0,0.0,0.0
+PR,19,Japanese Language and Culture,5,0.0,0.0,0.0
+PR,2,Biology,5,0.0,0.0,0.0
+PR,21,Latin,5,0.0,0.0,0.0
+PR,22,Macroeconomics,5,0.0,0.0,0.0
+PR,23,Microeconomics,5,0.0,0.0,0.0
+PR,24,Music Theory,5,0.0,0.0,0.0
+PR,26,Physics C: Electricity and Magnetism,5,0.0,0.0,0.0
+PR,27,Physics C: Mechanics,5,0.0,0.0,0.0
+PR,28,Psychology,5,0.0,0.0,0.0
+PR,29,Spanish Language and Culture,5,1.2,1.8,1.8
+PR,3,Calculus AB,5,1.2,1.2,1.2
+PR,30,Spanish Literature and Culture,5,0.0,0.0,0.0
+PR,31,Statistics,5,0.6,0.6,0.6
+PR,32,2-D Art and Design,5,0.0,0.0,0.0
+PR,33,3-D Art and Design,5,0.0,0.0,0.0
+PR,34,Drawing,5,0.0,0.0,0.0
+PR,35,United States Government and Politics,5,0.0,0.0,0.0
+PR,36,United States History,5,0.0,0.0,0.0
+PR,37,World History: Modern,5,0.0,0.0,0.0
+PR,38,Physics 1,5,0.0,0.0,0.0
+PR,39,Physics 2,5,0.0,0.0,0.0
+PR,4,Calculus BC,5,1.2,1.2,1.2
+PR,40,Seminar,5,0.0,0.0,0.0
+PR,41,Research,5,0.0,0.0,0.0
+PR,42,Computer Science Principles,5,0.0,0.0,0.0
+PR,43,African American Studies,5,0.0,0.0,0.0
+PR,44,Pre-Calculus,5,0.0,0.0,0.0
+PR,5,Chemistry,5,0.0,0.0,0.0
+PR,6,Chinese Language and Culture,5,0.0,0.0,0.0
+PR,7,Comparative Government and Politics,5,0.0,0.0,0.0
+PR,8,Computer Science A,5,0.0,0.0,0.0
+RI,1,Art History,11,3.0,3.5,3.5
+RI,10,English Language and Composition,11,2.3,2.8,2.8
+RI,11,English Literature and Composition,11,1.6,2.4,2.4
+RI,12,Environmental Science,11,1.6,2.5,2.5
+RI,13,European History,11,2.3,3.6,3.9
+RI,14,French Language and Culture,11,2.4,3.8,4.6
+RI,16,German Language and Culture,11,2.4,3.2,3.7
+RI,17,Human Geography,11,2.1,2.6,2.9
+RI,18,Italian Language and Culture,11,2.4,3.8,4.6
+RI,19,Japanese Language and Culture,11,2.2,3.0,4.1
+RI,2,Biology,11,3.1,4.7,5.5
+RI,21,Latin,11,2.2,3.0,3.3
+RI,22,Macroeconomics,11,2.0,2.5,2.5
+RI,23,Microeconomics,11,2.0,2.5,2.5
+RI,24,Music Theory,11,2.1,2.6,3.2
+RI,26,Physics C: Electricity and Magnetism,11,1.7,2.7,2.7
+RI,27,Physics C: Mechanics,11,2.1,2.7,2.7
+RI,28,Psychology,11,1.9,2.7,2.7
+RI,29,Spanish Language and Culture,11,2.4,3.8,4.6
+RI,3,Calculus AB,11,3.4,4.0,4.0
+RI,30,Spanish Literature and Culture,11,1.3,3.0,3.5
+RI,31,Statistics,11,2.1,2.9,2.9
+RI,32,2-D Art and Design,11,1.8,2.4,2.4
+RI,33,3-D Art and Design,11,1.8,2.4,2.4
+RI,34,Drawing,11,1.8,2.4,2.4
+RI,35,United States Government and Politics,11,2.5,3.0,3.0
+RI,36,United States History,11,2.5,3.6,3.9
+RI,37,World History: Modern,11,2.0,2.8,3.1
+RI,38,Physics 1,11,1.7,2.6,2.6
+RI,39,Physics 2,11,1.7,2.4,2.4
+RI,4,Calculus BC,11,4.1,5.4,5.4
+RI,40,Seminar,11,0.8,0.8,0.8
+RI,41,Research,11,0.8,0.8,0.8
+RI,42,Computer Science Principles,11,2.2,2.7,2.7
+RI,43,African American Studies,11,1.7,2.3,2.3
+RI,44,Pre-Calculus,11,1.6,1.8,1.8
+RI,5,Chemistry,11,2.9,4.6,5.7
+RI,6,Chinese Language and Culture,11,1.8,2.6,3.5
+RI,7,Comparative Government and Politics,11,1.7,2.3,2.3
+RI,8,Computer Science A,11,1.6,2.5,2.5
+SC,1,Art History,44,2.0,2.8,3.1
+SC,10,English Language and Composition,44,2.1,2.6,3.5
+SC,11,English Literature and Composition,44,1.9,2.5,3.5
+SC,12,Environmental Science,44,2.1,2.9,2.9
+SC,13,European History,44,2.0,3.5,3.6
+SC,14,French Language and Culture,44,3.3,4.4,4.8
+SC,16,German Language and Culture,44,2.9,4.0,4.3
+SC,17,Human Geography,44,1.6,1.8,1.8
+SC,18,Italian Language and Culture,44,1.9,2.5,2.8
+SC,19,Japanese Language and Culture,44,1.7,2.3,2.5
+SC,2,Biology,44,2.9,5.3,5.7
+SC,21,Latin,44,2.1,3.0,3.3
+SC,22,Macroeconomics,44,1.9,2.3,2.3
+SC,23,Microeconomics,44,1.9,2.3,2.3
+SC,24,Music Theory,44,1.8,2.4,2.8
+SC,26,Physics C: Electricity and Magnetism,44,2.3,2.8,2.8
+SC,27,Physics C: Mechanics,44,2.2,2.7,2.7
+SC,28,Psychology,44,1.9,2.2,2.2
+SC,29,Spanish Language and Culture,44,3.3,4.4,4.8
+SC,3,Calculus AB,44,2.5,3.0,3.1
+SC,30,Spanish Literature and Culture,44,2.7,4.0,4.4
+SC,31,Statistics,44,2.0,2.4,2.5
+SC,32,2-D Art and Design,44,1.6,2.0,2.0
+SC,33,3-D Art and Design,44,1.6,1.9,1.9
+SC,34,Drawing,44,1.6,2.0,2.0
+SC,35,United States Government and Politics,44,1.9,2.3,2.3
+SC,36,United States History,44,2.5,4.0,4.3
+SC,37,World History: Modern,44,2.0,2.8,3.0
+SC,38,Physics 1,44,2.0,2.6,2.6
+SC,39,Physics 2,44,2.0,2.6,2.6
+SC,4,Calculus BC,44,4.7,5.4,5.5
+SC,40,Seminar,44,0.8,0.9,1.0
+SC,41,Research,44,0.8,0.9,1.0
+SC,42,Computer Science Principles,44,1.1,1.3,1.3
+SC,43,African American Studies,44,0.6,0.8,0.9
+SC,44,Pre-Calculus,44,0.9,1.2,1.2
+SC,5,Chemistry,44,2.8,4.9,5.7
+SC,6,Chinese Language and Culture,44,1.4,2.3,2.4
+SC,7,Comparative Government and Politics,44,1.7,2.1,2.1
+SC,8,Computer Science A,44,1.9,2.6,2.6
+SD,1,Art History,12,1.8,2.0,2.0
+SD,10,English Language and Composition,12,2.3,2.8,2.8
+SD,11,English Literature and Composition,12,2.0,2.5,2.5
+SD,12,Environmental Science,12,1.8,2.3,2.3
+SD,13,European History,12,1.5,1.8,1.8
+SD,14,French Language and Culture,12,1.9,4.0,4.0
+SD,16,German Language and Culture,12,1.8,4.0,4.0
+SD,17,Human Geography,12,1.8,2.3,2.3
+SD,18,Italian Language and Culture,12,1.8,2.5,2.5
+SD,19,Japanese Language and Culture,12,1.5,2.0,2.0
+SD,2,Biology,12,2.7,3.3,5.3
+SD,21,Latin,12,4.0,6.0,7.5
+SD,22,Macroeconomics,12,2.0,2.5,2.5
+SD,23,Microeconomics,12,1.8,2.3,2.3
+SD,24,Music Theory,12,0.3,1.0,3.3
+SD,26,Physics C: Electricity and Magnetism,12,1.8,2.1,2.1
+SD,27,Physics C: Mechanics,12,1.8,2.1,2.1
+SD,28,Psychology,12,2.3,2.8,2.8
+SD,29,Spanish Language and Culture,12,1.8,4.3,4.5
+SD,3,Calculus AB,12,2.7,3.3,3.3
+SD,30,Spanish Literature and Culture,12,1.5,3.5,3.8
+SD,31,Statistics,12,1.8,2.3,2.3
+SD,32,2-D Art and Design,12,1.8,2.0,2.0
+SD,33,3-D Art and Design,12,1.5,1.8,1.8
+SD,34,Drawing,12,1.8,2.0,2.0
+SD,35,United States Government and Politics,12,1.8,2.3,2.3
+SD,36,United States History,12,2.0,2.8,4.5
+SD,37,World History: Modern,12,1.8,2.3,2.5
+SD,38,Physics 1,12,2.0,2.7,2.7
+SD,39,Physics 2,12,2.0,3.0,3.0
+SD,4,Calculus BC,12,5.0,6.0,6.0
+SD,40,Seminar,12,1.5,1.5,1.5
+SD,41,Research,12,1.5,1.5,1.5
+SD,42,Computer Science Principles,12,1.5,1.8,1.8
+SD,43,African American Studies,12,0.0,0.3,0.3
+SD,44,Pre-Calculus,12,2.5,2.5,2.5
+SD,5,Chemistry,12,2.6,3.3,5.3
+SD,6,Chinese Language and Culture,12,1.5,2.0,2.0
+SD,7,Comparative Government and Politics,12,1.5,1.8,1.8
+SD,8,Computer Science A,12,1.8,2.4,2.4
+TN,1,Art History,44,2.0,3.0,3.0
+TN,10,English Language and Composition,44,2.1,4.3,4.3
+TN,11,English Literature and Composition,44,2.6,3.9,4.0
+TN,12,Environmental Science,44,1.9,2.7,2.7
+TN,13,European History,44,2.5,4.0,4.1
+TN,14,French Language and Culture,44,3.5,5.4,6.5
+TN,16,German Language and Culture,44,3.3,5.2,6.3
+TN,17,Human Geography,44,1.7,2.3,2.3
+TN,18,Italian Language and Culture,44,2.0,3.3,4.0
+TN,19,Japanese Language and Culture,44,2.4,3.6,4.4
+TN,2,Biology,44,3.0,5.5,5.7
+TN,21,Latin,44,2.4,4.1,5.0
+TN,22,Macroeconomics,44,1.9,2.7,2.7
+TN,23,Microeconomics,44,1.8,2.8,2.8
+TN,24,Music Theory,44,1.5,2.3,2.6
+TN,26,Physics C: Electricity and Magnetism,44,1.9,3.3,3.4
+TN,27,Physics C: Mechanics,44,1.7,3.0,3.2
+TN,28,Psychology,44,2.0,2.8,2.9
+TN,29,Spanish Language and Culture,44,3.9,6.1,7.4
+TN,3,Calculus AB,44,2.0,3.3,3.4
+TN,30,Spanish Literature and Culture,44,1.5,2.1,2.4
+TN,31,Statistics,44,1.7,2.7,2.7
+TN,32,2-D Art and Design,44,1.4,2.1,2.1
+TN,33,3-D Art and Design,44,1.3,2.1,2.1
+TN,34,Drawing,44,1.2,2.0,2.0
+TN,35,United States Government and Politics,44,1.8,2.7,2.7
+TN,36,United States History,44,2.7,4.6,4.7
+TN,37,World History: Modern,44,2.7,4.2,4.3
+TN,38,Physics 1,44,1.5,2.6,2.7
+TN,39,Physics 2,44,1.4,2.5,2.6
+TN,4,Calculus BC,44,3.5,5.2,5.5
+TN,40,Seminar,44,0.4,0.5,0.5
+TN,41,Research,44,0.4,0.7,0.7
+TN,42,Computer Science Principles,44,0.9,1.6,1.7
+TN,43,African American Studies,44,0.2,0.3,0.3
+TN,44,Pre-Calculus,44,0.8,1.3,1.3
+TN,5,Chemistry,44,2.6,5.3,5.8
+TN,6,Chinese Language and Culture,44,2.2,3.9,4.9
+TN,7,Comparative Government and Politics,44,1.6,2.6,2.6
+TN,8,Computer Science A,44,1.6,2.5,2.7
+TX,1,Art History,121,2.6,3.2,3.3
+TX,10,English Language and Composition,121,2.7,3.6,4.0
+TX,11,English Literature and Composition,121,2.5,3.5,3.7
+TX,12,Environmental Science,121,1.8,2.3,2.3
+TX,13,European History,121,2.1,2.5,2.6
+TX,14,French Language and Culture,121,4.5,6.1,7.2
+TX,16,German Language and Culture,121,3.9,5.4,6.4
+TX,17,Human Geography,121,1.6,1.8,1.8
+TX,18,Italian Language and Culture,121,1.8,2.6,3.0
+TX,19,Japanese Language and Culture,121,2.1,2.9,3.5
+TX,2,Biology,121,4.2,5.6,5.9
+TX,21,Latin,121,2.1,2.9,3.3
+TX,22,Macroeconomics,121,2.3,2.6,2.6
+TX,23,Microeconomics,121,2.1,2.6,2.6
+TX,24,Music Theory,121,1.8,2.1,2.2
+TX,26,Physics C: Electricity and Magnetism,121,2.6,3.0,3.1
+TX,27,Physics C: Mechanics,121,2.6,3.1,3.1
+TX,28,Psychology,121,2.3,2.5,2.6
+TX,29,Spanish Language and Culture,121,5.6,7.4,9.0
+TX,3,Calculus AB,121,3.1,3.7,3.7
+TX,30,Spanish Literature and Culture,121,3.6,4.5,5.0
+TX,31,Statistics,121,2.2,2.4,2.4
+TX,32,2-D Art and Design,121,1.2,1.5,1.5
+TX,33,3-D Art and Design,121,1.2,1.4,1.4
+TX,34,Drawing,121,1.5,1.8,1.8
+TX,35,United States Government and Politics,121,2.5,2.7,2.7
+TX,36,United States History,121,3.9,4.8,4.9
+TX,37,World History: Modern,121,2.3,2.9,2.9
+TX,38,Physics 1,121,2.3,2.6,2.7
+TX,39,Physics 2,121,2.4,2.7,2.8
+TX,4,Calculus BC,121,4.9,6.3,6.4
+TX,40,Seminar,121,0.2,0.3,0.3
+TX,41,Research,121,0.2,0.3,0.3
+TX,42,Computer Science Principles,121,1.2,1.3,1.3
+TX,43,African American Studies,121,0.5,0.6,0.6
+TX,44,Pre-Calculus,121,1.0,1.2,1.2
+TX,5,Chemistry,121,4.0,5.5,6.1
+TX,6,Chinese Language and Culture,121,2.8,3.7,4.3
+TX,7,Comparative Government and Politics,121,0.9,1.0,1.1
+TX,8,Computer Science A,121,2.3,3.0,3.0
+UT,1,Art History,13,5.2,5.2,5.2
+UT,10,English Language and Composition,13,2.8,3.3,3.3
+UT,11,English Literature and Composition,13,2.9,3.5,3.5
+UT,12,Environmental Science,13,2.7,2.9,2.9
+UT,13,European History,13,3.0,3.2,3.2
+UT,14,French Language and Culture,13,6.2,9.9,12.3
+UT,16,German Language and Culture,13,6.9,9.9,12.3
+UT,17,Human Geography,13,2.9,2.9,2.9
+UT,18,Italian Language and Culture,13,5.1,7.4,9.2
+UT,19,Japanese Language and Culture,13,6.9,9.6,12.1
+UT,2,Biology,13,3.0,3.9,3.9
+UT,21,Latin,13,6.0,8.2,10.5
+UT,22,Macroeconomics,13,2.3,2.8,2.8
+UT,23,Microeconomics,13,2.3,2.8,2.8
+UT,24,Music Theory,13,2.7,3.2,3.3
+UT,26,Physics C: Electricity and Magnetism,13,2.9,3.8,3.9
+UT,27,Physics C: Mechanics,13,3.2,4.1,4.2
+UT,28,Psychology,13,2.5,3.1,3.1
+UT,29,Spanish Language and Culture,13,6.9,9.8,12.0
+UT,3,Calculus AB,13,5.6,6.4,6.4
+UT,30,Spanish Literature and Culture,13,5.0,8.2,8.2
+UT,31,Statistics,13,2.7,3.2,3.2
+UT,32,2-D Art and Design,13,2.9,3.1,3.1
+UT,33,3-D Art and Design,13,2.9,3.1,3.1
+UT,34,Drawing,13,2.9,3.1,3.1
+UT,35,United States Government and Politics,13,2.8,3.0,3.0
+UT,36,United States History,13,3.1,3.4,3.4
+UT,37,World History: Modern,13,2.9,3.1,3.1
+UT,38,Physics 1,13,2.9,4.0,4.0
+UT,39,Physics 2,13,2.9,3.9,3.9
+UT,4,Calculus BC,13,4.8,7.2,7.7
+UT,40,Seminar,13,1.4,1.9,1.9
+UT,41,Research,13,0.0,0.5,0.5
+UT,42,Computer Science Principles,13,2.4,2.6,2.6
+UT,43,African American Studies,13,0.5,0.8,0.8
+UT,44,Pre-Calculus,13,1.9,3.1,3.1
+UT,5,Chemistry,13,3.4,4.1,4.8
+UT,6,Chinese Language and Culture,13,6.8,9.5,12.2
+UT,7,Comparative Government and Politics,13,2.8,3.0,3.0
+UT,8,Computer Science A,13,2.5,3.0,5.0
+VA,1,Art History,61,2.9,4.1,4.4
+VA,10,English Language and Composition,61,2.3,3.9,4.3
+VA,11,English Literature and Composition,61,2.5,3.5,3.8
+VA,12,Environmental Science,61,2.2,3.3,3.4
+VA,13,European History,61,2.4,3.7,3.9
+VA,14,French Language and Culture,61,3.0,4.4,5.3
+VA,16,German Language and Culture,61,3.1,4.4,5.3
+VA,17,Human Geography,61,2.0,2.6,2.6
+VA,18,Italian Language and Culture,61,2.1,3.0,3.5
+VA,19,Japanese Language and Culture,61,2.3,3.4,4.0
+VA,2,Biology,61,3.5,5.5,6.3
+VA,21,Latin,61,2.1,3.3,3.9
+VA,22,Macroeconomics,61,2.0,2.7,2.7
+VA,23,Microeconomics,61,2.0,2.7,2.7
+VA,24,Music Theory,61,2.5,3.3,3.5
+VA,26,Physics C: Electricity and Magnetism,61,2.4,3.1,3.2
+VA,27,Physics C: Mechanics,61,2.5,3.3,3.4
+VA,28,Psychology,61,2.1,2.9,3.2
+VA,29,Spanish Language and Culture,61,3.2,4.5,5.6
+VA,3,Calculus AB,61,2.7,3.7,3.9
+VA,30,Spanish Literature and Culture,61,2.2,3.2,3.8
+VA,31,Statistics,61,2.2,2.8,2.9
+VA,32,2-D Art and Design,61,1.4,2.0,2.1
+VA,33,3-D Art and Design,61,1.4,2.1,2.1
+VA,34,Drawing,61,1.6,2.3,2.3
+VA,35,United States Government and Politics,61,2.1,2.8,2.9
+VA,36,United States History,61,3.2,4.6,5.0
+VA,37,World History: Modern,61,2.3,3.5,3.9
+VA,38,Physics 1,61,2.4,3.1,3.3
+VA,39,Physics 2,61,2.4,3.1,3.3
+VA,4,Calculus BC,61,4.3,6.4,6.7
+VA,40,Seminar,61,0.4,0.6,0.6
+VA,41,Research,61,0.4,0.6,0.6
+VA,42,Computer Science Principles,61,1.4,2.0,2.1
+VA,43,African American Studies,61,0.7,0.9,0.9
+VA,44,Pre-Calculus,61,1.5,1.7,1.7
+VA,5,Chemistry,61,3.5,5.5,6.3
+VA,6,Chinese Language and Culture,61,2.3,3.3,4.0
+VA,7,Comparative Government and Politics,61,1.9,2.5,2.5
+VA,8,Computer Science A,61,1.9,2.8,2.9
+VI,1,Art History,1,0.0,0.0,0.0
+VI,10,English Language and Composition,1,3.0,3.0,3.0
+VI,11,English Literature and Composition,1,0.0,3.0,3.0
+VI,12,Environmental Science,1,3.0,3.0,3.0
+VI,13,European History,1,0.0,3.0,3.0
+VI,14,French Language and Culture,1,0.0,0.0,0.0
+VI,16,German Language and Culture,1,0.0,0.0,0.0
+VI,17,Human Geography,1,3.0,3.0,3.0
+VI,18,Italian Language and Culture,1,0.0,0.0,0.0
+VI,19,Japanese Language and Culture,1,0.0,0.0,0.0
+VI,2,Biology,1,8.0,8.0,8.0
+VI,21,Latin,1,0.0,0.0,0.0
+VI,22,Macroeconomics,1,3.0,3.0,3.0
+VI,23,Microeconomics,1,3.0,3.0,3.0
+VI,24,Music Theory,1,3.0,3.0,3.0
+VI,26,Physics C: Electricity and Magnetism,1,0.0,0.0,0.0
+VI,27,Physics C: Mechanics,1,0.0,0.0,0.0
+VI,28,Psychology,1,3.0,3.0,3.0
+VI,29,Spanish Language and Culture,1,0.0,0.0,0.0
+VI,3,Calculus AB,1,4.0,4.0,4.0
+VI,30,Spanish Literature and Culture,1,0.0,0.0,0.0
+VI,31,Statistics,1,0.0,0.0,0.0
+VI,32,2-D Art and Design,1,3.0,3.0,3.0
+VI,33,3-D Art and Design,1,0.0,0.0,0.0
+VI,34,Drawing,1,0.0,0.0,0.0
+VI,35,United States Government and Politics,1,0.0,0.0,0.0
+VI,36,United States History,1,0.0,0.0,0.0
+VI,37,World History: Modern,1,0.0,0.0,0.0
+VI,38,Physics 1,1,0.0,0.0,0.0
+VI,39,Physics 2,1,0.0,0.0,0.0
+VI,4,Calculus BC,1,4.0,8.0,8.0
+VI,40,Seminar,1,0.0,0.0,0.0
+VI,41,Research,1,0.0,0.0,0.0
+VI,42,Computer Science Principles,1,3.0,3.0,3.0
+VI,43,African American Studies,1,0.0,0.0,0.0
+VI,44,Pre-Calculus,1,0.0,0.0,0.0
+VI,5,Chemistry,1,0.0,10.0,10.0
+VI,6,Chinese Language and Culture,1,0.0,0.0,0.0
+VI,7,Comparative Government and Politics,1,0.0,3.0,3.0
+VI,8,Computer Science A,1,4.0,4.0,4.0
+VT,1,Art History,7,0.9,2.4,2.4
+VT,10,English Language and Composition,7,0.9,2.0,2.0
+VT,11,English Literature and Composition,7,0.9,2.0,2.0
+VT,12,Environmental Science,7,1.6,2.1,2.1
+VT,13,European History,7,0.9,1.4,1.4
+VT,14,French Language and Culture,7,1.4,3.1,3.1
+VT,16,German Language and Culture,7,1.0,2.1,2.6
+VT,17,Human Geography,7,0.9,1.9,2.0
+VT,18,Italian Language and Culture,7,1.4,3.1,3.1
+VT,19,Japanese Language and Culture,7,1.6,3.3,3.3
+VT,2,Biology,7,1.1,2.3,3.6
+VT,21,Latin,7,1.4,2.1,2.1
+VT,22,Macroeconomics,7,0.9,2.0,2.0
+VT,23,Microeconomics,7,0.9,2.0,2.0
+VT,24,Music Theory,7,0.9,2.0,2.0
+VT,26,Physics C: Electricity and Magnetism,7,1.1,2.3,2.3
+VT,27,Physics C: Mechanics,7,1.1,2.3,2.3
+VT,28,Psychology,7,0.9,2.0,2.0
+VT,29,Spanish Language and Culture,7,1.4,3.1,3.1
+VT,3,Calculus AB,7,1.0,2.3,2.3
+VT,30,Spanish Literature and Culture,7,1.3,2.0,2.4
+VT,31,Statistics,7,0.9,1.4,1.4
+VT,32,2-D Art and Design,7,0.9,2.0,2.0
+VT,33,3-D Art and Design,7,0.9,2.0,2.0
+VT,34,Drawing,7,0.9,2.0,2.0
+VT,35,United States Government and Politics,7,0.9,2.0,2.0
+VT,36,United States History,7,0.9,2.0,2.0
+VT,37,World History: Modern,7,0.9,1.4,1.4
+VT,38,Physics 1,7,1.7,2.3,2.3
+VT,39,Physics 2,7,1.7,2.3,2.3
+VT,4,Calculus BC,7,2.3,3.6,3.6
+VT,40,Seminar,7,0.9,1.7,1.7
+VT,41,Research,7,0.9,1.7,1.7
+VT,42,Computer Science Principles,7,0.9,1.3,1.3
+VT,43,African American Studies,7,0.9,1.3,1.3
+VT,44,Pre-Calculus,7,1.0,2.0,2.0
+VT,5,Chemistry,7,1.1,2.3,3.4
+VT,6,Chinese Language and Culture,7,1.0,3.4,3.4
+VT,7,Comparative Government and Politics,7,0.9,2.0,2.0
+VT,8,Computer Science A,7,0.4,2.0,2.0
+WA,1,Art History,52,3.7,3.9,4.0
+WA,10,English Language and Composition,52,3.6,4.2,4.3
+WA,11,English Literature and Composition,52,3.6,4.1,4.3
+WA,12,Environmental Science,52,3.7,4.0,4.1
+WA,13,European History,52,3.6,4.3,4.6
+WA,14,French Language and Culture,52,4.0,5.9,9.2
+WA,16,German Language and Culture,52,3.8,5.4,8.4
+WA,17,Human Geography,52,3.6,3.7,3.8
+WA,18,Italian Language and Culture,52,3.5,4.6,7.2
+WA,19,Japanese Language and Culture,52,3.7,5.3,8.2
+WA,2,Biology,52,4.1,5.3,5.5
+WA,21,Latin,52,3.4,3.9,4.7
+WA,22,Macroeconomics,52,3.9,4.1,4.2
+WA,23,Microeconomics,52,3.9,4.1,4.2
+WA,24,Music Theory,52,3.4,3.7,3.9
+WA,26,Physics C: Electricity and Magnetism,52,3.6,4.2,4.2
+WA,27,Physics C: Mechanics,52,3.8,4.5,4.6
+WA,28,Psychology,52,3.8,4.3,4.3
+WA,29,Spanish Language and Culture,52,4.1,6.2,9.5
+WA,3,Calculus AB,52,4.1,4.5,5.2
+WA,30,Spanish Literature and Culture,52,3.2,4.3,6.7
+WA,31,Statistics,52,4.0,4.3,4.3
+WA,32,2-D Art and Design,52,3.5,3.8,3.8
+WA,33,3-D Art and Design,52,3.6,3.8,3.8
+WA,34,Drawing,52,3.5,3.7,3.7
+WA,35,United States Government and Politics,52,3.9,4.2,4.2
+WA,36,United States History,52,4.1,4.9,7.3
+WA,37,World History: Modern,52,3.7,4.4,4.7
+WA,38,Physics 1,52,3.6,4.2,4.2
+WA,39,Physics 2,52,3.5,4.3,4.3
+WA,4,Calculus BC,52,5.2,6.8,7.2
+WA,40,Seminar,52,1.9,2.0,2.0
+WA,41,Research,52,1.9,2.0,2.0
+WA,42,Computer Science Principles,52,1.8,2.1,2.1
+WA,43,African American Studies,52,3.9,4.0,4.0
+WA,44,Pre-Calculus,52,3.4,6.1,6.2
+WA,5,Chemistry,52,4.4,5.8,9.1
+WA,6,Chinese Language and Culture,52,3.6,5.0,8.2
+WA,7,Comparative Government and Politics,52,3.5,3.9,4.2
+WA,8,Computer Science A,52,3.4,4.1,4.2
+WI,1,Art History,52,2.2,2.6,2.6
+WI,10,English Language and Composition,52,2.2,2.8,3.3
+WI,11,English Literature and Composition,52,2.4,3.1,3.4
+WI,12,Environmental Science,52,2.5,3.0,3.0
+WI,13,European History,52,2.4,3.3,3.4
+WI,14,French Language and Culture,52,3.3,4.9,6.1
+WI,16,German Language and Culture,52,3.2,4.9,6.1
+WI,17,Human Geography,52,2.3,2.6,2.6
+WI,18,Italian Language and Culture,52,2.6,3.4,3.7
+WI,19,Japanese Language and Culture,52,2.6,3.5,3.8
+WI,2,Biology,52,3.1,4.0,4.2
+WI,21,Latin,52,2.2,2.6,2.7
+WI,22,Macroeconomics,52,2.5,2.9,2.9
+WI,23,Microeconomics,52,2.5,2.9,2.9
+WI,24,Music Theory,52,3.0,4.1,4.3
+WI,26,Physics C: Electricity and Magnetism,52,2.0,3.5,3.5
+WI,27,Physics C: Mechanics,52,2.1,3.8,3.8
+WI,28,Psychology,52,2.6,3.0,3.0
+WI,29,Spanish Language and Culture,52,3.5,5.2,6.4
+WI,3,Calculus AB,52,3.2,3.9,4.0
+WI,30,Spanish Literature and Culture,52,2.7,3.9,4.4
+WI,31,Statistics,52,2.7,3.0,3.0
+WI,32,2-D Art and Design,52,2.2,2.6,2.6
+WI,33,3-D Art and Design,52,2.1,2.5,2.5
+WI,34,Drawing,52,2.1,2.5,2.5
+WI,35,United States Government and Politics,52,2.6,2.9,2.9
+WI,36,United States History,52,2.7,3.6,3.9
+WI,37,World History: Modern,52,2.4,3.3,3.5
+WI,38,Physics 1,52,2.6,3.6,3.7
+WI,39,Physics 2,52,2.3,3.4,3.5
+WI,4,Calculus BC,52,5.1,6.9,7.0
+WI,40,Seminar,52,1.4,1.5,1.5
+WI,41,Research,52,1.3,1.3,1.3
+WI,42,Computer Science Principles,52,1.9,2.2,2.2
+WI,43,African American Studies,52,0.9,1.0,1.0
+WI,44,Pre-Calculus,52,1.2,2.0,2.0
+WI,5,Chemistry,52,3.7,4.9,5.8
+WI,6,Chinese Language and Culture,52,2.6,3.6,4.2
+WI,7,Comparative Government and Politics,52,2.1,2.5,2.5
+WI,8,Computer Science A,52,2.5,3.0,3.0
+WV,1,Art History,25,2.8,2.9,2.9
+WV,10,English Language and Composition,25,3.0,3.4,3.4
+WV,11,English Literature and Composition,25,2.8,3.1,3.1
+WV,12,Environmental Science,25,3.2,3.4,3.4
+WV,13,European History,25,4.4,4.6,4.6
+WV,14,French Language and Culture,25,4.2,4.3,4.7
+WV,16,German Language and Culture,25,4.0,4.2,4.4
+WV,17,Human Geography,25,2.5,2.5,2.5
+WV,18,Italian Language and Culture,25,0.8,0.8,0.8
+WV,19,Japanese Language and Culture,25,3.1,3.2,3.2
+WV,2,Biology,25,5.7,6.2,6.2
+WV,21,Latin,25,2.0,2.0,2.0
+WV,22,Macroeconomics,25,2.9,2.9,2.9
+WV,23,Microeconomics,25,2.9,2.9,2.9
+WV,24,Music Theory,25,2.7,2.9,2.9
+WV,26,Physics C: Electricity and Magnetism,25,3.3,3.5,3.5
+WV,27,Physics C: Mechanics,25,3.4,3.5,3.5
+WV,28,Psychology,25,2.8,2.8,2.8
+WV,29,Spanish Language and Culture,25,4.3,4.4,4.8
+WV,3,Calculus AB,25,3.3,4.3,4.3
+WV,30,Spanish Literature and Culture,25,3.7,3.7,3.7
+WV,31,Statistics,25,1.9,2.4,2.4
+WV,32,2-D Art and Design,25,2.3,2.4,2.4
+WV,33,3-D Art and Design,25,1.8,2.4,2.4
+WV,34,Drawing,25,2.5,2.6,2.6
+WV,35,United States Government and Politics,25,2.9,2.9,2.9
+WV,36,United States History,25,4.8,5.0,5.0
+WV,37,World History: Modern,25,4.3,4.6,4.6
+WV,38,Physics 1,25,2.6,3.0,3.0
+WV,39,Physics 2,25,2.4,2.8,2.8
+WV,4,Calculus BC,25,4.6,5.5,5.5
+WV,40,Seminar,25,1.6,1.6,1.6
+WV,41,Research,25,1.7,1.7,1.7
+WV,42,Computer Science Principles,25,1.1,1.1,1.1
+WV,43,African American Studies,25,0.2,0.2,0.2
+WV,44,Pre-Calculus,25,0.7,0.8,0.8
+WV,5,Chemistry,25,5.6,6.3,6.9
+WV,6,Chinese Language and Culture,25,2.8,2.8,2.8
+WV,7,Comparative Government and Politics,25,2.8,2.8,2.8
+WV,8,Computer Science A,25,2.5,2.6,2.6
+WY,1,Art History,6,0.5,2.5,2.5
+WY,10,English Language and Composition,6,0.5,3.0,3.0
+WY,11,English Literature and Composition,6,0.5,2.0,2.0
+WY,12,Environmental Science,6,1.8,1.8,1.8
+WY,13,European History,6,2.5,2.5,2.5
+WY,14,French Language and Culture,6,3.3,6.7,9.3
+WY,16,German Language and Culture,6,2.0,4.0,6.0
+WY,17,Human Geography,6,0.5,2.0,2.0
+WY,18,Italian Language and Culture,6,0.0,0.0,0.0
+WY,19,Japanese Language and Culture,6,0.0,0.0,0.0
+WY,2,Biology,6,0.7,4.0,4.0
+WY,21,Latin,6,0.7,1.3,2.0
+WY,22,Macroeconomics,6,1.0,3.0,3.0
+WY,23,Microeconomics,6,1.0,2.5,2.5
+WY,24,Music Theory,6,0.7,4.0,4.0
+WY,26,Physics C: Electricity and Magnetism,6,0.7,2.0,2.0
+WY,27,Physics C: Mechanics,6,0.7,2.7,2.7
+WY,28,Psychology,6,1.0,3.2,3.2
+WY,29,Spanish Language and Culture,6,4.0,7.3,11.3
+WY,3,Calculus AB,6,4.3,4.3,4.3
+WY,30,Spanish Literature and Culture,6,2.7,3.7,3.7
+WY,31,Statistics,6,3.3,3.3,3.3
+WY,32,2-D Art and Design,6,0.5,2.0,2.0
+WY,33,3-D Art and Design,6,0.5,2.0,2.0
+WY,34,Drawing,6,0.5,2.0,2.0
+WY,35,United States Government and Politics,6,2.5,2.5,2.5
+WY,36,United States History,6,1.0,5.0,5.0
+WY,37,World History: Modern,6,0.5,1.5,2.0
+WY,38,Physics 1,6,0.0,2.7,2.7
+WY,39,Physics 2,6,0.0,2.7,3.3
+WY,4,Calculus BC,6,7.0,7.0,7.0
+WY,40,Seminar,6,0.0,0.0,0.0
+WY,41,Research,6,0.0,0.0,0.0
+WY,42,Computer Science Principles,6,1.2,1.2,1.2
+WY,43,African American Studies,6,0.0,0.0,0.0
+WY,44,Pre-Calculus,6,0.7,0.7,0.7
+WY,5,Chemistry,6,1.5,7.5,7.5
+WY,6,Chinese Language and Culture,6,0.0,0.7,1.3
+WY,7,Comparative Government and Politics,6,1.5,1.5,1.5
+WY,8,Computer Science A,6,0.0,3.3,5.7

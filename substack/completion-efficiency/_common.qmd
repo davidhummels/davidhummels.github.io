@@ -1,0 +1,46 @@
+```{ojs}
+//| output: false
+BLUE = "#1f4e79"
+LIGHT = "#9cb9d6"
+ORANGE = "#d9822b"
+TEAL = "#3a8d7f"
+RED = "#b03a2e"
+GRAY = "#8a949e"
+INK = "#1d2a36"
+urlParams = new URLSearchParams(window.location.search)
+param = (k, d) => urlParams.get(k) ?? d
+setParam = (k, v) => { try { const u = new URL(window.location.href); if (v == null || v === "") u.searchParams.delete(k); else u.searchParams.set(k, v); history.replaceState(null, "", u); } catch (e) {} }
+f2 = x => x == null || !isFinite(x) ? "–" : d3.format(".2f")(x)
+f3 = x => x == null || !isFinite(x) ? "–" : d3.format(".3f")(x)
+f0 = x => x == null || !isFinite(x) ? "–" : d3.format(",.0f")(x)
+pct = x => x == null || !isFinite(x) ? "–" : d3.format(".0%")(x)
+pct1 = x => x == null || !isFinite(x) ? "–" : d3.format(".1%")(x)
+usd = x => x == null || !isFinite(x) ? "–" : d3.format("$,.0f")(x)
+yearAxis = ({tickFormat: "d", label: null})
+STNAME = ({AL:"Alabama",AK:"Alaska",AZ:"Arizona",AR:"Arkansas",CA:"California",CO:"Colorado",CT:"Connecticut",DE:"Delaware",DC:"District of Columbia",FL:"Florida",GA:"Georgia",HI:"Hawaii",ID:"Idaho",IL:"Illinois",IN:"Indiana",IA:"Iowa",KS:"Kansas",KY:"Kentucky",LA:"Louisiana",ME:"Maine",MD:"Maryland",MA:"Massachusetts",MI:"Michigan",MN:"Minnesota",MS:"Mississippi",MO:"Missouri",MT:"Montana",NE:"Nebraska",NV:"Nevada",NH:"New Hampshire",NJ:"New Jersey",NM:"New Mexico",NY:"New York",NC:"North Carolina",ND:"North Dakota",OH:"Ohio",OK:"Oklahoma",OR:"Oregon",PA:"Pennsylvania",RI:"Rhode Island",SC:"South Carolina",SD:"South Dakota",TN:"Tennessee",TX:"Texas",UT:"Utah",VT:"Vermont",VA:"Virginia",WA:"Washington",WV:"West Virginia",WI:"Wisconsin",WY:"Wyoming"})
+STLIST = Object.keys(STNAME).sort((a, b) => STNAME[a].localeCompare(STNAME[b]))
+TILES = ({AK:[0,0],ME:[11,0],WI:[6,1],VT:[10,1],NH:[11,1],WA:[1,2],ID:[2,2],MT:[3,2],ND:[4,2],MN:[5,2],IL:[6,2],MI:[7,2],NY:[9,2],MA:[10,2],OR:[1,3],NV:[2,3],WY:[3,3],SD:[4,3],IA:[5,3],IN:[6,3],OH:[7,3],PA:[8,3],NJ:[9,3],CT:[10,3],RI:[11,3],CA:[1,4],UT:[2,4],CO:[3,4],NE:[4,4],MO:[5,4],KY:[6,4],WV:[7,4],VA:[8,4],MD:[9,4],DE:[10,4],AZ:[2,5],NM:[3,5],KS:[4,5],AR:[5,5],TN:[6,5],NC:[7,5],SC:[8,5],DC:[9,5],OK:[4,6],LA:[5,6],MS:[6,6],AL:[7,6],GA:[8,6],HI:[0,7],TX:[4,7],FL:[9,7]})
+POLSHORT = ({GP_STATE:"Guided pathways", FTF:"15 to Finish", EXCESS:"Excess-credit surcharge", CORE:"Gen-ed core", CCN:"Common course numbers", AAGUAR:"AA transfer guarantee", REVERSE:"Reverse transfer", PACKAGE:"Credit package", DUAL:"DE funding", AP:"AP mandate"})
+// tile map: data = [{st, v}], returns an SVG element whose .value is the clicked state; calls onPick(st)
+tileMap = (data, {color, fmt = f2, selected = null, onPick = null, w = 640, title = ""} = {}) => {
+  const byst = new Map(data.map(d => [d.st, d.v]));
+  const cs = Math.min(52, (w - 10) / 12), H = cs * 8 + 10;
+  const svg = d3.create("svg").attr("width", cs * 12 + 4).attr("height", H).attr("viewBox", [0, 0, cs * 12 + 4, H]).style("max-width", "100%").style("font-family", "inherit");
+  const g = svg.selectAll("g").data(Object.entries(TILES)).join("g").attr("transform", ([s, [x, y]]) => `translate(${x * cs + 2},${y * cs + 2})`).style("cursor", onPick ? "pointer" : "default");
+  g.append("rect").attr("width", cs - 3).attr("height", cs - 3).attr("rx", 4)
+    .attr("fill", ([s]) => byst.has(s) && byst.get(s) != null && isFinite(byst.get(s)) ? color(byst.get(s)) : "#e6e9ec")
+    .attr("stroke", ([s]) => s === selected ? INK : "none").attr("stroke-width", 2.5);
+  const lum = c => { const r = d3.rgb(c); return 0.299 * r.r + 0.587 * r.g + 0.114 * r.b; };
+  const tc = ([s]) => byst.has(s) && byst.get(s) != null && isFinite(byst.get(s)) && lum(color(byst.get(s))) < 140 ? "white" : INK;
+  g.append("text").attr("x", (cs - 3) / 2).attr("y", cs * 0.4).attr("text-anchor", "middle").attr("font-size", cs * 0.27).attr("font-weight", 700).attr("fill", tc).text(([s]) => s);
+  g.append("text").attr("x", (cs - 3) / 2).attr("y", cs * 0.72).attr("text-anchor", "middle").attr("font-size", cs * 0.21).attr("fill", tc).text(([s]) => byst.has(s) ? fmt(byst.get(s)) : "");
+  g.append("title").text(([s]) => `${STNAME[s]}: ${byst.has(s) ? fmt(byst.get(s)) : "n/a"}`);
+  if (onPick) g.on("click", (e, [s]) => onPick(s));
+  return svg.node();
+}
+// weighted least squares slope/intercept
+wls = (pts, x, y, wt) => { const W = d3.sum(pts, wt), mx = d3.sum(pts, d => wt(d) * x(d)) / W, my = d3.sum(pts, d => wt(d) * y(d)) / W;
+  const b = d3.sum(pts, d => wt(d) * (x(d) - mx) * (y(d) - my)) / d3.sum(pts, d => wt(d) * (x(d) - mx) ** 2);
+  const ss = d3.sum(pts, d => wt(d) * (y(d) - my) ** 2), sr = d3.sum(pts, d => wt(d) * (y(d) - my - b * (x(d) - mx)) ** 2);
+  return {b, a: my - b * mx, r2: 1 - sr / ss}; }
+```

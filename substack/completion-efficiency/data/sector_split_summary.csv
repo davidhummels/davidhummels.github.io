@@ -1,0 +1,27 @@
+item,value
+states,51.0
+states in tests (CC >= 5% of credits),49.0
+credit-weighted adjusted rise,0.24036
+credit-weighted within Public universities,0.05909
+share of adjusted rise: within Public universities,0.24583
+credit-weighted within Community colleges,0.19708
+share of adjusted rise: within Community colleges,0.81995
+credit-weighted composition (degree mix across sectors),-0.01581
+share of adjusted rise: composition,-0.06578
+max |shift-share check|,0.0
+all states: T Public universities 2010 (measured),146.79558
+all states: T Public universities 2010 (adjusted),143.86298
+all states: T Public universities 2022 (measured),120.63867
+all states: T Public universities 2022 (adjusted),121.01611
+all states: T Community colleges 2010 (measured),519.9893
+all states: T Community colleges 2010 (adjusted),499.19141
+all states: T Community colleges 2022 (measured),254.33471
+all states: T Community colleges 2022 (adjusted),260.16089
+all states: imported CC transfer credit per university BA-eq 2010,6.1772
+all states: own-credit T universities 2010,152.97278
+all states: own-credit T community colleges 2010,498.25657
+all states: CC credits per university BA-eq 2010,147.799
+all states: imported CC transfer credit per university BA-eq 2022,4.91702
+all states: own-credit T universities 2022,125.55569
+all states: own-credit T community colleges 2022,239.17521
+all states: CC credits per university BA-eq 2022,82.49397

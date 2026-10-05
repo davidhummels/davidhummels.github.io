@@ -1,0 +1,2147 @@
+org_id,name,city,state,type,credit_awarded,n_exam_rules
+2,Penn State Berks,Reading,PA,public,Y,40
+4,Lake Erie College,Painesville,OH,private nonprofit,Y,36
+5,Lincoln Memorial University,Harrogate,TN,private nonprofit,Y,28
+6,Quincy University,Quincy,IL,private nonprofit,Y,40
+7,St. Norbert College,De Pere,WI,private nonprofit,Y,39
+9,Cuyamaca College,El Cajon,CA,public,Y,32
+12,Copper Mountain College,Joshua Tree,CA,public,Y,33
+13,Fullerton College,Fullerton,CA,public,Y,38
+14,Colorado State University,Fort Collins,CO,public,Y,38
+15,Cornell University,Ithaca,NY,private nonprofit,Y,18
+16,Penn State Worthington Scranton,Dunmore,PA,public,Y,40
+17,University of Wisconsin-Whitewater,Whitewater,WI,public,Y,40
+18,Central Piedmont Community College,Charlotte,NC,public,Y,33
+23,Wenatchee Valley College,Wenatchee,WA,public,Y,39
+28,Black River Technical College,Pocahontas,AR,public,Y,17
+29,Charles R Drew University of Medicine and Science,Los Angeles,CA,private nonprofit,Y,28
+31,Landmark College,Putney,VT,private nonprofit,Y,40
+33,SUNY Old Westbury,Old Westbury,NY,public,Y,34
+34,Barnard College,New York,NY,private nonprofit,Y,30
+35,Jacksonville State University,Jacksonville,AL,public,Y,32
+36,Ursuline College,Cleveland,OH,private nonprofit,Y,39
+37,Northampton Community College,Bethlehem,PA,public,Y,31
+38,West Chester University of Pennsylvania,West Chester,PA,public,Y,40
+39,Boston University,Boston,MA,private nonprofit,Y,33
+43,Los Angeles Valley College,Van Nuys,CA,public,Y,37
+48,Monroe Community College,Rochester,NY,public,Y,35
+49,Cuyahoga Community College,Cleveland,OH,public,Y,39
+51,Athens State University,Athens,AL,public,,28
+58,Carl Albert State College,Poteau,OK,public,Y,20
+60,Tabor College,Hillsboro,KS,private nonprofit,Y,28
+61,College of the Ozarks,Point Lookout,MO,private nonprofit,Y,25
+62,Maryville University of Saint Louis,Saint Louis,MO,private nonprofit,,39
+63,Webster University,Saint Louis,MO,private nonprofit,Y,39
+64,College of Saint Mary,Omaha,NE,private nonprofit,Y,23
+69,Coconino County Community College,Flagstaff,AZ,public,Y,33
+71,San Jacinto College,Pasadena,TX,public,Y,30
+73,University of Missouri: Kansas City,Kansas City,MO,public,Y,40
+75,Mayville State University,Mayville,ND,public,Y,32
+77,Iowa Western Community College,Council Bluffs,IA,public,Y,22
+78,Emporia State University,Emporia,KS,public,Y,38
+79,Southern Nazarene University,Bethany,OK,private nonprofit,Y,26
+80,Trinity Valley Community College,Athens,TX,public,Y,18
+86,Santiago Canyon College,Orange,CA,public,Y,36
+89,Virginia Polytechnic Institute and State University,Blacksburg,VA,public,Y,40
+90,Brightpoint Community College,Chester,VA,public,Y,37
+91,University of Texas at Arlington,Arlington,TX,public,Y,36
+94,Middle Georgia State University - Macon,Macon,GA,public,,32
+96,Gallaudet University,Washington,DC,private nonprofit,Y,32
+97,Greensboro College,Greensboro,NC,private nonprofit,Y,29
+99,Pima Community College,Tucson,AZ,public,Y,35
+100,San Jose City College,San Jose,CA,public,Y,36
+101,Trident Technical College,North Charleston,SC,public,Y,34
+103,Arizona State University West,Glendale,AZ,public,,38
+104,Hebrew Theological College,Skokie,IL,private nonprofit,Y,26
+105,Davis and Elkins College,Elkins,WV,private nonprofit,Y,21
+106,University of Idaho,Moscow,ID,public,Y,40
+107,Stetson University,Deland,FL,private nonprofit,Y,38
+111,Westminster Choir College of Rider University,Lawrence Township,NJ,private nonprofit,Y,40
+113,Napa Valley College,Napa,CA,public,,38
+114,Southeast New Mexico College,Carlsbad,NM,public,Y,33
+116,Seattle University,Seattle,WA,private nonprofit,Y,37
+118,City University of New York: Queensborough Community College,Oakland Gardens,NY,public,,2
+122,Wesleyan University,Middletown,CT,private nonprofit,Y,36
+123,Big Bend Community College,Moses Lake,WA,public,Y,37
+126,SUNY College of Technology at Alfred,Alfred,NY,public,Y,38
+128,San Jacinto College : North Campus,Houston,TX,public,Y,29
+133,Austin Community College,Austin,TX,public,Y,31
+136,West Virginia Northern Community College,Wheeling,WV,public,Y,35
+137,Wor-Wic Community College,Salisbury,MD,public,Y,26
+139,Texas A&M International University,Laredo,TX,public,Y,21
+140,Tulsa Community College,Tulsa,OK,public,Y,33
+141,Texas State Technical College: Harlingen,Harlingen,TX,public,Y,21
+142,Texas A&M University-Corpus Christi,Corpus Christi,TX,public,Y,31
+143,University of Texas at Tyler,Tyler,TX,public,Y,29
+144,Texas Tech University Health Sciences Center,Lubbock,TX,public,,32
+145,Union College,Lincoln,NE,private nonprofit,Y,28
+146,University of Arkansas,Fayetteville,AR,public,Y,34
+147,University of Dallas,Irving,TX,private nonprofit,Y,31
+148,University of Dubuque,Dubuque,IA,private nonprofit,Y,26
+149,University of Houston,Houston,TX,public,Y,40
+152,University of Kansas,Lawrence,KS,public,Y,40
+154,University Of Missouri - Saint Louis,Saint Louis,MO,public,Y,35
+155,University of Minnesota: Morris,Morris,MN,public,Y,38
+156,University of Minnesota: Crookston,Crookston,MN,public,Y,34
+160,Morningside University,Sioux City,IA,private nonprofit,Y,35
+162,Mount Mercy University,Cedar Rapids,IA,private nonprofit,Y,32
+163,University Of Arizona Global Campus San Diego,San Diego,CA,private nonprofit,Y,40
+165,Goodwin University,East Hartford,CT,private nonprofit,Y,27
+166,University of Nebraska - Omaha,Omaha,NE,public,Y,38
+168,Midland College,Midland,TX,public,Y,14
+172,Chadron State College,Chadron,NE,public,Y,13
+173,University of Nebraska Kearney,Kearney,NE,public,Y,27
+174,Peru State College,Peru,NE,public,Y,35
+175,Wayne State College,Wayne,NE,public,Y,25
+176,Nebraska Wesleyan University,Lincoln,NE,private nonprofit,Y,34
+179,North Dakota State University,Fargo,ND,public,Y,40
+180,North Dakota State College of Science,Wahpeton,ND,public,Y,2
+181,Dickinson State University,Dickinson,ND,public,Y,34
+184,North Hennepin Community College,Minneapolis,MN,public,Y,32
+185,Northland Community & Technical College,Thief River Falls,MN,public,Y,31
+186,Normandale Community College,Minneapolis,MN,public,Y,38
+190,North Central University,Minneapolis,MN,private nonprofit,Y,27
+191,Las Positas College,Livermore,CA,public,Y,37
+192,Lone Star College System,Spring,TX,public,Y,27
+196,Nebraska Methodist College of Nursing and Allied Health,Omaha,NE,private nonprofit,Y,10
+198,Dallas College: Eastfield Campus,Mesquite,TX,public,Y,30
+200,El Paso Community College,El Paso,TX,public,Y,21
+201,Texas A&M University-Texarkana,Texarkana,TX,public,Y,29
+202,East Arkansas Community College,Forrest City,AR,public,Y,24
+210,Fort Hays State University,Hays,KS,public,Y,38
+211,Fort Scott Community College,Fort Scott,KS,public,Y,20
+212,Jefferson College,Hillsboro,MO,public,Y,19
+213,John Brown University,Siloam Springs,AR,private nonprofit,Y,38
+214,Missouri Southern State University,Joplin,MO,public,Y,29
+217,Johnson County Community College,Overland Park,KS,public,Y,33
+219,Texas State Technical College,Waco,TX,public,Y,19
+220,Penn State Abington,Abington,PA,public,Y,40
+221,Juniata College,Huntingdon,PA,private nonprofit,Y,40
+223,D'Youville College,Buffalo,NY,private nonprofit,Y,35
+224,Collin County Community College District,McKinney,TX,public,Y,32
+225,University Of Wisconsin Stevens Point At Wausau,Wausau,WI,public,Y,40
+226,Lehigh University,Bethlehem,PA,private nonprofit,Y,36
+227,Minneapolis College of Art and Design,Minneapolis,MN,private nonprofit,Y,35
+228,Tennessee Technological University,Cookeville,TN,public,Y,30
+262,Northwest Arkansas Community College,Bentonville,AR,public,Y,31
+265,Kent State University Ashtabula,Ashtabula,OH,public,Y,40
+270,Mission College,Santa Clara,CA,public,,30
+271,Milwaukee Institute of Art & Design,Milwaukee,WI,private nonprofit,Y,28
+278,Dakota College at Bottineau,Bottineau,ND,public,Y,1
+279,Ohio State University: Lima Campus,Lima,OH,public,Y,39
+283,Oklahoma Panhandle State University,Goodwell,OK,public,Y,3
+284,Panola College,Carthage,TX,public,Y,24
+285,Paris Junior College,Paris,TX,public,Y,15
+286,Park University,Parkville,MO,private nonprofit,,40
+287,Labette Community College,Parsons,KS,public,Y,20
+289,Philander Smith College,Little Rock,AR,private nonprofit,Y,21
+290,Prairie View A&M University,Prairie View,TX,public,Y,27
+293,Phillips Community College of the University of Arkansas,Helena,AR,public,Y,15
+295,Saint Louis University,Saint Louis,MO,private nonprofit,Y,38
+297,Saint Mary's University Of Minnesota,Winona,MN,private nonprofit,Y,35
+298,St. Mary's University,San Antonio,TX,private nonprofit,Y,35
+299,St. Olaf College,Northfield,MN,private nonprofit,Y,35
+300,Crown College,Saint Bonifacius,MN,private nonprofit,Y,31
+301,Oklahoma City Community College,Oklahoma City,OK,public,Y,28
+303,University of Cincinnati: Clermont College,Batavia,OH,public,Y,39
+309,Logan University,Chesterfield,MO,private nonprofit,Y,38
+313,Washington University in St. Louis,Saint Louis,MO,private nonprofit,Y,30
+314,Wayland Baptist University,Plainview,TX,private nonprofit,Y,27
+315,Weatherford College,Weatherford,TX,public,Y,25
+324,University of Science and Arts of Oklahoma,Chickasha,OK,public,Y,31
+325,Rogers State University,Claremore,OK,public,Y,26
+326,Oklahoma State University,Stillwater,OK,public,Y,40
+329,College of St. Benedict,Saint Joseph,MN,private nonprofit,Y,35
+330,St. Catherine University,Saint Paul,MN,private nonprofit,Y,39
+332,Culver-Stockton College,Canton,MO,private nonprofit,Y,30
+333,Covenant College,Lookout Mountain,GA,private nonprofit,Y,37
+335,Concordia University Texas,Austin,TX,private nonprofit,Y,25
+336,Colby Community College,Colby,KS,public,Y,23
+337,Central Texas College,Killeen,TX,public,Y,36
+340,Oklahoma Wesleyan University,Bartlesville,OK,private nonprofit,Y,24
+345,St. Philip's College,San Antonio,TX,public,Y,33
+346,Sam Houston State University,Huntsville,TX,public,Y,35
+347,Angelo State University,San Angelo,TX,public,Y,32
+348,San Antonio College,San Antonio,TX,public,Y,33
+349,Schreiner University,Kerrville,TX,private nonprofit,Y,24
+351,Simpson College,Indianola,IA,private nonprofit,Y,35
+352,University of Sioux Falls,Sioux Falls,SD,private nonprofit,Y,21
+353,South Dakota School of Mines and Technology,Rapid City,SD,public,Y,39
+354,South Dakota State University,Brookings,SD,public,Y,39
+356,Southeast Missouri State University,Cape Girardeau,MO,public,Y,35
+358,Southeastern Louisiana University,Hammond,LA,public,Y,26
+359,University Of North Carolina At Wilmington,Wilmington,NC,public,Y,40
+360,Wingate University,Wingate,NC,private nonprofit,Y,35
+361,Winston-Salem State University,Winston Salem,NC,public,Y,35
+362,Winthrop University,Rock Hill,SC,public,Y,38
+363,Wofford College,Spartanburg,SC,private nonprofit,Y,36
+364,University of North Carolina at Greensboro,Greensboro,NC,public,Y,35
+369,Colorado State University: Pueblo,Pueblo,CO,public,Y,38
+371,Hope International University,Fullerton,CA,private nonprofit,Y,31
+372,Peninsula College,Port Angeles,WA,public,Y,39
+373,Fresno Pacific University,Fresno,CA,private nonprofit,Y,40
+374,Portland Community College,Portland,OR,public,Y,37
+376,Pitzer College,Claremont,CA,private nonprofit,Y,17
+379,Wilkes Community College,Wilkesboro,NC,public,N,26
+380,Western Piedmont Community College,Morganton,NC,public,Y,22
+381,Wilmington University,New Castle,DE,private nonprofit,Y,34
+382,Wayne Community College,Goldsboro,NC,public,Y,30
+383,Virginia Highlands Community College,Abingdon,VA,public,Y,8
+384,Wake Technical Community College,Raleigh,NC,public,Y,27
+387,West Virginia University at Parkersburg,Parkersburg,WV,public,Y,31
+393,American University,Washington,DC,private nonprofit,Y,40
+394,Young Harris College,Young Harris,GA,private nonprofit,Y,38
+395,Abilene Christian University,Abilene,TX,private nonprofit,Y,34
+397,Texas A&M University,College Station,TX,public,Y,40
+398,University of Arkansas at Pine Bluff,Pine Bluff,AR,public,,24
+399,Alvin Community College,Alvin,TX,public,Y,28
+400,Amarillo College,Amarillo,TX,public,Y,15
+401,University of Arkansas at Monticello,Monticello,AR,public,Y,34
+402,Cowley County Community College,Arkansas City,KS,public,Y,22
+403,Lyon College,Batesville,AR,private nonprofit,Y,29
+404,Arkansas Tech University,Russellville,AR,public,Y,37
+405,Southeastern Oklahoma State University,Durant,OK,public,Y,22
+406,Southwestern University,Georgetown,TX,private nonprofit,Y,40
+407,Bemidji State University,Bemidji,MN,public,Y,40
+408,Minnesota State University Mankato,Mankato,MN,public,Y,34
+409,Minnesota State University Moorhead,Moorhead,MN,public,Y,40
+410,Saint Cloud State University,Saint Cloud,MN,public,Y,33
+411,Winona State University,Winona,MN,public,Y,36
+412,University of Iowa,Iowa City,IA,public,Y,40
+413,Stephen F Austin State University,Nacogdoches,TX,public,Y,32
+414,Stephens College,Columbia,MO,private nonprofit,Y,38
+415,Sterling College,Sterling,KS,private nonprofit,Y,27
+416,Sul Ross State University,Alpine,TX,public,Y,18
+420,University of West Georgia,Carrollton,GA,public,Y,31
+421,West Liberty University,West Liberty,WV,public,Y,39
+422,West Virginia University Institute of Technology,Beckley,WV,public,Y,36
+423,West Virginia State University,Institute,WV,public,Y,37
+424,West Virginia University,Morgantown,WV,public,Y,40
+427,Wheeling University,Wheeling,WV,private nonprofit,Y,23
+429,Kansas City Art Institute,Kansas City,MO,private nonprofit,Y,22
+431,Kansas City Kansas Community College,Kansas City,KS,public,Y,25
+435,Kansas State University,Manhattan,KS,public,Y,40
+440,Grambling State University,Grambling,LA,public,Y,25
+441,Grand View University,Des Moines,IA,private nonprofit,Y,36
+442,Grinnell College,Grinnell,IA,private nonprofit,Y,36
+443,Gustavus Adolphus College,Saint Peter,MN,private nonprofit,Y,40
+446,Mid-America Christian University,Oklahoma City,OK,private nonprofit,Y,37
+448,Hamline University,Saint Paul,MN,private nonprofit,Y,35
+450,Harding University,Searcy,AR,private nonprofit,Y,33
+451,Hardin-Simmons University,Abilene,TX,private nonprofit,Y,25
+452,Harris-Stowe State University,Saint Louis,MO,public,Y,36
+453,Hastings College,Hastings,NE,private nonprofit,Y,30
+464,University of Mary Hardin-Baylor,Belton,TX,private nonprofit,Y,29
+466,University of Texas of the Permian Basin,Odessa,TX,public,Y,18
+467,Victoria College,Victoria,TX,public,Y,17
+468,University of Houston-Clear Lake,Houston,TX,public,Y,27
+469,Texas A&M University Victoria,Victoria,TX,public,Y,19
+470,University of Texas at San Antonio,San Antonio,TX,public,Y,38
+471,University of Houston-Downtown,Houston,TX,public,Y,25
+472,Waldorf University,Forest City,IA,private nonprofit,Y,12
+473,Wartburg College,Waverly,IA,private nonprofit,Y,32
+475,Washburn University,Topeka,KS,public,Y,25
+478,Louisiana State University at Eunice,Eunice,LA,public,Y,19
+479,Century College,Saint Paul,MN,public,Y,36
+480,Macalester College,Saint Paul,MN,private nonprofit,Y,32
+482,Western Dakota Technical College,Rapid City,SD,public,Y,5
+483,Hartnell College,Salinas,CA,public,Y,37
+488,Thomas College,Waterville,ME,private nonprofit,Y,2
+489,University of Massachusetts Lowell,Lowell,MA,public,Y,36
+490,University of New Hampshire at Manchester,Manchester,NH,public,Y,40
+491,University of Bridgeport,Bridgeport,CT,private nonprofit,Y,35
+492,University Of Connecticut,Storrs Mansfield,CT,public,Y,36
+493,Houston Community College System,Houston,TX,public,Y,40
+496,Irvine Valley College,Irvine,CA,public,Y,32
+497,Bethel University,Saint Paul,MN,private nonprofit,Y,33
+499,Bismarck State College,Bismarck,ND,public,Y,34
+500,Black Hills State University,Spearfish,SD,public,Y,39
+501,Blinn College,Brenham,TX,public,Y,21
+505,Buena Vista University,Storm Lake,IA,private nonprofit,Y,35
+508,Cameron University,Lawton,OK,public,Y,33
+509,Carleton College,Northfield,MN,private nonprofit,Y,34
+510,Centenary College of Louisiana,Shreveport,LA,private nonprofit,Y,20
+513,Oklahoma Christian University,Edmond,OK,private nonprofit,Y,31
+514,Central College,Pella,IA,private nonprofit,Y,33
+515,Central Christian College of Kansas,McPherson,KS,private nonprofit,Y,25
+516,Central Methodist University,Fayette,MO,private nonprofit,Y,27
+517,University of Central Missouri,Warrensburg,MO,public,Y,31
+518,University of Central Oklahoma,Edmond,OK,public,Y,37
+521,Pfeiffer University,Misenheimer,NC,private nonprofit,Y,26
+522,Piedmont University,Demorest,GA,private nonprofit,Y,37
+523,Potomac State College of West Virginia University,Keyser,WV,public,Y,38
+524,Presbyterian College,Clinton,SC,private nonprofit,Y,28
+527,Prince George's Community College,Upper Marlboro,MD,public,Y,37
+528,Polk State College,Winter Haven,FL,public,Y,35
+529,Patrick And Henry Community College,Martinsville,VA,public,Y,36
+530,Piedmont Technical College,Greenwood,SC,public,Y,25
+531,Palm Beach Atlantic University,West Palm Beach,FL,private nonprofit,Y,33
+533,Pitt Community College,Winterville,NC,public,Y,26
+534,Paul D. Camp Community College,Franklin,VA,public,Y,34
+535,Duke University,Durham,NC,private nonprofit,Y,32
+536,Emmanuel University,Franklin Springs,GA,private nonprofit,Y,32
+537,Emory And Henry University,Emory,VA,private nonprofit,Y,36
+538,Oxford College Of Emory University,Oxford,GA,private nonprofit,Y,34
+539,Emory University,Atlanta,GA,private nonprofit,Y,35
+542,Erskine College,Due West,SC,private nonprofit,Y,26
+543,Embry-Riddle Aeronautical University: Daytona Beach Campus,Daytona Beach,FL,private nonprofit,Y,39
+544,Florida SouthWestern State College,Fort Myers,FL,public,Y,39
+545,Community College of Baltimore County - Essex,Rosedale,MD,public,Y,28
+547,East Georgia State College,Swainsboro,GA,public,Y,37
+548,Drake University,Des Moines,IA,private nonprofit,Y,40
+550,Drury University,Springfield,MO,private nonprofit,Y,36
+551,Dordt University,Sioux Center,IA,private nonprofit,Y,30
+553,University of South Carolina: Beaufort,Beaufort,SC,public,Y,40
+554,University of South Carolina: Union,Union,SC,public,Y,39
+555,University of South Carolina: Salkehatchie,Allendale,SC,public,Y,38
+558,University of South Carolina: Lancaster,Lancaster,SC,public,Y,36
+559,University of South Carolina: Upstate,Spartanburg,SC,public,Y,37
+563,Valdosta State University,Valdosta,GA,public,Y,33
+564,Stevenson University,Stevenson,MD,private nonprofit,Y,37
+566,Virginia Military Institute,Lexington,VA,public,Y,31
+567,Guilford Technical Community College,Jamestown,NC,public,,32
+568,Arkansas State University,Jonesboro,AR,public,Y,31
+569,University of Central Arkansas,Conway,AR,public,Y,29
+570,Bethany College,Lindsborg,KS,private nonprofit,Y,38
+571,Bethany Lutheran College,Mankato,MN,private nonprofit,Y,24
+572,Queens University of Charlotte,Charlotte,NC,private nonprofit,Y,39
+573,Piedmont Virginia Community College,Charlottesville,VA,public,Y,28
+574,Pasco-Hernando State College,New Port Richey,FL,public,Y,37
+576,Randolph-Macon College,Ashland,VA,private nonprofit,Y,35
+577,Randolph College,Lynchburg,VA,private nonprofit,Y,31
+579,University of Richmond,Richmond,VA,private nonprofit,Y,33
+580,Virginia Commonwealth University,Richmond,VA,public,Y,40
+581,Roanoke College,Salem,VA,private nonprofit,Y,39
+583,Rollins College,Winter Park,FL,private nonprofit,Y,35
+584,Southside Virginia Community College,Alberta,VA,public,Y,23
+587,DeVry University: Decatur,Decatur,GA,private nonprofit,Y,37
+588,Atlanta Metropolitan State College,Atlanta,GA,public,Y,20
+593,Tri-County Community College,Murphy,NC,public,Y,34
+594,Tri-County Technical College,Pendleton,SC,public,Y,2
+595,Alamance Community College,Graham,NC,public,Y,20
+597,Virginia Peninsula Community College,Hampton,VA,public,Y,37
+598,Tallahassee State College,Tallahassee,FL,public,Y,36
+599,University of Tampa,Tampa,FL,private nonprofit,Y,39
+600,Montgomery College: Takoma Park Campus,Takoma Park,MD,public,Y,33
+601,Morehouse College,Atlanta,GA,private nonprofit,Y,26
+602,Morgan State University,Baltimore,MD,public,Y,37
+605,University of Charleston,Charleston,WV,private nonprofit,Y,21
+606,Mount St. Mary's University,Emmitsburg,MD,private nonprofit,Y,37
+608,Methodist University,Fayetteville,NC,private nonprofit,Y,37
+609,"State College of Florida, Manatee-Sarasota",Bradenton,FL,public,Y,36
+611,University of Mount Olive,Mount Olive,NC,private nonprofit,Y,30
+612,Lynn University,Boca Raton,FL,private nonprofit,Y,38
+613,North Carolina Central University,Durham,NC,public,Y,30
+614,North Carolina State University,Raleigh,NC,public,Y,37
+616,University of North Georgia,Dahlonega,GA,public,Y,35
+617,North Greenville University,Tigerville,SC,private nonprofit,Y,38
+620,North Florida College,Madison,FL,public,Y,37
+621,New College of Florida,Sarasota,FL,public,Y,38
+622,Northern Virginia Community College,Annandale,VA,public,Y,36
+623,University Of North Carolina School Of The Arts,Winston Salem,NC,public,Y,30
+625,Nova Southeastern University,Fort Lauderdale,FL,private nonprofit,Y,40
+627,Florida State University,Tallahassee,FL,public,Y,39
+629,Florida Gulf Coast University,Fort Myers,FL,public,Y,39
+630,Furman University,Greenville,SC,private nonprofit,Y,36
+631,Eckerd College,Saint Petersburg,FL,private nonprofit,Y,39
+632,Tidewater Community College - Norfolk,Norfolk,VA,public,Y,33
+633,Florida Atlantic University,Boca Raton,FL,public,Y,37
+634,Frederick Community College,Frederick,MD,public,Y,39
+635,Florida State College at Jacksonville,Jacksonville,FL,public,Y,38
+636,University of Central Florida,Orlando,FL,public,Y,39
+637,Forsyth Technical Community College,Winston Salem,NC,public,Y,31
+638,Flagler College,Saint Augustine,FL,private nonprofit,Y,34
+639,College Of The Florida Keys,Key West,FL,public,Y,38
+640,Georgia Highlands College,Rome,GA,public,Y,28
+642,Mitchell Technical College,Mitchell,SD,public,Y,6
+644,University of Advancing Technology,Tempe,AZ,private nonprofit,Y,33
+656,Lubbock Christian University,Lubbock,TX,private nonprofit,Y,36
+657,University of New Orleans,New Orleans,LA,public,Y,26
+658,Louisiana State University at Alexandria,Alexandria,LA,public,Y,21
+659,Louisiana State University Health Sciences Center New Orleans,New Orleans,LA,public,Y,29
+661,Spartanburg Methodist College,Spartanburg,SC,private nonprofit,Y,28
+662,Spelman College,Atlanta,GA,private nonprofit,Y,28
+663,Elizabeth City State University,Elizabeth City,NC,public,Y,34
+664,University of South Carolina: Sumter,Sumter,SC,public,Y,38
+665,George Mason University,Fairfax,VA,public,Y,40
+666,University of South Florida,Tampa,FL,public,Y,39
+669,Kennesaw State University,Kennesaw,GA,public,Y,38
+671,LaGrange College,Lagrange,GA,private nonprofit,Y,31
+672,Lander University,Greenwood,SC,public,Y,38
+673,Lees-McRae College,Banner Elk,NC,private nonprofit,Y,4
+674,Lenoir-Rhyne University,Hickory,NC,private nonprofit,Y,22
+675,Limestone University,Gaffney,SC,private nonprofit,Y,30
+678,Marshall University,Huntington,WV,public,Y,35
+679,Mary Baldwin University,Staunton,VA,private nonprofit,Y,34
+680,University of Mary Washington,Fredericksburg,VA,public,Y,40
+681,Maryland Institute College of Art,Baltimore,MD,private nonprofit,Y,38
+682,University of Maryland: Eastern Shore,Princess Anne,MD,public,Y,33
+683,Bowie State University,Bowie,MD,public,Y,17
+684,Frostburg State University,Frostburg,MD,public,Y,34
+685,Towson University,Towson,MD,public,Y,39
+686,Marymount University,Arlington,VA,private nonprofit,Y,40
+687,Augusta University,Augusta,GA,public,Y,34
+691,Mercer University,Macon,GA,private nonprofit,Y,38
+692,Meredith College,Raleigh,NC,private nonprofit,Y,32
+693,Middle Georgia State University,Cochran,GA,public,Y,34
+694,Western Nevada College,Carson City,NV,public,Y,34
+695,Whatcom Community College,Bellingham,WA,public,Y,38
+702,Yakima Valley College,Yakima,WA,public,Y,22
+703,Oregon Institute of Technology,Klamath Falls,OR,public,Y,37
+705,California State University: Fullerton,Fullerton,CA,public,Y,39
+707,Babson College,Babson Park,MA,private nonprofit,Y,28
+708,Bates College,Lewiston,ME,private nonprofit,Y,35
+709,Bay Path University,Longmeadow,MA,private nonprofit,Y,35
+711,Bennington College,Bennington,VT,private nonprofit,Y,31
+712,Boston College,Chestnut Hill,MA,private nonprofit,N,32
+713,Mount San Jacinto College,San Jacinto,CA,public,Y,38
+714,Merritt College,Oakland,CA,public,Y,33
+715,Willamette University Pacific Northwest College Of Art,Portland,OR,private nonprofit,Y,23
+716,Metropolitan State University of Denver,Denver,CO,public,Y,38
+718,Mt. Hood Community College,Gresham,OR,public,Y,30
+720,Moorpark College,Moorpark,CA,public,Y,38
+721,Mesa Community College,Mesa,AZ,public,,30
+723,Morgan Community College,Fort Morgan,CO,public,,34
+724,Mendocino College,Ukiah,CA,public,Y,37
+725,GateWay Community College,Phoenix,AZ,public,Y,34
+734,Full Sail University,Winter Park,FL,private nonprofit,Y,26
+736,Green River College,Auburn,WA,public,Y,37
+737,Glendale Community College,Glendale,AZ,public,Y,39
+738,Golden West College,Huntington Beach,CA,public,Y,35
+745,Harrisburg Area Community College,Harrisburg,PA,public,Y,33
+747,City University of New York: Lehman College,Bronx,NY,public,Y,40
+749,Sinclair Community College,Dayton,OH,public,Y,39
+751,Oakland Community College,Auburn Hills,MI,public,Y,35
+753,Southern Illinois University Carbondale,Carbondale,IL,public,Y,40
+754,Southern Adventist University,Collegedale,TN,private nonprofit,Y,21
+756,Oxnard College,Oxnard,CA,public,Y,37
+757,Pomona College,Claremont,CA,private nonprofit,Y,35
+758,Porterville College,Porterville,CA,public,Y,35
+759,Portland State University,Portland,OR,public,Y,40
+760,Vassar College,Poughkeepsie,NY,private nonprofit,Y,31
+761,Villanova University,Villanova,PA,private nonprofit,Y,29
+764,Wagner College,Staten Island,NY,private nonprofit,Y,30
+765,Washington & Jefferson College,Washington,PA,private nonprofit,Y,27
+767,Waynesburg University,Waynesburg,PA,private nonprofit,Y,40
+770,SUNY Westchester Community College,Valhalla,NY,public,Y,35
+772,Anna Maria College,Paxton,MA,private nonprofit,Y,23
+773,University of Maine at Presque Isle,Presque Isle,ME,public,Y,35
+774,Assumption University,Worcester,MA,private nonprofit,Y,32
+778,Germanna Community College,Locust Grove,VA,public,Y,30
+779,Greenville Technical College,Greenville,SC,public,Y,35
+780,Garrett College,Mc Henry,MD,public,Y,40
+783,Hagerstown Community College,Hagerstown,MD,public,Y,39
+784,Hampden-Sydney College,Hampden Sydney,VA,private nonprofit,Y,36
+785,Hampton University,Hampton,VA,private nonprofit,Y,28
+786,High Point University,High Point,NC,private nonprofit,Y,38
+787,Hollins University,Roanoke,VA,private nonprofit,Y,37
+788,Hood College,Frederick,MD,private nonprofit,Y,36
+789,Howard University,Washington,DC,private nonprofit,Y,30
+790,Brunswick Community College,Bolivia,NC,public,Y,23
+791,Harford Community College,Bel Air,MD,public,Y,29
+798,Seattle Pacific University,Seattle,WA,private nonprofit,Y,40
+801,Howard Community College,Columbia,MD,public,,40
+802,Isothermal Community College,Spindale,NC,public,Y,25
+804,Indian River State College,Fort Pierce,FL,public,Y,37
+807,Jacksonville University,Jacksonville,FL,private nonprofit,Y,39
+808,Johns Hopkins University,Baltimore,MD,private nonprofit,Y,11
+809,Johnson C. Smith University,Charlotte,NC,private nonprofit,Y,28
+811,Saint Mary's College,Notre Dame,IN,private nonprofit,Y,39
+812,St. Mary-of-the-Woods College,Saint Mary Of The Woods,IN,private nonprofit,Y,31
+813,Savannah State University,Savannah,GA,public,Y,31
+814,Shaw University,Raleigh,NC,private nonprofit,Y,12
+815,Shenandoah University,Winchester,VA,private nonprofit,Y,40
+816,Shepherd University,Shepherdstown,WV,public,Y,34
+817,Shorter University,Rome,GA,private nonprofit,Y,25
+818,South Carolina State University,Orangeburg,SC,public,Y,26
+819,South Georgia State College,Douglas,GA,public,Y,20
+821,Southeastern University,Lakeland,FL,private nonprofit,Y,39
+823,Southern Polytechnic State University,Marietta,GA,public,Y,35
+826,Rock Valley College,Rockford,IL,public,Y,39
+828,Shawnee Community College,Ullin,IL,public,Y,18
+830,Stark State College,North Canton,OH,public,Y,40
+832,University of Saint Francis,Fort Wayne,IN,private nonprofit,Y,31
+834,Southwest Wisconsin Technical College,Fennimore,WI,public,Y,9
+835,California State University: East Bay,Hayward,CA,public,Y,36
+836,New Mexico State University at Alamogordo,Alamogordo,NM,public,Y,37
+837,Arizona Western College,Yuma,AZ,public,Y,30
+838,Arapahoe Community College,Littleton,CO,public,,2
+839,Bakersfield College,Bakersfield,CA,public,Y,39
+841,Biola University,La Mirada,CA,private nonprofit,Y,37
+842,Boise State University,Boise,ID,public,Y,40
+843,Brigham Young University,Provo,UT,private nonprofit,Y,40
+844,Barstow Community College,Barstow,CA,public,Y,25
+846,Westfield State University,Westfield,MA,public,Y,37
+847,Worcester State University,Worcester,MA,public,Y,34
+848,Merrimack College,North Andover,MA,private nonprofit,Y,39
+850,Middlebury College,Middlebury,VT,private nonprofit,N,27
+851,Montserrat College of Art,Beverly,MA,private nonprofit,Y,38
+853,Mount Holyoke College,South Hadley,MA,private nonprofit,Y,36
+856,Southern Maine Community College,South Portland,ME,public,Y,24
+860,Mount Wachusett Community College,Gardner,MA,public,Y,37
+864,Pace University: Westchester,Pleasantville,NY,private nonprofit,Y,38
+871,Plymouth State University,Plymouth,NH,public,Y,38
+872,University of Southern Maine,Portland,ME,public,Y,38
+873,Providence College,Providence,RI,private nonprofit,Y,38
+877,Middlesex Community College Massachusetts,Lowell,MA,public,Y,35
+885,Nashua Community College,Nashua,NH,public,Y,11
+887,NHTI-Concord's Community College,Concord,NH,public,Y,39
+894,City University of New York: Medgar Evers College,Brooklyn,NY,public,Y,38
+901,Delaware Valley University,Doylestown,PA,private nonprofit,Y,39
+902,Nazareth University,Rochester,NY,private nonprofit,Y,37
+903,Rutgers The State University Of New Jersey Newark Campus,Newark,NJ,public,Y,38
+904,New Jersey Institute of Technology,Newark,NJ,public,Y,34
+905,Rowan University,Glassboro,NJ,public,Y,40
+906,New Jersey City University,Jersey City,NJ,public,Y,40
+907,Kean University,Union,NJ,public,Y,35
+908,William Paterson University of New Jersey,Wayne,NJ,public,Y,39
+909,The College of New Jersey,Ewing,NJ,public,Y,37
+910,Montclair State University,Montclair,NJ,public,Y,40
+911,Eugene Lang College The New School for Liberal Arts,New York,NY,private nonprofit,Y,36
+912,Cochise College,Sierra Vista,AZ,public,Y,38
+913,California State University Dominguez Hills,Carson,CA,public,Y,37
+914,California State University: San Bernardino,San Bernardino,CA,public,Y,39
+915,College Of The Redwoods,Eureka,CA,public,Y,18
+916,Cuesta College,San Luis Obispo,CA,public,Y,35
+917,Pierce College,Lakewood,WA,public,,40
+918,Cypress College,Cypress,CA,public,Y,35
+919,Chaminade University of Honolulu,Honolulu,HI,private nonprofit,Y,33
+921,Kent State University Trumbull,Warren,OH,public,Y,40
+922,Kirtland Community College,Grayling,MI,public,Y,36
+923,Kentucky Mountain Bible College,Jackson,KY,private nonprofit,Y,11
+924,Kishwaukee College,Malta,IL,public,Y,39
+927,Ohio University: Eastern Campus,Saint Clairsville,OH,public,Y,40
+928,Parkland College,Champaign,IL,public,Y,34
+929,West Kentucky Community and Technical College,Paducah,KY,public,Y,34
+930,Pearl River Community College,Poplarville,MS,public,Y,18
+932,University of Pikeville,Pikeville,KY,private nonprofit,Y,38
+933,St. Clair County Community College,Port Huron,MI,public,Y,31
+934,Principia College,Elsah,IL,private nonprofit,Y,34
+935,Purdue University,West Lafayette,IN,public,Y,40
+936,Purdue University Fort Wayne,Fort Wayne,IN,public,Y,40
+937,Purdue University Northwest,Hammond,IN,public,Y,36
+939,Owens Community College,Perrysburg,OH,public,Y,6
+941,Rio Hondo College,Whittier,CA,public,Y,31
+942,Colorado Northwestern Community College,Rangely,CO,public,Y,36
+943,Sacramento City College,Sacramento,CA,public,Y,38
+944,California State University: Sacramento,Sacramento,CA,public,Y,40
+945,Saint Martin's University,Lacey,WA,private nonprofit,Y,35
+946,Saint Mary's College of California,Moraga,CA,private nonprofit,Y,37
+948,Gavilan College,Gilroy,CA,public,Y,34
+949,San Bernardino Valley College,San Bernardino,CA,public,Y,37
+951,San Diego State University,San Diego,CA,public,Y,40
+952,San Francisco State University,San Francisco,CA,public,Y,38
+954,Anne Arundel Community College,Arnold,MD,public,Y,38
+955,South Piedmont Community College,Polkton,NC,public,Y,37
+958,Point University,West Point,GA,private nonprofit,Y,31
+962,Aiken Technical College,Graniteville,SC,public,Y,13
+964,Blue Ridge Community College,Flat Rock,NC,public,Y,25
+965,Bladen Community College,Dublin,NC,public,Y,16
+968,Brewton-Parker College,Mount Vernon,GA,private nonprofit,Y,25
+969,Bridgewater College,Bridgewater,VA,private nonprofit,Y,32
+972,Eastern Florida State College,Cocoa,FL,public,,39
+973,Broward College,Fort Lauderdale,FL,public,Y,37
+974,St. Thomas University,Opa Locka,FL,private nonprofit,Y,34
+975,College of Coastal Georgia,Brunswick,GA,public,Y,39
+976,Charleston Southern University,North Charleston,SC,private nonprofit,Y,40
+977,Clayton State University,Morrow,GA,public,Y,27
+979,Caldwell Community College and Technical Institute,Hudson,NC,public,Y,28
+980,Central Carolina Community College,Sanford,NC,public,Y,1
+981,Craven Community College,New Bern,NC,public,Y,33
+982,Davidson College,Davidson,NC,private nonprofit,Y,39
+983,Treasure Valley Community College,Ontario,OR,public,Y,32
+984,Tacoma Community College,Tacoma,WA,public,Y,40
+986,United States Air Force Academy,USAF Academy,CO,public,Y,16
+987,University of Arizona,Tucson,AZ,public,Y,40
+988,University of California: Berkeley,Berkeley,CA,public,Y,37
+989,University of California: Davis,Davis,CA,public,Y,37
+990,University of California: Santa Barbara,Santa Barbara,CA,public,Y,37
+991,University of California: San Diego,La Jolla,CA,public,Y,37
+992,University of California: Los Angeles,Los Angeles,CA,public,Y,37
+993,University of California: Riverside,Riverside,CA,public,Y,37
+994,University of Colorado Boulder,Boulder,CO,public,Y,40
+995,University of Denver,Denver,CO,private nonprofit,Y,38
+996,Midlands Technical College,West Columbia,SC,public,Y,33
+997,Randolph Community College,Asheboro,NC,public,Y,29
+998,Richmond Community College,Hamlet,NC,public,Y,25
+1000,Rappahannock Community College,Saluda,VA,public,Y,24
+1001,Robeson Community College,Lumberton,NC,public,Y,12
+1002,Saint Augustine's University,Raleigh,NC,private nonprofit,,19
+1005,St. Mary's College of Maryland,Saint Marys City,MD,public,Y,40
+1008,Saint Petersburg College,St Petersburg,FL,public,Y,39
+1009,Salem College,Winston Salem,NC,private nonprofit,Y,30
+1011,Rend Lake College,Ina,IL,public,Y,19
+1012,Old Dominion University,Norfolk,VA,public,Y,37
+1013,College of Central Florida,Ocala,FL,public,Y,37
+1014,Christopher Newport University,Newport News,VA,public,Y,38
+1015,College of the Albemarle,Elizabeth City,NC,public,Y,37
+1016,Coastal Carolina Community College,Jacksonville,NC,public,Y,36
+1017,Community College of Baltimore County,Rosedale,MD,public,Y,33
+1039,Rio Salado College,Tempe,AZ,public,Y,39
+1045,Clovis Community College,Clovis,NM,public,Y,37
+1046,Solano Community College,Fairfield,CA,public,Y,28
+1047,Ventura College,Ventura,CA,public,,33
+1048,Victor Valley College,Victorville,CA,public,Y,34
+1049,Walla Walla University,College Place,WA,private nonprofit,Y,11
+1050,Weber State University,Ogden,UT,public,Y,35
+1059,Longwood University,Farmville,VA,public,Y,40
+1069,Maranatha Baptist University,Watertown,WI,private nonprofit,Y,16
+1072,Reading Area Community College,Reading,PA,public,Y,39
+1075,Thomas Edison State University,Trenton,NJ,public,Y,33
+1076,City University of New York: Queens College,Flushing,NY,public,Y,30
+1079,City University of New York: College of Staten Island,Staten Island,NY,public,Y,39
+1088,St. Bonaventure University,Saint Bonaventure,NY,private nonprofit,Y,34
+1090,St. Francis College,Brooklyn,NY,private nonprofit,Y,31
+1092,Wellesley College,Wellesley,MA,private nonprofit,Y,36
+1093,Wentworth Institute Of Technology,Boston,MA,private nonprofit,Y,35
+1094,Arizona State University,Tempe,AZ,public,Y,40
+1096,Art Center College of Design,Pasadena,CA,private nonprofit,Y,34
+1099,Ohio State University Agricultural Technical Institute,Wooster,OH,public,Y,38
+1102,Northeast Wisconsin Technical College,Green Bay,WI,public,Y,17
+1103,Alaska Pacific University,Anchorage,AK,private nonprofit,Y,33
+1104,Aims Community College,Greeley,CO,public,Y,23
+1107,Butte College,Oroville,CA,public,Y,37
+1111,East Los Angeles College,Monterey Park,CA,public,Y,38
+1113,Cossatot Community College of the University of Arkansas,De Queen,AR,public,Y,15
+1114,Arkansas State University Three Rivers,Malvern,AR,public,Y,16
+1121,Chabot College,Hayward,CA,public,Y,35
+1122,Southwestern College,Chula Vista,CA,public,Y,38
+1123,Snow College,Ephraim,UT,public,Y,37
+1124,San Diego Miramar College,San Diego,CA,public,Y,37
+1126,San Juan College,Farmington,NM,public,Y,40
+1128,San Diego Mesa College,San Diego,CA,public,Y,38
+1131,Shoreline Community College,Shoreline,WA,public,,2
+1132,Spokane Community College,Spokane,WA,public,Y,37
+1133,Seattle Central College,Seattle,WA,public,Y,37
+1135,Imperial Valley College,Imperial,CA,public,Y,36
+1136,Community College of Philadelphia,Philadelphia,PA,public,Y,26
+1137,Brigham Young University-Hawaii,Laie,HI,private nonprofit,Y,31
+1138,Columbia College,Sonora,CA,public,Y,35
+1139,Canada College,Redwood City,CA,public,Y,30
+1140,California State University: Bakersfield,Bakersfield,CA,public,Y,37
+1141,Clackamas Community College,Oregon City,OR,public,Y,34
+1143,College of Southern Nevada,Las Vegas,NV,public,Y,35
+1144,Community College of Denver,Denver,CO,public,Y,23
+1150,Gettysburg College,Gettysburg,PA,private nonprofit,Y,34
+1151,Grove City College,Grove City,PA,private nonprofit,Y,37
+1153,Penn State Greater Allegheny,McKeesport,PA,public,Y,40
+1157,Penn State Lehigh Valley,Center Valley,PA,public,Y,38
+1158,Holy Family University,Philadelphia,PA,private nonprofit,Y,38
+1160,Houghton University,Houghton,NY,private nonprofit,Y,40
+1161,Hudson Valley Community College,Troy,NY,public,Y,36
+1162,City University of New York: Hunter College,New York,NY,public,Y,39
+1165,Carteret Community College,Morehead City,NC,public,Y,29
+1167,Cape Fear Community College,Wilmington,NC,public,Y,35
+1168,Northeastern Technical College,Cheraw,SC,public,Y,21
+1170,Catawba Valley Community College,Hickory,NC,public,Y,1
+1171,Campbell University,Buies Creek,NC,private nonprofit,Y,31
+1172,Capitol Technology University,Laurel,MD,private nonprofit,Y,1
+1174,Concord University,Athens,WV,public,Y,38
+1175,Converse University,Spartanburg,SC,private nonprofit,Y,33
+1176,Coppin State University,Baltimore,MD,public,Y,27
+1177,Columbus State University,Columbus,GA,public,Y,36
+1178,University of Virginia's College at Wise,Wise,VA,public,Y,39
+1183,University of Wisconsin-Superior,Superior,WI,public,Y,38
+1184,Florida Institute of Technology,Melbourne,FL,private nonprofit,Y,40
+1185,Blue Ridge Community College,Weyers Cave,VA,public,Y,36
+1187,Beaufort County Community College,Washington,NC,public,Y,19
+1188,Cleveland Community College,Shelby,NC,public,Y,26
+1189,Cecil College,North East,MD,public,Y,31
+1190,University Of North Alabama,Florence,AL,public,Y,24
+1191,University of Detroit Mercy,Detroit,MI,private nonprofit,Y,40
+1192,University Of Illinois Urbana Champaign,Champaign,IL,public,Y,40
+1193,University of Kentucky,Lexington,KY,public,Y,40
+1194,University of Louisville,Louisville,KY,public,Y,40
+1195,University of Michigan Ann Arbor,Ann Arbor,MI,public,Y,34
+1196,University of Mississippi,University,MS,public,Y,40
+1197,University of Notre Dame,Notre Dame,IN,private nonprofit,Y,25
+1198,The University Of The South,Sewanee,TN,private nonprofit,Y,35
+1199,University Of Tennessee Knoxville,Knoxville,TN,public,Y,38
+1200,University Of Tennessee Martin,Martin,TN,public,Y,33
+1201,University of Toledo,Toledo,OH,public,Y,40
+1203,University of Wisconsin-Madison,Madison,WI,public,Y,40
+1206,University of South Alabama,Mobile,AL,public,Y,33
+1207,Volunteer State Community College,Gallatin,TN,public,Y,36
+1208,Terra State Community College,Fremont,OH,public,,31
+1210,UW Colleges Fox Valley,Menasha,WI,public,Y,32
+1211,University of Wisconsin - Green Bay Manitowoc Campus,Manitowoc,WI,public,Y,32
+1214,Walters State Community College,Morristown,TN,public,Y,30
+1216,Zane State College,Zanesville,OH,public,Y,39
+1217,Madison Area Technical College,Madison,WI,public,Y,32
+1219,Widener University,Chester,PA,private nonprofit,Y,40
+1221,Commonwealth University Of Pennsylvania,Bloomsburg,PA,public,Y,38
+1222,Pennsylvania Western University,California,PA,public,Y,33
+1223,Cheyney University of Pennsylvania,Cheyney,PA,public,Y,26
+1225,East Stroudsburg University Of Pennsylvania,East Stroudsburg,PA,public,Y,31
+1227,Indiana University of Pennsylvania,Indiana,PA,public,Y,38
+1228,Kutztown University of Pennsylvania,Kutztown,PA,public,Y,33
+1229,Commonwealth University Of Pennsylvania Lock Haven,Lock Haven,PA,public,Y,40
+1230,Commonwealth University Of Pennsylvania Mansfield,Mansfield,PA,public,Y,38
+1231,Millersville University of Pennsylvania,Millersville,PA,public,Y,36
+1232,Slippery Rock University of Pennsylvania,Slippery Rock,PA,public,Y,40
+1234,School of the Museum of Fine Arts,Boston,MA,private nonprofit,Y,27
+1243,Central Connecticut State University,New Britain,CT,public,Y,40
+1244,Trinity College,Hartford,CT,private nonprofit,Y,32
+1245,Tufts University,Medford,MA,private nonprofit,Y,34
+1253,University of Hartford,West Hartford,CT,private nonprofit,Y,38
+1254,Holyoke Community College,Holyoke,MA,public,Y,34
+1255,Holy Apostles College and Seminary,Cromwell,CT,private nonprofit,Y,21
+1256,Husson University,Bangor,ME,private nonprofit,Y,40
+1260,Bridgewater State University,Bridgewater,MA,public,Y,38
+1262,Seton Hill University,Greensburg,PA,private nonprofit,Y,38
+1263,Siena University,Albany,NY,private nonprofit,Y,38
+1264,Skidmore College,Saratoga Springs,NY,private nonprofit,Y,38
+1266,Stevens Institute of Technology,Hoboken,NJ,private nonprofit,Y,38
+1267,Susquehanna University,Selinsgrove,PA,private nonprofit,Y,38
+1268,Swarthmore College,Swarthmore,PA,private nonprofit,Y,27
+1269,Syracuse University,Syracuse,NY,private nonprofit,Y,37
+1271,Suffolk County Community College,Selden,NY,public,Y,40
+1272,School of Visual Arts,New York,NY,private nonprofit,Y,19
+1275,Eastern Arizona College,Thatcher,AZ,public,Y,28
+1276,Montana State University: Billings,Billings,MT,public,Y,32
+1277,Eastern New Mexico University,Portales,NM,public,Y,38
+1278,Eastern Oregon University,La Grande,OR,public,Y,39
+1279,Eastern Washington University,Cheney,WA,public,Y,37
+1280,El Camino College,Torrance,CA,public,Y,20
+1281,Everett Community College,Everett,WA,public,Y,36
+1282,Embry-Riddle Aeronautical University: Prescott Campus,Prescott,AZ,private nonprofit,Y,39
+1283,Edmonds College,Lynnwood,WA,public,Y,33
+1284,Fort Lewis College,Durango,CO,public,Y,37
+1285,Fresno City College,Fresno,CA,public,,35
+1286,California State University: Fresno,Fresno,CA,public,Y,39
+1289,College Of Idaho,Caldwell,ID,private nonprofit,Y,32
+1290,College of Marin,Kentfield,CA,public,Y,28
+1294,University of the Pacific,Stockton,CA,private nonprofit,Y,36
+1295,University Of Puget Sound,Tacoma,WA,private nonprofit,Y,37
+1296,Concordia University Irvine,Irvine,CA,private nonprofit,Y,37
+1297,College of San Mateo,San Mateo,CA,public,Y,28
+1298,College of the Sequoias,Visalia,CA,public,N,37
+1299,Colorado College,Colorado Springs,CO,private nonprofit,Y,34
+1300,Colorado School of Mines,Golden,CO,public,Y,35
+1301,University of Northern Colorado,Greeley,CO,public,Y,39
+1302,Southern Utah University,Cedar City,UT,public,Y,37
+1303,Fitchburg State University,Fitchburg,MA,public,Y,40
+1304,Framingham State University,Framingham,MA,public,Y,36
+1305,Massachusetts College of Liberal Arts,North Adams,MA,public,Y,35
+1307,Cedar Crest College,Allentown,PA,private nonprofit,Y,25
+1308,Centenary University,Hackettstown,NJ,private nonprofit,Y,34
+1309,Chatham University,Pittsburgh,PA,private nonprofit,Y,38
+1310,Chestnut Hill College,Philadelphia,PA,private nonprofit,Y,32
+1311,City University of New York: City College,New York,NY,public,Y,40
+1312,Clarkson University,Potsdam,NY,private nonprofit,Y,38
+1314,Colgate University,Hamilton,NY,private nonprofit,Y,24
+1316,Messiah University,Mechanicsburg,PA,private nonprofit,Y,36
+1318,Mohawk Valley Community College,Utica,NY,public,Y,36
+1319,Molloy University,Rockville Centre,NY,private nonprofit,Y,40
+1320,Monmouth University,West Long Branch,NJ,private nonprofit,Y,40
+1321,Moore College of Art and Design,Philadelphia,PA,private nonprofit,Y,2
+1322,Moravian University,Bethlehem,PA,private nonprofit,Y,35
+1324,Mount Aloysius College,Cresson,PA,private nonprofit,,36
+1327,Mount Saint Mary College,Newburgh,NY,private nonprofit,Y,14
+1328,Muhlenberg College,Allentown,PA,private nonprofit,Y,33
+1330,Misericordia University,Dallas,PA,private nonprofit,Y,36
+1331,College of Mount St. Vincent,Bronx,NY,private nonprofit,Y,25
+1335,Rutgers The State University Of New Jersey Camden Campus,Camden,NJ,public,Y,40
+1341,Cooper Union for the Advancement of Science and Art,New York,NY,private nonprofit,Y,1
+1344,Finger Lakes Community College,Canandaigua,NY,public,Y,35
+1345,Clinton Community College,Plattsburgh,NY,public,Y,23
+1349,Columbia University: School of General Studies,New York,NY,private nonprofit,Y,26
+1351,Penn State Schuylkill,Schuylkill Haven,PA,public,Y,40
+1352,Penn State Wilkes-Barre,Dallas,PA,public,Y,40
+1353,Wheaton College,Wheaton,IL,private nonprofit,Y,35
+1355,William Carey University,Hattiesburg,MS,private nonprofit,Y,33
+1356,Bryan College: Dayton,Dayton,TN,private nonprofit,Y,30
+1357,Wilmington College,Wilmington,OH,private nonprofit,Y,25
+1358,City Colleges of Chicago: Kennedy-King College,Chicago,IL,public,,1
+1361,University of Wisconsin-Eau Claire,Eau Claire,WI,public,Y,40
+1362,University of Wisconsin-La Crosse,La Crosse,WI,public,Y,39
+1363,University of Wisconsin-Oshkosh,Oshkosh,WI,public,Y,40
+1364,University of Wisconsin-Platteville,Platteville,WI,public,Y,40
+1365,University of Wisconsin-River Falls,River Falls,WI,public,Y,39
+1366,University of Wisconsin-Stevens Point,Stevens Point,WI,public,Y,40
+1369,Saint Anselm College,Manchester,NH,private nonprofit,Y,36
+1370,University of New England,Biddeford,ME,private nonprofit,Y,35
+1371,University of Saint Joseph,West Hartford,CT,private nonprofit,Y,37
+1372,Saint Joseph's College of Maine,Standish,ME,private nonprofit,Y,32
+1373,Saint Michael's College,Colchester,VT,private nonprofit,Y,38
+1374,Salve Regina University,Newport,RI,private nonprofit,Y,34
+1376,Smith College,Northampton,MA,private nonprofit,Y,25
+1378,Springfield College,Springfield,MA,private nonprofit,Y,36
+1379,Colby-Sawyer College,New London,NH,private nonprofit,Y,35
+1380,College of the Holy Cross,Worcester,MA,private nonprofit,Y,33
+1382,Connecticut College,New London,CT,private nonprofit,Y,35
+1386,Cape Cod Community College,West Barnstable,MA,public,Y,26
+1387,Champlain College,Burlington,VT,private nonprofit,Y,5
+1388,Charter Oak State College,New Britain,CT,public,Y,38
+1389,Massachusetts Bay Community College,Wellesley Hills,MA,public,Y,27
+1392,Culinary Institute of America,Hyde Park,NY,private nonprofit,Y,2
+1394,Fairfield University,Fairfield,CT,private nonprofit,Y,31
+1398,Franklin Pierce University,Rindge,NH,private nonprofit,Y,40
+1400,Gordon College,Wenham,MA,private nonprofit,Y,40
+1402,Greenfield Community College,Greenfield,MA,public,Y,30
+1407,Tompkins Cortland Community College,Dryden,NY,public,Y,36
+1409,Temple University,Philadelphia,PA,public,Y,38
+1412,Thiel College,Greenville,PA,private nonprofit,Y,28
+1413,Ursinus College,Collegeville,PA,private nonprofit,Y,38
+1414,Utica University,Utica,NY,private nonprofit,Y,33
+1415,University Of Pittsburgh At Johnstown,Johnstown,PA,public,Y,35
+1416,University of Pittsburgh at Bradford,Bradford,PA,public,Y,29
+1417,University of Pittsburgh at Greensburg,Greensburg,PA,public,Y,34
+1418,University of Pittsburgh at Titusville,Titusville,PA,public,Y,27
+1419,Ulster County Community College,Stone Ridge,NY,public,Y,34
+1426,Bard College,Annandale On Hudson,NY,private nonprofit,Y,38
+1427,City University of New York: Borough of Manhattan Community College,New York,NY,public,Y,39
+1430,Bucks County Community College,Newtown,PA,public,Y,34
+1432,Butler County Community College,Butler,PA,public,Y,29
+1433,Long Island University,Greenvale,NY,private nonprofit,Y,37
+1435,Southwest Mississippi Community College,Summit,MS,public,Y,24
+1436,Rhodes College,Memphis,TN,private nonprofit,Y,33
+1437,Spring Arbor University,Spring Arbor,MI,private nonprofit,Y,34
+1438,Spring Hill College,Mobile,AL,private nonprofit,Y,28
+1440,City University of New York: New York City College of Technology,Brooklyn,NY,public,Y,40
+1445,Niagara University,Niagara University,NY,private nonprofit,Y,33
+1447,New York Institute of Technology,Old Westbury,NY,private nonprofit,Y,40
+1448,Fashion Institute of Technology,New York,NY,public,Y,40
+1450,Genesee Community College,Batavia,NY,public,Y,30
+1451,Geneva College,Beaver Falls,PA,private nonprofit,Y,32
+1452,Georgian Court University,Lakewood,NJ,private nonprofit,,40
+1453,Ithaca College,Ithaca,NY,private nonprofit,Y,40
+1459,Union College,Schenectady,NY,private nonprofit,Y,36
+1461,United States Merchant Marine Academy,Great Neck,NY,public,Y,5
+1463,SUNY University at Buffalo,Buffalo,NY,public,Y,38
+1464,University of Pennsylvania,Philadelphia,PA,private nonprofit,Y,19
+1465,University of Pittsburgh,Pittsburgh,PA,public,Y,36
+1467,Madisonville Community College,Madisonville,KY,public,Y,38
+1468,Maysville Community And Technical College - Maysville Campus,Maysville,KY,public,,36
+1469,Marion Technical College,Marion,OH,public,Y,38
+1472,Nicolet Area Technical College,Rhinelander,WI,public,Y,36
+1474,National-Louis University,Chicago,IL,private nonprofit,Y,33
+1475,Spalding University,Louisville,KY,private nonprofit,Y,33
+1476,North Central College,Naperville,IL,private nonprofit,Y,40
+1478,North Park University,Chicago,IL,private nonprofit,Y,29
+1479,Northeast Mississippi Community College,Booneville,MS,public,Y,6
+1481,University of Scranton,Scranton,PA,private nonprofit,Y,38
+1482,Lassen Community College,Susanville,CA,public,Y,32
+1483,Lewis & Clark College,Portland,OR,private nonprofit,Y,36
+1484,Lewis-Clark State College,Lewiston,ID,public,Y,34
+1485,Linfield University,McMinnville,OR,private nonprofit,Y,38
+1486,California State University: Long Beach,Long Beach,CA,public,Y,39
+1487,Los Angeles City College,Los Angeles,CA,public,Y,36
+1488,Otis College of Art and Design,Los Angeles,CA,private nonprofit,Y,33
+1489,Los Angeles Harbor College,Wilmington,CA,public,Y,36
+1490,Los Medanos College,Pittsburg,CA,public,Y,35
+1491,Los Angeles Pierce College,Woodland Hills,CA,public,,36
+1492,California State University: Los Angeles,Los Angeles,CA,public,Y,39
+1493,Los Angeles Trade and Technical College,Los Angeles,CA,public,Y,36
+1500,Menlo College,Atherton,CA,private nonprofit,Y,32
+1501,Colorado Mesa University,Grand Junction,CO,public,Y,37
+1503,Modesto Junior College,Modesto,CA,public,Y,33
+1504,Montana Technological University,Butte,MT,public,Y,25
+1505,St. Francis University,Loretto,PA,private nonprofit,Y,30
+1506,St John Fisher University,Rochester,NY,private nonprofit,Y,38
+1507,Saint Joseph's University,Philadelphia,PA,private nonprofit,Y,38
+1508,St Josephs University New York Brooklyn Campus,Brooklyn,NY,private nonprofit,Y,39
+1509,San Diego Christian College,Santee,CA,private nonprofit,Y,33
+1526,Roxbury Community College,Roxbury Crossing,MA,public,Y,20
+1531,James A. Rhodes State College,Lima,OH,public,,35
+1532,Illinois Eastern Community Colleges Lincoln Trail College,Robinson,IL,public,Y,31
+1533,Gateway Technical College,Kenosha,WI,public,Y,19
+1535,Kettering University,Flint,MI,private nonprofit,Y,36
+1536,Georgetown College,Georgetown,KY,private nonprofit,Y,36
+1537,Gogebic Community College,Ironwood,MI,public,Y,19
+1538,Goshen College,Goshen,IN,private nonprofit,Y,33
+1548,Hanover College,Hanover,IN,private nonprofit,Y,25
+1550,Heidelberg University,Tiffin,OH,private nonprofit,Y,35
+1551,Henry Ford College,Dearborn,MI,public,Y,23
+1552,Hillsdale College,Hillsdale,MI,private nonprofit,Y,29
+1553,Indiana University Southeast,New Albany,IN,public,Y,36
+1554,Illinois College,Jacksonville,IL,private nonprofit,Y,40
+1555,Illinois Institute of Technology,Chicago,IL,private nonprofit,Y,39
+1556,Illinois State University,Normal,IL,public,Y,40
+1557,Illinois Wesleyan University,Bloomington,IL,private nonprofit,Y,39
+1558,University Of Indianapolis,Indianapolis,IN,private nonprofit,Y,39
+1559,Indiana State University,Terre Haute,IN,public,Y,40
+1560,Indiana Institute of Technology,Fort Wayne,IN,private nonprofit,,36
+1562,Belmont College,Saint Clairsville,OH,public,Y,29
+1563,Butler University,Indianapolis,IN,private nonprofit,Y,38
+1565,Prairie State College,Chicago Heights,IL,public,Y,39
+1566,Bethel University,Mishawaka,IN,private nonprofit,Y,36
+1567,Concordia University Wisconsin,Mequon,WI,private nonprofit,Y,36
+1568,Concordia University Chicago,River Forest,IL,private nonprofit,Y,38
+1569,Copiah-Lincoln Community College,Wesson,MS,public,Y,1
+1571,City Colleges of Chicago: Malcolm X College,Chicago,IL,public,,1
+1572,University of the Cumberlands,Williamsburg,KY,private nonprofit,Y,31
+1573,Cumberland University,Lebanon,TN,private nonprofit,Y,17
+1574,Columbus State Community College Columbus Campus,Columbus,OH,public,Y,36
+1575,Cedarville University,Cedarville,OH,private nonprofit,Y,36
+1577,Cleveland Institute of Art,Cleveland,OH,private nonprofit,Y,34
+1578,Spoon River College,Canton,IL,public,Y,25
+1580,Cuyahoga Community College Western Campus,Cleveland,OH,public,Y,38
+1581,Dyersburg State Community College,Dyersburg,TN,public,Y,18
+1582,Edison State Community College,Piqua,OH,public,Y,37
+1583,Indiana University East,Richmond,IN,public,Y,40
+1584,Earlham College,Richmond,IN,private nonprofit,Y,38
+1585,East Central Community College,Decatur,MS,public,,1
+1586,Ozarka College,Melbourne,AR,public,Y,18
+1588,East Mississippi Community College,Scooba,MS,public,Y,1
+1589,East Tennessee State University,Johnson City,TN,public,Y,31
+1590,Eastern Illinois University,Charleston,IL,public,Y,38
+1591,Eastern Kentucky University,Richmond,KY,public,Y,40
+1592,Eastern Michigan University,Ypsilanti,MI,public,Y,40
+1593,Edgewood College,Madison,WI,private nonprofit,Y,34
+1594,Elgin Community College,Elgin,IL,public,Y,37
+1596,Eureka College,Eureka,IL,private nonprofit,Y,40
+1604,Adrian College,Adrian,MI,private nonprofit,Y,31
+1605,Art Academy of Cincinnati,Cincinnati,OH,private nonprofit,Y,31
+1606,Alabama Agricultural and Mechanical University,Normal,AL,public,Y,23
+1607,University of Montevallo,Montevallo,AL,public,Y,40
+1608,Auburn University,Auburn University,AL,public,Y,36
+1609,Alabama State University,Montgomery,AL,public,Y,5
+1610,Albion College,Albion,MI,private nonprofit,Y,40
+1611,Alice Lloyd College,Pippa Passes,KY,private nonprofit,Y,20
+1612,Capital University,Columbus,OH,private nonprofit,Y,40
+1614,Carroll University,Waukesha,WI,private nonprofit,Y,37
+1615,Carson-Newman University,Jefferson City,TN,private nonprofit,Y,24
+1616,Carthage College,Kenosha,WI,private nonprofit,Y,34
+1617,Case Western Reserve University,Cleveland,OH,private nonprofit,Y,34
+1618,Central Michigan University,Mount Pleasant,MI,public,Y,34
+1619,Central State University,Wilberforce,OH,public,Y,38
+1621,Hilbert College,Hamburg,NY,private nonprofit,Y,20
+1623,Jewish Theological Seminary of America,New York,NY,private nonprofit,Y,21
+1625,LIU Brooklyn,Brooklyn,NY,private nonprofit,Y,37
+1628,Lycoming College,Williamsport,PA,private nonprofit,Y,37
+1633,LIM College,New York,NY,private nonprofit,Y,27
+1634,Lehigh Carbon Community College,Schnecksville,PA,public,Y,37
+1638,Rutgers The State University Of New Jersey,New Brunswick,NJ,public,Y,38
+1639,Rowan College at Burlington County,Mount Laurel,NJ,public,Y,31
+1640,Brookdale Community College,Lincroft,NJ,public,Y,38
+1641,Dickinson College,Carlisle,PA,private nonprofit,Y,39
+1645,Dominican University New York,Orangeburg,NY,private nonprofit,Y,35
+1647,Drew University,Madison,NJ,private nonprofit,Y,40
+1648,Drexel University,Philadelphia,PA,private nonprofit,Y,37
+1651,Duquesne University,Pittsburgh,PA,private nonprofit,Y,39
+1653,Erie Community College: North,Williamsville,NY,public,Y,29
+1661,City University of New York: LaGuardia Community College,Long Island City,NY,public,Y,40
+1664,California State University: Monterey Bay,Seaside,CA,public,Y,39
+1665,Wright State University: Lake Campus,Celina,OH,public,Y,38
+1666,Albany College of Pharmacy and Health Sciences,Albany,NY,private nonprofit,Y,7
+1669,DeSales University,Center Valley,PA,private nonprofit,Y,37
+1670,Helena College University of Montana,Helena,MT,public,Y,22
+1671,Atlantic Cape Community College,Mays Landing,NJ,public,Y,23
+1676,Central New Mexico Community College,Albuquerque,NM,public,Y,38
+1677,City University of New York: Baruch College,New York,NY,public,Y,38
+1689,Sauk Valley Community College,Dixon,IL,public,Y,36
+1691,Southwestern Michigan College,Dowagiac,MI,public,Y,23
+1692,University Of Illinois Springfield,Springfield,IL,public,Y,25
+1693,Shawnee State University,Portsmouth,OH,public,Y,37
+1696,Pellissippi State Community College,Knoxville,TN,public,Y,32
+1701,Taylor University,Upland,IN,private nonprofit,Y,32
+1702,Tennessee State University,Nashville,TN,public,Y,22
+1703,Triton College,River Grove,IL,public,Y,35
+1705,University of Akron: Wayne College,Orrville,OH,public,Y,36
+1707,Union College,Barbourville,KY,private nonprofit,Y,34
+1708,Union University,Jackson,TN,private nonprofit,Y,30
+1710,University of Akron,Akron,OH,public,Y,39
+1711,University of Alabama,Tuscaloosa,AL,public,Y,38
+1712,University Of Tennessee: Chattanooga,Chattanooga,TN,public,Y,39
+1713,University Of Chicago,Chicago,IL,private nonprofit,Y,31
+1721,Keiser University Flagship Campus,West Palm Beach,FL,private nonprofit,Y,21
+1769,Morehead State University,Morehead,KY,public,Y,40
+1770,Morton College,Cicero,IL,public,Y,25
+1771,Mount Mary University,Milwaukee,WI,private nonprofit,Y,34
+1772,University of Mount Union,Alliance,OH,private nonprofit,Y,36
+1773,Murray State University,Murray,KY,public,Y,39
+1774,Muskegon Community College,Muskegon,MI,public,Y,30
+1775,Muskingum University,New Concord,OH,private nonprofit,Y,38
+1776,Oakland University,Rochester,MI,public,Y,40
+1778,Miami University: Middletown,Middletown,OH,public,Y,40
+1780,Kent State University Salem,Salem,OH,public,Y,40
+1781,Mount Vernon Nazarene University,Mount Vernon,OH,private nonprofit,Y,34
+1782,Highland Community College,Freeport,IL,public,Y,17
+1783,Northwest State Community College,Archbold,OH,public,Y,35
+1829,Kaskaskia College,Centralia,IL,public,Y,25
+1830,Centre College,Danville,KY,private nonprofit,Y,30
+1831,City Colleges of Chicago: Harry S. Truman College,Chicago,IL,public,,1
+1833,Chicago State University,Chicago,IL,public,Y,38
+1834,Alma College,Alma,MI,private nonprofit,Y,39
+1835,Alpena Community College,Alpena,MI,public,Y,18
+1836,Alverno College,Milwaukee,WI,private nonprofit,Y,38
+1840,Anderson University,Anderson,IN,private nonprofit,Y,34
+1841,Antioch College,Yellow Springs,OH,private nonprofit,Y,27
+1842,Aquinas College,Grand Rapids,MI,private nonprofit,Y,38
+1843,Asbury University,Wilmore,KY,private nonprofit,Y,30
+1845,Ashland University,Ashland,OH,private nonprofit,Y,28
+1847,Ashland Community And Technical College,Ashland,KY,public,,36
+1848,State University Of New York At Oswego,Oswego,NY,public,Y,40
+1849,SUNY College at Plattsburgh,Plattsburgh,NY,public,Y,39
+1850,SUNY College at Potsdam,Potsdam,NY,public,Y,38
+1854,Johnson University,Knoxville,TN,private nonprofit,Y,33
+1855,Joliet Junior College,Joliet,IL,public,Y,40
+1856,Jones County Junior College,Ellisville,MS,public,Y,18
+1859,Judson University,Elgin,IL,private nonprofit,Y,22
+1860,Jefferson State Community College,Birmingham,AL,public,Y,26
+1862,Kendall College Of Art And Design Of Ferris State University,Grand Rapids,MI,public,Y,36
+1863,Kentucky Christian University,Grayson,KY,private nonprofit,,28
+1864,Kalamazoo Valley Community College,Kalamazoo,MI,public,,27
+1865,Kankakee Community College,Kankakee,IL,public,Y,38
+1869,Bradley University,Peoria,IL,private nonprofit,Y,39
+1877,University Of Findlay,Findlay,OH,private nonprofit,Y,32
+1878,Fisk University,Nashville,TN,private nonprofit,,24
+1879,Mott Community College,Flint,MI,public,Y,37
+1880,Franklin College,Franklin,IN,private nonprofit,Y,39
+1882,Freed-Hardeman University,Henderson,TN,private nonprofit,Y,29
+1888,Dakota County Technical College,Rosemount,MN,public,Y,40
+1891,Universidad Central De Bayamon,Bayamon,PR,private nonprofit,Y,5
+1896,University of the Virgin Islands,St Thomas,VI,public,Y,17
+1898,Aurora University,Aurora,IL,private nonprofit,Y,37
+1899,Austin Peay State University,Clarksville,TN,public,Y,30
+1902,Belhaven University,Jackson,MS,private nonprofit,Y,38
+1903,Bellarmine University,Louisville,KY,private nonprofit,Y,38
+1904,Southwestern Illinois College,Belleville,IL,public,Y,38
+1905,Belmont University,Nashville,TN,private nonprofit,Y,31
+1907,Beloit College,Beloit,WI,private nonprofit,Y,37
+1908,Berea College,Berea,KY,private nonprofit,Y,36
+1913,Blue Mountain Christian University,Blue Mountain,MS,private nonprofit,Y,18
+1933,Missouri State University: West Plains,West Plains,MO,public,Y,21
+1999,Ohio University: Chillicothe Campus,Chillicothe,OH,public,Y,40
+2000,City Colleges of Chicago: Olive-Harvey College,Chicago,IL,public,,1
+2001,Oakland City University,Oakland City,IN,private nonprofit,Y,13
+2002,Oakwood University,Huntsville,AL,private nonprofit,Y,29
+2003,Oberlin College,Oberlin,OH,private nonprofit,Y,25
+2004,Ohio State University: Newark Campus,Newark,OH,public,Y,40
+2005,Ohio Northern University,Ada,OH,private nonprofit,Y,35
+2007,Ohio State University: Columbus Campus,Columbus,OH,public,Y,40
+2008,Ohio University,Athens,OH,public,Y,40
+2009,Ohio Wesleyan University,Delaware,OH,private nonprofit,Y,39
+2010,University Of Olivet,Olivet,MI,private nonprofit,Y,35
+2011,Olivet Nazarene University,Bourbonnais,IL,private nonprofit,Y,37
+2012,Otterbein University,Westerville,OH,private nonprofit,Y,31
+2055,Indiana University South Bend,South Bend,IN,public,Y,38
+2056,Jackson College,Jackson,MI,public,Y,22
+2057,Jackson State University,Jackson,MS,public,Y,32
+2058,John Carroll University,Cleveland,OH,private nonprofit,Y,40
+2060,Ball State University,Muncie,IN,public,Y,39
+2075,Marquette University,Milwaukee,WI,private nonprofit,Y,39
+2076,Mississippi University for Women,Columbus,MS,public,Y,15
+2086,University of Arkansas Community College Rich Mountain,Mena,AR,public,Y,16
+2089,Radford University,Radford,VA,public,Y,38
+2090,Salisbury University,Salisbury,MD,public,Y,35
+2091,SUNY University at Stony Brook,Stony Brook,NY,public,Y,40
+2101,Lake Washington Institute of Technology,Kirkland,WA,public,Y,37
+2102,Maryville College,Maryville,TN,private nonprofit,Y,37
+2104,McKendree University,Lebanon,IL,private nonprofit,Y,37
+2106,University of Memphis,Memphis,TN,public,Y,37
+2107,Meridian Community College,Meridian,MS,public,Y,7
+2128,Fox Valley Technical College,Appleton,WI,public,Y,16
+2129,Cleveland State University,Cleveland,OH,public,Y,39
+2130,Ferris State University,Big Rapids,MI,public,Y,37
+2132,Northland Pioneer College,Holbrook,AZ,public,,2
+2134,New England Institute of Technology,East Greenwich,RI,private nonprofit,Y,34
+2139,Kent State University Tuscarawas,New Philadelphia,OH,public,Y,40
+2140,Oklahoma State University: Oklahoma City,Oklahoma City,OK,public,Y,17
+2141,Missouri Western State University,Saint Joseph,MO,public,Y,36
+2143,Luther College,Decorah,IA,private nonprofit,Y,37
+2147,Creighton University,Omaha,NE,private nonprofit,Y,39
+2150,McDaniel College,Westminster,MD,private nonprofit,Y,39
+2151,Wytheville Community College,Wytheville,VA,public,Y,26
+2152,Texas A&M University-Galveston,Galveston,TX,public,Y,39
+2155,Miami University: Oxford,Oxford,OH,public,Y,40
+2156,Michigan Technological University,Houghton,MI,public,Y,33
+2157,Michigan State University,East Lansing,MI,public,Y,38
+2158,Mississippi Valley State University,Itta Bena,MS,public,Y,29
+2159,Black Hawk College,Moline,IL,public,Y,35
+2160,Monmouth College,Monmouth,IL,private nonprofit,Y,40
+2161,Mississippi Gulf Coast Community College Harrison County,Gulfport,MS,public,Y,29
+2162,Moody Bible Institute,Chicago,IL,private nonprofit,Y,33
+2163,Taylor University Fort Wayne,Fort Wayne,IN,private nonprofit,,25
+2165,Art Institute of Boston at Lesley University,Boston,MA,private nonprofit,,34
+2166,Fairleigh Dickinson University: Florham Campus,Madison,NJ,private nonprofit,Y,34
+2189,University Of Health Sciences And Pharmacy In St Louis,Saint Louis,MO,private nonprofit,Y,15
+2190,Southeast Technical College,Sioux Falls,SD,public,Y,12
+2201,Trinity Christian College,Palos Heights,IL,private nonprofit,Y,38
+2203,Motlow State Community College,Tullahoma,TN,public,Y,35
+2204,Ohio State University: Marion Campus,Marion,OH,public,Y,39
+2207,Indiana University Northwest,Gary,IN,public,Y,40
+2208,Kellogg Community College,Battle Creek,MI,public,Y,25
+2219,Hazard Community and Technical College,Hazard,KY,public,Y,36
+2220,Illinois Central College,East Peoria,IL,public,Y,34
+2221,Campbellsville University,Campbellsville,KY,private nonprofit,Y,24
+2227,Somerset Community College,Somerset,KY,public,Y,37
+2230,Lake Region State College,Devils Lake,ND,public,Y,34
+2231,Dillard University,New Orleans,LA,private nonprofit,Y,25
+2232,Doane University,Crete,NE,private nonprofit,Y,36
+2234,Southern Methodist University,Dallas,TX,private nonprofit,Y,37
+2235,Southern Arkansas University,Magnolia,AR,public,Y,30
+2238,Southwest Baptist University,Bolivar,MO,private nonprofit,Y,29
+2239,Missouri State University,Springfield,MO,public,Y,39
+2241,Texas State University,San Marcos,TX,public,Y,39
+2243,Nelson University,Waxahachie,TX,private nonprofit,Y,19
+2244,Southwestern College,Winfield,KS,private nonprofit,Y,17
+2246,University of Louisiana at Lafayette,Lafayette,LA,public,Y,28
+2247,Southwestern Oklahoma State University,Weatherford,OK,public,Y,24
+2248,Seminole State College of Florida,Sanford,FL,public,Y,39
+2249,Central Carolina Technical College,Sumter,SC,public,Y,29
+2250,South Florida State College,Avon Park,FL,public,Y,16
+2251,Southwestern Community College,Sylva,NC,public,Y,27
+2252,Spartanburg Community College,Spartanburg,SC,public,Y,1
+2253,J. Sargeant Reynolds Community College,Henrico,VA,public,Y,27
+2254,California State University: San Marcos,San Marcos,CA,public,Y,38
+2260,Christendom College,Front Royal,VA,private nonprofit,Y,17
+2264,South Plains College,Levelland,TX,public,Y,26
+2265,Southwest Minnesota State University,Marshall,MN,public,Y,38
+2266,Wake Forest University,Winston-Salem,NC,private nonprofit,Y,33
+2267,Warren Wilson College,Swannanoa,NC,private nonprofit,Y,39
+2268,Washington and Lee University,Lexington,VA,private nonprofit,Y,34
+2269,Washington College,Chestertown,MD,private nonprofit,Y,29
+2270,South Georgia State College - Waycross,Waycross,GA,public,,19
+2273,Webber International University,Babson Park,FL,private nonprofit,Y,38
+2274,Delaware State University Downtown Campus,Dover,DE,public,Y,23
+2275,Wesleyan College,Macon,GA,private nonprofit,Y,33
+2276,Southern Wesleyan University,Central,SC,private nonprofit,Y,36
+2277,Western Carolina University,Cullowhee,NC,public,Y,40
+2280,York Technical College,Rock Hill,SC,public,Y,21
+2282,Texas Woman's University,Denton,TX,public,Y,35
+2283,Texas Tech University,Lubbock,TX,public,Y,35
+2284,Texas Wesleyan University,Fort Worth,TX,private nonprofit,Y,31
+2285,University of Texas at El Paso,El Paso,TX,public,Y,40
+2287,Trinity University,San Antonio,TX,private nonprofit,Y,29
+2291,Tulane University,New Orleans,LA,private nonprofit,Y,34
+2292,Tyler Junior College,Tyler,TX,public,Y,21
+2293,Tarrant County College South Campus,Fort Worth,TX,public,Y,22
+2306,Embry-Riddle Aeronautical University: Worldwide Campus,Daytona Beach,FL,private nonprofit,Y,38
+2307,Mercy College of Health Sciences,Des Moines,IA,private nonprofit,Y,34
+2311,University of Minnesota: Duluth,Duluth,MN,public,Y,39
+2312,University of Minnesota: Twin Cities,Minneapolis,MN,public,Y,29
+2313,University of Missouri: Columbia,Columbia,MO,public,Y,40
+2314,Missouri University of Science and Technology,Rolla,MO,public,Y,32
+2315,University of Nebraska - Lincoln,Lincoln,NE,public,Y,35
+2316,University of North Dakota,Grand Forks,ND,public,Y,37
+2317,University of Oklahoma,Norman,OK,public,Y,38
+2318,University of St. Thomas,Houston,TX,private nonprofit,Y,31
+2319,University of South Dakota,Vermillion,SD,public,Y,39
+2321,University of Texas at Austin,Austin,TX,public,Y,36
+2322,University of Tulsa,Tulsa,OK,private nonprofit,Y,38
+2323,Metropolitan Community College,Omaha,NE,public,Y,26
+2324,Northwestern Oklahoma State University,Alva,OK,public,Y,19
+2327,Graceland University,Lamoni,IA,private nonprofit,Y,34
+2328,New Mexico State University Dona Ana Community College,Las Cruces,NM,public,Y,38
+2329,Dallas College: Brookhaven Campus,Dallas,TX,public,Y,29
+2330,Pensacola State College,Pensacola,FL,public,Y,38
+2331,Elon University,Elon,NC,private nonprofit,Y,34
+2333,University of North Georgia - Gainesville,Oakwood,GA,public,Y,36
+2338,University of South Carolina: Columbia,Columbia,SC,public,Y,40
+2339,Newberry College,Newberry,SC,private nonprofit,Y,22
+2340,Florida Southern College,Lakeland,FL,private nonprofit,Y,38
+2343,Eastern New Mexico University: Roswell,Roswell,NM,public,,40
+2345,Averett University,Danville,VA,private nonprofit,Y,37
+2346,Brevard College,Brevard,NC,private nonprofit,Y,31
+2348,Rockingham Community College,Wentworth,NC,public,Y,22
+2350,University of Virginia,Charlottesville,VA,public,Y,36
+2351,Mars Hill University,Mars Hill,NC,private nonprofit,Y,23
+2353,Phoenix College,Phoenix,AZ,public,Y,36
+2354,Amherst College,Amherst,MA,private nonprofit,N,5
+2355,Merced College,Merced,CA,public,Y,36
+2364,Northern Arizona University,Flagstaff,AZ,public,Y,39
+2365,Salem State University,Salem,MA,public,Y,34
+2366,Massasoit Community College,Brockton,MA,public,Y,20
+2367,Northern Essex Community College,Haverhill,MA,public,Y,34
+2369,California Baptist University,Riverside,CA,private nonprofit,Y,37
+2373,Illinois Eastern Community Colleges Olney Central College,Olney,IL,public,Y,31
+2375,Grossmont College,El Cajon,CA,public,Y,36
+2377,Diablo Valley College,Pleasant Hill,CA,public,,36
+2378,University Of Providence,Great Falls,MT,private nonprofit,Y,30
+2379,Central Oregon Community College,Bend,OR,public,Y,40
+2381,Delaware County Community College,Media,PA,public,Y,29
+2383,University of Wisconsin-Fond du Lac,Fond Du Lac,WI,public,Y,32
+2384,Columbia College,Columbia,SC,private nonprofit,Y,31
+2391,Community College of Rhode Island,Warwick,RI,public,Y,35
+2392,Colby College,Waterville,ME,private nonprofit,N,35
+2393,Eastern Maine Community College,Bangor,ME,public,Y,35
+2395,University of Rochester,Rochester,NY,private nonprofit,Y,36
+2397,University of Dayton,Dayton,OH,private nonprofit,Y,39
+2398,Viterbo University,La Crosse,WI,private nonprofit,Y,36
+2399,Paul Smith's College,Paul Smiths,NY,private nonprofit,Y,3
+2400,Point Park University,Pittsburgh,PA,private nonprofit,,33
+2402,Massachusetts College of Art and Design,Boston,MA,public,Y,33
+2403,University of La Verne,La Verne,CA,private nonprofit,Y,40
+2406,Mercy University,Dobbs Ferry,NY,private nonprofit,Y,33
+2407,Lake Michigan College,Benton Harbor,MI,public,Y,22
+2408,Davenport University,Grand Rapids,MI,private nonprofit,Y,40
+2410,Alcorn State University,Lorman,MS,public,Y,9
+2411,SUNY  Oneonta,Oneonta,NY,public,Y,38
+2434,Tarleton State University,Stephenville,TX,public,Y,25
+2435,Temple College,Temple,TX,public,Y,24
+2437,Texarkana College,Texarkana,TX,public,Y,25
+2438,Texas Christian University,Fort Worth,TX,private nonprofit,Y,36
+2440,Texas A&M University-Kingsville,Kingsville,TX,public,Y,22
+2441,Texas Lutheran University,Seguin,TX,private nonprofit,Y,32
+2442,Texas Southern University,Houston,TX,public,Y,25
+2443,Southern Arkansas University Tech,Camden,AR,public,Y,25
+2446,Southern University at New Orleans,New Orleans,LA,public,Y,22
+2451,Seminole State College,Seminole,OK,public,Y,19
+2452,Southern University at Shreveport,Shreveport,LA,public,Y,15
+2454,Lindenwood University,Saint Charles,MO,private nonprofit,Y,37
+2455,University of Arkansas at Little Rock,Little Rock,AR,public,Y,39
+2457,Loras College,Dubuque,IA,private nonprofit,Y,36
+2458,Louisiana Christian University,Pineville,LA,private nonprofit,Y,18
+2459,Louisiana Tech University,Ruston,LA,public,Y,28
+2460,Louisiana State University And Agricultural And Mechanical College,Baton Rouge,LA,public,Y,33
+2461,Loyola University New Orleans,New Orleans,LA,private nonprofit,Y,36
+2462,North Iowa Area Community College,Mason City,IA,public,Y,22
+2463,McMurry University,Abilene,TX,private nonprofit,Y,27
+2464,Minnesota West Community and Technical College,Pipestone,MN,public,Y,31
+2467,Western Texas College,Snyder,TX,public,Y,16
+2468,Xavier University of Louisiana,New Orleans,LA,private nonprofit,Y,35
+2469,College of St. Scholastica,Duluth,MN,private nonprofit,Y,40
+2470,Avila University,Kansas City,MO,private nonprofit,Y,33
+2471,University of St. Thomas,Saint Paul,MN,private nonprofit,Y,39
+2472,University of the Ozarks,Clarksville,AR,private nonprofit,Y,21
+2474,Concordia College: Moorhead,Moorhead,MN,private nonprofit,Y,40
+2475,Concordia University St. Paul,Saint Paul,MN,private nonprofit,Y,40
+2477,Concordia University,Seward,NE,private nonprofit,Y,34
+2478,Connors State College,Warner,OK,public,Y,22
+2483,Central Baptist College,Conway,AR,private nonprofit,Y,19
+2484,Cornell College,Mount Vernon,IA,private nonprofit,Y,40
+2485,Cottey College,Nevada,MO,private nonprofit,Y,28
+2489,Dallas Christian College,Dallas,TX,private nonprofit,Y,36
+2491,Dakota Wesleyan University,Mitchell,SD,private nonprofit,Y,23
+2494,Dallas Baptist University,Dallas,TX,private nonprofit,Y,21
+2495,Del Mar College,Corpus Christi,TX,public,Y,16
+2497,East Carolina University,Greenville,NC,public,Y,39
+2498,Eastern Mennonite University,Harrisonburg,VA,private nonprofit,Y,35
+2504,East Central University,Ada,OK,public,Y,37
+2505,East Texas Baptist University,Marshall,TX,private nonprofit,Y,21
+2506,Texas A&M University-Commerce,Commerce,TX,public,Y,26
+2507,Eastern Oklahoma State College,Wilburton,OK,public,Y,16
+2509,Butler Community College,El Dorado,KS,public,Y,20
+2510,Redlands Community College,El Reno,OK,public,Y,22
+2511,McNeese State University,Lake Charles,LA,public,Y,32
+2512,McPherson College,McPherson,KS,private nonprofit,Y,34
+2514,Midwestern State University,Wichita Falls,TX,public,Y,31
+2516,Missouri Valley College,Marshall,MO,private nonprofit,Y,23
+2517,Moberly Area Community College,Moberly,MO,public,Y,35
+2518,University of Texas at Dallas,Richardson,TX,public,Y,34
+2524,Williston State College,Williston,ND,public,Y,27
+2526,Westminster College,Fulton,MO,private nonprofit,Y,38
+2527,West Texas A&M University,Canyon,TX,public,Y,34
+2528,Wharton County Junior College,Wharton,TX,public,Y,9
+2530,William Jewell College,Liberty,MO,private nonprofit,Y,39
+2533,William Woods University,Fulton,MO,private nonprofit,Y,29
+2534,Wichita State University,Wichita,KS,public,Y,34
+2535,Upper Iowa University,Fayette,IA,private nonprofit,Y,35
+2549,Northern Marianas College,Saipan,MP,public,Y,15
+2561,Oral Roberts University,Tulsa,OK,private nonprofit,Y,34
+2563,Oklahoma State University Institute of Technology: Okmulgee,Okmulgee,OK,public,Y,20
+2565,Lamar State College at Port Arthur,Port Arthur,TX,public,Y,19
+2567,Dallas College: Richland Campus,Dallas,TX,public,Y,29
+2569,Rice University,Houston,TX,private nonprofit,Y,32
+2570,Rochester Community and Technical College,Rochester,MN,public,Y,33
+2571,Rockhurst University,Kansas City,MO,private nonprofit,Y,26
+2574,Newman University,Wichita,KS,private nonprofit,Y,36
+2577,St. Ambrose University,Davenport,IA,private nonprofit,,29
+2578,St. Edward's University,Austin,TX,private nonprofit,Y,39
+2580,St. John's University,Collegeville,MN,private nonprofit,Y,35
+2586,Northwood University: Texas,Cedar Hill,TX,private nonprofit,,25
+2587,Ouachita Baptist University,Arkadelphia,AR,private nonprofit,Y,28
+2588,Our Lady of the Lake University of San Antonio,San Antonio,TX,private nonprofit,Y,18
+2589,Northwest Missouri State University,Maryville,MO,public,Y,35
+2590,University of Northwestern - St. Paul,Saint Paul,MN,private nonprofit,Y,37
+2591,Northwestern College,Orange City,IA,private nonprofit,Y,26
+2592,Northwestern State University Of Louisiana,Natchitoches,LA,public,Y,37
+2594,Dallas College: North Lake Campus,Irving,TX,public,Y,29
+2598,Odessa College,Odessa,TX,public,Y,26
+2599,Oklahoma Baptist University,Shawnee,OK,private nonprofit,Y,38
+2600,Ozark Christian College,Joplin,MO,private nonprofit,Y,36
+2601,Oklahoma City University,Oklahoma City,OK,private nonprofit,Y,35
+2605,Evangel University,Springfield,MO,private nonprofit,Y,26
+2607,University of the Incarnate Word,San Antonio,TX,private nonprofit,Y,36
+2611,Iowa State University,Ames,IA,public,Y,37
+2613,University of Northern Iowa,Cedar Falls,IA,public,Y,38
+2618,Inver Hills Community College,Inver Grove Heights,MN,public,Y,31
+2620,University of Jamestown,Jamestown,ND,private nonprofit,Y,38
+2621,Pittsburg State University,Pittsburg,KS,public,Y,38
+2622,Kansas Wesleyan University,Salina,KS,private nonprofit,Y,34
+2624,Kilgore College,Kilgore,TX,public,Y,13
+2626,Lake Superior College,Duluth,MN,public,Y,38
+2627,Louisiana State University in Shreveport,Shreveport,LA,public,Y,28
+2629,Lamar University,Beaumont,TX,public,Y,35
+2631,Laredo College,Laredo,TX,public,Y,24
+2632,Lee College,Baytown,TX,public,Y,13
+2633,LeTourneau University,Longview,TX,private nonprofit,Y,37
+2634,Lincoln University,Jefferson City,MO,public,Y,10
+2635,Bethel College,North Newton,KS,private nonprofit,Y,29
+2636,University of Arkansas at Fort Smith,Fort Smith,AR,public,Y,30
+2637,Nicholls State University,Thibodaux,LA,public,Y,38
+2639,Friends University,Wichita,KS,private nonprofit,Y,38
+2642,Minnesota State Community and Technical College,Fergus Falls,MN,public,Y,36
+2646,Garden City Community College,Garden City,KS,public,,3
+2647,Dakota State University,Madison,SD,public,Y,39
+2649,Henderson State University,Arkadelphia,AR,public,Y,25
+2650,Hendrix College,Conway,AR,private nonprofit,Y,31
+2654,Howard College,Big Spring,TX,public,Y,18
+2655,Howard Payne University,Brownwood,TX,private nonprofit,Y,29
+2657,Huston-Tillotson University,Austin,TX,private nonprofit,Y,11
+2658,Hutchinson Community College,Hutchinson,KS,public,Y,26
+2659,Houston Christian University,Houston,TX,private nonprofit,Y,22
+2660,Hill College,Hillsboro,TX,public,Y,23
+2669,Benedictine College,Atchison,KS,private nonprofit,Y,37
+2670,Arkansas State University: Mountain Home,Mountain Home,AR,public,Y,13
+2673,University of West Florida,Pensacola,FL,public,Y,39
+2674,University of Maryland: Baltimore County,Baltimore,MD,public,Y,40
+2675,Coastal Carolina University,Conway,SC,public,Y,40
+2676,University of South Carolina: Aiken,Aiken,SC,public,Y,33
+2679,Warner Pacific University,Portland,OR,private nonprofit,Y,33
+2680,Azusa Pacific University,Azusa,CA,private nonprofit,Y,37
+2681,Pacific Lutheran University,Tacoma,WA,private nonprofit,Y,39
+2684,Pacific Union College,Angwin,CA,private nonprofit,Y,36
+2686,Pacific University,Forest Grove,OR,private nonprofit,Y,39
+2687,Palomar College,San Marcos,CA,public,Y,38
+2688,Palo Verde College,Blythe,CA,public,Y,35
+2689,Pasadena City College,Pasadena,CA,public,Y,31
+2690,Point Loma Nazarene University,San Diego,CA,private nonprofit,Y,40
+2692,Virginia State University,Petersburg,VA,public,Y,30
+2695,Norfolk State University,Norfolk,VA,public,Y,33
+2696,University of Texas Health Science Center at San Antonio,San Antonio,TX,public,,18
+2698,Virginia Wesleyan University,Virginia Beach,VA,private nonprofit,Y,34
+2699,Virginia Western Community College,Roanoke,VA,public,Y,37
+2700,Valencia College,Orlando,FL,public,Y,39
+2702,Warner University,Lake Wales,FL,private nonprofit,Y,37
+2704,Gulf Coast State College,Panama City,FL,public,Y,33
+2708,James Sprunt Community College,Kenansville,NC,public,Y,15
+2709,Johnston Community College,Smithfield,NC,public,Y,27
+2712,Yavapai College,Prescott,AZ,public,Y,28
+2714,Abraham Baldwin Agricultural College,Tifton,GA,public,Y,36
+2717,Agnes Scott College,Decatur,GA,private nonprofit,Y,33
+2718,North Carolina Agricultural And Technical State University,Greensboro,NC,public,Y,30
+2719,Albany State University,Albany,GA,public,Y,26
+2721,Augsburg University,Minneapolis,MN,private nonprofit,Y,38
+2722,Augustana University,Sioux Falls,SD,private nonprofit,Y,37
+2723,Austin College,Sherman,TX,private nonprofit,Y,35
+2724,Riverland Community College,Austin,MN,public,Y,34
+2726,Western Oklahoma State College,Altus,OK,public,Y,21
+2729,Angelina College,Lufkin,TX,public,Y,29
+2730,Arkansas State University: Beebe,Beebe,AR,public,Y,29
+2731,Kirkwood Community College,Cedar Rapids,IA,public,Y,30
+2733,Baker University,Baldwin City,KS,private nonprofit,Y,35
+2734,Baylor University,Waco,TX,private nonprofit,Y,33
+2735,Southeastern Baptist Theological Seminary,Wake Forest,NC,private nonprofit,Y,31
+2744,Regent University,Virginia Beach,VA,private nonprofit,Y,39
+2755,Illinois Eastern Community Colleges Frontier Community College,Fairfield,IL,public,Y,31
+2763,Berkeley City College,Berkeley,CA,public,Y,36
+2766,Clark State College,Springfield,OH,public,Y,33
+2767,Mount St. Joseph University,Cincinnati,OH,private nonprofit,Y,38
+2768,University of St. Francis,Joliet,IL,private nonprofit,Y,29
+2769,Ohio Dominican University,Columbus,OH,private nonprofit,Y,37
+2770,Franciscan University of Steubenville,Steubenville,OH,private nonprofit,Y,3
+2780,Luna Community College,Las Vegas,NM,public,,35
+2784,St. Charles Community College,Saint Peters,MO,public,Y,37
+2790,Casper College,Casper,WY,public,Y,20
+2791,Central Washington University,Ellensburg,WA,public,Y,33
+2792,North Shore Community College,Danvers,MA,public,Y,31
+2795,New England College,Henniker,NH,private nonprofit,Y,40
+2796,New England Conservatory Of Music,Boston,MA,private nonprofit,Y,37
+2799,Southern Connecticut State University,New Haven,CT,public,Y,40
+2800,University of New Haven,West Haven,CT,private nonprofit,Y,38
+2801,Nichols College,Dudley,MA,private nonprofit,Y,40
+2802,Northeastern University,Boston,MA,private nonprofit,Y,37
+2804,Norwich University,Northfield,VT,private nonprofit,Y,40
+2812,Lawrence University,Appleton,WI,private nonprofit,Y,37
+2814,Lawrence Technological University,Southfield,MI,private nonprofit,Y,38
+2815,Lee University,Cleveland,TN,private nonprofit,Y,28
+2817,Lewis University,Romeoville,IL,private nonprofit,Y,35
+2821,Lindsey Wilson University,Columbia,KY,private nonprofit,Y,12
+2823,Loyola University Chicago,Chicago,IL,private nonprofit,Y,33
+2825,Lansing Community College,Lansing,MI,public,Y,31
+2826,Lorain County Community College,Elyria,OH,public,Y,29
+2827,Lake Superior State University,Sault Sainte Marie,MI,public,Y,34
+2828,Lakeland Community College,Willoughby,OH,public,Y,38
+2829,Lake Land College,Mattoon,IL,public,Y,19
+2832,Lincoln Land Community College,Springfield,IL,public,Y,40
+2834,Ohio University: Lancaster Campus,Lancaster,OH,public,Y,39
+2836,Lake Tahoe Community College,South Lake Tahoe,CA,public,Y,31
+2838,St. Lawrence University,Canton,NY,private nonprofit,Y,36
+2842,St. Thomas Aquinas College,Sparkill,NY,private nonprofit,Y,35
+2843,Saint Vincent College,Latrobe,PA,private nonprofit,Y,34
+2844,Sarah Lawrence College,Bronxville,NY,private nonprofit,Y,36
+2845,Seton Hall University,South Orange,NJ,private nonprofit,Y,35
+2847,Manhattanville University,Purchase,NY,private nonprofit,Y,34
+2849,Marist University,Poughkeepsie,NY,private nonprofit,Y,38
+2851,Marymount Manhattan College,New York,NY,private nonprofit,Y,40
+2853,Marywood University,Scranton,PA,private nonprofit,Y,37
+2860,University of Evansville,Evansville,IN,private nonprofit,Y,32
+2861,Elizabethtown Community and Technical College,Elizabethtown,KY,public,Y,37
+2880,Renton Technical College,Renton,WA,public,,39
+2881,Andrews University,Berrien Springs,MI,private nonprofit,Y,37
+2883,Faulkner University,Montgomery,AL,private nonprofit,Y,20
+2891,SUNY College of Technology at Canton,Canton,NY,public,Y,35
+2892,SUNY College of Agriculture and Technology at Cobleskill,Cobleskill,NY,public,Y,38
+2893,SUNY College of Technology at Delhi,Delhi,NY,public,Y,36
+2894,SUNY Farmingdale State College,Farmingdale,NY,public,Y,37
+2895,SUNY Morrisville,Morrisville,NY,public,Y,35
+2897,South Puget Sound Community College,Tumwater,WA,public,Y,40
+2898,Occidental College,Los Angeles,CA,private nonprofit,Y,39
+2899,MiraCosta College - Oceanside Campus,Oceanside,CA,public,Y,37
+2900,Olympic College,Bremerton,WA,public,Y,40
+2901,Orange Coast College,Costa Mesa,CA,public,Y,33
+2902,Western Oregon University,Monmouth,OR,public,Y,36
+2903,Oregon State University,Corvallis,OR,public,Y,38
+2906,College of Southern Idaho,Twin Falls,ID,public,Y,33
+2907,Ohio University: Zanesville Campus,Zanesville,OH,public,Y,40
+2910,Big Sandy Community and Technical College,Prestonsburg,KY,public,Y,37
+2911,Roane State Community College,Harriman,TN,public,Y,38
+2913,UW  Colleges Richland,Richland Center,WI,public,Y,32
+2914,University of Rio Grande,Rio Grande,OH,public,Y,38
+2915,Ripon College,Ripon,WI,private nonprofit,Y,36
+2916,Rockford University,Rockford,IL,private nonprofit,Y,38
+2917,Roosevelt University,Chicago,IL,private nonprofit,Y,34
+2918,Dominican University,River Forest,IL,private nonprofit,Y,39
+2922,Rose-Hulman Institute of Technology,Terre Haute,IN,private nonprofit,Y,34
+2924,Feather River College,Quincy,CA,public,Y,24
+2930,George Fox University,Newberg,OR,private nonprofit,Y,40
+2934,Middlesex College,Edison,NJ,career/technical,Y,25
+2938,Montgomery County Community College,Blue Bell,PA,public,Y,40
+2940,College of Wooster,Wooster,OH,private nonprofit,Y,37
+2941,Columbia College Chicago,Chicago,IL,private nonprofit,Y,40
+2958,College for Creative Studies,Detroit,MI,private nonprofit,Y,40
+2959,Auburn University at Montgomery,Montgomery,AL,public,Y,23
+2960,Central Alabama Community College,Alexander City,AL,public,Y,22
+2962,Aquinas College,Nashville,TN,private nonprofit,Y,32
+2964,Bowling Green State University Firelands College,Huron,OH,public,Y,40
+2965,Bellin College,Green Bay,WI,private nonprofit,Y,33
+2966,Bay De Noc Community College,Escanaba,MI,public,Y,15
+2967,Baldwin Wallace University,Berea,OH,private nonprofit,Y,36
+2969,Bowling Green State University,Bowling Green,OH,public,Y,40
+2972,Southeast Arkansas College,Pine Bluff,AR,public,Y,24
+2980,Central Wyoming College,Riverton,WY,public,Y,26
+2981,University of the Southwest,Hobbs,NM,private nonprofit,,3
+2982,College of the Canyons,Valencia,CA,public,Y,35
+2983,College of Alameda,Alameda,CA,public,,31
+2984,Front Range Community College,Westminster,CO,public,Y,37
+2985,Cosumnes River College,Sacramento,CA,public,Y,38
+2986,Central Arizona College,Coolidge,AZ,public,Y,30
+2987,Crafton Hills College,Yucaipa,CA,public,Y,37
+2989,Red Rocks Community College,Lakewood,CO,public,Y,23
+2992,Carroll Community College,Westminster,MD,public,Y,33
+2993,Truett McConnell University,Cleveland,GA,private nonprofit,Y,27
+2994,Toccoa Falls College,Toccoa Falls,GA,private nonprofit,Y,36
+2995,University Of Maryland Global Campus,Adelphi,MD,public,Y,38
+2997,United States Coast Guard Academy,New London,CT,public,N,6
+2998,United States Naval Academy,Annapolis,MD,public,Y,15
+2999,University of Baltimore,Baltimore,MD,public,Y,32
+3000,University of Delaware,Newark,DE,public,Y,40
+3001,University of Florida,Gainesville,FL,public,Y,39
+3002,Catholic University of America,Washington,DC,private nonprofit,Y,38
+3003,Glendale Community College,Glendale,CA,public,Y,38
+3006,Gonzaga University,Spokane,WA,private nonprofit,Y,36
+3007,Grand Canyon University,Phoenix,AZ,private nonprofit,Y,34
+3011,Westmont College,Santa Barbara,CA,private nonprofit,Y,38
+3012,Southern New Hampshire University,Manchester,NH,private nonprofit,Y,37
+3020,Northwest Vista College,San Antonio,TX,public,Y,33
+3021,University of Arkansas Pulaski-Technical College,North Little Rock,AR,public,Y,28
+3023,Beacon College,Leesburg,FL,private nonprofit,Y,36
+3024,AdventHealth University,Orlando,FL,private nonprofit,Y,6
+3025,Southern Regional Technical College,Thomasville,GA,public,Y,17
+3034,Danville Area Community College,Danville,IL,public,Y,29
+3035,Lipscomb University,Nashville,TN,private nonprofit,Y,32
+3039,Defiance College,Defiance,OH,private nonprofit,Y,39
+3040,Delta State University,Cleveland,MS,public,Y,27
+3041,Denison University,Granville,OH,private nonprofit,Y,36
+3042,DePaul University,Chicago,IL,private nonprofit,Y,40
+3043,DePauw University,Greencastle,IN,private nonprofit,Y,30
+3046,Chippewa Valley Technical College,Eau Claire,WI,public,Y,17
+3049,Wright State University,Dayton,OH,public,Y,39
+3063,Clarke University,Dubuque,IA,private nonprofit,Y,22
+3065,Coe College,Cedar Rapids,IA,private nonprofit,Y,33
+3073,Palm Beach State College,Lake Worth,FL,public,Y,35
+3074,John Hopkins Peabody Institute,Baltimore,MD,private nonprofit,Y,11
+3075,William Peace University,Raleigh,NC,private nonprofit,Y,38
+3076,University of North Carolina at Pembroke,Pembroke,NC,public,Y,22
+3077,Daytona State College,Daytona Beach,FL,public,Y,33
+3078,Danville Community College,Danville,VA,public,Y,20
+3080,University of North Carolina at Charlotte,Charlotte,NC,public,Y,40
+3081,Chipola College,Marianna,FL,public,Y,37
+3082,Chowan University,Murfreesboro,NC,private nonprofit,Y,33
+3083,The Citadel,Charleston,SC,public,Y,36
+3085,Clark Atlanta University,Atlanta,GA,private nonprofit,Y,29
+3086,Clemson University,Clemson,SC,public,Y,40
+3087,Coker University,Hartsville,SC,private nonprofit,Y,30
+3088,College of Charleston,Charleston,SC,public,Y,40
+3089,Notre Dame of Maryland University,Baltimore,MD,private nonprofit,Y,21
+3090,College of William and Mary,Williamsburg,VA,public,Y,34
+3091,Columbia International University,Columbia,SC,private nonprofit,Y,35
+3096,Chesapeake College,Wye Mills,MD,public,Y,17
+3097,College of Southern Maryland,La Plata,MD,public,Y,37
+3101,Westminster College,New Wilmington,PA,private nonprofit,Y,40
+3103,Wilkes University,Wilkes Barre,PA,private nonprofit,Y,35
+3109,Maine College Of Art And Design,Portland,ME,private nonprofit,Y,8
+3111,Quinnipiac University,Hamden,CT,private nonprofit,Y,35
+3114,Quinsigamond Community College,Worcester,MA,public,Y,35
+3116,Regis College,Weston,MA,private nonprofit,Y,23
+3118,Rhode Island College,Providence,RI,public,Y,36
+3119,Rhode Island School Of Design,Providence,RI,private nonprofit,Y,34
+3120,Rivier University,Nashua,NH,private nonprofit,Y,32
+3121,Roger Williams University,Bristol,RI,private nonprofit,Y,40
+3122,Palo Alto College,San Antonio,TX,public,Y,33
+3126,Stonehill College,North Easton,MA,private nonprofit,Y,40
+3127,Suffolk University,Boston,MA,private nonprofit,Y,38
+3129,University of Puerto Rico: Mayaguez,Mayaguez,PR,public,Y,6
+3134,University of Guam,Mangilao,GU,public,Y,11
+3139,College of Eastern Idaho,Idaho Falls,ID,public,Y,14
+3141,Augustana College,Rock Island,IL,private nonprofit,Y,34
+3152,Dalton State College,Dalton,GA,public,Y,25
+3155,Davidson Davie Community College,Thomasville,NC,public,Y,35
+3157,Durham Technical Community College,Durham,NC,public,Y,36
+3160,Bluefield University,Bluefield,VA,private nonprofit,Y,12
+3161,Bluefield State University,Bluefield,WV,public,Y,31
+3162,Brenau University,Gainesville,GA,private nonprofit,Y,24
+3163,Delaware State University,Dover,DE,public,Y,40
+3164,South Seattle College,Seattle,WA,public,Y,40
+3173,Santa Fe Community College,Santa Fe,NM,public,Y,23
+3174,Taft College,Taft,CA,public,Y,37
+3175,Wilson College,Chambersburg,PA,private nonprofit,Y,33
+3177,Pennsylvania College of Technology,Williamsport,PA,public,Y,34
+3178,Yeshiva University,New York,NY,private nonprofit,Y,30
+3179,York College of Pennsylvania,York,PA,private nonprofit,Y,36
+3180,City University of New York: York College,Jamaica,NY,public,Y,39
+3184,Albertus Magnus College,New Haven,CT,private nonprofit,Y,40
+3185,American International College,Springfield,MA,private nonprofit,Y,35
+3186,New York University,New York,NY,private nonprofit,Y,33
+3187,Nassau Community College,Garden City,NY,public,Y,39
+3188,SUNY Niagara,Sanborn,NY,public,Y,36
+3189,North Country Community College,Saranac Lake,NY,public,Y,28
+3190,Montana State University,Bozeman,MT,public,Y,36
+3191,University of Montana,Missoula,MT,public,Y,40
+3193,Monterey Peninsula College,Monterey,CA,public,,37
+3195,Mount Saint Mary's University,Los Angeles,CA,private nonprofit,Y,32
+3196,Mount San Antonio College,Walnut,CA,public,Y,38
+3197,Mohave Community College,Kingman,AZ,public,Y,31
+3198,Sacred Heart University,Fairfield,CT,private nonprofit,Y,33
+3199,University of Massachusetts Dartmouth,North Dartmouth,MA,public,Y,35
+3200,Springfield Technical Community College,Springfield,MA,public,Y,37
+3202,South Texas College,McAllen,TX,public,Y,19
+3208,Clark University,Worcester,MA,private nonprofit,Y,34
+3209,University of Wisconsin-Baraboo/Sauk County,Baraboo,WI,public,Y,38
+3210,University Of Wisconsin Stevens Point At Marshfield,Marshfield,WI,public,Y,39
+3211,UW Colleges Rock County,Janesville,WI,public,Y,32
+3212,University of Wisconsin-Waukesha,Waukesha,WI,public,Y,39
+3213,Great Falls College Montana State University,Great Falls,MT,public,Y,37
+3214,Academy of Art University,San Francisco,CA,private nonprofit,Y,39
+3216,Bryn Athyn College,Bryn Athyn,PA,private nonprofit,Y,29
+3217,Adelphi University,Garden City,NY,private nonprofit,Y,40
+3218,Albright College,Reading,PA,private nonprofit,Y,37
+3220,Alfred University,Alfred,NY,private nonprofit,Y,30
+3221,Allegheny College,Meadville,PA,private nonprofit,Y,38
+3222,Indiana University Bloomington,Bloomington,IN,public,Y,38
+3223,Indiana University Indianapolis,Indianapolis,IN,public,Y,37
+3224,Itawamba Community College,Fulton,MS,public,,27
+3226,Jefferson Community and Technical College,Louisville,KY,public,Y,40
+3234,University of Southern Indiana,Evansville,IN,public,Y,40
+3235,Indiana University Kokomo,Kokomo,IN,public,Y,39
+3236,Calhoun Community College,Tanner,AL,public,Y,31
+3237,John A. Logan College,Carterville,IL,public,Y,30
+3238,Jackson State Community College,Jackson,TN,public,Y,33
+3240,Kent State University Stark,North Canton,OH,public,Y,40
+3241,Kalamazoo College,Kalamazoo,MI,private nonprofit,Y,35
+3243,Kent State University,Kent,OH,public,Y,40
+3244,Kentucky State University,Frankfort,KY,public,Y,32
+3247,Penn State Brandywine,Media,PA,public,Y,40
+3249,Penn State DuBois,Du Bois,PA,public,Y,40
+3250,"Penn State Fayette, The Eberly Campus",Lemont Furnace,PA,public,Y,40
+3251,Hamilton College,Clinton,NY,private nonprofit,Y,35
+3253,Hartwick College,Oneonta,NY,private nonprofit,Y,35
+3254,Haverford College,Haverford,PA,private nonprofit,Y,34
+3255,Penn State Beaver,Monaca,PA,public,Y,40
+3257,Penn State Altoona,Altoona,PA,public,Y,38
+3258,Penn State Hazleton,Hazleton,PA,public,Y,40
+3259,Hobart and William Smith Colleges,Geneva,NY,private nonprofit,Y,29
+3260,Hofstra University,Hempstead,NY,private nonprofit,Y,34
+3261,University of Nevada: Reno,Reno,NV,public,Y,40
+3262,University of New Mexico,Albuquerque,NM,public,Y,40
+3264,University of Oregon,Eugene,OR,public,Y,38
+3265,University of Portland,Portland,OR,private nonprofit,Y,37
+3266,University of Redlands,Redlands,CA,private nonprofit,Y,31
+3267,University of San Diego,San Diego,CA,private nonprofit,Y,34
+3270,New Mexico State University,Las Cruces,NM,public,Y,39
+3271,New Mexico Highlands University,Las Vegas,NM,public,Y,40
+3272,New Mexico Institute of Mining and Technology,Socorro,NM,public,Y,40
+3273,New Mexico Military Institute,Roswell,NM,public,Y,24
+3274,Western New Mexico University,Silver City,NM,public,Y,40
+3277,Montana State University: Northern,Havre,MT,public,Y,36
+3278,North Idaho College,Coeur D Alene,ID,public,,16
+3279,Northwest University,Kirkland,WA,private nonprofit,Y,38
+3282,Northwest College,Powell,WY,public,Y,13
+3283,Bushnell University,Eugene,OR,private nonprofit,Y,40
+3284,Northwest Nazarene University,Nampa,ID,private nonprofit,Y,36
+3288,New Mexico Junior College,Hobbs,NM,public,Y,37
+3289,North Seattle College,Seattle,WA,public,Y,37
+3293,College of the Atlantic,Bar Harbor,ME,private nonprofit,Y,33
+3294,Central Maine Community College,Auburn,ME,public,Y,34
+3297,Shelton State Community College,Tuscaloosa,AL,public,Y,21
+3298,Naropa University,Boulder,CO,private nonprofit,Y,40
+3299,Western Connecticut State University,Danbury,CT,public,Y,33
+3300,Dartmouth College,Hanover,NH,private nonprofit,N,15
+3301,Dean College,Franklin,MA,private nonprofit,Y,25
+3306,Emerson College,Boston,MA,private nonprofit,Y,33
+3307,Emmanuel College,Boston,MA,private nonprofit,Y,31
+3308,Endicott College,Beverly,MA,private nonprofit,Y,39
+3309,Raritan Valley Community College,Branchburg,NJ,public,Y,28
+3311,SUNY Purchase College,Purchase,NY,public,Y,38
+3313,Ramapo College of New Jersey,Mahwah,NJ,public,Y,40
+3314,Kentucky Wesleyan College,Owensboro,KY,private nonprofit,Y,23
+3315,Kenyon College,Gambier,OH,private nonprofit,Y,33
+3317,Eastern West Virginia Community and Technical College,Moorefield,WV,public,Y,32
+3319,King University,Bristol,TN,private nonprofit,Y,34
+3320,Knox College,Galesburg,IL,private nonprofit,Y,32
+3321,John Wood Community College,Quincy,IL,public,Y,17
+3339,University of San Francisco,San Francisco,CA,private nonprofit,Y,37
+3340,Santa Clara University,Santa Clara,CA,private nonprofit,Y,38
+3341,University of Southern California,Los Angeles,CA,private nonprofit,Y,37
+3342,University of Utah,Salt Lake City,UT,public,Y,39
+3343,Ringling College of Art and Design,Sarasota,FL,private nonprofit,Y,35
+3344,Richard Bland College,South Prince George,VA,public,Y,21
+3346,Savannah College of Art and Design,Savannah,GA,private nonprofit,,40
+3348,Sweet Briar College,Sweet Briar,VA,private nonprofit,Y,35
+3349,Saint Leo University,Saint Leo,FL,private nonprofit,,39
+3350,Saint Johns River State College,Palatka,FL,public,Y,39
+3351,Stanly Community College,Albemarle,NC,public,Y,26
+3353,Sandhills Community College,Pinehurst,NC,public,Y,30
+3355,Southeastern Community College,Whiteville,NC,public,Y,21
+3356,Santa Fe College,Gainesville,FL,public,Y,39
+3357,Surry Community College,Dobson,NC,public,Y,26
+3359,Southwest Virginia Community College,Cedar Bluff,VA,public,Y,9
+3360,Loyola University Maryland,Baltimore,MD,private nonprofit,Y,36
+3362,National University,La Jolla,CA,private nonprofit,Y,31
+3363,Northern New Mexico College,Espanola,NM,public,,39
+3378,Shasta College,Redding,CA,public,Y,36
+3379,Sierra College,Rocklin,CA,public,Y,36
+3380,Simpson University,Redding,CA,private nonprofit,Y,31
+3381,Skagit Valley College,Mount Vernon,WA,public,Y,35
+3385,Vanguard University of Southern California,Costa Mesa,CA,private nonprofit,Y,36
+3386,Southern Oregon University,Ashland,OR,public,Y,36
+3387,Stanford University,Stanford,CA,private nonprofit,Y,18
+3388,Washington State University,Pullman,WA,public,Y,40
+3393,SUNY Polytechnic Institute,Utica,NY,public,Y,32
+3395,National University College: Arecibo,Arecibo,PR,private nonprofit,Y,6
+3399,Touro University,New York,NY,private nonprofit,Y,30
+3401,Arcadia University,Glenside,PA,private nonprofit,Y,39
+3405,Bloomfield College Of Montclair State University,Bloomfield,NJ,private nonprofit,Y,3
+3406,City University of New York: Brooklyn College,Brooklyn,NY,public,Y,39
+3407,SUNY Broome Community College,Binghamton,NY,public,Y,24
+3408,Bryn Mawr College,Bryn Mawr,PA,private nonprofit,Y,33
+3409,Bucknell University,Lewisburg,PA,private nonprofit,Y,37
+3410,City University of New York: Bronx Community College,Bronx,NY,public,Y,40
+3439,University of Lynchburg,Lynchburg,VA,private nonprofit,Y,32
+3441,Lake-Sumter State College,Leesburg,FL,public,Y,39
+3442,Florida Gateway College,Lake City,FL,public,Y,27
+3443,Lenoir Community College,Kinston,NC,public,Y,21
+3444,Laurel Ridge Community College,Middletown,VA,public,Y,37
+3446,Liberty University,Lynchburg,VA,private nonprofit,Y,40
+3447,Baptist College of Florida,Graceville,FL,private nonprofit,Y,19
+3448,James Madison University,Harrisonburg,VA,public,Y,35
+3449,Montgomery College: Germantown Campus,Rockville,MD,public,Y,33
+3450,Whitman College,Walla Walla,WA,private nonprofit,Y,31
+3451,Whittier College,Whittier,CA,private nonprofit,Y,26
+3452,Whitworth University,Spokane,WA,private nonprofit,Y,36
+3453,Willamette University,Salem,OR,private nonprofit,Y,38
+3454,Woodbury University,Burbank,CA,private nonprofit,Y,33
+3455,Corban University,Salem,OR,private nonprofit,Y,35
+3456,Western Wyoming Community College,Rock Springs,WY,public,Y,30
+3457,West Valley College,Saratoga,CA,public,Y,36
+3458,University of Hawaii: West Oahu,Kapolei,HI,public,Y,34
+3459,Truckee Meadows Community College,Reno,NV,public,Y,30
+3461,San Joaquin Delta College,Stockton,CA,public,,36
+3462,California State University: Northridge,Northridge,CA,public,Y,39
+3464,California State University: Stanislaus,Turlock,CA,public,Y,37
+3465,Sonoma State University,Rohnert Park,CA,public,Y,38
+3466,Chemeketa Community College,Salem,OR,public,Y,37
+3467,Skyline College,San Bruno,CA,public,Y,36
+3468,Saddleback College,Mission Viejo,CA,public,Y,36
+3471,Spokane Falls Community College,Spokane,WA,public,Y,40
+3472,Scottsdale Community College,Scottsdale,AZ,public,Y,38
+3473,William Jessup University,Rocklin,CA,private nonprofit,Y,38
+3474,Sierra Nevada University,Incline Village,NV,private nonprofit,,38
+3475,Highline College,Des Moines,WA,public,,36
+3477,Hawaii Pacific University,Honolulu,HI,private nonprofit,Y,38
+3478,Idaho State University,Pocatello,ID,public,Y,34
+3483,Rensselaer Polytechnic Institute,Troy,NY,private nonprofit,Y,36
+3484,University Of Texas Rio Grande Valley Brownsville,Brownsville,TX,public,Y,38
+3487,University of West Alabama,Livingston,AL,public,Y,34
+3488,Troy University,Troy,AL,public,Y,39
+3489,Stillman College,Tuscaloosa,AL,private nonprofit,,7
+3490,University Of Wisconsin-Stout Polytechnic,Menomonie,WI,public,Y,39
+3491,Mississippi Delta Community College,Moorhead,MS,public,,1
+3495,Southern State Community College,Hillsboro,OH,public,Y,39
+3499,SUNY College of Environmental Science and Forestry,Syracuse,NY,public,Y,36
+3501,SUNY University at Albany,Albany,NY,public,Y,40
+3502,SUNY Buffalo State University,Buffalo,NY,public,Y,39
+3504,SUNY At Binghamton,Binghamton,NY,public,Y,39
+3505,SUNY Maritime College,Bronx,NY,public,Y,36
+3506,SUNY College at Brockport,Brockport,NY,public,Y,40
+3507,SUNY College at Cortland,Cortland,NY,public,Y,40
+3510,University Of California San Francisco School Of Dentistry,San Francisco,CA,public,Y,21
+3525,Owensboro Community and Technical College,Owensboro,KY,public,Y,38
+3530,University Of Arkansas Hope Texarkana,Hope,AR,public,Y,11
+3532,Walla Walla Community College,Walla Walla,WA,public,Y,36
+3533,West Los Angeles College,Culver City,CA,public,,22
+3536,University of Mary,Bismarck,ND,private nonprofit,Y,38
+3537,McLennan Community College,Waco,TX,public,Y,23
+3541,Minneapolis Community and Technical College,Minneapolis,MN,public,Y,38
+3542,Martin Luther College,New Ulm,MN,private nonprofit,Y,19
+3543,Metropolitan Community College: Maple Woods,Kansas City,MO,public,Y,33
+3544,MidAmerica Nazarene University,Olathe,KS,private nonprofit,Y,27
+3547,Metropolitan State University,Saint Paul,MN,public,Y,38
+3548,Arkansas Northeastern College,Blytheville,AR,public,Y,18
+3549,Minot State University,Minot,ND,public,Y,36
+3550,Valley City State University,Valley City,ND,public,Y,35
+3551,University of North Texas,Denton,TX,public,Y,37
+3552,University of Louisiana at Monroe,Monroe,LA,public,Y,27
+3554,Truman State University,Kirksville,MO,public,Y,40
+3557,Grays Harbor College,Aberdeen,WA,public,Y,23
+3559,University of Maine,Orono,ME,public,Y,38
+3560,University of Massachusetts Amherst,Amherst,MA,public,Y,38
+3561,University of New Hampshire,Durham,NH,public,Y,40
+3562,University of Rhode Island,Kingston,RI,public,Y,40
+3563,University of Vermont,Burlington,VT,public,Y,40
+3567,University of Massachusetts Boston,Dorchester,MA,public,Y,31
+3568,Unity Environmental University,Unity,ME,private nonprofit,Y,38
+3569,University of Maine at Augusta,Augusta,ME,public,Y,21
+3574,Evergreen Valley College,San Jose,CA,public,,32
+3579,SUNY Fredonia,Fredonia,NY,public,Y,40
+3580,SUNY College at Geneseo,Geneseo,NY,public,Y,36
+3581,State University of New York New Paltz,New Paltz,NY,public,Y,39
+3582,Fordham University,Bronx,NY,private nonprofit,Y,35
+3583,Manor College,Jenkintown,PA,private nonprofit,Y,25
+3587,Franklin & Marshall College,Lancaster,PA,private nonprofit,Y,40
+3588,Fairleigh Dickinson University,Teaneck,NJ,private nonprofit,Y,35
+3592,Penn State Mont Alto,Mont Alto,PA,public,Y,40
+3594,Penn State Harrisburg,Middletown,PA,public,Y,40
+3596,Penn State New Kensington,New Kensington,PA,public,Y,40
+3598,Gannon University,Erie,PA,private nonprofit,Y,26
+3625,Five Towns College,Dix Hills,NY,private nonprofit,Y,36
+3627,Alexandria Technical and Community College,Alexandria,MN,public,Y,40
+3629,Northeastern State University,Tahlequah,OK,public,Y,34
+3630,Northern Oklahoma College,Tonkawa,OK,public,Y,28
+3631,Northern State University,Aberdeen,SD,public,Y,39
+3632,University of Georgia,Athens,GA,public,Y,35
+3633,University of Maryland: College Park,College Park,MD,public,Y,40
+3634,University of Miami,Coral Gables,FL,private nonprofit,Y,37
+3635,University of North Carolina at Chapel Hill,Chapel Hill,NC,public,Y,37
+3636,Montgomery College Rockville,Rockville,MD,public,Y,33
+3638,Francis Marion University,Florence,SC,public,Y,37
+3640,Southern West Virginia Community and Technical College,Mount Gay,WV,public,Y,26
+3641,Mountain Empire Community College,Big Stone Gap,VA,public,Y,37
+3644,Miami Dade College,Miami,FL,public,Y,40
+3647,Owens Community College: Findlay,Findlay,OH,public,,38
+3648,University of North Florida,Jacksonville,FL,public,Y,39
+3649,Nash Community College,Rocky Mount,NC,public,Y,17
+3650,Oglethorpe University,Brookhaven,GA,private nonprofit,,37
+3652,Dawson Community College,Glendive,MT,public,Y,31
+3654,Utah Tech University,Saint George,UT,public,Y,36
+3655,Dominican University of California,San Rafael,CA,private nonprofit,Y,33
+3656,De Anza College,Cupertino,CA,public,Y,35
+3657,Pikes Peak State College,Colorado Springs,CO,public,Y,31
+3658,Evergreen State College,Olympia,WA,public,Y,38
+3659,Great Basin College,Elko,NV,public,Y,28
+3660,Foothill College,Los Altos Hills,CA,public,Y,22
+3662,Flathead Valley Community College,Kalispell,MT,public,Y,22
+3663,Centralia College,Centralia,WA,public,,2
+3664,Chaffey College,Rancho Cucamonga,CA,public,,36
+3665,Chapman University,Orange,CA,private nonprofit,Y,39
+3666,California State University: Chico,Chico,CA,public,Y,39
+3668,Citrus College,Glendora,CA,public,Y,35
+3669,City College of San Francisco,San Francisco,CA,public,Y,35
+3670,Claremont McKenna College,Claremont,CA,private nonprofit,Y,14
+3671,Clark College,Vancouver,WA,public,Y,40
+3673,University Of Silicon Valley,San Jose,CA,private nonprofit,Y,28
+3674,Jefferson Community College,Watertown,NY,public,Y,36
+3676,Keuka College,Keuka Park,NY,private nonprofit,Y,34
+3677,Keystone College,La Plume,PA,private nonprofit,Y,23
+3678,King's College,Wilkes Barre,PA,private nonprofit,Y,29
+3680,City University of New York: Kingsborough Community College,Brooklyn,NY,public,Y,1
+3681,Lafayette College,Easton,PA,private nonprofit,Y,34
+3682,La Salle University,Philadelphia,PA,private nonprofit,Y,2
+3683,Lebanon Valley College,Annville,PA,private nonprofit,Y,40
+3684,Le Moyne College,Syracuse,NY,private nonprofit,Y,37
+3685,Lincoln University,Lincoln University,PA,public,Y,34
+3690,University of Arkansas: Community College at Batesville,Batesville,AR,public,Y,13
+3691,Caldwell University,Caldwell,NJ,private nonprofit,Y,35
+3692,Canisius University,Buffalo,NY,private nonprofit,Y,40
+3693,Carnegie Mellon University,Pittsburgh,PA,private nonprofit,Y,35
+3716,Ohlone College,Fremont,CA,public,Y,38
+3718,Georgia Southern University,Statesboro,GA,public,Y,37
+3719,Long Beach City College,Long Beach,CA,public,,28
+3720,Rider University,Lawrence Township,NJ,private nonprofit,Y,40
+3721,Northwest Florida State College,Niceville,FL,public,Y,4
+3724,Florida International University,Miami,FL,public,Y,38
+3725,Florence-Darlington Technical College,Florence,SC,public,Y,17
+3726,Fayetteville Technical Community College,Fayetteville,NC,public,Y,36
+3727,Fairmont State University,Fairmont,WV,public,Y,36
+3728,Fayetteville State University,Fayetteville,NC,public,Y,22
+3729,Ferrum College,Ferrum,VA,private nonprofit,Y,33
+3731,Florida Agricultural and Mechanical University,Tallahassee,FL,public,Y,36
+3732,Florida College,Temple Terrace,FL,private nonprofit,Y,38
+3733,Florida Memorial University,Opa Locka,FL,private nonprofit,Y,20
+3734,Gardner-Webb University,Boiling Springs,NC,private nonprofit,Y,32
+3736,Georgetown University,Washington,DC,private nonprofit,Y,29
+3737,George Washington University,Washington,DC,private nonprofit,Y,36
+3738,Georgia Institute Of Technology,Atlanta,GA,public,Y,35
+3739,Georgia Military College,Milledgeville,GA,public,,38
+3740,Georgia Southwestern State University,Americus,GA,public,Y,27
+3741,Georgia State University,Atlanta,GA,public,Y,38
+3742,Georgia College and State University,Milledgeville,GA,public,Y,40
+3743,Glenville State University,Glenville,WV,public,Y,29
+3744,Bowdoin College,Brunswick,ME,private nonprofit,Y,24
+3745,Brandeis University,Waltham,MA,private nonprofit,Y,34
+3746,Brown University,Providence,RI,private nonprofit,N,21
+3747,Bryant University,Smithfield,RI,private nonprofit,Y,38
+3748,Bentley University,Waltham,MA,private nonprofit,Y,33
+3749,Berkshire Community College,Pittsfield,MA,public,Y,26
+3750,Berklee College of Music,Boston,MA,private nonprofit,Y,30
+3751,Bristol Community College,Fall River,MA,public,Y,32
+3755,Bunker Hill Community College,Charlestown,MA,public,Y,26
+3758,Columbia Basin College,Pasco,WA,public,Y,38
+3759,Compton College,Compton,CA,public,Y,22
+3763,California State Polytechnic University: Pomona,Pomona,CA,public,Y,39
+3764,Cerritos College,Norwalk,CA,public,Y,35
+3765,Cabrillo College,Aptos,CA,public,Y,38
+3766,College of the Desert,Palm Desert,CA,public,Y,35
+3782,Empire State University,Saratoga Springs,NY,public,Y,40
+3784,Eastern University,Wayne,PA,private nonprofit,Y,38
+3785,Eastman School of Music of the University of Rochester,Rochester,NY,private nonprofit,N,32
+3786,Elizabethtown College,Elizabethtown,PA,private nonprofit,Y,39
+3787,Elmira College,Elmira,NY,private nonprofit,Y,35
+3788,Xavier University,Cincinnati,OH,private nonprofit,Y,36
+3790,Youngstown State University,Youngstown,OH,public,Y,40
+3799,Shippensburg University of Pennsylvania,Shippensburg,PA,public,Y,40
+3800,California State Polytechnic University Humboldt,Arcata,CA,public,Y,39
+3801,Stockton University,Galloway,NJ,public,Y,38
+3806,Saginaw Valley State University,University Center,MI,public,Y,40
+3808,Southeast Kentucky Community and Technical College,Cumberland,KY,public,Y,38
+3812,University of Wisconsin-Eau Claire - Barron County,Rice Lake,WI,public,Y,40
+3814,Southeastern Illinois College,Harrisburg,IL,public,Y,16
+3815,Tennessee Wesleyan University,Athens,TN,private nonprofit,Y,36
+3816,South Suburban College Of Cook County,South Holland,IL,public,Y,27
+3818,Gordon State College,Barnesville,GA,public,Y,24
+3819,Goucher College,Towson,MD,private nonprofit,Y,34
+3821,Guilford College,Greensboro,NC,private nonprofit,Y,33
+3824,Texas State Technical College: West Texas,Sweetwater,TX,public,Y,17
+3829,University Of New Hampshire College Of Professional Studies,Manchester,NH,public,Y,40
+3840,Coastline Community College,Fountain Valley,CA,public,,32
+3842,California Lutheran University,Thousand Oaks,CA,private nonprofit,Y,29
+3846,Bay Mills Community College,Brimley,MI,public,Y,14
+3852,City University of New York: John Jay College of Criminal Justice,New York,NY,public,Y,40
+3853,Columbia University,New York,NY,private nonprofit,Y,25
+3856,Community College of Allegheny County,Pittsburgh,PA,public,Y,36
+3859,Penn State York,York,PA,public,Y,40
+3863,Richland Community College,Decatur,IL,public,Y,39
+3867,Cuyahoga Community College Eastern Campus,Highland Hills,OH,public,Y,38
+3868,Cleveland State Community College,Cleveland,TN,public,Y,33
+3869,Carl Sandburg College,Galesburg,IL,public,Y,33
+3870,College of Lake County,Grayslake,IL,public,Y,40
+3871,Cincinnati State Technical and Community College,Cincinnati,OH,public,Y,38
+3872,St. Cloud Technical and Community College,Saint Cloud,MN,public,Y,34
+3876,University of Wisconsin- Green Bay Sheboygan Campus,Sheboygan,WI,public,Y,32
+3879,University of Washington,Seattle,WA,public,Y,40
+3880,University of Wyoming,Laramie,WY,public,Y,35
+3885,Utah State University,Logan,UT,public,Y,37
+3887,University of California: Irvine,Irvine,CA,public,Y,38
+3889,Transylvania University,Lexington,KY,private nonprofit,Y,40
+3890,Trevecca Nazarene University,Nashville,TN,private nonprofit,Y,22
+3891,Trinity International University,Deerfield,IL,private nonprofit,Y,28
+3892,Trine University,Angola,IN,private nonprofit,Y,37
+3893,Tusculum University,Greeneville,TN,private nonprofit,Y,31
+3894,Tuskegee University,Tuskegee Institute,AL,private nonprofit,Y,20
+3896,Kent State University East Liverpool,East Liverpool,OH,public,Y,40
+3900,Delta College,University Center,MI,public,Y,23
+3901,Tiffin University,Tiffin,OH,private nonprofit,Y,36
+3912,Minnesota State College Southeast,Winona,MN,public,Y,37
+3921,Pepperdine University,Malibu,CA,private nonprofit,Y,36
+3927,Rogue Community College,Grants Pass,OR,public,Y,37
+3928,Reed College,Portland,OR,private nonprofit,Y,32
+3929,Reedley College,Reedley,CA,public,Y,36
+3930,Regis University,Denver,CO,private nonprofit,Y,29
+3931,Brigham Young University-Idaho,Rexburg,ID,private nonprofit,Y,34
+3932,Riverside City College,Riverside,CA,public,Y,35
+3933,Colorado Christian University,Lakewood,CO,private nonprofit,Y,21
+3934,Rocky Mountain College,Billings,MT,private nonprofit,Y,36
+3937,Penn State Shenango,Sharon,PA,public,Y,40
+3938,Wabash College,Crawfordsville,IN,private nonprofit,Y,28
+3939,Washington State College Of Ohio,Marietta,OH,public,Y,36
+3940,Wayne State University,Detroit,MI,public,Y,40
+3941,Western Illinois University,Macomb,IL,public,Y,38
+3942,Western Kentucky University,Bowling Green,KY,public,Y,40
+3943,Western Michigan University,Kalamazoo,MI,public,Y,38
+3946,Wittenberg University,Springfield,OH,private nonprofit,Y,40
+3948,City Colleges of Chicago: Wilbur Wright College,Chicago,IL,public,,1
+3949,Walsh University,North Canton,OH,private nonprofit,Y,19
+3951,Harper College,Palatine,IL,public,Y,40
+3954,Illinois Eastern Community Colleges Wabash Valley College,Mount Carmel,IL,public,Y,31
+3956,Waubonsee Community College,Sugar Grove,IL,public,Y,39
+3958,University of California: Santa Cruz,Santa Cruz,CA,public,Y,40
+3959,University of Nevada: Las Vegas,Las Vegas,NV,public,Y,40
+3961,Salt Lake Community College,Salt Lake City,UT,public,Y,37
+3962,University of Alaska Fairbanks,Fairbanks,AK,public,Y,35
+3963,University of Hawaii at Manoa,Honolulu,HI,public,Y,40
+3964,University of Hawaii at Hilo,Hilo,HI,public,Y,39
+3965,Utah Valley University,Orem,UT,public,Y,37
+3970,University of Colorado Colorado Springs,Colorado Springs,CO,public,Y,36
+3971,University Of Colorado Denver,Denver,CO,public,Y,39
+3972,American Jewish University,Brandeis,CA,private nonprofit,Y,37
+3975,University of Alaska Anchorage,Anchorage,AK,public,Y,38
+3976,University of Alaska Southeast,Juneau,AK,public,Y,32
+3978,Contra Costa College,San Pablo,CA,public,Y,37
+3980,University of Montana Western,Dillon,MT,public,Y,38
+3981,Western Colorado University,Gunnison,CO,public,Y,38
+4007,San Jose State University,San Jose,CA,public,Y,38
+4008,Santa Ana College,Santa Ana,CA,public,Y,37
+4009,Santa Barbara City College,Santa Barbara,CA,public,Y,39
+4010,Santa Monica College,Santa Monica,CA,public,Y,37
+4012,Scripps College,Claremont,CA,private nonprofit,Y,36
+4013,Anderson University,Anderson,SC,private nonprofit,Y,39
+4014,Andrew College,Cuthbert,GA,private nonprofit,Y,21
+4015,Appalachian State University,Boone,NC,public,Y,40
+4018,University of North Carolina at Asheville,Asheville,NC,public,Y,36
+4020,Barton College,Wilson,NC,private nonprofit,Y,31
+4023,Barry University,Miami,FL,private nonprofit,Y,32
+4025,Belmont Abbey College,Belmont,NC,private nonprofit,Y,19
+4026,Benedict College,Columbia,SC,private nonprofit,Y,7
+4028,Berry College,Mount Berry,GA,private nonprofit,Y,30
+4029,Bethany College,Bethany,WV,private nonprofit,Y,3
+4030,West Shore Community College,Scottville,MI,public,Y,26
+4031,Catawba College,Salisbury,NC,private nonprofit,Y,26
+4033,Southern Illinois University Edwardsville,Edwardsville,IL,public,Y,40
+4034,Schoolcraft College,Livonia,MI,public,Y,25
+4035,University of Cincinnati,Cincinnati,OH,public,Y,40
+4036,University of Cincinnati: Blue Ash College,Blue Ash,OH,public,Y,38
+4038,University Of Illinois Chicago,Chicago,IL,public,Y,40
+4039,University of Michigan: Flint,Flint,MI,public,Y,37
+4040,University of Alabama in Huntsville,Huntsville,AL,public,Y,32
+4041,University Of Alabama At Birmingham,Birmingham,AL,public,Y,37
+4042,University Of Wisconsin - Green Bay,Green Bay,WI,public,Y,40
+4043,University Of Wisconsin Parkside,Kenosha,WI,public,Y,39
+4044,University of Michigan: Dearborn,Dearborn,MI,public,Y,36
+4045,Vanderbilt University,Nashville,TN,private nonprofit,Y,36
+4046,VanderCook College of Music,Chicago,IL,private nonprofit,Y,15
+4047,Valparaiso University,Valparaiso,IN,private nonprofit,Y,38
+4048,Thomas More University,Crestview Hills,KY,private nonprofit,Y,35
+4049,Vincennes University,Vincennes,IN,public,Y,36
+4053,Western Washington University,Bellingham,WA,public,Y,38
+4054,Westminster University,Salt Lake City,UT,private nonprofit,Y,39
+4061,Johnson & Wales University: Providence,Providence,RI,private nonprofit,,38
+4063,Keene State College,Keene,NH,public,Y,32
+4065,Kennebec Valley Community College,Fairfield,ME,public,Y,37
+4066,Lasell University,Auburndale,MA,private nonprofit,Y,28
+4067,Lesley University,Cambridge,MA,private nonprofit,Y,34
+4069,University of Maine at Farmington,Farmington,ME,public,Y,39
+4071,MCPHS University,Boston,MA,private nonprofit,Y,18
+4073,Central Georgia Technical College,Warner Robins,GA,public,Y,21
+4075,Massachusetts Institute of Technology,Cambridge,MA,private nonprofit,Y,27
+4076,Massachusetts Maritime Academy,Buzzards Bay,MA,public,Y,33
+4095,Northern Michigan University,Marquette,MI,public,Y,34
+4097,Northwest Mississippi Community College,Senatobia,MS,public,Y,24
+4098,Northwestern Michigan College,Traverse City,MI,public,,29
+4099,Northwestern University,Evanston,IL,private nonprofit,Y,37
+4101,Northwood University: Michigan,Midland,MI,private nonprofit,Y,32
+4102,Bethune-Cookman University,Daytona Beach,FL,private nonprofit,Y,27
+4104,Roberts Wesleyan University,Rochester,NY,private nonprofit,Y,29
+4105,Rochester Institute of Technology,Rochester,NY,private nonprofit,Y,40
+4107,Daemen University,Buffalo,NY,private nonprofit,Y,35
+4109,Russell Sage College,Troy,NY,private nonprofit,Y,32
+4111,Rockland Community College,Suffern,NY,public,,19
+4112,Robert Morris University,Coraopolis,PA,private nonprofit,Y,33
+4113,Washington County Community College,Calais,ME,public,Y,14
+4114,Western New England University,Springfield,MA,private nonprofit,Y,39
+4115,Wheaton College,Norton,MA,private nonprofit,Y,37
+4118,Williams College,Williamstown,MA,private nonprofit,N,23
+4119,Eastern Connecticut State University,Willimantic,CT,public,Y,38
+4120,Worcester Polytechnic Institute,Worcester,MA,private nonprofit,Y,33
+4123,Yale University,New Haven,CT,private nonprofit,Y,15
+4124,Adams State University,Alamosa,CO,public,Y,27
+4131,Onondaga Community College,Syracuse,NY,public,Y,32
+4134,Pace University,New York,NY,private nonprofit,Y,38
+4135,Parsons The New School for Design,New York,NY,private nonprofit,Y,36
+4136,Penn State University Park,University Park,PA,public,Y,40
+4138,Cairn University,Langhorne,PA,private nonprofit,Y,35
+4141,Thomas Jefferson University: East Falls,Philadelphia,PA,private nonprofit,Y,39
+4143,New York University Tandon School Of Engineering,Brooklyn,NY,private nonprofit,Y,28
+4144,Pratt Institute,Brooklyn,NY,private nonprofit,Y,38
+4148,St Josephs University New York - Long Island Campus,Patchogue,NY,private nonprofit,Y,28
+4157,Lower Columbia College,Longview,WA,public,Y,37
+4158,Loyola Marymount University,Los Angeles,CA,private nonprofit,Y,38
+4162,Los Angeles Mission College,Sylmar,CA,public,Y,36
+4163,Laney College,Oakland,CA,public,,34
+4164,Lane Community College,Eugene,OR,public,Y,36
+4166,Los Angeles Southwest College,Los Angeles,CA,public,,35
+4168,The Master's University and Seminary,Newhall,CA,private nonprofit,Y,33
+4169,Ensign College,Salt Lake City,UT,private nonprofit,Y,26
+4170,Linn-Benton Community College,Albany,OR,public,Y,35
+4171,Laramie County Community College,Cheyenne,WY,public,N,21
+4174,Northern Kentucky University,Newport,KY,public,Y,40
+4175,North Central State College,Mansfield,OH,public,Y,19
+4181,Ohio State University: Mansfield Campus,Mansfield,OH,public,Y,39
+4193,Columbia Gorge Community College,The Dalles,OR,public,,23
+4196,Allan Hancock College,Santa Maria,CA,public,Y,36
+4197,American River College,Sacramento,CA,public,Y,30
+4198,Antelope Valley College,Lancaster,CA,public,Y,35
+4210,Blue Mountain Community College,Pendleton,OR,public,Y,21
+4211,Cerro Coso Community College,Ridgecrest,CA,public,Y,33
+4212,Bellevue College,Bellevue,WA,public,Y,39
+4215,California State University Maritime Academy,Vallejo,CA,public,Y,36
+4217,California Polytechnic State University: San Luis Obispo,San Luis Obispo,CA,public,Y,40
+4218,Alliant International University,San Diego,CA,private nonprofit,Y,33
+4219,Utah State University Eastern,Price,UT,public,,36
+4220,Carroll College,Helena,MT,private nonprofit,Y,36
+4221,Princeton University,Princeton,NJ,private nonprofit,N,17
+4228,Immaculata University,Immaculata,PA,private nonprofit,Y,26
+4229,Felician University,Lodi,NJ,private nonprofit,Y,36
+4231,Iona University,New Rochelle,NY,private nonprofit,Y,37
+4232,Benedictine University,Lisle,IL,private nonprofit,Y,40
+4233,Saint Xavier University,Chicago,IL,private nonprofit,Y,37
+4234,School of the Art Institute of Chicago,Chicago,IL,private nonprofit,Y,34
+4238,Lake Forest College,Lake Forest,IL,private nonprofit,Y,37
+4239,Lakeland University,Plymouth,WI,private nonprofit,Y,22
+4242,Lakeshore Technical College,Cleveland,WI,public,Y,9
+4243,Illinois Valley Community College,Oglesby,IL,public,Y,25
+4334,Madonna University,Livonia,MI,private nonprofit,Y,33
+4335,Malone University,Canton,OH,private nonprofit,Y,38
+4336,Manchester University,North Manchester,IN,private nonprofit,Y,36
+4337,Marian University,Indianapolis,IN,private nonprofit,Y,40
+4341,Marian University,Fond Du Lac,WI,private nonprofit,Y,38
+4342,Marietta College,Marietta,OH,private nonprofit,Y,39
+4343,Indiana Wesleyan University,Marion,IN,private nonprofit,Y,39
+4344,Marion Military Institute,Marion,AL,private nonprofit,Y,18
+4347,Milligan University,Milligan College,TN,private nonprofit,,39
+4348,Millikin University,Decatur,IL,private nonprofit,Y,34
+4349,Millsaps College,Jackson,MS,private nonprofit,Y,35
+4351,University Of Wisconsin-Milwaukee,Milwaukee,WI,public,Y,40
+4352,Bluegrass Community and Technical College,Lexington,KY,public,Y,39
+4353,Milwaukee Area Technical College,Milwaukee,WI,public,Y,25
+4354,Milwaukee School of Engineering,Milwaukee,WI,private nonprofit,Y,28
+4356,Heartland Community College,Normal,IL,public,Y,36
+4358,Mississippi College,Clinton,MS,private nonprofit,Y,26
+4359,University of Southern Mississippi,Hattiesburg,MS,public,Y,38
+4360,Mississippi State University,Mississippi State,MS,public,Y,35
+4367,Clover Park Technical College,Lakewood,WA,public,,37
+4387,Monroe County Community College,Monroe,MI,public,Y,26
+4388,University of Mobile,Eight Mile,AL,private nonprofit,Y,28
+4389,Rochester Christian University,Rochester Hills,MI,private nonprofit,Y,39
+4393,Bishop State Community College,Mobile,AL,public,Y,15
+4397,Macomb Community College,Warren,MI,public,Y,33
+4399,Mid Michigan College,Harrison,MI,public,Y,26
+4400,Moraine Valley Community College,Palos Hills,IL,public,Y,26
+4401,McHenry County College,Crystal Lake,IL,public,Y,39
+4402,Miami University: Hamilton,Hamilton,OH,public,Y,40
+4404,Cornerstone University,Grand Rapids,MI,private nonprofit,Y,36
+4406,Grand Rapids Community College,Grand Rapids,MI,public,Y,40
+4408,Chandler-Gilbert Community College,Chandler,AZ,public,Y,36
+4409,Bellingham Technical College,Bellingham,WA,public,Y,18
+4410,Greenville University,Greenville,IL,private nonprofit,Y,38
+4411,Grand Valley State University,Allendale,MI,public,Y,40
+4412,Glen Oaks Community College,Centreville,MI,public,Y,6
+4413,Gadsden State Community College,Gadsden,AL,public,,27
+4414,Governors State University,University Park,IL,public,Y,36
+4420,Hopkinsville Community College,Hopkinsville,KY,public,Y,36
+4421,Hiram College,Hiram,OH,private nonprofit,Y,39
+4423,Holmes Community College,Goodman,MS,public,Y,40
+4428,Hope College,Holland,MI,private nonprofit,Y,40
+4429,Samford University,Birmingham,AL,private nonprofit,Y,37
+4431,Huntingdon College,Montgomery,AL,private nonprofit,,31
+4432,Huntington University,Huntington,IN,private nonprofit,Y,35
+4434,Henderson Community College,Henderson,KY,public,Y,36
+4435,Holy Cross College,South Bend,IN,private nonprofit,Y,27
+4437,Ivy Tech Community College,Indianapolis,IN,public,Y,35
+4439,Chattanooga State Community College,Chattanooga,TN,public,Y,32
+4440,Columbus College of Art and Design,Columbus,OH,private nonprofit,Y,16
+4444,Central Ohio Technical College,Newark,OH,public,Y,35
+4449,Northeastern Illinois University,Chicago,IL,public,Y,32
+4452,Concordia University Ann Arbor,Ann Arbor,MI,private nonprofit,Y,36
+4453,Calvin University,Grand Rapids,MI,private nonprofit,Y,37
+4455,Christian Brothers University,Memphis,TN,private nonprofit,Y,33
+4457,Cleveland Institute of Music,Cleveland,OH,private nonprofit,Y,2
+4462,Northern Illinois University,Dekalb,IL,public,Y,40
+4463,Ohio University: Southern Campus at Ironton,Ironton,OH,public,Y,40
+4473,Wisconsin Lutheran College,Milwaukee,WI,private nonprofit,Y,32
+4476,Cabarrus College of Health Sciences,Concord,NC,private nonprofit,Y,7
+4479,Hinds Community College,Raymond,MS,public,Y,28
+4480,Columbia State Community College,Columbia,TN,public,Y,39
+4485,Bluffton University,Bluffton,OH,private nonprofit,Y,38
+4501,Middle Tennessee State University,Murfreesboro,TN,public,Y,34
+4507,Arkansas State University Mid-South,West Memphis,AR,public,Y,15
+4511,Texas State Technical College: Marshall,Marshall,TX,unknown,,18
+4538,Cornell University: College of Veterinary Medicine,Ithaca,NY,public,,2
+4564,Mount Carmel College of Nursing,Columbus,OH,private nonprofit,Y,19
+4581,Franciscan Missionaries Of Our Lady University,Baton Rouge,LA,private nonprofit,Y,28
+4646,Catholic International University,Charles Town,WV,private nonprofit,Y,14
+4665,The King's College,New York,NY,private nonprofit,Y,35
+4721,Neumont College of Computer Science,Salt Lake City,UT,private nonprofit,Y,34
+4734,Bates Technical College,Tacoma,WA,public,Y,14
+4735,Cascadia College,Bothell,WA,public,Y,32
+4745,Mercy College of Ohio,Toledo,OH,private nonprofit,Y,37
+4749,Trinity College of Nursing & Health Sciences,Rock Island,IL,private nonprofit,Y,25
+4750,Walden University,Minneapolis,MN,private nonprofit,Y,7
+4757,DigiPen Institute of Technology,Redmond,WA,private nonprofit,Y,17
+160032,University of California: Merced,Merced,CA,public,Y,37
+200914,Johnson & Wales University: Charlotte,Charlotte,NC,private nonprofit,,32
+201060,California State University: Channel Islands,Camarillo,CA,public,Y,38
+201101,National University College: Rio Grande,Rio Grande,PR,proprietary,Y,6
+201105,New River Community and Technical College,Beaver,WV,public,,35
+201112,Folsom Lake College,Folsom,CA,public,Y,37
+201218,Mountwest Community And Technical College,Huntington,WV,public,Y,36
+202175,Southern Virginia University,Buena Vista,VA,private nonprofit,Y,38
+203558,Lanier Technical College,Gainesville,GA,public,Y,22
+203835,Wiregrass Georgia Technical College,Valdosta,GA,public,Y,21
+213666,Blue Ridge Community and Technical College,Martinsburg,WV,public,Y,32
+213702,University of South Florida: Saint Petersburg,Saint Petersburg,FL,unknown,,39
+213903,Ave Maria University,Ave Maria,FL,private nonprofit,Y,34
+214352,Lamar Institute of Technology,Beaumont,TX,public,Y,9
+214468,University of the West,Rosemead,CA,private nonprofit,Y,37
+215145,Kent State University Geauga,Burton,OH,public,Y,40
+227266,Patrick Henry College,Purcellville,VA,private nonprofit,Y,36
+227397,Front Range Community College Larimer Campus,Fort Collins,CO,public,Y,34
+227401,University of Illinois Extension: Cook County,Matteson,IL,public,,38
+227458,Watkins College Of Art At Belmont,Nashville,TN,private nonprofit,Y,10
+227717,University of Washington Bothell,Bothell,WA,public,Y,39
+227770,Nevada State University,Henderson,NV,public,Y,37
+227843,Georgia Gwinnett College,Lawrenceville,GA,public,Y,27
+227863,North Georgia Technical College,Clarkesville,GA,public,Y,17
+227904,Aultman College of Nursing and Health Sciences,Canton,OH,private nonprofit,Y,9
+228219,West Hills College: Lemoore,Lemoore,CA,public,Y,36
+228232,City University of New York: CUNY Online,New York,NY,public,Y,36
+228679,University of Washington Tacoma,Tacoma,WA,public,Y,40
+229031,University of Minnesota: Rochester,Rochester,MN,public,Y,28
+242907,Northern Virginia Community College - Manassas Campus,Manassas,VA,public,Y,35
+243003,Tarrant County Junior College - North East Campus,Hurst,TX,public,Y,24
+243691,Texas A&M University - San Antonio,San Antonio,TX,public,Y,28
+243734,College of Western Idaho,Nampa,ID,public,Y,32
+243975,Gateway Community And Technical College,Florence,KY,public,,40
+244802,Visible Music College,Memphis,TN,private nonprofit,Y,5
+246146,Bob Jones University,Greenville,SC,private nonprofit,Y,32
+247175,University of South Florida: Sarasota-Manatee,Sarasota,FL,unknown,Y,39
+254297,University of North Texas at Dallas,Dallas,TX,public,Y,34
+256057,BridgeValley Community And Technical College Montgomery,Montgomery,WV,public,Y,37
+258084,San Jacinto College: South Campus,Houston,TX,public,Y,28
+258597,University of Pennsylvania: College of Liberal and Professional Studies,Philadelphia,PA,private nonprofit,Y,21
+259416,Boyce College,Louisville,KY,private nonprofit,Y,18
+259509,Monroe University New Rochelle,New Rochelle,NY,private nonprofit,Y,32
+259673,Gateway Community and Technical College Edgewood,Ft Mitchell,KY,public,,36
+259717,Lone Star College - Tomball,Tomball,TX,public,Y,25
+259995,Texas A&M University Central Texas,Killeen,TX,private nonprofit,Y,36
+260536,John Paul the Great Catholic University,Escondido,CA,private nonprofit,Y,18
+260719,Broward College - North Campus,Coconut Creek,FL,public,Y,36
+260734,Woodland Community College,Woodland,CA,public,,35
+260824,Oconee Fall Line Technical College,Sandersville,GA,private nonprofit,Y,15
+260969,Pensacola Christian College,Pensacola,FL,private nonprofit,,28
+261172,New School for Jazz and Contemporary Music,New York,NY,private nonprofit,Y,38
+261235,Keiser University: Daytona Beach,Daytona Beach,FL,private nonprofit,Y,21
+261285,Beverly Hills Design Institute,Beverly Hills,CA,private nonprofit,Y,15
+261286,Pierpont Community and Technical College,Fairmont,WV,public,,37
+261529,Norco College,Norco,CA,public,Y,35
+261909,Moreno Valley College,Moreno Valley,CA,public,,35
+264503,National University College: Ponce,Ponce,PR,proprietary,,5
+276058,Sample College,Glenwood Springs,CO,public,Y,5
+276440,Florida Polytechnic University,Lakeland,FL,public,Y,26
+280559,Shiloh University,Kalona,IA,private nonprofit,Y,28
+281771,University Of Texas Rio Grande Valley,Edinburg,TX,public,Y,38
+282449,Cuyahoga Community College Westshore Campus,Westlake,OH,public,Y,38
+292665,Gillette College,Gillette,WY,unknown,,14
+312508,CUNY School of Professional Studies,New York,NY,public,Y,38

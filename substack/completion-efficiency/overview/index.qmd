@@ -1,0 +1,113 @@
+---
+title: "Credits in, degrees out"
+subtitle: "How much of a degree do colleges teach themselves, and are they getting more efficient?"
+page-layout: full
+execute:
+  echo: false
+---
+
+{{< include ../_nav.qmd >}}
+
+{{< include ../_common.qmd >}}
+
+```{ojs}
+K0 = FileAttachment("../data/accounting_constants.csv").csv({typed: true}).then(d => d[0])
+ACC = FileAttachment("../data/accounting_national.csv").csv({typed: true})
+NAT = FileAttachment("../data/national_series.csv").csv({typed: true})
+S = FileAttachment("../data/states.csv").csv({typed: true})
+SEC = FileAttachment("../data/sector_split_summary.csv").csv({typed: true}).then(d => new Map(d.map(r => [r.item, r.value])))
+TYP = FileAttachment("../data/types_levels_2022.csv").csv({typed: true})
+```
+
+```{ojs}
+res = ACC.find(d => d.item.startsWith("Residual")); items = ACC.find(d => d.item.startsWith("Sum of items"))
+r1 = TYP.find(d => d.type === "Public R1")
+md`<div class="ce-lead">Colleges taught <b>${f0(K0.T_measured_2010)}</b> credits for every bachelor's-degree equivalent they awarded in 2010 and <b>${f0(K0.T_measured_2022)}</b> in 2022.</div>
+
+The paper asks two questions of the same IPEDS data on credits taught and degrees awarded.
+
+<div class="ce-kpis">
+<div class="ce-kpi"><div class="v">${pct(r1.outsourcing_share)}</div><div class="l"><b>Outsourcing.</b> Share of a public research university's degree credit taught somewhere else (AP, dual enrollment, transfer), 2022</div></div>
+<div class="ce-kpi"><div class="v">${pct(res.share_central)}</div><div class="l"><b>Efficiency.</b> Share of the system's 2010–22 gain left after every measured channel: fewer excess credits, about ${f0(-res.change_in_T_central)} per degree</div></div>
+<div class="ce-kpi"><div class="v">${pct(SEC.get("share of adjusted rise: within Community colleges"))}</div><div class="l">of public systems' gain happened <b>inside community colleges</b></div></div>
+</div>`
+```
+
+<div class="ce-two">
+
+```{ojs}
+{
+  const a = NAT.filter(d => d.label === "All institutions");
+  return Plot.plot({
+    width: width / 2 - 20, height: 260, title: "The national ratio, measured and timing-adjusted",
+    x: {...yearAxis}, y: {label: null, grid: true, tickFormat: ".2f"},
+    marks: [Plot.areaY(a, {x: "year", y1: "low", y2: "high", fill: BLUE, fillOpacity: 0.15}), Plot.lineY(a, {x: "year", y: "measured", stroke: GRAY, strokeDasharray: "3,3"}), Plot.lineY(a, {x: "year", y: "central", stroke: BLUE, strokeWidth: 2.2})],
+    caption: html`<a href="../national-trends/index.html">National trends →</a>`
+  });
+}
+```
+
+```{ojs}
+{
+  const g = ["Public universities", "Community colleges", "Private nonprofit 4-year"];
+  const a = NAT.filter(d => g.includes(d.label) && d.kind === "sector").map(d => ({...d, T: 120 / d.central}));
+  return Plot.plot({
+    width: width / 2 - 20, height: 260, marginRight: 175, title: "Credits taught per degree by sector (adjusted)",
+    x: {...yearAxis}, y: {label: null, type: "log", grid: true, tickFormat: "d"}, color: {domain: g, range: [BLUE, TEAL, ORANGE]},
+    marks: [Plot.lineY(a, {x: "year", y: "T", stroke: "label", strokeWidth: 2}), Plot.text(a, Plot.selectLast({x: "year", y: "T", z: "label", text: d => `${d.label} ${f0(d.T)}`, fill: "label", dx: 5, textAnchor: "start", fontSize: 10}))],
+    caption: html`<a href="../where-the-gain-came-from/index.html">Where the gain came from →</a>`
+  });
+}
+```
+
+</div>
+
+```{ojs}
+{
+  const pts = S.filter(d => isFinite(d.dER_adj));
+  return Plot.plot({
+    width, height: 320, title: "Every state's public system rose; community-college-heavy states rose most",
+    x: {label: "Community-college share of public credits, 2022", tickFormat: "%", grid: true}, y: {label: "Rise in the adjusted ER, 2010–22", grid: true}, r: {range: [2, 20]},
+    marks: [Plot.dot(pts, {x: "cc_share_CT_2022", y: "dER_adj", r: "CT_2022", fill: BLUE, fillOpacity: 0.45, stroke: "white"}), Plot.text(pts, {x: "cc_share_CT_2022", y: "dER_adj", text: "st", fontSize: 9}),
+      Plot.tip(pts, Plot.pointer({x: "cc_share_CT_2022", y: "dER_adj", title: d => `${d.name}\nCC share ${pct(d.cc_share_CT_2022)}\nadjusted rise ${f3(d.dER_adj)}`}))],
+    caption: html`<a href="../state-explorer/index.html?view=scatter">State explorer →</a>`
+  });
+}
+```
+
+## The tools
+
+::: {.ce-cards}
+::: {.ce-card}
+#### [National trends](../national-trends/index.qmd)
+The ratio by sector and Carnegie group since 1998, measured or timing-adjusted, as a ratio or as credits per degree; where it exceeds 1; entering vs graduating classes.
+:::
+::: {.ce-card}
+#### [Where the gain came from](../where-the-gain-came-from/index.qmd)
+The exact accounting of 2010–22, with a dial for every assumption, and the community-college / university split.
+:::
+::: {.ce-card}
+#### [State explorer](../state-explorer/index.qmd)
+Map any state measure, open a state's profile with its policy dates, or plot any two measures against each other.
+:::
+::: {.ce-card}
+#### [Institution explorer](../institution-explorer/index.qmd)
+Any college's path, its own entering classes, its peers; the outsourcing split by institution type.
+:::
+::: {.ce-card}
+#### [Price per degree](../price-per-degree/index.qmd)
+Tuition per credit vs tuition per degree for the nation, sectors, states and colleges.
+:::
+::: {.ce-card}
+#### [Credit channels](../credit-channels/index.qmd)
+AP, dual enrollment, transfer and certificates, including what a given AP score earns at a given college.
+:::
+::: {.ce-card}
+#### [Policy timeline](../policy-timeline/index.qmd)
+Ten statewide policies, when each state adopted them, against its community-college ratio.
+:::
+:::
+
+::: {.ce-note}
+**The measure.** The efficiency ratio (ER) is degree credits awarded (120 per bachelor's, 60 per associate degree) divided by credits taught, from IPEDS completions and 12-month credit-hour activity. `T = 120 / ER` is credits taught per bachelor's-degree equivalent. Aggregates are ratios of sums, so large colleges count in proportion to the credits they teach. The **timing-adjusted** ratio removes the mechanical effect of entering classes that are larger or smaller than the classes now graduating, institution by institution. State results are for **public** systems: public universities and community colleges together. Source: white paper v5 (draft, 2026-10-05); IPEDS, College Board, National Student Clearinghouse; author's calculations.
+:::

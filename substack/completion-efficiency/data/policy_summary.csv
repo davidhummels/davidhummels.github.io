@@ -1,0 +1,11 @@
+policy,label,lever,states,partial,with_year,first_adopters,median_year,peak_decade,latest,by_decade
+GP_STATE,Guided pathways (statewide),"Structured degree maps, default course sequences and meta-majors adopted statewide",23,5,23,Indiana 2013; Utah 2013; Massachusetts 2014,2017,2010s,Arizona 2019,2010s: 23
+FTF,"""15 to Finish"" campaign",Statewide campaign urging full-time loads of 15 credits a term,14,2,13,Hawaii 2011; Indiana 2013; Kentucky 2013,2014,2010s,Alabama 2018,2010s: 13
+EXCESS,Excess credit-hour surcharge,"Higher tuition, or no state funding, for credits above 110-150% of degree requirements",11,2,10,North Carolina 1993; Texas 1997; Utah 1997,2003,2000s,Nevada 2012,1990s: 3; 2000s: 6; 2010s: 1
+CORE,Transferable general-education core,A lower-division general-education block every public institution must accept,41,2,41,Georgia 1967; Florida 1971; Oklahoma 1979,1997,1990s,Kansas 2022,1960s: 1; 1970s: 2; 1980s: 3; 1990s: 19; 2000s: 7; 2010s: 8; 2020s: 1
+CCN,Common course numbering,Shared course numbers for equivalent courses across public institutions,21,1,19,Utah 1970; Florida 1971; Minnesota 1985,2010,2010s,Oregon 2021,1970s: 2; 1980s: 1; 1990s: 3; 2000s: 3; 2010s: 8; 2020s: 2
+AAGUAR,Guaranteed associate-degree transfer,An associate degree satisfies general education and/or brings junior standing,38,2,35,Georgia 1967; Florida 1971; Washington 1971,2001,2010s,South Carolina 2021,1960s: 1; 1970s: 5; 1980s: 4; 1990s: 7; 2000s: 7; 2010s: 10; 2020s: 1
+REVERSE,Reverse transfer,University credits sent back so the community college can award an associate degree,26,0,23,Iowa 2011; Nevada 2011; Texas 2011,2015,2010s,Indiana 2024,2010s: 22; 2020s: 1
+PACKAGE,Transferable credit package,A certificate or transcript notation for a completed general-education block,17,0,17,Florida 1971; Utah 1982; Ohio 1990,1997,1990s,Kansas 2022,1970s: 1; 1980s: 1; 1990s: 7; 2000s: 4; 2010s: 3; 2020s: 1
+DUAL,Dual-enrollment funding,"State pays, waives or caps tuition for high-school students taking college courses",35,0,34,Minnesota 1985; Florida 1987; Ohio 1989,2010,2010s,Texas 2023,1980s: 4; 1990s: 5; 2000s: 8; 2010s: 16; 2020s: 1
+AP,AP credit mandate,"Public institutions must award credit for qualifying AP scores, usually 3",37,8,28,South Carolina 1984; Kentucky 2002; Minnesota 2005,2017,2010s,Delaware 2024,1980s: 1; 2000s: 3; 2010s: 19; 2020s: 5
