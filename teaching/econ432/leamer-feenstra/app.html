@@ -13,6 +13,7 @@
 :root{
   --bg:#ECEFF3; --panel:#FFFFFF; --plot:#FBFCFD; --ink:#17202D; --muted:#5A6779; --grid:#E3E8EE; --rule:#C9D1DB;
   --m1:#0E7C75; --m2:#B0386B; --feas:#2D5DA6; --truth:#B98200;
+  --c1:#0E7C75; --c2:#B0386B; --c3:#2D5DA6; --c4:#B5651D; --c5:#6B4FA0; --c6:#4C7A1E; --pass:#1E7A46; --fail:#B0383B;
   --f-display:'Literata', Georgia, 'Times New Roman', serif;
   --f-body:'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --f-mono:'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
@@ -20,12 +21,12 @@
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --bg:#10141A; --panel:#171D25; --plot:#131920; --ink:#E3E8EE; --muted:#93A0B1; --grid:#232B35; --rule:#333D4A;
-    --m1:#3CC4B7; --m2:#EE70A2; --feas:#6E9DEA; --truth:#E9B83E; color-scheme:dark;
+    --m1:#3CC4B7; --m2:#EE70A2; --feas:#6E9DEA; --truth:#E9B83E; --c1:#3CC4B7; --c2:#EE70A2; --c3:#6E9DEA; --c4:#E8954A; --c5:#A68BE0; --c6:#8CC152; --pass:#4CC283; --fail:#F07B7E; color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
   --bg:#10141A; --panel:#171D25; --plot:#131920; --ink:#E3E8EE; --muted:#93A0B1; --grid:#232B35; --rule:#333D4A;
-  --m1:#3CC4B7; --m2:#EE70A2; --feas:#6E9DEA; --truth:#E9B83E; color-scheme:dark;
+  --m1:#3CC4B7; --m2:#EE70A2; --feas:#6E9DEA; --truth:#E9B83E; --c1:#3CC4B7; --c2:#EE70A2; --c3:#6E9DEA; --c4:#E8954A; --c5:#A68BE0; --c6:#8CC152; --pass:#4CC283; --fail:#F07B7E; color-scheme:dark;
 }
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5}
@@ -96,6 +97,40 @@ legend{font-weight:600;font-size:13px;padding:0;margin-bottom:2px;display:flex;a
 .eq{font-family:var(--f-mono);font-size:13px;background:var(--plot);border:1px solid var(--grid);border-radius:6px;padding:8px 10px;overflow-x:auto;white-space:nowrap}
 .cite{font-size:12px;color:var(--muted)}
 
+/* tabs */
+[hidden]{display:none!important}
+.tabs{display:flex;gap:4px;flex-wrap:wrap;border-bottom:1px solid var(--rule)}
+.tabs button{border:1px solid transparent;border-bottom:none;border-radius:6px 6px 0 0;background:transparent;padding:9px 14px;font-size:14px;color:var(--muted);margin-bottom:-1px;text-align:left}
+.tabs button[aria-selected="true"]{background:var(--panel);border-color:var(--rule);color:var(--ink);font-weight:600}
+.tabs button small{display:block;font-size:11px;font-weight:400;color:var(--muted);font-family:var(--f-mono)}
+.tabpanel{display:flex;flex-direction:column;gap:18px}
+.tab-lead{margin:0}
+.intro{display:flex;flex-direction:column;gap:8px;max-width:80ch}
+.intro p{margin:0}
+.cite-top{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.note-sm{font-size:12.5px;color:var(--muted);margin:0}
+.ctlrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px 22px;padding:14px 16px;align-items:end}
+.row.end{justify-content:flex-start;align-items:end}
+.tblpanel{padding:8px 12px}
+td.tx{font-family:var(--f-body);text-align:left;white-space:normal;color:var(--muted)}
+.mc{padding:14px;display:flex;flex-direction:column;gap:12px}
+.cv.wide{aspect-ratio:5/2}
+@media (max-width:700px){.cv.wide{aspect-ratio:4/3}}
+.sw.sq{width:9px;height:9px;border:none;background:currentColor}
+button:disabled{opacity:.5;cursor:progress}
+.tests{gap:14px}
+.tst{display:flex;flex-direction:column;gap:6px;padding:10px 12px;border:1px solid var(--grid);border-radius:6px;background:var(--plot)}
+.tst-head{display:flex;justify-content:space-between;align-items:center;font-size:13.5px}
+.tst-num{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.bar{position:relative;height:10px;border-radius:5px;background:var(--grid)}
+.bar i{position:absolute;left:0;top:0;bottom:0;border-radius:5px;background:var(--feas)}
+.bar s{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--ink)}
+.chip{font-family:var(--f-mono);font-size:11.5px;font-weight:500;padding:2px 10px;border-radius:999px;border:1px solid currentColor}
+.chip.pass{color:var(--pass)} .chip.fail{color:var(--fail)}
+.est{font-family:var(--f-mono);font-size:12.5px;padding:8px 10px;border:1px dashed var(--rule);border-radius:6px}
+.try h3{margin-bottom:4px}
+.try ul{margin:0;padding-left:18px;font-size:13.5px;display:flex;flex-direction:column;gap:4px}
+
 @media (max-width:900px){
   .plots,.controls,.notes{grid-template-columns:1fr}
   .transport{position:static}
@@ -108,8 +143,18 @@ legend{font-weight:600;font-size:13px;padding:0;margin-bottom:2px;display:flex;a
   <header>
     <div class="eyebrow">Econ 432 · Identification from shock variances</div>
     <h1>Is it a demand curve or a supply curve?</h1>
-    <p class="lead">Two markets share the same demand and supply slopes but differ in which curve gets hit hardest. In each market the (q, p) equilibria fill in, the direct and reverse regressions bracket a slope, and Leamer's hyperbola marks every (demand slope, supply slope) pair consistent with the data. Feenstra's step is to intersect the two hyperbolas inside the feasible quadrant.</p>
+    <p class="lead">Price and quantity data alone cannot tell you whether you are looking at a demand curve or a supply curve. The first tab builds up Leamer's bounds and Feenstra's identification. The next three show how Anson Soderbery's papers refine that estimator and test its assumptions.</p>
   </header>
+
+  <nav class="tabs" id="tabbar" role="tablist" aria-label="Sections">
+    <button role="tab" id="tab-leamer" aria-controls="p-leamer" aria-selected="true">Leamer &amp; Feenstra<small>1981 · 1994</small></button>
+    <button role="tab" id="tab-s2015" aria-controls="p-s2015" aria-selected="false" tabindex="-1">Small-sample bias<small>Soderbery 2015</small></button>
+    <button role="tab" id="tab-s2018" aria-controls="p-s2018" aria-selected="false" tabindex="-1">Heterogeneous supply<small>Soderbery 2018</small></button>
+    <button role="tab" id="tab-gs2024" aria-controls="p-gs2024" aria-selected="false" tabindex="-1">Testing the assumptions<small>Grant &amp; Soderbery 2024</small></button>
+  </nav>
+
+  <section id="p-leamer" class="tabpanel" role="tabpanel" aria-labelledby="tab-leamer">
+  <p class="lead tab-lead">Two markets share the same demand and supply slopes but differ in which curve gets hit hardest. In each market the (q, p) equilibria fill in, the direct and reverse regressions bracket a slope, and Leamer's hyperbola marks every (demand slope, supply slope) pair consistent with the data. Feenstra's step is to intersect the two hyperbolas inside the feasible quadrant.</p>
 
   <div class="panel transport" role="group" aria-label="Animation controls">
     <button id="play" class="primary">Pause</button>
@@ -202,6 +247,120 @@ legend{font-weight:600;font-size:13px;padding:0;margin-bottom:2px;display:flex;a
     </div>
   </section>
   <p class="cite">Leamer, E. (1981), "Is it a Demand Curve, or Is It a Supply Curve? Partial Identification through Inequality Constraints," <i>Review of Economics and Statistics</i> 63(3). Feenstra, R. (1994), "New Product Varieties and the Measurement of International Prices," <i>American Economic Review</i> 84(1).</p>
+  </section>
+
+  <section id="p-s2015" class="tabpanel" role="tabpanel" aria-labelledby="tab-s2015" hidden>
+    <div class="intro">
+      <p class="cite-top">Soderbery (2015), “Estimating import supply and demand elasticities: Analysis and implications,” <i>Journal of International Economics</i> 96.</p>
+      <p>Feenstra's estimator is 2SLS: regress price variances on share variances and price–share covariances, with exporter dummies as instruments. The dummies collapse each exporter's Leamer hyperbola into one point, and the second stage fits a line through those points. In short panels many hyperbolae are imprecise. 2SLS weights them too heavily, and its first step often lands outside the feasible region, where Broda and Weinstein's grid search takes over. Soderbery replaces 2SLS with LIML, which downweights imprecise hyperbolae, and replaces the grid with a constrained nonlinear LIML search.</p>
+      <p class="note-sm">The simulation follows the paper's Monte Carlo design: 55 exporters, σ = 3, ω = 0.5, shock variances drawn from U(0, 9), and data differenced against a reference exporter. It leaves out the paper's unbalanced panels and unit-value measurement error, so the size of the 2SLS bias here differs from the paper's. What carries over is that LIML stays closer to the truth in short panels.</p>
+    </div>
+    <div class="panel ctlrow">
+      <div class="ctl"><label for="s15V">Exporters</label><output id="s15VO"></output><input id="s15V" type="range" min="5" max="55" step="1" value="55"></div>
+      <div class="ctl"><label for="s15T">Periods per exporter T</label><output id="s15TO"></output><input id="s15T" type="range" min="5" max="45" step="1" value="10"></div>
+      <div class="ctl"><label for="s15sig">True σ</label><output id="s15sigO"></output><input id="s15sig" type="range" min="1.5" max="10" step="0.1" value="3"></div>
+      <div class="ctl"><label for="s15om">True ω</label><output id="s15omO"></output><input id="s15om" type="range" min="0.1" max="2" step="0.05" value="0.5"></div>
+      <div class="row end"><button id="s15new">New shock draws</button></div>
+    </div>
+    <div class="plots">
+      <section class="panel fig">
+        <div class="fig-head"><h2>One hyperbola per exporter</h2><p>feasible arcs only: σ &gt; 1, ω ≥ 0</p></div>
+        <div class="cv square"><canvas id="cv15a" aria-label="Leamer hyperbolae for each exporter with the estimates"></canvas></div>
+        <div class="legend"><span class="cm"><i class="sw"></i>exporter hyperbolae</span><span class="c2"><i class="sw sq"></i>Feenstra / Broda–Weinstein</span><span class="c1"><i class="sw dot"></i>Soderbery hybrid</span><span class="ct">★ true (σ, ω)</span></div>
+      </section>
+      <section class="panel fig">
+        <div class="fig-head"><h2>Each hyperbola as one point</h2><p>the estimator is a line through these points</p></div>
+        <div class="cv square"><canvas id="cv15b" aria-label="Each exporter's hyperbola mapped to a point, with 2SLS and LIML lines"></canvas></div>
+        <div class="legend"><span class="cm"><i class="sw dot"></i>exporter (size = 2SLS weight T·Cov²)</span><span class="c2"><i class="sw"></i>2SLS line</span><span class="c1"><i class="sw"></i>LIML line</span><span class="ct"><i class="sw dash"></i>true line</span></div>
+        <p class="note-sm">Divide Feenstra's regression by the price–share covariance and it becomes b<sub>r</sub> = θ<sub>1</sub>·(1/b) + θ<sub>2</sub>, where b is the OLS slope and b<sub>r</sub> the reverse-regression slope for one exporter, θ<sub>1</sub> = −d·s and θ<sub>2</sub> = d + s. 2SLS is weighted least squares through these points with weights T·Cov(x, y)², so exporters with a large covariance pull the line hardest.</p>
+      </section>
+    </div>
+    <div class="panel tblpanel"><div class="tbl"><table>
+      <thead><tr><th>Estimator</th><th>σ̂</th><th>ω̂</th><th>bias in σ̂</th><th>First step</th></tr></thead><tbody id="t15"></tbody></table></div></div>
+    <section class="panel mc">
+      <div class="fig-head"><h2>Monte Carlo</h2><p id="mc15status" aria-live="polite">Uses the current exporters, σ and ω.</p></div>
+      <div class="row"><button id="mc15run" class="primary">Run 200 replications at this T</button><button id="mc15sweep">Sweep T from 5 to 45</button></div>
+      <div class="cv wide"><canvas id="cv15mc" aria-label="Monte Carlo results"></canvas></div>
+      <div class="tbl"><table id="mc15sum"></table></div>
+    </section>
+  </section>
+
+  <section id="p-s2018" class="tabpanel" role="tabpanel" aria-labelledby="tab-s2018" hidden>
+    <div class="intro">
+      <p class="cite-top">Soderbery (2018), “Trade elasticities, heterogeneity, and optimal tariffs,” <i>Journal of International Economics</i> 114.</p>
+      <p>Feenstra needs every exporter to share one supply elasticity. If each exporter j has its own ω<sub>j</sub>, each exporter's hyperbola passes through a different point, and intersecting them across exporters recovers nothing meaningful. Soderbery adds a second view of the same trade flow: the exporter's side, how its sales are split across destinations. That gives each exporter a second hyperbola through the same (σ, ω<sub>j</sub>). All exporters to one importer face the same σ, so the crossings line up on one vertical line, and each exporter's ω<sub>j</sub> is read off where its own pair crosses.</p>
+      <p class="note-sm">Simplified: here the export-side hyperbola is a second Leamer market with the same σ and ω<sub>j</sub> but its own shock variances. In the paper the export-side equation also involves the reference destination's elasticities, and both equations are estimated together by constrained nonlinear SUR. Here σ̂ is chosen to minimize the distance between each exporter's two hyperbolae, summed over exporters, and ω̂<sub>j</sub> is read off at σ̂. In finite samples each ω̂<sub>j</sub> is noisy, much more so than σ̂, which pools all exporters. More periods, or the box that forces sample Cov(u, v) = 0, shows the population picture.</p>
+    </div>
+    <div class="panel ctlrow">
+      <div class="ctl"><label for="s18J">Exporters</label><output id="s18JO"></output><input id="s18J" type="range" min="2" max="6" step="1" value="4"></div>
+      <div class="ctl"><label for="s18T">Periods T</label><output id="s18TO"></output><input id="s18T" type="range" min="10" max="150" step="1" value="60"></div>
+      <div class="ctl"><label for="s18sig">True σ</label><output id="s18sigO"></output><input id="s18sig" type="range" min="1.5" max="8" step="0.1" value="4"></div>
+      <div class="ctl"><label for="s18om">Median true ω</label><output id="s18omO"></output><input id="s18om" type="range" min="0.1" max="1.5" step="0.05" value="0.5"></div>
+      <div class="ctl"><label for="s18sp">Spread of ω across exporters</label><output id="s18spO"></output><input id="s18sp" type="range" min="0" max="1.2" step="0.05" value="0.7"></div>
+      <div class="ctl"><label for="s18h">How differently shocks hit the two markets</label><output id="s18hO"></output><input id="s18h" type="range" min="0.1" max="2.5" step="0.05" value="1.5"></div>
+      <div class="checks"><label><input id="s18orth" type="checkbox"> Force sample Cov(u, v) = 0 (curves cross exactly at the truth)</label></div>
+      <div class="row end"><button id="s18new">New shock draws</button></div>
+    </div>
+    <div class="plots">
+      <section class="panel fig">
+        <div class="fig-head"><h2>Import-side and export-side hyperbolae</h2><p>one color per exporter</p></div>
+        <div class="cv square"><canvas id="cv18a" aria-label="Import and export hyperbolae for each exporter"></canvas></div>
+        <div class="legend"><span class="cm"><i class="sw"></i>import side</span><span class="cm"><i class="sw dash"></i>export side</span><span class="cm"><i class="sw dot"></i>estimated (σ̂, ω̂<sub>j</sub>)</span><span class="ct">★ true (σ, ω<sub>j</sub>)</span><span class="cm"><i class="sw sq"></i>pooled Feenstra</span></div>
+      </section>
+      <section class="panel fig">
+        <div class="fig-head"><h2>Exporter-specific ω</h2><p>estimated against true, with the pooled value</p></div>
+        <div class="cv square"><canvas id="cv18b" aria-label="Estimated and true supply elasticities by exporter"></canvas></div>
+        <div class="legend"><span class="ct">★ true ω<sub>j</sub></span><span class="cm"><i class="sw dot"></i>Soderbery (2018) ω̂<sub>j</sub></span><span class="cm"><i class="sw dash"></i>pooled Feenstra ω̂</span></div>
+        <p class="note-sm">Why it matters for policy: with one common ω the optimal tariff is that single inverse elasticity. With exporter-specific ω<sub>j</sub>, Soderbery shows the optimal tariff weights each exporter's terms-of-trade gain against its efficiency loss, so it depends on who the importer buys from.</p>
+      </section>
+    </div>
+    <div class="panel tblpanel"><div class="tbl"><table>
+      <thead><tr><th>Estimator</th><th>σ̂</th><th>ω̂ by exporter (A, B, …)</th><th>mean |ω̂ − ω|</th></tr></thead><tbody id="t18"></tbody></table></div></div>
+  </section>
+
+  <section id="p-gs2024" class="tabpanel" role="tabpanel" aria-labelledby="tab-gs2024" hidden>
+    <div class="intro">
+      <p class="cite-top">Grant and Soderbery (2024), “Heteroskedastic supply and demand estimation: Analysis and testing,” <i>Journal of International Economics</i> 150.</p>
+      <p>Feenstra's estimator is an IV regression with exporter dummies as instruments, so two standard IV diagnostics apply. The first-stage F-statistic asks whether the hyperbolae differ enough from each other to pin down a crossing. If every exporter has the same mix of supply and demand shocks, the hyperbolae pile on top of each other and the instruments are weak. The Sargan J-test asks whether the hyperbolae share a common crossing, as they must when supply and demand shocks are uncorrelated within each exporter.</p>
+      <p class="note-sm">σ = 2.5 and ω = 0.5, as in the paper's Monte Carlos. Shock variances are log-normal across exporters with the spread you set. An F pass means the Cragg–Donald F is at or above your cutoff (the paper uses the Stock–Yogo critical value for LIML). A J pass means p ≥ 0.20, the paper's 80% rule. The J here is the textbook Sargan statistic, and the estimator is Fuller LIML. The paper uses a heteroskedasticity-robust LIML.</p>
+    </div>
+    <div class="panel ctlrow">
+      <div class="ctl"><label for="sgV">Exporters</label><output id="sgVO"></output><input id="sgV" type="range" min="5" max="60" step="1" value="25"></div>
+      <div class="ctl"><label for="sgT">Periods T</label><output id="sgTO"></output><input id="sgT" type="range" min="8" max="40" step="1" value="20"></div>
+      <div class="ctl"><label for="sgh">Spread of shock variances across exporters</label><output id="sghO"></output><input id="sgh" type="range" min="0.05" max="2" step="0.05" value="0.75"></div>
+      <div class="ctl"><label for="sgc">Average corr(supply, demand shock)</label><output id="sgcO"></output><input id="sgc" type="range" min="-0.5" max="0.6" step="0.05" value="0"></div>
+      <div class="ctl"><label for="sgcs">Spread of that correlation across exporters</label><output id="sgcsO"></output><input id="sgcs" type="range" min="0" max="0.4" step="0.05" value="0"></div>
+      <div class="ctl"><label for="sgF">F cutoff</label><output id="sgFO"></output><input id="sgF" type="range" min="1" max="5" step="0.1" value="2"></div>
+      <div class="row end"><button id="sgnew">New shock draws</button></div>
+    </div>
+    <div class="plots">
+      <section class="panel fig">
+        <div class="fig-head"><h2>Exporter hyperbolae</h2><p>feasible arcs only</p></div>
+        <div class="cv square"><canvas id="cvga" aria-label="Exporter hyperbolae with the LIML estimate"></canvas></div>
+        <div class="legend"><span class="cm"><i class="sw"></i>exporter hyperbolae</span><span class="c1"><i class="sw dot"></i>LIML estimate</span><span class="ct">★ true (σ, ω)</span></div>
+      </section>
+      <section class="panel fig tests">
+        <div class="fig-head"><h2>Diagnostics for this draw</h2><p>what Grant and Soderbery check before trusting an estimate</p></div>
+        <div class="tst" id="gsF"></div>
+        <div class="tst" id="gsJ"></div>
+        <div id="gsEst" class="est"></div>
+        <div class="try">
+          <h3>Things to try</h3>
+          <ul>
+            <li>Drag the variance spread toward zero. The hyperbolae bunch together, F falls below the cutoff, and new draws scatter the estimate.</li>
+            <li>Raise the spread of the correlation across exporters. The hyperbolae stop sharing a crossing and J rejects.</li>
+            <li>Raise the average correlation with zero spread. σ̂ is biased, but J mostly passes: the test sees violations that differ across exporters, not a correlation they all share.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <section class="panel mc">
+      <div class="fig-head"><h2>Monte Carlo: does screening on the tests help?</h2><p id="mcgstatus" aria-live="polite">Uses the current settings.</p></div>
+      <div class="row"><button id="mcgrun" class="primary">Run 300 replications</button></div>
+      <div class="cv wide"><canvas id="cvgmc" aria-label="Distribution of estimates for draws that pass and fail the tests"></canvas></div>
+      <div class="tbl"><table id="mcgsum"></table></div>
+    </section>
+  </section>
 </div>
 
 <script>
@@ -522,7 +681,8 @@ function updateText(){
   if($('est').textContent!==est)$('est').textContent=est;
   $('scrub').value=Math.round(T/TOTAL*1000);
 }
-function render(){readColors();drawScatter();drawSeries();drawParam();updateText();}
+function render(){if($('p-leamer').hidden)return;readColors();drawScatter();drawSeries();drawParam();updateText();}
+window.addEventListener('lf-tab',e=>{if(e.detail==='leamer')render();else if(playing)pause();});
 
 /* ---------- playback ---------- */
 function setBtn(){$('play').textContent=playing?'Pause':(T>=TOTAL?'Play again':'Play')}
@@ -555,8 +715,468 @@ const mq=window.matchMedia('(prefers-color-scheme: dark)');mq.addEventListener&&
 new MutationObserver(render).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(render);
 const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if(reduce){T=TOTAL;render();setBtn();}else{render();setTimeout(play,500);}
+const startTab=(location.hash||'').slice(1);
+if(reduce||(startTab&&startTab!=='leamer')){T=TOTAL;render();setBtn();}else{render();setTimeout(()=>{if(!$('p-leamer').hidden)play();},500);}
 })();
+</script>
+<script>
+/* ===== Feenstra / Soderbery estimation engine =====
+   Notation: per variety v, period t: y = Δ^k ln p, x = Δ^k ln s.
+   Demand  y = d·x + u   with d = −1/(σ−1)   (u = ε̃)
+   Supply  y = s·x + δ   with s = ω/(1+ω)
+   Feenstra regression: Y = θ1·X1 + θ2·X2 + error, Y = y², X1 = x², X2 = x·y,
+   θ1 = −d·s = ρ/((σ−1)²(1−ρ)), θ2 = d + s = (2ρ−1)/((σ−1)(1−ρ)).            */
+const ENG = (function(){
+  function rng(seed){let a=seed>>>0;return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+  function gauss(r){let u=r()||1e-12,v=r();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)}
+  const toDS=(sig,om)=>[-1/(sig-1), om/(1+om)];
+  const fromDS=(d,s)=>[1-1/d, s/(1-s)];
+  const rhoOf=(sig,om)=>om*(sig-1)/(1+om*sig);
+  const omFromRho=(sig,rho)=>rho/(sig-1-rho*sig);
+  function thetaOf(sig,rho){return [rho/((sig-1)*(sig-1)*(1-rho)), (2*rho-1)/((sig-1)*(1-rho))]}
+
+  /* Simulate one variety: T periods. a = Var(ε̃), b = Var(δ̃), corr = within-variety corr(ε̃, δ̃) */
+  function simVariety(r,T,sig,om,a,b,corr=0){
+    const [d,s]=toDS(sig,om), k=(1+sig*om)/(1+om);
+    const x=new Float64Array(T), y=new Float64Array(T), sa=Math.sqrt(a), sb=Math.sqrt(b), c2=Math.sqrt(1-corr*corr);
+    for(let t=0;t<T;t++){const z1=gauss(r),z2=corr*z1+c2*gauss(r);const u=sa*z1, dt=sb*z2, del=dt*k;
+      x[t]=(u-del)/(s-d); y[t]=d*x[t]+u;}
+    return {x,y,T};
+  }
+  /* Moments of one variety: means of Y, X1, X2 and the 3x3 cross-product sum */
+  function varMoments(v){
+    const S=[[0,0,0],[0,0,0],[0,0,0]], m=[0,0,0];
+    for(let t=0;t<v.T;t++){const w=[v.y[t]*v.y[t], v.x[t]*v.x[t], v.x[t]*v.y[t]];
+      for(let i=0;i<3;i++){m[i]+=w[i];for(let j=0;j<3;j++)S[i][j]+=w[i]*w[j];}}
+    for(let i=0;i<3;i++)m[i]/=v.T;
+    return {S,m,T:v.T,Vpp:m[0],Vqq:m[1],Vpq:m[2]};
+  }
+  /* Stack: B = Σ w w' (total), P = Σ T m m' (between = X'P_Z X), A = B − P (within) */
+  function stack(list){
+    const B=[[0,0,0],[0,0,0],[0,0,0]],P=[[0,0,0],[0,0,0],[0,0,0]];let N=0;
+    for(const M of list){N+=M.T;for(let i=0;i<3;i++)for(let j=0;j<3;j++){B[i][j]+=M.S[i][j];P[i][j]+=M.T*M.m[i]*M.m[j];}}
+    const A=B.map((r,i)=>r.map((x,j)=>x-P[i][j]));
+    return {A,B,P,N,K:list.length};
+  }
+  const sub2=(M)=>[[M[1][1],M[1][2]],[M[2][1],M[2][2]]];
+  function solve2(M,b){const det=M[0][0]*M[1][1]-M[0][1]*M[1][0];return [(b[0]*M[1][1]-b[1]*M[0][1])/det,(M[0][0]*b[1]-M[1][0]*b[0])/det]}
+  /* k-class: θ = [X'(I−κM_Z)X]^{-1} X'(I−κM_Z)y ; κ=1 is 2SLS */
+  function kclass(St,kap){
+    const G=(i,j)=>St.B[i][j]-kap*St.A[i][j];
+    return solve2([[G(1,1),G(1,2)],[G(2,1),G(2,2)]],[G(1,0),G(2,0)]);
+  }
+  function cholesky3(A){const L=[[0,0,0],[0,0,0],[0,0,0]];for(let i=0;i<3;i++)for(let j=0;j<=i;j++){let s=A[i][j];for(let k=0;k<j;k++)s-=L[i][k]*L[j][k];if(i===j){if(s<=0)return null;L[i][i]=Math.sqrt(s);}else L[i][j]=s/L[j][j];}return L}
+  function jacobiMin(S){ // smallest eigenvalue of symmetric n×n
+    const n=S.length,a=S.map(r=>r.slice());
+    for(let sweep=0;sweep<50;sweep++){let off=0;for(let i=0;i<n;i++)for(let j=i+1;j<n;j++)off+=a[i][j]*a[i][j];if(off<1e-22)break;
+      for(let p=0;p<n;p++)for(let q=p+1;q<n;q++){if(Math.abs(a[p][q])<1e-300)continue;const th=(a[q][q]-a[p][p])/(2*a[p][q]);const t=Math.sign(th||1)/(Math.abs(th)+Math.sqrt(th*th+1));const c=1/Math.sqrt(t*t+1),s=t*c;
+        for(let k=0;k<n;k++){const akp=a[k][p],akq=a[k][q];a[k][p]=c*akp-s*akq;a[k][q]=s*akp+c*akq;}
+        for(let k=0;k<n;k++){const apk=a[p][k],aqk=a[q][k];a[p][k]=c*apk-s*aqk;a[q][k]=s*apk+c*aqk;}}}
+    let mn=Infinity;for(let i=0;i<n;i++)mn=Math.min(mn,a[i][i]);return mn;
+  }
+  function invL(L){const n=L.length,X=L.map(()=>Array(n).fill(0));for(let i=0;i<n;i++){X[i][i]=1/L[i][i];for(let j=0;j<i;j++){let s=0;for(let k=j;k<i;k++)s+=L[i][k]*X[k][j];X[i][j]=-s/L[i][i];}}return X}
+  function genMinEig(Bm,Am){ // min κ with Bm r = κ Am r (Am pos. def.)
+    const L=cholesky3(Am);if(!L)return NaN;const Li=invL(L);const n=3;
+    const T1=Li.map(r=>[0,1,2].map(j=>r.reduce((s,x,k)=>s+x*Bm[k][j],0)));
+    const C=T1.map(r=>[0,1,2].map(j=>r.reduce((s,x,k)=>s+x*Li[j][k],0)));
+    return jacobiMin(C);
+  }
+  function liml(St,fuller=1){
+    const kap=genMinEig(St.B,St.A);
+    return {theta:kclass(St,kap-fuller/(St.N-St.K)),kappa:kap};
+  }
+  /* θ → (σ, ω); feasible iff d<0 and 0≤s<1 */
+  function thetaToElas(th){
+    const [t1,t2]=th,disc=t2*t2+4*t1;
+    if(!(disc>=0))return {ok:false,why:'imaginary'};
+    const r1=(t2-Math.sqrt(disc))/2,r2=(t2+Math.sqrt(disc))/2;
+    if(!(t1>0))return {ok:false,why:'θ1 ≤ 0'};
+    const d=r1,s=r2; if(!(d<0&&s>=0&&s<1))return {ok:false,why:'ω < 0'};
+    const [sig,om]=fromDS(d,s);return {ok:true,sigma:sig,omega:om,d,s};
+  }
+  /* Objectives on (σ, ρ): 2SLS GMM = r'Pr ; LIML = r'Br / r'Ar, r = (1, −θ1, −θ2) */
+  const quad=(M,r)=>{let s=0;for(let i=0;i<3;i++)for(let j=0;j<3;j++)s+=r[i]*M[i][j]*r[j];return s};
+  function obj2SLS(St,sig,rho){const [a,b]=thetaOf(sig,rho);return quad(St.P,[1,-a,-b])}
+  function objLIML(St,sig,rho){const [a,b]=thetaOf(sig,rho),r=[1,-a,-b];return quad(St.B,r)/quad(St.A,r)}
+  /* Broda–Weinstein grid: σ ∈ [1.05, 55.05] step 0.13; ρ on 60 points of [0, (σ−1)/σ) */
+  function gridSearch(St,f,nr=60){
+    let best=Infinity,bs=NaN,br=NaN;
+    for(let sig=1.05;sig<=55.0501;sig+=0.13){const rmax=(sig-1)/sig;for(let i=0;i<nr;i++){const rho=rmax*i/nr;const v=f(St,sig,rho);if(v<best){best=v;bs=sig;br=rho;}}}
+    return {sigma:bs,rho:br,omega:omFromRho(bs,br)};
+  }
+  /* Constrained nonlinear: grid start, then pattern search over (ln(σ−1), logit(ρ/ρmax)) */
+  function nlSearch(St,f){
+    let g=gridSearch(St,f,40);
+    const enc=(sig,rho)=>{const rm=(sig-1)/sig,q=Math.min(Math.max(rho/rm,1e-6),1-1e-6);return [Math.log(sig-1),Math.log(q/(1-q))]};
+    const dec=([a,b])=>{const sig=1+Math.exp(a),rm=(sig-1)/sig;return [sig,rm/(1+Math.exp(-b))]};
+    let p=enc(g.sigma,g.rho),fv=f(St,...dec(p)),step=[.5,1];
+    for(let it=0;it<400&&(step[0]>1e-5||step[1]>1e-5);it++){let moved=false;
+      for(let k=0;k<2;k++)for(const sgn of [1,-1]){const q=p.slice();q[k]+=sgn*step[k];const v=f(St,...dec(q));if(v<fv){fv=v;p=q;moved=true;}}
+      if(!moved){step[0]/=2;step[1]/=2;}}
+    const [sig,rho]=dec(p);return {sigma:Math.min(sig,1e4),rho,omega:omFromRho(sig,rho)};
+  }
+  /* Full estimator pair from Soderbery (2015): F/BW = 2SLS → grid ; Hybrid = LIML → NL-LIML */
+  function estimate(St,{grid=true}={}){
+    const th2=kclass(St,1), e2=thetaToElas(th2);
+    const L=liml(St), eL=thetaToElas(L.theta);
+    const out={tsls:{theta:th2,...e2}, liml:{theta:L.theta,kappa:L.kappa,...eL}};
+    if(grid){
+      out.fbw = e2.ok?{sigma:e2.sigma,omega:e2.omega,constrained:false}:{...gridSearch(St,obj2SLS),constrained:true};
+      out.hyb = eL.ok?{sigma:eL.sigma,omega:eL.omega,constrained:false}:{...nlSearch(St,objLIML),constrained:true};
+    }
+    return out;
+  }
+  /* Cragg–Donald F: min eig of Σ_VV^{-1/2} X'P_Z X Σ_VV^{-1/2} / K, Σ_VV = X'M_Z X/(N−K) */
+  function craggDonald(St){
+    const S=sub2(St.A).map(r=>r.map(x=>x/(St.N-St.K))),Pm=sub2(St.P);
+    // generalized 2x2: det(P − λS) = 0
+    const a=S[0][0]*S[1][1]-S[0][1]*S[1][0], b=-(Pm[0][0]*S[1][1]+Pm[1][1]*S[0][0]-Pm[0][1]*S[1][0]-Pm[1][0]*S[0][1]), c=Pm[0][0]*Pm[1][1]-Pm[0][1]*Pm[1][0];
+    const disc=Math.max(0,b*b-4*a*c);return ((-b-Math.sqrt(disc))/(2*a))/St.K;
+  }
+  /* Sargan J at θ: N · r'Pr / r'Br ~ χ²(K−2) */
+  function sargan(St,theta){const r=[1,-theta[0],-theta[1]];const J=St.N*quad(St.P,r)/quad(St.B,r);const df=St.K-2;return {J,df,p:1-chi2cdf(J,df)}}
+  function gammaincP(a,x){ // regularized lower incomplete gamma
+    if(x<=0)return 0;const gln=lgamma(a);
+    if(x<a+1){let sum=1/a,del=sum,ap=a;for(let n=0;n<500;n++){ap++;del*=x/ap;sum+=del;if(Math.abs(del)<Math.abs(sum)*1e-14)break;}return sum*Math.exp(-x+a*Math.log(x)-gln);}
+    let b=x+1-a,c=1e300,d=1/b,h=d;for(let i=1;i<500;i++){const an=-i*(i-a);b+=2;d=an*d+b;if(Math.abs(d)<1e-300)d=1e-300;c=b+an/c;if(Math.abs(c)<1e-300)c=1e-300;d=1/d;const del=d*c;h*=del;if(Math.abs(del-1)<1e-14)break;}
+    return 1-Math.exp(-x+a*Math.log(x)-gln)*h;
+  }
+  function lgamma(z){const g=7,c=[0.99999999999980993,676.5203681218851,-1259.1392167224028,771.32342877765313,-176.61502916214059,12.507343278686905,-0.13857109526572012,9.9843695780195716e-6,1.5056327351493116e-7];
+    if(z<0.5)return Math.log(Math.PI/Math.abs(Math.sin(Math.PI*z)))-lgamma(1-z);z-=1;let x=c[0];for(let i=1;i<g+2;i++)x+=c[i]/(z+i);const t=z+g+.5;return .5*Math.log(2*Math.PI)+(z+.5)*Math.log(t)-t+Math.log(x)}
+  function chi2cdf(x,k){return gammaincP(k/2,x/2)}
+  /* Leamer hyperbola: s as a function of d (uncentered moments) */
+  const hyperS=(M,d)=>(M.Vpp-d*M.Vpq)/(M.Vpq-d*M.Vqq);
+  /* Points of the feasible arc in (σ, ω) space */
+  function feasibleArc(M,sigMax,omMax){
+    const pts=[];
+    const add=(d,s)=>{if(d<0&&s>=0&&s<1&&isFinite(s)){const [sg,om]=fromDS(d,s);if(sg<=sigMax*1.6&&om<=omMax*1.6)pts.push([sg,om]);}};
+    for(let i=0;i<=500;i++){const sg=1+1e-3+(sigMax*1.6-1)*Math.pow(i/500,1.6);const d=-1/(sg-1);add(d,hyperS(M,d));}
+    for(let i=0;i<=500;i++){const om=omMax*1.6*Math.pow(i/500,1.6);const s=om/(1+om);add(hyperS(M,s),s);} // symmetry: d = h(s)
+    pts.sort((a,b)=>a[0]-b[0]);return pts;
+  }
+  return {rng,gauss,toDS,fromDS,rhoOf,omFromRho,thetaOf,simVariety,varMoments,stack,kclass,liml,thetaToElas,estimate,gridSearch,nlSearch,obj2SLS,objLIML,craggDonald,sargan,chi2cdf,hyperS,feasibleArc,quad};
+})();
+
+
+</script>
+<script>
+(function(){
+const E=ENG, $=id=>document.getElementById(id);
+const MONO="'IBM Plex Mono', ui-monospace, Menlo, monospace", SANS="'IBM Plex Sans', system-ui, sans-serif";
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const fmt=(x,dp=2)=>!isFinite(x)?'—':(x<0?'−':'')+Math.abs(x).toFixed(dp);
+const pct=x=>!isFinite(x)?'—':(x<0?'−':x>0?'+':'')+Math.abs(100*x).toFixed(1)+'%';
+const med=a=>{if(!a.length)return NaN;const s=a.slice().sort((x,y)=>x-y),n=s.length;return n%2?s[n>>1]:(s[n/2-1]+s[n/2])/2};
+const mean=a=>a.length?a.reduce((s,x)=>s+x,0)/a.length:NaN;
+let C={};
+function readC(){const cs=getComputedStyle(document.documentElement);for(const n of ['ink','muted','grid','rule','m1','m2','feas','truth','plot','panel','c1','c2','c3','c4','c5','c6'])C[n]=cs.getPropertyValue('--'+n).trim();}
+const CAT=()=>[C.c1,C.c2,C.c3,C.c4,C.c5,C.c6];
+
+/* ---------- canvas helpers ---------- */
+function setup(cv){const dpr=window.devicePixelRatio||1,w=cv.clientWidth,h=cv.clientHeight;if(!w||!h)return null;const W=Math.round(w*dpr),H=Math.round(h*dpr);if(cv.width!==W||cv.height!==H){cv.width=W;cv.height=H;}const ctx=cv.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);return{ctx,w,h}}
+function frame(w,h,m,xr,yr){const pw=w-m.l-m.r,ph=h-m.t-m.b;return{m,pw,ph,xr,yr,w,h,X:x=>m.l+(x-xr[0])/(xr[1]-xr[0])*pw,Y:y=>m.t+(1-(y-yr[0])/(yr[1]-yr[0]))*ph}}
+function niceStep(raw){const e=Math.pow(10,Math.floor(Math.log10(raw)));const f=raw/e;return(f<1.5?1:f<3?2:f<7?5:10)*e}
+function ticks(r,st){const o=[];for(let v=Math.ceil(r[0]/st-1e-9)*st;v<=r[1]+1e-9;v+=st)o.push(Math.abs(v)<1e-9?0:v);return o}
+function tl(v,st){return fmt(v,st<1?(st<.1?2:1):0)}
+function line(ctx,a,b,c,d){ctx.beginPath();ctx.moveTo(a,b);ctx.lineTo(c,d);ctx.stroke()}
+function clip(ctx,F){ctx.save();ctx.beginPath();ctx.rect(F.m.l,F.m.t,F.pw,F.ph);ctx.clip()}
+function axes(ctx,F,o){
+  const {m,pw,ph}=F;ctx.fillStyle=C.plot;ctx.fillRect(m.l,m.t,pw,ph);
+  const xs=ticks(F.xr,o.xs||niceStep((F.xr[1]-F.xr[0])/6)),ys=ticks(F.yr,o.ys||niceStep((F.yr[1]-F.yr[0])/5));
+  const xst=o.xs||niceStep((F.xr[1]-F.xr[0])/6),yst=o.ys||niceStep((F.yr[1]-F.yr[0])/5);
+  ctx.strokeStyle=C.grid;ctx.lineWidth=1;
+  xs.forEach(x=>line(ctx,Math.round(F.X(x))+.5,m.t,Math.round(F.X(x))+.5,m.t+ph));
+  ys.forEach(y=>line(ctx,m.l,Math.round(F.Y(y))+.5,m.l+pw,Math.round(F.Y(y))+.5));
+  ctx.strokeStyle=C.rule;ctx.lineWidth=1.25;
+  if(F.xr[0]<0&&F.xr[1]>0)line(ctx,F.X(0),m.t,F.X(0),m.t+ph);
+  if(F.yr[0]<0&&F.yr[1]>0)line(ctx,m.l,F.Y(0),m.l+pw,F.Y(0));
+  ctx.lineWidth=1;ctx.strokeRect(m.l+.5,m.t+.5,pw-1,ph-1);
+  ctx.fillStyle=C.muted;ctx.font=`10.5px ${MONO}`;ctx.textAlign='center';ctx.textBaseline='top';
+  xs.forEach(x=>ctx.fillText(o.xfmt?o.xfmt(x):tl(x,xst),F.X(x),m.t+ph+5));
+  ctx.textAlign='right';ctx.textBaseline='middle';ys.forEach(y=>ctx.fillText(o.yfmt?o.yfmt(y):tl(y,yst),m.l-6,F.Y(y)));
+  ctx.fillStyle=C.ink;ctx.font=`12px ${SANS}`;ctx.textAlign='center';ctx.textBaseline='bottom';if(o.xl)ctx.fillText(o.xl,m.l+pw/2,F.h-2);
+  if(o.yl){ctx.save();ctx.translate(11,m.t+ph/2);ctx.rotate(-Math.PI/2);ctx.textBaseline='middle';ctx.fillText(o.yl,0,0);ctx.restore();}
+}
+function star(ctx,x,y,r){ctx.beginPath();for(let i=0;i<10;i++){const a=-Math.PI/2+i*Math.PI/5,rr=i%2?r*.45:r;ctx.lineTo(x+rr*Math.cos(a),y+rr*Math.sin(a));}ctx.closePath()}
+function labelBox(ctx,text,x,y,align,color){
+  ctx.font=`11px ${MONO}`;const w=ctx.measureText(text).width+8,h=16;
+  const bx=align==='right'?x-w:align==='center'?x-w/2:x;
+  ctx.save();ctx.globalAlpha*=.88;ctx.fillStyle=C.panel;ctx.fillRect(bx,y-h/2,w,h);ctx.restore();
+  ctx.fillStyle=color;ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillText(text,bx+4,y+.5);
+}
+function drawArc(ctx,F,M,color,alpha,width,dash){
+  const pts=E.feasibleArc(M,F.xr[1],F.yr[1]);if(pts.length<2)return;
+  ctx.save();ctx.strokeStyle=color;ctx.globalAlpha=alpha;ctx.lineWidth=width;if(dash)ctx.setLineDash(dash);
+  ctx.beginPath();pts.forEach(([a,b],i)=>i?ctx.lineTo(F.X(a),F.Y(b)):ctx.moveTo(F.X(a),F.Y(b)));ctx.stroke();ctx.restore();
+}
+/* marker that sticks to the plot edge (with a value label) when the point is off-scale */
+function marker(ctx,F,sg,om,kind,color,label,side){
+  if(!isFinite(sg)||!isFinite(om))return;
+  const off=sg>F.xr[1]||om>F.yr[1];
+  const x=F.X(Math.min(sg,F.xr[1]))-(sg>F.xr[1]?8:0), y=F.Y(Math.min(om,F.yr[1]))+(om>F.yr[1]?8:0);
+  ctx.save();ctx.fillStyle=color;ctx.strokeStyle=C.panel;ctx.lineWidth=2;
+  if(kind==='sq'){ctx.beginPath();ctx.rect(x-6,y-6,12,12);ctx.fill();ctx.stroke();}
+  else if(kind==='circ'){ctx.beginPath();ctx.arc(x,y,6.5,0,7);ctx.fill();ctx.stroke();}
+  else if(kind==='ring'){ctx.strokeStyle=color;ctx.lineWidth=2;ctx.beginPath();ctx.arc(x,y,6,0,7);ctx.stroke();}
+  else if(kind==='x'){ctx.strokeStyle=color;ctx.lineWidth=1.6;line(ctx,x-4,y-4,x+4,y+4);line(ctx,x-4,y+4,x+4,y-4);}
+  ctx.restore();
+  if(label){const t=off?`${label} (σ ${fmt(sg,1)}, ω ${fmt(om,2)}) →`:label;const right=side==='left'||x>F.m.l+F.pw-150;labelBox(ctx,t,right?x-11:x+11,y+(side==='below'?16:side==='above'?-16:0),right?'right':'left',color);}
+}
+function truthStar(ctx,F,sg,om,r=8){ctx.save();ctx.fillStyle=C.truth;ctx.strokeStyle=C.panel;ctx.lineWidth=1.5;star(ctx,F.X(sg),F.Y(om),r);ctx.fill();ctx.stroke();ctx.restore();}
+function elasAxes(ctx,F){axes(ctx,F,{xl:'import demand elasticity σ',yl:'inverse export supply elasticity ω'});}
+const plotM={l:50,r:14,t:12,b:38};
+
+/* ---------- data generation ---------- */
+function refDiff(raw){const k=raw[raw.length-1],T=k.T;return raw.slice(0,-1).map(v=>{const x=new Float64Array(T),y=new Float64Array(T);for(let t=0;t<T;t++){x[t]=v.x[t]-k.x[t];y[t]=v.y[t]-k.y[t];}return{x,y,T}})}
+function simGood(seed,V,T,sig,om,varDraw,corrDraw,reference){
+  const r=E.rng(seed),raw=[];
+  for(let v=0;v<V+(reference?1:0);v++){const [a,b]=varDraw(r);raw.push(E.simVariety(r,T,sig,om,a,b,corrDraw?corrDraw(r):0));}
+  const series=reference?refDiff(raw):raw;
+  const moms=series.map(E.varMoments);return{moms,St:E.stack(moms)};
+}
+function hybridLIML(St){const L=E.liml(St),e=E.thetaToElas(L.theta);if(e.ok)return{sigma:e.sigma,omega:e.omega,constrained:false,theta:L.theta};const n=E.nlSearch(St,E.objLIML);return{sigma:n.sigma,omega:n.omega,constrained:true,theta:L.theta}}
+const later=f=>new Promise(res=>setTimeout(()=>res(f()),0));
+
+/* ============================== 2015 ============================== */
+const S15={V:55,T:10,sig:3,om:.5,seed:326};let R15=null,MC15=null;
+function compute15(){
+  const g=simGood(S15.seed,S15.V,S15.T,S15.sig,S15.om,r=>[9*r(),9*r()],null,true);
+  R15={...g,est:E.estimate(g.St),F:E.craggDonald(g.St)};
+}
+function draw15(){
+  if(!R15)return;
+  // A: hyperbolae
+  let o=setup($('cv15a'));if(o){const {ctx,w,h}=o;
+    const F=frame(w,h,plotM,[1,Math.max(8,S15.sig*2.6)],[0,Math.max(2,S15.om*4)]);elasAxes(ctx,F);clip(ctx,F);
+    for(const M of R15.moms)drawArc(ctx,F,M,C.muted,.32,1.2);
+    ctx.restore();
+    const e=R15.est;truthStar(ctx,F,S15.sig,S15.om);
+    marker(ctx,F,e.fbw.sigma,e.fbw.omega,'sq',C.m2,e.fbw.constrained?'2SLS/GRID':'2SLS (F/BW)','above');
+    marker(ctx,F,e.hyb.sigma,e.hyb.omega,'circ',C.m1,e.hyb.constrained?'LIML/NL':'LIML (hybrid)','below');
+  }
+  // B: hyperbola as a point
+  o=setup($('cv15b'));if(o){const {ctx,w,h}=o;
+    const pts=R15.moms.map(M=>({x:M.Vqq/M.Vpq,y:M.Vpp/M.Vpq,w:M.T*M.Vpq*M.Vpq}));
+    const xs=pts.map(p=>p.x).sort((a,b)=>a-b),ys=pts.map(p=>p.y).sort((a,b)=>a-b),q=(a,f)=>a[Math.floor(f*(a.length-1))];
+    let xr=[q(xs,.08),q(xs,.92)],yr=[q(ys,.08),q(ys,.92)];
+    const [d0,s0]=E.toDS(S15.sig,S15.om);xr=[Math.min(xr[0],-0.5),Math.max(xr[1],0.5)];
+    const px=(xr[1]-xr[0])*.12,py=(yr[1]-yr[0])*.12;xr=[xr[0]-px,xr[1]+px];yr=[Math.min(yr[0]-py,-0.5),Math.max(yr[1]+py,0.5)];
+    const F=frame(w,h,plotM,xr,yr);
+    axes(ctx,F,{xl:'1/b = Var(x) / Cov(x,y)',yl:'b_r = Var(y) / Cov(x,y)'});clip(ctx,F);
+    const wmax=Math.max(...pts.map(p=>p.w));
+    ctx.fillStyle=C.muted;for(const p of pts){ctx.globalAlpha=.55;ctx.beginPath();ctx.arc(F.X(p.x),F.Y(p.y),2+9*Math.sqrt(p.w/wmax),0,7);ctx.fill();}
+    ctx.globalAlpha=1;
+    const L=(th,col,dash,wd)=>{ctx.strokeStyle=col;ctx.lineWidth=wd;ctx.setLineDash(dash||[]);line(ctx,F.X(xr[0]),F.Y(th[0]*xr[0]+th[1]),F.X(xr[1]),F.Y(th[0]*xr[1]+th[1]));ctx.setLineDash([]);};
+    L(E.thetaOf(S15.sig,E.rhoOf(S15.sig,S15.om)),C.truth,[6,4],2);
+    L(R15.est.tsls.theta,C.m2,null,2.2);L(R15.est.liml.theta,C.m1,null,2.2);
+    ctx.restore();
+  }
+  // readout
+  const e=R15.est,row=(nm,col,a,b,step)=>`<tr><td class="mk" style="color:var(--${col})">${nm}</td><td>${fmt(a)}</td><td>${fmt(b)}</td><td>${pct((a-S15.sig)/S15.sig)}</td><td class="tx">${step}</td></tr>`;
+  $('t15').innerHTML=row('Feenstra / Broda–Weinstein','m2',e.fbw.sigma,e.fbw.omega,e.fbw.constrained?`2SLS infeasible (${e.tsls.why}) → grid search`:'2SLS feasible')+
+    row('Soderbery hybrid','m1',e.hyb.sigma,e.hyb.omega,e.hyb.constrained?`LIML infeasible (${e.liml.why}) → nonlinear LIML`:'LIML feasible')+
+    `<tr><td class="mk" style="color:var(--truth)">True values</td><td>${fmt(S15.sig)}</td><td>${fmt(S15.om)}</td><td></td><td class="tx">first-stage F = ${fmt(R15.F)}</td></tr>`;
+  drawMC15();
+}
+async function runMC15(sweep){
+  const btns=[$('mc15run'),$('mc15sweep')];btns.forEach(b=>b.disabled=true);
+  const Ts=sweep?[5,10,15,20,25,30,35,40,45]:[S15.T],reps=200,res=[];
+  for(const T of Ts){const fb=[],hb=[];let cf=0,ch=0;
+    for(let k=0;k<reps;k+=20){await later(()=>{for(let j=k;j<k+20;j++){const g=simGood(9000+j*31+T,S15.V,T,S15.sig,S15.om,r=>[9*r(),9*r()],null,true);const e=E.estimate(g.St);fb.push(Math.min(e.fbw.sigma,55.05));hb.push(Math.min(e.hyb.sigma,55.05));cf+=e.fbw.constrained;ch+=e.hyb.constrained;}});
+      $('mc15status').textContent=`Running: T = ${T}, ${Math.min(k+20,reps)} of ${reps} replications`;}
+    res.push({T,fb,hb,cf:cf/reps,ch:ch/reps});}
+  MC15={sweep,res,sig:S15.sig,V:S15.V};btns.forEach(b=>b.disabled=false);
+  const r=res[res.length-1];
+  $('mc15status').textContent=sweep?`Done: ${reps} replications at each T, ${S15.V} exporters.`:`Done: ${reps} replications at T = ${r.T}, ${S15.V} exporters.`;
+  drawMC15();
+}
+function drawMC15(){
+  const o=setup($('cv15mc'));if(!o)return;const {ctx,w,h}=o;
+  if(!MC15){ctx.fillStyle=C.muted;ctx.font=`13px ${SANS}`;ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('Run the Monte Carlo to fill this chart.',w/2,h/2);$('mc15sum').innerHTML='';return;}
+  const sig=MC15.sig;
+  if(MC15.sweep){
+    const R=MC15.res,ser=[['Feenstra / Broda–Weinstein',C.m2,R.map(r=>mean(r.fb)/sig-1)],['Soderbery hybrid',C.m1,R.map(r=>mean(r.hb)/sig-1)]];
+    const all=ser.flatMap(s=>s[2]);let lo=Math.min(0,...all),hi=Math.max(0,...all);const pad=(hi-lo)*.15||.05;
+    const F=frame(w,h,{l:58,r:150,t:14,b:38},[5,45],[lo-pad,hi+pad]);
+    axes(ctx,F,{xs:5,xl:'periods per exporter T',yl:'mean bias of σ̂',yfmt:v=>(v>0?'+':'')+Math.round(v*100)+'%'});
+    ctx.strokeStyle=C.ink;ctx.lineWidth=1.2;line(ctx,F.m.l,F.Y(0),F.m.l+F.pw,F.Y(0));
+    for(const [nm,col,v] of ser){ctx.strokeStyle=col;ctx.lineWidth=2.4;ctx.beginPath();R.forEach((r,i)=>i?ctx.lineTo(F.X(r.T),F.Y(v[i])):ctx.moveTo(F.X(r.T),F.Y(v[i])));ctx.stroke();
+      ctx.fillStyle=col;R.forEach((r,i)=>{ctx.beginPath();ctx.arc(F.X(r.T),F.Y(v[i]),3,0,7);ctx.fill();});
+      ctx.font=`600 11.5px ${SANS}`;ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillText(nm.split(' ')[0]==='Feenstra'?'F/BW (2SLS)':'Hybrid (LIML)',F.X(45)+8,F.Y(v[v.length-1]));}
+    $('mc15sum').innerHTML='<tr><th>T</th>'+R.map(r=>`<th>${r.T}</th>`).join('')+'</tr>'+
+      `<tr><td class="mk" style="color:var(--m2)">F/BW bias</td>${R.map(r=>`<td>${pct(mean(r.fb)/sig-1)}</td>`).join('')}</tr>`+
+      `<tr><td class="mk" style="color:var(--m1)">Hybrid bias</td>${R.map(r=>`<td>${pct(mean(r.hb)/sig-1)}</td>`).join('')}</tr>`+
+      `<tr><td class="mk">F/BW constrained</td>${R.map(r=>`<td>${Math.round(r.cf*100)}%</td>`).join('')}</tr>`+
+      `<tr><td class="mk">Hybrid constrained</td>${R.map(r=>`<td>${Math.round(r.ch*100)}%</td>`).join('')}</tr>`;
+  }else{
+    const r=MC15.res[0],all=r.fb.concat(r.hb).sort((a,b)=>a-b);
+    const xmax=Math.max(sig*2,all[Math.floor(all.length*.97)]),xmin=1,nb=40,bw=(xmax-xmin)/nb;
+    const hist=a=>{const c=Array(nb).fill(0);a.forEach(x=>{const i=Math.min(nb-1,Math.floor((Math.min(x,xmax-1e-9)-xmin)/bw));if(i>=0)c[i]++;});return c};
+    const H=[[r.fb,C.m2,'F/BW (2SLS → grid)'],[r.hb,C.m1,'Hybrid (LIML → NL)']].map(([a,c,n])=>[hist(a),c,n,a]);
+    const cmax=Math.max(...H.flatMap(x=>x[0]));
+    const F=frame(w,h,{l:24,r:14,t:10,b:38},[xmin,xmax],[0,1]);
+    axes(ctx,F,{xl:`σ̂ across ${r.fb.length} replications (true σ = ${fmt(sig,1)}; last bin includes σ̂ ≥ ${fmt(xmax,1)})`,yfmt:()=>''});
+    const rowH=F.ph/2;
+    H.forEach(([c,col,nm],k)=>{const base=F.m.t+(k+1)*rowH-4;ctx.fillStyle=col;ctx.globalAlpha=.8;
+      c.forEach((n,i)=>{const bh=(n/cmax)*(rowH-26);ctx.fillRect(F.X(xmin+i*bw)+1,base-bh,F.X(xmin+(i+1)*bw)-F.X(xmin+i*bw)-2,bh);});
+      ctx.globalAlpha=1;ctx.font=`600 11.5px ${SANS}`;ctx.textAlign='right';ctx.textBaseline='top';ctx.fillText(nm,F.m.l+F.pw-6,F.m.t+k*rowH+6);});
+    ctx.strokeStyle=C.truth;ctx.lineWidth=2;ctx.setLineDash([5,3]);line(ctx,F.X(sig),F.m.t,F.X(sig),F.m.t+F.ph);ctx.setLineDash([]);
+    $('mc15sum').innerHTML=`<tr><th></th><th>mean σ̂</th><th>mean bias</th><th>median σ̂</th><th>constrained step used</th></tr>`+
+      `<tr><td class="mk" style="color:var(--m2)">F/BW</td><td>${fmt(mean(r.fb))}</td><td>${pct(mean(r.fb)/sig-1)}</td><td>${fmt(med(r.fb))}</td><td>${Math.round(r.cf*100)}%</td></tr>`+
+      `<tr><td class="mk" style="color:var(--m1)">Hybrid</td><td>${fmt(mean(r.hb))}</td><td>${pct(mean(r.hb)/sig-1)}</td><td>${fmt(med(r.hb))}</td><td>${Math.round(r.ch*100)}%</td></tr>`;
+  }
+}
+
+/* ============================== 2018 ============================== */
+const S18={J:4,T:60,sig:4,omMed:.5,omSpread:.7,h:1.5,orth:false,seed:2};let R18=null;
+const LETTERS='ABCDEF';
+function simSeries(zu,zv,T,sig,om,a,b,orth){
+  let u=Array.from(zu.slice(0,T)),v=Array.from(zv.slice(0,T));
+  if(orth){const dot=(p,q)=>p.reduce((s,x,i)=>s+x*q[i],0);const c=dot(u,v)/dot(u,u);v=v.map((x,i)=>x-c*u[i]);const su=Math.sqrt(dot(u,u)/T),sv=Math.sqrt(dot(v,v)/T);u=u.map(x=>x/su);v=v.map(x=>x/sv);}
+  const [d,s]=E.toDS(sig,om),k=(1+sig*om)/(1+om),x=new Float64Array(T),y=new Float64Array(T);
+  for(let t=0;t<T;t++){const uu=Math.sqrt(a)*u[t],del=Math.sqrt(b)*v[t]*k;x[t]=(uu-del)/(s-d);y[t]=d*x[t]+uu;}
+  return{x,y,T};
+}
+function jointEstimate(pairs){
+  const Q=d=>{let q=0;const s=[];for(const pr of pairs){let num=0,den=0;for(const M of pr){const w=1/(M.Vpp*M.Vpp),a=M.Vpp-d*M.Vpq,c=M.Vpq-d*M.Vqq;num+=w*a*c;den+=w*c*c;}const sj=clamp(num/den,0,.995);s.push(sj);for(const M of pr){const w=1/(M.Vpp*M.Vpp),g=(M.Vpp-d*M.Vpq)-sj*(M.Vpq-d*M.Vqq);q+=w*g*g;}}return{q,s}};
+  const sg=i=>1+Math.exp(Math.log(.02)+i/800*(Math.log(80)-Math.log(.02)));
+  let bi=0,bq=Infinity;for(let i=0;i<=800;i++){const v=Q(-1/(sg(i)-1)).q;if(v<bq){bq=v;bi=i;}}
+  let lo=sg(Math.max(0,bi-1)),hi=sg(Math.min(800,bi+1));for(let k=0;k<60;k++){const m1=lo+(hi-lo)/3,m2=hi-(hi-lo)/3;if(Q(-1/(m1-1)).q<Q(-1/(m2-1)).q)hi=m2;else lo=m1;}
+  const sig=(lo+hi)/2,r=Q(-1/(sig-1));return{sigma:sig,omegas:r.s.map(s=>s/(1-s))};
+}
+function pairCross(A,B){ // Feenstra two-market intersection with uncentered moments
+  const a1=A.Vpq,b1=-A.Vqq,c1=A.Vpp,a2=B.Vpq,b2=-B.Vqq,c2=B.Vpp,det=a1*b2-a2*b1;if(!det)return null;
+  const x=(c1*b2-c2*b1)/det,y=(a1*c2-a2*c1)/det,disc=x*x-4*y;if(disc<0||y>=0)return null;
+  const d=(x-Math.sqrt(disc))/2,s=(x+Math.sqrt(disc))/2;if(!(s>=0&&s<1))return null;const [sg,om]=E.fromDS(d,s);return{sigma:sg,omega:om};
+}
+function compute18(){
+  const r=E.rng(S18.seed),J=S18.J,Tm=150;
+  const oms=Array.from({length:J},(_,j)=>S18.omMed*Math.exp(S18.omSpread*(J===1?0:-1+2*j/(J-1))));
+  const ex=[];
+  for(let j=0;j<J;j++){const mk=[];for(let m=0;m<2;m++){const zu=new Float64Array(Tm),zv=new Float64Array(Tm);for(let t=0;t<Tm;t++){zu[t]=E.gauss(r);zv[t]=E.gauss(r);}const g1=E.gauss(r),g2=E.gauss(r);
+      const tilt=m===0?.7:-.7;const ser=simSeries(zu,zv,S18.T,S18.sig,oms[j],Math.exp(S18.h*(g1+tilt)),Math.exp(S18.h*(g2-tilt)),S18.orth);mk.push(E.varMoments(ser));}
+    ex.push({om:oms[j],imp:mk[0],exp:mk[1],cross:pairCross(mk[0],mk[1])});}
+  const joint=jointEstimate(ex.map(e=>[e.imp,e.exp]));
+  const pooled=hybridLIML(E.stack(ex.map(e=>e.imp)));
+  R18={ex,joint,pooled};
+}
+function draw18(){
+  if(!R18)return;const cat=CAT(),{ex,joint,pooled}=R18;
+  const omMax=Math.max(...ex.map(e=>e.om));
+  let o=setup($('cv18a'));if(o){const {ctx,w,h}=o;
+    const F=frame(w,h,plotM,[1,Math.max(8,S18.sig*2.2)],[0,Math.max(1.5,omMax*1.8)]);elasAxes(ctx,F);clip(ctx,F);
+    ex.forEach((e,j)=>{drawArc(ctx,F,e.imp,cat[j],.95,2);drawArc(ctx,F,e.exp,cat[j],.95,2,[6,4]);});
+    ctx.strokeStyle=C.ink;ctx.lineWidth=1.2;ctx.setLineDash([3,4]);line(ctx,F.X(joint.sigma),F.m.t,F.X(joint.sigma),F.m.t+F.ph);ctx.setLineDash([]);
+    ctx.restore();
+    labelBox(ctx,`σ̂ = ${fmt(joint.sigma)} (shared)`,F.X(joint.sigma)+6,F.m.t+12,'left',C.ink);
+    ex.forEach((e,j)=>{truthStar(ctx,F,S18.sig,e.om,7);});
+    ex.forEach((e,j)=>{marker(ctx,F,joint.sigma,joint.omegas[j],'circ',cat[j]);});
+    marker(ctx,F,pooled.sigma,pooled.omega,'sq',C.ink,'pooled Feenstra (one ω)','above');
+  }
+  o=setup($('cv18b'));if(o){const {ctx,w,h}=o;const J=ex.length;
+    const vals=ex.flatMap((e,j)=>[e.om,joint.omegas[j]]).concat([pooled.omega]).filter(isFinite);
+    const F=frame(w,h,{l:84,r:16,t:14,b:38},[0,Math.max(...vals)*1.15+.05],[0,J]);
+    axes(ctx,F,{xl:'inverse export supply elasticity ω',yfmt:()=>'' ,ys:1});
+    ex.forEach((e,j)=>{const y=F.Y(J-j-.5);ctx.fillStyle=cat[j];ctx.font=`600 12px ${SANS}`;ctx.textAlign='right';ctx.textBaseline='middle';ctx.fillText(`Exporter ${LETTERS[j]}`,F.m.l-8,y);
+      ctx.strokeStyle=C.rule;ctx.lineWidth=1;line(ctx,F.X(e.om),y,F.X(joint.omegas[j]),y);
+      ctx.fillStyle=C.truth;star(ctx,F.X(e.om),y,8);ctx.fill();
+      ctx.fillStyle=cat[j];ctx.strokeStyle=C.panel;ctx.lineWidth=2;ctx.beginPath();ctx.arc(F.X(clamp(joint.omegas[j],0,F.xr[1])),y,6.5,0,7);ctx.fill();ctx.stroke();});
+    if(isFinite(pooled.omega)){ctx.strokeStyle=C.ink;ctx.lineWidth=2;ctx.setLineDash([5,4]);line(ctx,F.X(pooled.omega),F.m.t,F.X(pooled.omega),F.m.t+F.ph);ctx.setLineDash([]);
+      labelBox(ctx,`pooled ω̂ = ${fmt(pooled.omega)}`,F.X(pooled.omega)+6,F.m.t+F.ph-12,F.X(pooled.omega)>F.m.l+F.pw-130?'right':'left',C.ink);}
+  }
+  const errJ=mean(ex.map((e,j)=>Math.abs(joint.omegas[j]-e.om))),errP=mean(ex.map(e=>Math.abs(pooled.omega-e.om)));
+  $('t18').innerHTML=`<tr><td class="mk">Soderbery (2018), joint</td><td>${fmt(joint.sigma)}</td><td>${ex.map((e,j)=>fmt(joint.omegas[j])).join(', ')}</td><td>${fmt(errJ)}</td></tr>`+
+    `<tr><td class="mk">Feenstra, pooled (one ω)</td><td>${fmt(pooled.sigma)}</td><td>${fmt(pooled.omega)} for all</td><td>${fmt(errP)}</td></tr>`+
+    `<tr><td class="mk" style="color:var(--truth)">True values</td><td>${fmt(S18.sig)}</td><td>${ex.map(e=>fmt(e.om)).join(', ')}</td><td></td></tr>`;
+}
+
+/* ============================== Grant & Soderbery 2024 ============================== */
+const SG={V:25,T:20,h:.75,c:0,cs:0,Fcut:2,seed:303,sig:2.5,om:.5};let RG=null,MCG=null;
+const gsVar=h=>r=>[Math.exp(h*E.gauss(r)),Math.exp(h*E.gauss(r))];
+const gsCorr=(c,cs)=>r=>clamp(c+cs*E.gauss(r),-.9,.9);
+function computeG(){
+  const g=simGood(SG.seed,SG.V,SG.T,SG.sig,SG.om,gsVar(SG.h),gsCorr(SG.c,SG.cs),false);
+  const hy=hybridLIML(g.St),F=E.craggDonald(g.St),J=E.sargan(g.St,hy.theta);
+  RG={...g,hy,F,J,passF:F>=SG.Fcut,passJ:J.p>=.2};
+}
+function drawG(){
+  if(!RG)return;
+  const o=setup($('cvga'));if(o){const {ctx,w,h}=o;
+    const F=frame(w,h,plotM,[1,7],[0,2]);elasAxes(ctx,F);clip(ctx,F);
+    for(const M of RG.moms)drawArc(ctx,F,M,C.muted,.4,1.3);ctx.restore();
+    truthStar(ctx,F,SG.sig,SG.om);marker(ctx,F,RG.hy.sigma,RG.hy.omega,'circ',C.m1,RG.hy.constrained?'LIML/NL':'LIML','below');
+  }
+  const chip=(p)=>`<span class="chip ${p?'pass':'fail'}">${p?'Pass':'Fail'}</span>`;
+  const fmax=Math.max(8,RG.F*1.15,SG.Fcut*1.5);
+  $('gsF').innerHTML=`<div class="tst-head"><b>Instrument strength</b>${chip(RG.passF)}</div>
+    <div class="bar"><i style="width:${clamp(RG.F/fmax*100,0,100)}%"></i><s style="left:${SG.Fcut/fmax*100}%"></s></div>
+    <div class="tst-num">Cragg–Donald F = ${fmt(RG.F)} · cutoff ${fmt(SG.Fcut,1)}</div>`;
+  $('gsJ').innerHTML=`<div class="tst-head"><b>Common crossing (J-test)</b>${chip(RG.passJ)}</div>
+    <div class="bar"><i style="width:${clamp(RG.J.p*100,0,100)}%"></i><s style="left:20%"></s></div>
+    <div class="tst-num">Sargan J = ${fmt(RG.J.J,1)}, df ${RG.J.df}, p = ${fmt(RG.J.p,3)} · pass if p ≥ 0.20</div>`;
+  $('gsEst').innerHTML=`LIML estimate: σ̂ = ${fmt(RG.hy.sigma)}, ω̂ = ${fmt(RG.hy.omega)} · true σ = ${fmt(SG.sig,1)}, ω = ${fmt(SG.om,1)} · ${RG.passF&&RG.passJ?'passes both tests':'fails at least one test'}`;
+  drawMCG();
+}
+async function runMCG(){
+  const b=$('mcgrun');b.disabled=true;const reps=300,out=[];
+  for(let k=0;k<reps;k+=25){await later(()=>{for(let j=k;j<k+25;j++){const g=simGood(50000+j*17,SG.V,SG.T,SG.sig,SG.om,gsVar(SG.h),gsCorr(SG.c,SG.cs),false);const hy=hybridLIML(g.St);const F=E.craggDonald(g.St),J=E.sargan(g.St,hy.theta);out.push({s:Math.min(hy.sigma,55),pF:F>=SG.Fcut,pJ:J.p>=.2});}});
+    $('mcgstatus').textContent=`Running: ${Math.min(k+25,reps)} of ${reps} replications`;}
+  MCG={out,sig:SG.sig};b.disabled=false;$('mcgstatus').textContent=`Done: ${reps} replications with the current settings.`;drawMCG();
+}
+function drawMCG(){
+  const o=setup($('cvgmc'));if(!o)return;const {ctx,w,h}=o;
+  if(!MCG){ctx.fillStyle=C.muted;ctx.font=`13px ${SANS}`;ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('Run the Monte Carlo to fill this chart.',w/2,h/2);$('mcgsum').innerHTML='';return;}
+  const sig=MCG.sig,pass=MCG.out.filter(x=>x.pF&&x.pJ).map(x=>x.s),fail=MCG.out.filter(x=>!(x.pF&&x.pJ)).map(x=>x.s);
+  const xmin=Math.max(1,sig*.4),xmax=sig*1.8,nb=36,bw=(xmax-xmin)/nb;
+  const hist=a=>{const c=Array(nb).fill(0);a.forEach(x=>{const i=clamp(Math.floor((x-xmin)/bw),0,nb-1);c[i]++;});return c};
+  const hp=hist(pass),hf=hist(fail),cmax=Math.max(1,...hp,...hf);
+  const F=frame(w,h,{l:24,r:14,t:10,b:38},[xmin,xmax],[0,1]);
+  axes(ctx,F,{xl:`σ̂ across ${MCG.out.length} replications (true σ = ${fmt(sig,1)}; end bins include values beyond the axis)`,yfmt:()=>''});
+  const rowH=F.ph/2;
+  [[hp,C.m1,`passes both tests (${pass.length})`],[hf,C.m2,`fails a test (${fail.length})`]].forEach(([c,col,nm],k)=>{const base=F.m.t+(k+1)*rowH-4;ctx.fillStyle=col;ctx.globalAlpha=.8;
+    c.forEach((n,i)=>{const bh=(n/cmax)*(rowH-26);ctx.fillRect(F.X(xmin+i*bw)+1,base-bh,F.X(xmin+(i+1)*bw)-F.X(xmin+i*bw)-2,bh);});
+    ctx.globalAlpha=1;ctx.font=`600 11.5px ${SANS}`;ctx.textAlign='right';ctx.textBaseline='top';ctx.fillText(nm,F.m.l+F.pw-6,F.m.t+k*rowH+6);});
+  ctx.strokeStyle=C.truth;ctx.lineWidth=2;ctx.setLineDash([5,3]);line(ctx,F.X(sig),F.m.t,F.X(sig),F.m.t+F.ph);ctx.setLineDash([]);
+  const n=MCG.out.length,sF=MCG.out.filter(x=>x.pF).length/n,sJ=MCG.out.filter(x=>x.pJ).length/n;
+  const mae=a=>med(a.map(x=>Math.abs(x/sig-1)));
+  $('mcgsum').innerHTML=`<tr><th></th><th>share</th><th>median bias of σ̂</th><th>median |error|</th></tr>`+
+    `<tr><td class="mk">All replications</td><td>100%</td><td>${pct(med(MCG.out.map(x=>x.s))/sig-1)}</td><td>${pct(mae(MCG.out.map(x=>x.s)))}</td></tr>`+
+    `<tr><td class="mk" style="color:var(--m1)">Pass both</td><td>${Math.round(pass.length/n*100)}%</td><td>${pct(med(pass)/sig-1)}</td><td>${pct(mae(pass))}</td></tr>`+
+    `<tr><td class="mk" style="color:var(--m2)">Fail a test</td><td>${Math.round(fail.length/n*100)}%</td><td>${pct(med(fail)/sig-1)}</td><td>${pct(mae(fail))}</td></tr>`+
+    `<tr><td class="mk">Pass F / pass J</td><td colspan="3">${Math.round(sF*100)}% / ${Math.round(sJ*100)}%</td></tr>`;
+}
+
+/* ---------- controls wiring ---------- */
+function bind(id,obj,key,fmtv,after){const el=$(id),out=$(id+'O');const sync=()=>{obj[key]=+el.value;if(out)out.textContent=fmtv(+el.value);};sync();
+  el.addEventListener('input',()=>{sync();after();});}
+const f2=v=>fmt(v,2),f0=v=>String(Math.round(v)),f1=v=>fmt(v,1);
+const re15=()=>{compute15();draw15();},re18=()=>{compute18();draw18();},reG=()=>{computeG();drawG();};
+bind('s15V',S15,'V',f0,re15);bind('s15T',S15,'T',f0,re15);bind('s15sig',S15,'sig',f1,re15);bind('s15om',S15,'om',f2,re15);
+$('s15new').onclick=()=>{S15.seed=(S15.seed*48271)%2147483647;re15();};
+$('mc15run').onclick=()=>runMC15(false);$('mc15sweep').onclick=()=>runMC15(true);
+bind('s18J',S18,'J',f0,re18);bind('s18T',S18,'T',f0,re18);bind('s18sig',S18,'sig',f1,re18);bind('s18om',S18,'omMed',f2,re18);bind('s18sp',S18,'omSpread',f2,re18);bind('s18h',S18,'h',f2,re18);
+$('s18orth').onchange=e=>{S18.orth=e.target.checked;re18();};$('s18new').onclick=()=>{S18.seed=(S18.seed*48271)%2147483647;re18();};
+bind('sgV',SG,'V',f0,reG);bind('sgT',SG,'T',f0,reG);bind('sgh',SG,'h',f2,reG);bind('sgc',SG,'c',f2,reG);bind('sgcs',SG,'cs',f2,reG);bind('sgF',SG,'Fcut',f1,()=>{RG.passF=RG.F>=SG.Fcut;drawG();});
+$('sgnew').onclick=()=>{SG.seed=(SG.seed*48271)%2147483647;reG();};$('mcgrun').onclick=runMCG;
+
+/* ---------- tabs ---------- */
+const TABS=['leamer','s2015','s2018','gs2024'];let built={};
+function drawTab(t){readC();if(t==='s2015'){if(!R15)compute15();draw15();}if(t==='s2018'){if(!R18)compute18();draw18();}if(t==='gs2024'){if(!RG)computeG();drawG();}}
+function show(t){if(!TABS.includes(t))t='leamer';
+  TABS.forEach(k=>{const on=k===t;$('p-'+k).hidden=!on;const b=$('tab-'+k);b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1;});
+  window.dispatchEvent(new CustomEvent('lf-tab',{detail:t}));
+  requestAnimationFrame(()=>drawTab(t));}
+TABS.forEach(k=>$('tab-'+k).addEventListener('click',()=>{show(k);try{history.replaceState(null,'','#'+k)}catch(e){}}));
+$('tabbar').addEventListener('keydown',e=>{if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;const cur=TABS.findIndex(k=>$('tab-'+k).getAttribute('aria-selected')==='true');const n=(cur+(e.key==='ArrowRight'?1:-1)+TABS.length)%TABS.length;show(TABS[n]);$('tab-'+TABS[n]).focus();});
+const current=()=>TABS.find(k=>!$('p-'+k).hidden);
+new ResizeObserver(()=>{const t=current();if(t&&t!=='leamer')drawTab(t);}).observe(document.querySelector('.wrap'));
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change',()=>{const t=current();if(t!=='leamer')drawTab(t);});
+new MutationObserver(()=>{const t=current();if(t!=='leamer')drawTab(t);}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{const t=current();if(t!=='leamer')drawTab(t);});
+show((location.hash||'').slice(1));
+window.addEventListener('hashchange',()=>show((location.hash||'').slice(1)));
+})();
+
 </script>
 </body>
 </html>

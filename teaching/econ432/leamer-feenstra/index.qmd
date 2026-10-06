@@ -6,7 +6,7 @@ resources:
   - app.html
 ---
 
-Price and quantity data alone can't tell you whether you are looking at demand or supply. This simulation generates equilibrium prices and quantities from demand and supply curves hit by random shocks. It shows how the direct and reverse regressions bound one of the slopes (Leamer 1981), and how two markets with the same slopes but different shock volatilities pin down both slopes (Feenstra 1994). Use the sliders to change the shock volatilities, the true slopes, and the number of periods. All data are simulated in your browser.
+Price and quantity data alone can't tell you whether you are looking at demand or supply. This simulation generates equilibrium prices and quantities from demand and supply curves hit by random shocks. The first tab shows how the direct and reverse regressions bound one of the slopes (Leamer 1981), and how two markets with the same slopes but different shock volatilities pin down both (Feenstra 1994). Three more tabs follow Anson Soderbery's work on the estimator: small-sample bias and the LIML fix (Soderbery 2015), exporter-specific supply elasticities (Soderbery 2018), and IV diagnostics for its assumptions (Grant and Soderbery 2024). All data are simulated in your browser.
 
 [Open the simulation full screen ↗](app.html){target="_blank"}
 
