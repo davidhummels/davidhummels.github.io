@@ -10,7 +10,8 @@ I teach international economics and growth and innovation at the undergraduate, 
 Course materials, simulations, and readings for Econ 432 will live here.
 
 - Syllabus *(coming soon)*
-- Interactive simulations *(coming soon)*
+- Interactive simulations
+    - [Is it a demand curve or a supply curve?](econ432/leamer-feenstra/index.qmd): Leamer (1981) bounds and Feenstra (1994) identification
 - Readings *(coming soon)*
 
 <!--

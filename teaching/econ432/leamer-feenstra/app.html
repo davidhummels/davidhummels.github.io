@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>[hidden]{display:none!important}body{margin:0}img{max-width:100%}</style>
+<title>Leamer–Feenstra Identification</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a lab instrument. Transport bar on top, two square plots side by side (data space | parameter space), shock controls and readouts beneath, the algebra last. */
+:root{
+  --bg:#ECEFF3; --panel:#FFFFFF; --plot:#FBFCFD; --ink:#17202D; --muted:#5A6779; --grid:#E3E8EE; --rule:#C9D1DB;
+  --m1:#0E7C75; --m2:#B0386B; --feas:#2D5DA6; --truth:#B98200;
+  --f-display:'Literata', Georgia, 'Times New Roman', serif;
+  --f-body:'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-mono:'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#10141A; --panel:#171D25; --plot:#131920; --ink:#E3E8EE; --muted:#93A0B1; --grid:#232B35; --rule:#333D4A;
+    --m1:#3CC4B7; --m2:#EE70A2; --feas:#6E9DEA; --truth:#E9B83E; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#10141A; --panel:#171D25; --plot:#131920; --ink:#E3E8EE; --muted:#93A0B1; --grid:#232B35; --rule:#333D4A;
+  --m1:#3CC4B7; --m2:#EE70A2; --feas:#6E9DEA; --truth:#E9B83E; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:20px;padding-block:28px 48px;display:flex;flex-direction:column;gap:18px}
+header{display:flex;flex-direction:column;gap:6px;max-width:78ch}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--f-display);font-weight:600;font-size:clamp(26px,3.4vw,38px);line-height:1.15;margin:0;text-wrap:balance}
+h2{font-family:var(--f-display);font-weight:500;font-size:19px;margin:0}
+h3{font-size:13px;font-weight:600;margin:0;letter-spacing:.02em}
+.lead{margin:0;color:var(--muted);max-width:72ch}
+.panel{background:var(--panel);border:1px solid var(--rule);border-radius:8px}
+
+/* transport */
+.transport{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:10px 14px;position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+button,select{font:inherit;font-size:13px;color:var(--ink);background:var(--plot);border:1px solid var(--rule);border-radius:6px;padding:6px 12px;cursor:pointer}
+button:hover,select:hover{border-color:var(--muted)}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--feas);outline-offset:2px}
+button.primary{background:var(--ink);color:var(--panel);border-color:var(--ink);min-width:78px}
+.scrub{flex:1 1 220px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.scrub input{width:100%}
+#status{font-family:var(--f-mono);font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+input[type=range]{accent-color:var(--feas)}
+
+/* plots */
+.plots{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fig{padding:14px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.fig-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.fig-head p{margin:0;font-size:12.5px;color:var(--muted)}
+.cv{width:100%;max-width:100%;position:relative}
+.cv.square{aspect-ratio:1/1}
+.cv.strip{aspect-ratio:3/1}
+.cv canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{display:inline-block;width:18px;height:0;border-top:2px solid currentColor}
+.sw.dash{border-top-style:dashed}
+.sw.dot{width:8px;height:8px;border:none;border-radius:50%;background:currentColor}
+.c1{color:var(--m1)} .c2{color:var(--m2)} .cm{color:var(--muted)} .ct{color:var(--truth)} .cf{color:var(--feas)}
+#caption{margin:0;font-size:14px;min-height:4.6em;padding:10px 12px;border-left:3px solid var(--feas);background:var(--plot);border-radius:0 6px 6px 0}
+
+table{border-collapse:collapse;width:100%;font-size:12.5px;font-variant-numeric:tabular-nums}
+.tbl{overflow-x:auto}
+th,td{text-align:right;padding:5px 8px;border-bottom:1px solid var(--grid);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{font-weight:500;color:var(--muted);font-size:11.5px}
+td{font-family:var(--f-mono)}
+td.mk{font-family:var(--f-body);font-weight:600}
+#est{font-family:var(--f-mono);font-size:13px;padding:8px 10px;border:1px dashed var(--rule);border-radius:6px}
+
+/* controls */
+.controls{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:16px}
+fieldset{border:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;min-width:0}
+legend{font-weight:600;font-size:13px;padding:0;margin-bottom:2px;display:flex;align-items:center;gap:8px}
+.ctl{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center;font-size:13px}
+.ctl label{color:var(--ink)}
+.ctl output{font-family:var(--f-mono);font-size:12.5px;color:var(--muted);text-align:right;min-width:4ch}
+.ctl input[type=range]{grid-column:1/-1;width:100%}
+.desc{font-size:12px;color:var(--muted);margin:0}
+.checks{display:flex;flex-direction:column;gap:6px;font-size:13px}
+.checks label{display:flex;gap:8px;align-items:flex-start}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.hint{grid-column:1/-1;font-size:12px;color:var(--muted);margin:0;border-top:1px solid var(--grid);padding-top:10px}
+
+/* notes */
+.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.note{padding:16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.note p{margin:0;font-size:14px}
+.eq{font-family:var(--f-mono);font-size:13px;background:var(--plot);border:1px solid var(--grid);border-radius:6px;padding:8px 10px;overflow-x:auto;white-space:nowrap}
+.cite{font-size:12px;color:var(--muted)}
+
+@media (max-width:900px){
+  .plots,.controls,.notes{grid-template-columns:1fr}
+  .transport{position:static}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Econ 432 · Identification from shock variances</div>
+    <h1>Is it a demand curve or a supply curve?</h1>
+    <p class="lead">Two markets share the same demand and supply slopes but differ in which curve gets hit hardest. In each market the (q, p) equilibria fill in, the direct and reverse regressions bracket a slope, and Leamer's hyperbola marks every (demand slope, supply slope) pair consistent with the data. Feenstra's step is to intersect the two hyperbolas inside the feasible quadrant.</p>
+  </header>
+
+  <div class="panel transport" role="group" aria-label="Animation controls">
+    <button id="play" class="primary">Pause</button>
+    <button id="replay">Replay</button>
+    <button id="skip">Skip to result</button>
+    <select id="speed" aria-label="Playback speed">
+      <option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option>
+    </select>
+    <div class="scrub">
+      <input id="scrub" type="range" min="0" max="1000" value="0" aria-label="Scrub through the sequence">
+      <div id="status">Ready</div>
+    </div>
+  </div>
+
+  <div class="plots">
+    <section class="panel fig">
+      <div class="fig-head"><h2>Data space</h2><p>each dot is one period's equilibrium (q<sub>t</sub>, p<sub>t</sub>)</p></div>
+      <div class="cv square"><canvas id="cvS" aria-label="Scatter of price against quantity"></canvas></div>
+      <div class="legend">
+        <span class="c1"><i class="sw dot"></i>Market 1</span>
+        <span class="c2"><i class="sw dot"></i>Market 2</span>
+        <span class="cm"><i class="sw"></i>OLS p on q</span>
+        <span class="cm"><i class="sw dash"></i>reverse (q on p, inverted)</span>
+        <span class="ct"><i class="sw"></i>true D and S</span>
+      </div>
+      <div class="cv strip"><canvas id="cvT" aria-label="Price and quantity time series"></canvas></div>
+      <div class="legend"><span class="cm"><i class="sw"></i>price p<sub>t</sub> (market color)</span><span class="cm"><i class="sw dash"></i>quantity q<sub>t</sub></span></div>
+    </section>
+
+    <section class="panel fig">
+      <div class="fig-head"><h2>Parameter space</h2><p>demand slope d (horizontal) × supply slope s (vertical)</p></div>
+      <div class="cv square"><canvas id="cvP" aria-label="Leamer hyperbolas in the space of demand and supply slopes"></canvas></div>
+      <div class="legend">
+        <span class="c1"><i class="sw"></i>Market 1 hyperbola</span>
+        <span class="c2"><i class="sw"></i>Market 2 hyperbola</span>
+        <span class="cf"><i class="sw dot"></i>feasible quadrant d &lt; 0 &lt; s</span>
+        <span class="ct">★ true (d, s)</span>
+      </div>
+      <p id="caption" aria-live="polite"></p>
+      <div class="tbl"><table>
+        <thead><tr><th>Market</th><th>σ<sub>d</sub>/σ<sub>s</sub></th><th>Cov(p,q)</th><th>OLS b</th><th>Reverse</th><th>Bounded slope</th></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table></div>
+      <div id="est">Feenstra estimate appears after both markets are drawn.</div>
+    </section>
+  </div>
+
+  <section class="panel controls" aria-label="Model settings">
+    <fieldset>
+      <legend><i class="sw dot c1"></i>Market 1 shocks</legend>
+      <div class="ctl"><label for="m1sd">Demand shock volatility σ<sub>d</sub></label><output id="m1sdO"></output><input id="m1sd" type="range" min="0.05" max="2" step="0.05" value="1"></div>
+      <div class="ctl"><label for="m1ss">Supply shock volatility σ<sub>s</sub></label><output id="m1ssO"></output><input id="m1ss" type="range" min="0.05" max="2" step="0.05" value="0.25"></div>
+      <p class="desc" id="m1desc"></p>
+    </fieldset>
+    <fieldset>
+      <legend><i class="sw dot c2"></i>Market 2 shocks</legend>
+      <div class="ctl"><label for="m2sd">Demand shock volatility σ<sub>d</sub></label><output id="m2sdO"></output><input id="m2sd" type="range" min="0.05" max="2" step="0.05" value="0.25"></div>
+      <div class="ctl"><label for="m2ss">Supply shock volatility σ<sub>s</sub></label><output id="m2ssO"></output><input id="m2ss" type="range" min="0.05" max="2" step="0.05" value="1"></div>
+      <p class="desc" id="m2desc"></p>
+    </fieldset>
+    <fieldset>
+      <legend>Model, common to both markets</legend>
+      <div class="ctl"><label for="td">True demand slope d</label><output id="tdO"></output><input id="td" type="range" min="-3" max="-0.2" step="0.05" value="-1"></div>
+      <div class="ctl"><label for="ts">True supply slope s</label><output id="tsO"></output><input id="ts" type="range" min="0.2" max="3" step="0.05" value="0.5"></div>
+      <div class="ctl"><label for="nn">Periods per market T</label><output id="nnO"></output><input id="nn" type="range" min="30" max="500" step="10" value="150"></div>
+      <div class="checks">
+        <label><input id="orth" type="checkbox"> Force sample Cov(u, v) = 0 (population case: hyperbolas pass exactly through the truth)</label>
+        <label><input id="truth" type="checkbox" checked> Show true curves and true (d, s)</label>
+      </div>
+      <div class="row"><button id="reseed">New shock draws</button></div>
+    </fieldset>
+    <p class="hint">Moving a slider redraws the finished picture immediately so you can watch the hyperbolas move. Press Replay to watch the sequence build again with the new settings.</p>
+  </section>
+
+  <section class="notes">
+    <div class="panel note">
+      <h3>The model</h3>
+      <div class="eq">demand: p<sub>t</sub> = d·q<sub>t</sub> + u<sub>t</sub>, d &lt; 0<br>supply: p<sub>t</sub> = s·q<sub>t</sub> + v<sub>t</sub>, s &gt; 0</div>
+      <p>u and v are uncorrelated demand and supply shocks. Read p and q as log changes and the slopes are inverse elasticities: d = −1/σ for demand and s = ω for inverse supply in Feenstra's notation. Each period the market clears where the shifted curves cross.</p>
+    </div>
+    <div class="panel note">
+      <h3>Leamer (1981): one market, a hyperbola</h3>
+      <div class="eq">E[(p − d·q)(p − s·q)] = 0<br>⇔ V<sub>pp</sub> − (d+s)·V<sub>pq</sub> + d·s·V<sub>qq</sub> = 0</div>
+      <p>One equation in two unknowns traces a hyperbola in (d, s). Its asymptotes sit at the OLS slope V<sub>pq</sub>/V<sub>qq</sub> and it crosses the axes at the reverse-regression slope V<sub>pp</sub>/V<sub>pq</sub>. Imposing d &lt; 0 &lt; s bounds one slope between the two regressions and leaves the other unbounded. If Cov(p,q) &gt; 0, supply is the bounded one.</p>
+    </div>
+    <div class="panel note">
+      <h3>Feenstra (1994): two markets, one point</h3>
+      <div class="eq">V<sub>pq,i</sub>·(d+s) − V<sub>qq,i</sub>·(d·s) = V<sub>pp,i</sub>, i = 1, 2</div>
+      <p>The condition is linear in the sum d+s and the product d·s, so two markets with different variance ratios pin both down. d and s are then the roots of t² − (d+s)t + ds = 0. The hyperbolas meet twice, as mirror images across the 45° line, and the sign restrictions pick one. With many supplying countries Feenstra stacks these conditions and estimates them as a cross-country regression. If σ<sub>d</sub>/σ<sub>s</sub> is the same in both markets, the hyperbolas coincide and nothing is identified.</p>
+    </div>
+  </section>
+  <p class="cite">Leamer, E. (1981), "Is it a Demand Curve, or Is It a Supply Curve? Partial Identification through Inequality Constraints," <i>Review of Economics and Statistics</i> 63(3). Feenstra, R. (1994), "New Product Varieties and the Measurement of International Prices," <i>American Economic Review</i> 84(1).</p>
+</div>
+
+<script>
+(function(){
+const MONO="'IBM Plex Mono', ui-monospace, Menlo, monospace";
+const SANS="'IBM Plex Sans', system-ui, sans-serif";
+const $=id=>document.getElementById(id);
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const lerp=(a,b,t)=>a+(b-a)*t;
+const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+const fmt=(x,dp=2)=>!isFinite(x)?'—':(x<0?'−':'')+Math.abs(x).toFixed(dp);
+
+/* ---------- random draws ---------- */
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function normals(r,n){const o=new Float64Array(n);for(let i=0;i<n;i+=2){const u1=r()||1e-12,u2=r();const R=Math.sqrt(-2*Math.log(u1));o[i]=R*Math.cos(2*Math.PI*u2);if(i+1<n)o[i+1]=R*Math.sin(2*Math.PI*u2);}return o}
+const NMAX=500;
+let seed=20261006, draws;
+function makeDraws(){const r=mulberry32(seed);draws={m1:{zu:normals(r,NMAX),zv:normals(r,NMAX)},m2:{zu:normals(r,NMAX),zv:normals(r,NMAX)}}}
+
+/* ---------- model ---------- */
+const P={m1:{sd:1,ss:.25},m2:{sd:.25,ss:1},d:-1,s:.5,N:150,orth:false,truth:true};
+const XR=[-4,2], YR=[-2,4];
+let D={}; // data per market
+let R=1;  // scatter half-range
+
+function gen(key){
+  const N=P.N; let zu=Array.from(draws[key].zu.slice(0,N)), zv=Array.from(draws[key].zv.slice(0,N));
+  if(P.orth){
+    const mu=zu.reduce((a,b)=>a+b,0)/N, mv=zv.reduce((a,b)=>a+b,0)/N;
+    zu=zu.map(x=>x-mu); zv=zv.map(x=>x-mv);
+    const uu=zu.reduce((a,x)=>a+x*x,0), uv=zu.reduce((a,x,i)=>a+x*zv[i],0);
+    zv=zv.map((x,i)=>x-uv/uu*zu[i]);
+    const su=Math.sqrt(zu.reduce((a,x)=>a+x*x,0)/N), sv=Math.sqrt(zv.reduce((a,x)=>a+x*x,0)/N);
+    zu=zu.map(x=>x/su); zv=zv.map(x=>x/sv);
+  }
+  const {sd,ss}=P[key], d=P.d, s=P.s, p=[], q=[];
+  for(let i=0;i<N;i++){const u=sd*zu[i], v=ss*zv[i]; const qi=(u-v)/(s-d); q.push(qi); p.push(d*qi+u);}
+  const mp=p.reduce((a,b)=>a+b,0)/N, mq=q.reduce((a,b)=>a+b,0)/N;
+  let Vpp=0,Vqq=0,Vpq=0; for(let i=0;i<N;i++){const a=p[i]-mp,b=q[i]-mq;Vpp+=a*a;Vqq+=b*b;Vpq+=a*b;}
+  Vpp/=N;Vqq/=N;Vpq/=N;
+  const M={p,q,mp,mq,Vpp,Vqq,Vpq,b:Vpq/Vqq,br:Vpp/Vpq};
+  M.segs=hyperSegs(M);
+  return M;
+}
+function hyperS(M,d){return (M.Vpp-d*M.Vpq)/(M.Vpq-d*M.Vqq)}
+function hyperSegs(M){
+  const d0=M.b; let ds=[]; const n=1200;
+  for(let i=0;i<=n;i++) ds.push(XR[0]-.5+(XR[1]-XR[0]+1)*i/n);
+  for(let k=0;k<=72;k++){const e=Math.pow(10,-k/12); ds.push(d0+e,d0-e);}
+  ds.push(0); if(isFinite(M.br)) ds.push(M.br);
+  ds=ds.filter(d=>d>=XR[0]-.5&&d<=XR[1]+.5&&d!==d0).sort((a,b)=>a-b);
+  const L=[],Rt=[];
+  for(const d of ds){const s=hyperS(M,d); if(!isFinite(s)||s<YR[0]-40||s>YR[1]+40) continue; (d<d0?L:Rt).push([d,s]);}
+  return [L,Rt].filter(a=>a.length>1);
+}
+function feenstra(A,B){
+  const a1=A.Vpq,b1=-A.Vqq,c1=A.Vpp,a2=B.Vpq,b2=-B.Vqq,c2=B.Vpp;
+  const det=a1*b2-a2*b1, scale=Math.abs(a1*b2)+Math.abs(a2*b1);
+  if(!scale||Math.abs(det)/scale<2e-3) return {ok:false,reason:'coincide'};
+  const x=(c1*b2-c2*b1)/det, y=(a1*c2-a2*c1)/det, disc=x*x-4*y;
+  if(disc<0) return {ok:false,reason:'noreal'};
+  const r1=(x-Math.sqrt(disc))/2, r2=(x+Math.sqrt(disc))/2;
+  if(y<0) return {ok:true,d:r1,s:r2,mirror:[r2,r1]};
+  return {ok:false,reason:'nofeasible',pts:[[r1,r2],[r2,r1]]};
+}
+let FE=null;
+function rebuild(){
+  D.m1=gen('m1'); D.m2=gen('m2');
+  let mx=0; for(const k of ['m1','m2']) for(let i=0;i<P.N;i++){mx=Math.max(mx,Math.abs(D[k].p[i]),Math.abs(D[k].q[i]));}
+  R=Math.max(.5,mx*1.08);
+  FE=feenstra(D.m1,D.m2);
+  buildTimeline();
+}
+
+/* ---------- timeline ---------- */
+let STEPS=[], ST={}, TOTAL=1;
+function buildTimeline(){
+  const pts=3000+P.N*8;
+  STEPS=[['A_pts',pts],['A_lines',900],['A_hyp',1500],['A_feas',1100],['gap',600],['B_pts',pts],['B_lines',900],['B_hyp',1500],['B_feas',1100],['X',1600]];
+  let t=0; ST={}; for(const [k,d] of STEPS){ST[k]=[t,d];t+=d;} TOTAL=t;
+}
+const pr=(k)=>{const [s,d]=ST[k];return clamp((T-s)/d,0,1)};
+let T=0, playing=false, last=0, speed=1;
+
+/* ---------- colors ---------- */
+let C={};
+function readColors(){const cs=getComputedStyle(document.documentElement);for(const n of ['ink','muted','grid','rule','m1','m2','feas','truth','plot','panel'])C[n]=cs.getPropertyValue('--'+n).trim();}
+
+/* ---------- canvas helpers ---------- */
+function setup(cv){const dpr=window.devicePixelRatio||1,w=cv.clientWidth,h=cv.clientHeight;const W=Math.round(w*dpr),H=Math.round(h*dpr);if(cv.width!==W||cv.height!==H){cv.width=W;cv.height=H;}const ctx=cv.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);return{ctx,w,h}}
+function frame(w,h,m,xr,yr){const pw=w-m.l-m.r,ph=h-m.t-m.b;return{m,pw,ph,xr,yr,w,h,X:x=>m.l+(x-xr[0])/(xr[1]-xr[0])*pw,Y:y=>m.t+(1-(y-yr[0])/(yr[1]-yr[0]))*ph}}
+function niceStep(raw){const e=Math.pow(10,Math.floor(Math.log10(raw)));const f=raw/e;return(f<1.5?1:f<3?2:f<7?5:10)*e}
+function ticks(r,st){const o=[];for(let v=Math.ceil(r[0]/st-1e-9)*st;v<=r[1]+1e-9;v+=st)o.push(Math.abs(v)<1e-9?0:v);return o}
+function tickLbl(v,st){const dp=st<1?(st<.1?2:1):0;return fmt(v,dp)}
+function line(ctx,x1,y1,x2,y2){ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke()}
+function clip(ctx,F){ctx.save();ctx.beginPath();ctx.rect(F.m.l,F.m.t,F.pw,F.ph);ctx.clip()}
+function axes(ctx,F,o){
+  const {m,pw,ph}=F;
+  ctx.fillStyle=C.plot;ctx.fillRect(m.l,m.t,pw,ph);
+  const xs=ticks(F.xr,o.xs),ys=ticks(F.yr,o.ys);
+  ctx.strokeStyle=C.grid;ctx.lineWidth=1;
+  xs.forEach(x=>line(ctx,Math.round(F.X(x))+.5,m.t,Math.round(F.X(x))+.5,m.t+ph));
+  ys.forEach(y=>line(ctx,m.l,Math.round(F.Y(y))+.5,m.l+pw,Math.round(F.Y(y))+.5));
+  ctx.strokeStyle=C.rule;ctx.lineWidth=1.25;
+  if(F.xr[0]<0&&F.xr[1]>0)line(ctx,F.X(0),m.t,F.X(0),m.t+ph);
+  if(F.yr[0]<0&&F.yr[1]>0)line(ctx,m.l,F.Y(0),m.l+pw,F.Y(0));
+  ctx.lineWidth=1;ctx.strokeRect(m.l+.5,m.t+.5,pw-1,ph-1);
+  ctx.fillStyle=C.muted;ctx.font=`10.5px ${MONO}`;
+  ctx.textAlign='center';ctx.textBaseline='top';xs.forEach(x=>ctx.fillText(tickLbl(x,o.xs),F.X(x),m.t+ph+5));
+  ctx.textAlign='right';ctx.textBaseline='middle';ys.forEach(y=>ctx.fillText(tickLbl(y,o.ys),m.l-6,F.Y(y)));
+  ctx.fillStyle=C.ink;ctx.font=`12px ${SANS}`;ctx.textAlign='center';ctx.textBaseline='bottom';
+  ctx.fillText(o.xl,m.l+pw/2,F.h-2);
+  ctx.save();ctx.translate(11,m.t+ph/2);ctx.rotate(-Math.PI/2);ctx.textBaseline='middle';ctx.fillText(o.yl,0,0);ctx.restore();
+}
+function star(ctx,x,y,r){ctx.beginPath();for(let i=0;i<10;i++){const a=-Math.PI/2+i*Math.PI/5,rr=i%2?r*.45:r;ctx.lineTo(x+rr*Math.cos(a),y+rr*Math.sin(a));}ctx.closePath()}
+function labelBox(ctx,text,x,y,align,color){
+  ctx.font=`11px ${MONO}`;const w=ctx.measureText(text).width+8,h=16;
+  let bx=align==='right'?x-w:align==='center'?x-w/2:x; const by=y-h/2;
+  ctx.fillStyle=C.panel;ctx.globalAlpha*=.9;ctx.fillRect(bx,by,w,h);ctx.globalAlpha/=.9;
+  ctx.fillStyle=color;ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillText(text,bx+4,y+.5);
+}
+
+/* ---------- scatter ---------- */
+const cvS=$('cvS'),cvT=$('cvT'),cvP=$('cvP');
+function nShown(k){const pk=k==='m1'?'A':'B';return Math.min(P.N,Math.floor(pr(pk+'_pts')*P.N+(pr(pk+'_pts')>=1?1:0)))}
+function drawScatter(){
+  const {ctx,w,h}=setup(cvS);
+  const F=frame(w,h,{l:50,r:12,t:12,b:38},[-R,R],[-R,R]);
+  const st=niceStep(R/2.5);
+  axes(ctx,F,{xs:st,ys:st,xl:'quantity q',yl:'price p'});
+  clip(ctx,F);
+  if(P.truth){
+    ctx.strokeStyle=C.truth;ctx.globalAlpha=.75;ctx.lineWidth=1.5;
+    line(ctx,F.X(-R),F.Y(P.d*-R),F.X(R),F.Y(P.d*R));
+    line(ctx,F.X(-R),F.Y(P.s*-R),F.X(R),F.Y(P.s*R));
+    ctx.globalAlpha=1;
+  }
+  for(const k of ['m1','m2']){
+    const M=D[k],pk=k==='m1'?'A':'B',col=C[k],n=nShown(k);
+    const fade=k==='m1'?lerp(1,.32,pr('B_pts')):1;
+    // regressions wedge
+    const pl=ease(pr(pk+'_lines'));
+    if(pl>0){
+      const L=R*3*pl, cx=M.mq, cy=M.mp;
+      const ends=(sl)=>{const n=Math.hypot(1,sl),ux=1/n,uy=sl/n;return [[cx-L*ux,cy-L*uy],[cx+L*ux,cy+L*uy]]};
+      const e1=ends(M.b), e2=ends(isFinite(M.br)?M.br:1e6);
+      ctx.globalAlpha=.13*fade;ctx.fillStyle=col;ctx.beginPath();
+      ctx.moveTo(F.X(cx),F.Y(cy));ctx.lineTo(F.X(e1[1][0]),F.Y(e1[1][1]));ctx.lineTo(F.X(e2[1][0]),F.Y(e2[1][1]));ctx.closePath();
+      ctx.moveTo(F.X(cx),F.Y(cy));ctx.lineTo(F.X(e1[0][0]),F.Y(e1[0][1]));ctx.lineTo(F.X(e2[0][0]),F.Y(e2[0][1]));ctx.closePath();ctx.fill();
+      ctx.globalAlpha=fade;ctx.strokeStyle=col;ctx.lineWidth=2;
+      line(ctx,F.X(e1[0][0]),F.Y(e1[0][1]),F.X(e1[1][0]),F.Y(e1[1][1]));
+      ctx.setLineDash([6,4]);line(ctx,F.X(e2[0][0]),F.Y(e2[0][1]),F.X(e2[1][0]),F.Y(e2[1][1]));ctx.setLineDash([]);
+      ctx.globalAlpha=1;
+    }
+    // points
+    ctx.fillStyle=col;
+    for(let i=0;i<n;i++){ctx.globalAlpha=.72*fade;ctx.beginPath();ctx.arc(F.X(M.q[i]),F.Y(M.p[i]),2.6,0,Math.PI*2);ctx.fill();}
+    ctx.globalAlpha=1;
+    const pp=pr(pk+'_pts');
+    if(pp>0&&pp<1&&n>0){
+      const i=n-1,qi=M.q[i],pi=M.p[i];
+      ctx.strokeStyle=col;ctx.lineWidth=1.25;ctx.globalAlpha=.8;
+      line(ctx,F.X(-R),F.Y(pi+P.d*(-R-qi)),F.X(R),F.Y(pi+P.d*(R-qi)));
+      ctx.setLineDash([5,4]);line(ctx,F.X(-R),F.Y(pi+P.s*(-R-qi)),F.X(R),F.Y(pi+P.s*(R-qi)));ctx.setLineDash([]);
+      ctx.globalAlpha=1;ctx.lineWidth=2;ctx.beginPath();ctx.arc(F.X(qi),F.Y(pi),6,0,Math.PI*2);ctx.stroke();
+      ctx.font=`11px ${MONO}`;
+      labelBox(ctx,`t = ${i+1}: shifted D and S`,F.m.l+8,F.m.t+14,'left',col);
+    }
+  }
+  if(P.truth){
+    ctx.font=`11px ${SANS}`;ctx.fillStyle=C.truth;ctx.textBaseline='middle';
+    const pos=(sl)=>{let x=R*.92,y=sl*x;if(Math.abs(y)>R*.92){y=Math.sign(y)*R*.92;x=y/sl;}return[F.X(x),F.Y(y)]};
+    let [x1,y1]=pos(P.d);ctx.textAlign='right';ctx.fillText('true D',x1-4,y1-10);
+    let [x2,y2]=pos(P.s);ctx.textAlign='right';ctx.fillText('true S',x2-4,y2-10);
+  }
+  ctx.restore();
+}
+function drawSeries(){
+  const {ctx,w,h}=setup(cvT);
+  const m={l:50,r:12,t:6,b:16};const rowH=(h-m.t-m.b-8)/2;
+  ['m1','m2'].forEach((k,r)=>{
+    const top=m.t+r*(rowH+8),M=D[k],n=nShown(k),col=C[k];
+    const X=i=>m.l+(i/(P.N-1))*(w-m.l-m.r), Y=v=>top+rowH/2-(v/R)*(rowH/2)*.95;
+    ctx.fillStyle=C.plot;ctx.fillRect(m.l,top,w-m.l-m.r,rowH);
+    ctx.strokeStyle=C.grid;ctx.lineWidth=1;line(ctx,m.l,Y(0),w-m.r,Y(0));
+    ctx.strokeStyle=C.rule;ctx.strokeRect(m.l+.5,top+.5,w-m.l-m.r-1,rowH-1);
+    ctx.fillStyle=col;ctx.font=`600 11px ${SANS}`;ctx.textAlign='right';ctx.textBaseline='middle';ctx.fillText(`Mkt ${r+1}`,m.l-6,top+rowH/2);
+    if(n>1){
+      ctx.lineWidth=1.3;
+      ctx.strokeStyle=C.muted;ctx.setLineDash([3,2]);ctx.beginPath();for(let i=0;i<n;i++){i?ctx.lineTo(X(i),Y(M.q[i])):ctx.moveTo(X(i),Y(M.q[i]));}ctx.stroke();ctx.setLineDash([]);
+      ctx.strokeStyle=col;ctx.beginPath();for(let i=0;i<n;i++){i?ctx.lineTo(X(i),Y(M.p[i])):ctx.moveTo(X(i),Y(M.p[i]));}ctx.stroke();
+    }
+  });
+  ctx.fillStyle=C.muted;ctx.font=`10.5px ${MONO}`;ctx.textBaseline='top';
+  ctx.textAlign='left';ctx.fillText('t = 1',m.l,h-m.b+3);ctx.textAlign='right';ctx.fillText(`t = ${P.N}`,w-m.r,h-m.b+3);
+}
+
+/* ---------- parameter space ---------- */
+const feas=([d,s])=>d<=1e-9&&s>=-1e-9;
+function drawHyper(ctx,F,M,col,ph,pf){
+  const box=(x,y)=>[clamp(x,F.m.l-30,F.m.l+F.pw+30),clamp(y,F.m.t-30,F.m.t+F.ph+30)];
+  for(const seg of M.segs){
+    const px=seg.map(([d,s])=>[F.X(d),F.Y(s)]);
+    const cl=[0];for(let i=1;i<px.length;i++){const a=box(...px[i-1]),b=box(...px[i]);cl.push(cl[i-1]+Math.hypot(b[0]-a[0],b[1]-a[1]));}
+    const show=cl[cl.length-1]*ph;
+    ctx.strokeStyle=col;ctx.globalAlpha=lerp(1,.3,pf);ctx.lineWidth=lerp(2.2,1.4,pf);
+    ctx.beginPath();for(let i=0;i<px.length&&cl[i]<=show;i++){i?ctx.lineTo(...px[i]):ctx.moveTo(...px[i]);}ctx.stroke();
+    if(pf>0){
+      ctx.globalAlpha=1;ctx.lineWidth=lerp(2.2,4.5,pf);ctx.lineCap='round';ctx.beginPath();let on=false;
+      for(let i=1;i<px.length;i++){if(feas(seg[i-1])&&feas(seg[i])){if(!on){ctx.moveTo(...px[i-1]);on=true;}ctx.lineTo(...px[i]);}else on=false;}
+      ctx.stroke();ctx.lineCap='butt';
+    }
+    ctx.globalAlpha=1;
+  }
+}
+function drawParam(){
+  const {ctx,w,h}=setup(cvP);
+  const F=frame(w,h,{l:50,r:12,t:12,b:38},XR,YR);
+  axes(ctx,F,{xs:1,ys:1,xl:'demand slope d  (p on q)',yl:'supply slope s  (p on q)'});
+  clip(ctx,F);
+  const fa=Math.max(ease(pr('A_feas')),ease(pr('B_feas')));
+  if(fa>0){
+    ctx.globalAlpha=.11*fa;ctx.fillStyle=C.feas;ctx.fillRect(F.X(XR[0]),F.Y(YR[1]),F.X(0)-F.X(XR[0]),F.Y(0)-F.Y(YR[1]));
+    ctx.globalAlpha=fa;ctx.fillStyle=C.feas;ctx.font=`600 11.5px ${SANS}`;ctx.textAlign='left';ctx.textBaseline='top';
+    ctx.fillText('feasible: d < 0 < s',F.X(XR[0])+30,F.m.t+8);ctx.globalAlpha=1;
+  }
+  const px=ease(pr('X'));
+  if(px>0){ctx.globalAlpha=.5*px;ctx.strokeStyle=C.muted;ctx.setLineDash([2,4]);line(ctx,F.X(-4),F.Y(-4),F.X(4),F.Y(4));ctx.setLineDash([]);
+    ctx.fillStyle=C.muted;ctx.font=`11px ${SANS}`;ctx.textAlign='right';ctx.textBaseline='bottom';ctx.globalAlpha=px;ctx.fillText('45°: s = d',F.X(1.9),F.Y(1.9)-4);ctx.globalAlpha=1;}
+  for(const k of ['m1','m2']){
+    const M=D[k],pk=k==='m1'?'A':'B',col=C[k];
+    const ph=ease(pr(pk+'_hyp')),pf=ease(pr(pk+'_feas'));
+    if(ph<=0)continue;
+    // asymptotes = OLS slope
+    ctx.globalAlpha=.55*ph*lerp(1,.6,pf);ctx.strokeStyle=col;ctx.lineWidth=1;ctx.setLineDash([2,3]);
+    line(ctx,F.X(M.b),F.m.t,F.X(M.b),F.m.t+F.ph);line(ctx,F.m.l,F.Y(M.b),F.m.l+F.pw,F.Y(M.b));ctx.setLineDash([]);ctx.globalAlpha=1;
+    drawHyper(ctx,F,M,col,ph,pf);
+    // axis crossing (reverse regression) and bracket
+    if(pf>0&&isFinite(M.br)){
+      ctx.globalAlpha=pf;
+      const up=M.Vpq>0;
+      const cx=up?F.X(0):F.X(M.br), cy=up?F.Y(M.br):F.Y(0);
+      ctx.fillStyle=C.panel;ctx.strokeStyle=col;ctx.lineWidth=2;ctx.beginPath();ctx.arc(cx,cy,4.5,0,Math.PI*2);ctx.fill();ctx.stroke();
+      ctx.lineWidth=5;ctx.lineCap='round';
+      if(up){ // supply bounded: bracket along left edge
+        const x=F.m.l+10;line(ctx,x,F.Y(M.b),x,F.Y(M.br));ctx.lineCap='butt';ctx.lineWidth=1.5;
+        line(ctx,x-5,F.Y(M.b),x+5,F.Y(M.b));line(ctx,x-5,F.Y(M.br),x+5,F.Y(M.br));
+        labelBox(ctx,`s ∈ [${fmt(M.b)}, ${fmt(M.br)}]`,x+10,(F.Y(M.b)+F.Y(M.br))/2,'left',col);
+        labelBox(ctx,'reverse',cx+8,cy,'left',col);
+      }else{ // demand bounded: bracket along bottom edge
+        const y=F.m.t+F.ph-10;line(ctx,F.X(M.br),y,F.X(M.b),y);ctx.lineCap='butt';ctx.lineWidth=1.5;
+        line(ctx,F.X(M.br),y-5,F.X(M.br),y+5);line(ctx,F.X(M.b),y-5,F.X(M.b),y+5);
+        labelBox(ctx,`d ∈ [${fmt(M.br)}, ${fmt(M.b)}]`,(F.X(M.br)+F.X(M.b))/2,y-14,'center',col);
+        labelBox(ctx,'reverse',cx,cy-14,'center',col);
+      }
+      ctx.lineCap='butt';ctx.globalAlpha=1;
+    }
+    if(ph>.6&&pf<1){ctx.globalAlpha=(ph-.6)/.4*(1-pf);labelBox(ctx,'asymptote = OLS b',F.X(M.b)+6,F.m.t+(k==='m1'?40:60),'left',col);ctx.globalAlpha=1;}
+  }
+  if(P.truth){ctx.globalAlpha=px>0?1:.55;ctx.fillStyle=C.truth;star(ctx,F.X(P.d),F.Y(P.s),px>0?8:6.5);ctx.fill();ctx.globalAlpha=1;}
+  if(px>0&&FE){
+    ctx.globalAlpha=px;
+    if(FE.ok){
+      const ex=F.X(FE.d),ey=F.Y(FE.s),mx=F.X(FE.mirror[0]),my=F.Y(FE.mirror[1]);
+      ctx.strokeStyle=C.ink;ctx.lineWidth=1;ctx.setLineDash([3,3]);
+      line(ctx,ex,ey,ex,F.Y(0));line(ctx,ex,ey,F.X(0),ey);ctx.setLineDash([]);
+      ctx.lineWidth=2;ctx.beginPath();ctx.arc(mx,my,6*px,0,Math.PI*2);ctx.stroke();
+      const nearR=mx>F.m.l+F.pw-150;
+      labelBox(ctx,'mirror: infeasible',nearR?mx-10:mx+10,my+(nearR?16:0),nearR?'right':'left',C.muted);
+      ctx.fillStyle=C.ink;ctx.beginPath();ctx.arc(ex,ey,6.5*px,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle=C.panel;ctx.beginPath();ctx.arc(ex,ey,2.2*px,0,Math.PI*2);ctx.fill();
+      labelBox(ctx,`Feenstra (${fmt(FE.d)}, ${fmt(FE.s)})`,ex-12,ey-18,'right',C.ink);
+    }else if(FE.pts){
+      ctx.strokeStyle=C.muted;ctx.lineWidth=2;for(const [d,s] of FE.pts){ctx.beginPath();ctx.arc(F.X(d),F.Y(s),6,0,Math.PI*2);ctx.stroke();}
+    }
+    ctx.globalAlpha=1;
+  }
+  ctx.restore();
+}
+
+/* ---------- text ---------- */
+function mName(k){return k==='m1'?'Market 1':'Market 2'}
+function traces(k){return P[k].sd>P[k].ss?'supply':'demand'}
+function caption(){
+  const order=[['A_pts','m1','pts'],['A_lines','m1','lines'],['A_hyp','m1','hyp'],['A_feas','m1','feas'],['gap','m1','feas'],['B_pts','m2','pts'],['B_lines','m2','lines'],['B_hyp','m2','hyp'],['B_feas','m2','feas'],['X','','X']];
+  let cur=order[0];for(const o of order){if(T>=ST[o[0]][0])cur=o;}
+  const [key,k,ph]=cur;
+  if(ph==='X'||T>=TOTAL){
+    if(!FE.ok){
+      if(FE.reason==='coincide')return ['Feenstra: hyperbolas nearly coincide','The two markets have about the same ratio of demand to supply volatility, so their hyperbolas lie on top of each other. They share no single crossing point, and the slopes are not identified. Make the variance ratios differ.'];
+      return ['Feenstra: no feasible crossing','In this sample the two hyperbolas do not cross inside the feasible quadrant. Sampling correlation between u and v can do this when the variance ratios are close. Try more periods, new draws, or more different variance ratios.'];
+    }
+    return ['Feenstra: intersecting the hyperbolas','Both markets share the same d and s, so the truth must lie on both hyperbolas. Each hyperbola is symmetric about the 45° line, so they cross twice, at mirror-image points. Only one crossing has d < 0 < s, and that point is the estimate.'];
+  }
+  const M=D[k],sd=fmt(P[k].sd),ss=fmt(P[k].ss),tr=traces(k),up=M.Vpq>0;
+  const nm=mName(k);
+  if(ph==='pts'){const n=nShown(k);return [`${nm}: shocks arriving, ${n} of ${P.N} periods`,`${nm} has demand shock volatility σ_d = ${sd} and supply shock volatility σ_s = ${ss}. Each period both curves shift and the market clears where they cross. The ${P[k].sd>P[k].ss?'demand':'supply'} curve does most of the moving, so the equilibria pile up along the ${tr} curve.`];}
+  if(ph==='lines')return [`${nm}: direct and reverse regressions`,`OLS of p on q gives slope b = Cov/Var(q) = ${fmt(M.b)}. Regressing q on p and inverting gives Var(p)/Cov = ${fmt(M.br)}. The shaded wedge between them holds every slope the scatter could be tracing.`];
+  if(ph==='hyp')return [`${nm}: Leamer's hyperbola`,`Every (d, s) pair that reproduces this market's Var(p), Var(q) and Cov(p,q) with uncorrelated shocks lies on this curve. Its asymptotes are at the OLS slope ${fmt(M.b)}, and it crosses the axes at the reverse slope ${fmt(M.br)}.`];
+  return [`${nm}: the feasible set`, up?`Keep only d < 0 and s > 0. Cov(p,q) > 0, so the supply slope is bounded between the two regressions, s ∈ [${fmt(M.b)}, ${fmt(M.br)}], while the demand slope could be any negative number.`:`Keep only d < 0 and s > 0. Cov(p,q) < 0, so the demand slope is bounded between the two regressions, d ∈ [${fmt(M.br)}, ${fmt(M.b)}], while the supply slope could be any positive number.`];
+}
+function updateText(){
+  const [st,txt]=caption();
+  $('status').textContent=st;
+  const cap=$('caption');if(cap.textContent!==txt)cap.textContent=txt;
+  let rows='';
+  for(const k of ['m1','m2']){
+    const pk=k==='m1'?'A':'B',M=D[k],shown=pr(pk+'_lines')>0,bd=pr(pk+'_feas')>0;
+    const bnd=!isFinite(M.br)?'—':M.Vpq>0?`s ∈ [${fmt(M.b)}, ${fmt(M.br)}]`:`d ∈ [${fmt(M.br)}, ${fmt(M.b)}]`;
+    rows+=`<tr><td class="mk" style="color:var(--${k})">${mName(k)}</td><td>${fmt(P[k].sd/P[k].ss)}</td><td>${shown?fmt(M.Vpq,3):'·'}</td><td>${shown?fmt(M.b):'·'}</td><td>${shown?fmt(M.br):'·'}</td><td>${bd?bnd:'·'}</td></tr>`;
+  }
+  const tb=$('tbody');if(tb.innerHTML!==rows)tb.innerHTML=rows;
+  let est='Feenstra estimate appears after both markets are drawn.';
+  if(pr('X')>0){
+    if(FE.ok)est=`Feenstra estimate: d̂ = ${fmt(FE.d)}, ŝ = ${fmt(FE.s)}  ·  true d = ${fmt(P.d)}, s = ${fmt(P.s)}`;
+    else est=FE.reason==='coincide'?'Not identified: the two hyperbolas coincide.':'No crossing in the feasible quadrant for this sample.';
+  }
+  if($('est').textContent!==est)$('est').textContent=est;
+  $('scrub').value=Math.round(T/TOTAL*1000);
+}
+function render(){readColors();drawScatter();drawSeries();drawParam();updateText();}
+
+/* ---------- playback ---------- */
+function setBtn(){$('play').textContent=playing?'Pause':(T>=TOTAL?'Play again':'Play')}
+function tick(ts){if(!playing)return;const dt=last?Math.min(64,ts-last):16;last=ts;T=Math.min(TOTAL,T+dt*speed);render();if(T>=TOTAL){playing=false;setBtn();}else requestAnimationFrame(tick);}
+function play(){if(T>=TOTAL)T=0;playing=true;last=0;setBtn();requestAnimationFrame(tick);}
+function pause(){playing=false;setBtn();}
+$('play').onclick=()=>playing?pause():play();
+$('replay').onclick=()=>{T=0;play();};
+$('skip').onclick=()=>{T=TOTAL;pause();render();};
+$('speed').onchange=e=>{speed=+e.target.value;};
+$('scrub').oninput=e=>{pause();T=e.target.value/1000*TOTAL;render();};
+
+/* ---------- controls ---------- */
+const sliders=[['m1sd',v=>P.m1.sd=v],['m1ss',v=>P.m1.ss=v],['m2sd',v=>P.m2.sd=v],['m2ss',v=>P.m2.ss=v],['td',v=>P.d=v],['ts',v=>P.s=v],['nn',v=>P.N=Math.round(v)]];
+function syncOutputs(){
+  for(const [id] of sliders){const el=$(id);$(id+'O').textContent=id==='nn'?el.value:fmt(+el.value);}
+  for(const k of ['m1','m2']){const r=P[k].sd/P[k].ss;$(k+'desc').textContent=Math.abs(r-1)<.05?'Equal volatility: the scatter is a round cloud and neither curve is traced.':r>1?`Demand shocks dominate (ratio ${fmt(r)}), so the points trace out the supply curve.`:`Supply shocks dominate (ratio ${fmt(r)}), so the points trace out the demand curve.`;}
+}
+for(const [id,set] of sliders){$(id).addEventListener('input',e=>{set(+e.target.value);syncOutputs();rebuild();T=TOTAL;pause();render();});}
+$('orth').onchange=e=>{P.orth=e.target.checked;rebuild();T=TOTAL;pause();render();};
+$('truth').onchange=e=>{P.truth=e.target.checked;render();};
+$('reseed').onclick=()=>{seed=(seed*1664525+1013904223)>>>0;makeDraws();rebuild();T=TOTAL;pause();render();};
+
+/* ---------- boot ---------- */
+for(const [id,set] of sliders)set(+$(id).value);
+P.orth=$('orth').checked;P.truth=$('truth').checked;
+makeDraws();rebuild();syncOutputs();
+new ResizeObserver(()=>render()).observe(document.querySelector('.plots'));
+const mq=window.matchMedia('(prefers-color-scheme: dark)');mq.addEventListener&&mq.addEventListener('change',render);
+new MutationObserver(render).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(render);
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(reduce){T=TOTAL;render();setBtn();}else{render();setTimeout(play,500);}
+})();
+</script>
+</body>
+</html>

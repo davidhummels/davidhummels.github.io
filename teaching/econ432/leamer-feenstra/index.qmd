@@ -1,0 +1,23 @@
+---
+title: "Is it a demand curve or a supply curve?"
+subtitle: "Leamer (1981) bounds and Feenstra (1994) identification"
+page-layout: full
+resources:
+  - app.html
+---
+
+Price and quantity data alone can't tell you whether you are looking at demand or supply. This simulation generates equilibrium prices and quantities from demand and supply curves hit by random shocks. It shows how the direct and reverse regressions bound one of the slopes (Leamer 1981), and how two markets with the same slopes but different shock volatilities pin down both slopes (Feenstra 1994). Use the sliders to change the shock volatilities, the true slopes, and the number of periods. All data are simulated in your browser.
+
+[Open the simulation full screen ↗](app.html){target="_blank"}
+
+```{=html}
+<iframe id="lf-app" src="app.html" title="Leamer–Feenstra simulation" style="width:100%;border:0;min-height:1400px;display:block" loading="eager"></iframe>
+<script>
+(function(){
+  var f=document.getElementById('lf-app');
+  function fit(){try{var d=f.contentWindow.document;f.style.height=(d.documentElement.scrollHeight+4)+'px';}catch(e){}}
+  f.addEventListener('load',function(){fit();try{new f.contentWindow.ResizeObserver(fit).observe(f.contentWindow.document.body);}catch(e){}});
+  window.addEventListener('resize',fit);
+})();
+</script>
+```
