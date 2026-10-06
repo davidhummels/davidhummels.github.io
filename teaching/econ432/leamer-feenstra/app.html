@@ -539,7 +539,7 @@ $('scrub').oninput=e=>{pause();T=e.target.value/1000*TOTAL;render();};
 const sliders=[['m1sd',v=>P.m1.sd=v],['m1ss',v=>P.m1.ss=v],['m2sd',v=>P.m2.sd=v],['m2ss',v=>P.m2.ss=v],['td',v=>P.d=v],['ts',v=>P.s=v],['nn',v=>P.N=Math.round(v)]];
 function syncOutputs(){
   for(const [id] of sliders){const el=$(id);$(id+'O').textContent=id==='nn'?el.value:fmt(+el.value);}
-  for(const k of ['m1','m2']){const r=P[k].sd/P[k].ss;$(k+'desc').textContent=Math.abs(r-1)<.05?'Equal volatility: the scatter is a round cloud and neither curve is traced.':r>1?`Demand shocks dominate (ratio ${fmt(r)}), so the points trace out the supply curve.`:`Supply shocks dominate (ratio ${fmt(r)}), so the points trace out the demand curve.`;}
+  for(const k of ['m1','m2']){const a=P.s*P[k].sd*P[k].sd, b=-P.d*P[k].ss*P[k].ss, r=a/b;$(k+'desc').textContent=Math.abs(r-1)<.1?'Balanced: s·σ_d² ≈ |d|·σ_s², so Cov(p,q) ≈ 0, the cloud has no tilt, and the regression wedge covers every slope.':r>1?`s·σ_d² > |d|·σ_s², so Cov(p,q) > 0 and the points trace out the supply curve.`:`s·σ_d² < |d|·σ_s², so Cov(p,q) < 0 and the points trace out the demand curve.`;}
 }
 for(const [id,set] of sliders){$(id).addEventListener('input',e=>{set(+e.target.value);syncOutputs();rebuild();T=TOTAL;pause();render();});}
 $('orth').onchange=e=>{P.orth=e.target.checked;rebuild();T=TOTAL;pause();render();};
