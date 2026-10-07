@@ -131,6 +131,19 @@ button:disabled{opacity:.5;cursor:progress}
 .try h3{margin-bottom:4px}
 .try ul{margin:0;padding-left:18px;font-size:13.5px;display:flex;flex-direction:column;gap:4px}
 
+.steps{display:flex;flex-wrap:wrap;gap:6px}
+.steps button[aria-pressed="true"]{background:var(--ink);color:var(--panel);border-color:var(--ink)}
+.bars-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.brow{display:grid;grid-template-columns:90px 1fr;gap:10px;align-items:center;font-size:12.5px;font-weight:600}
+.btrack{position:relative;height:16px;background:var(--grid);border-radius:4px;overflow:hidden}
+.btrack i{position:absolute;left:0;top:3px;bottom:3px;border-radius:3px}
+.btrack i.alt{background:transparent!important;border:2px solid;top:0;bottom:0;border-radius:4px}
+.bk{display:inline-block;width:10px;height:10px;vertical-align:-1px;margin:0 3px 0 8px;background:var(--muted)}
+.bk.ring{background:transparent;border:2px solid var(--muted)}
+#mbars{display:flex;flex-direction:column;gap:6px}
+#cvmB{cursor:crosshair}
+.caption-box{margin:0;font-size:14px;padding:10px 12px;border-left:3px solid var(--feas);background:var(--panel);border-radius:0 6px 6px 0;max-width:110ch}
+
 @media (max-width:900px){
   .plots,.controls,.notes{grid-template-columns:1fr}
   .transport{position:static}
@@ -148,6 +161,7 @@ button:disabled{opacity:.5;cursor:progress}
 
   <nav class="tabs" id="tabbar" role="tablist" aria-label="Sections">
     <button role="tab" id="tab-leamer" aria-controls="p-leamer" aria-selected="true">Leamer &amp; Feenstra<small>1981 · 1994</small></button>
+    <button role="tab" id="tab-many" aria-controls="p-many" aria-selected="false" tabindex="-1">Many exporters<small>Feenstra 1994 · grid search</small></button>
     <button role="tab" id="tab-s2015" aria-controls="p-s2015" aria-selected="false" tabindex="-1">Small-sample bias<small>Soderbery 2015</small></button>
     <button role="tab" id="tab-s2018" aria-controls="p-s2018" aria-selected="false" tabindex="-1">Heterogeneous supply<small>Soderbery 2018</small></button>
     <button role="tab" id="tab-gs2024" aria-controls="p-gs2024" aria-selected="false" tabindex="-1">Testing the assumptions<small>Grant &amp; Soderbery 2024</small></button>
@@ -247,6 +261,42 @@ button:disabled{opacity:.5;cursor:progress}
     </div>
   </section>
   <p class="cite">Leamer, E. (1981), "Is it a Demand Curve, or Is It a Supply Curve? Partial Identification through Inequality Constraints," <i>Review of Economics and Statistics</i> 63(3). Feenstra, R. (1994), "New Product Varieties and the Measurement of International Prices," <i>American Economic Review</i> 84(1).</p>
+  </section>
+
+  <section id="p-many" class="tabpanel" role="tabpanel" aria-labelledby="tab-many" hidden>
+    <div class="intro">
+      <p class="cite-top">Feenstra (1994); Broda and Weinstein (2006); Soderbery (2015), Section 4.2.</p>
+      <p>With two exporters, the hyperbolae cross at one feasible point and that point is the estimate. With more exporters, every pair crosses somewhere, and the crossings don't agree. This tab shows how Feenstra's estimator turns many crossings into one answer, and what happens when that answer falls outside the feasible region.</p>
+      <p class="note-sm">True σ = 3 and ω = 0.5. Each exporter's demand and supply shock variances are drawn from U(0, 9), as in Soderbery's Monte Carlo. Work through the four steps in order.</p>
+    </div>
+    <div class="panel ctlrow">
+      <div class="ctl"><label for="mn">Exporters n</label><output id="mnO"></output><input id="mn" type="range" min="2" max="6" step="1" value="4"></div>
+      <div class="ctl"><label for="mT">Periods T</label><output id="mTO"></output><input id="mT" type="range" min="5" max="60" step="1" value="20"></div>
+      <div class="row end"><button id="mnew">New shock draws</button></div>
+    </div>
+    <div class="steps" id="msteps" role="group" aria-label="Steps">
+        <button data-step="1" aria-pressed="true">1 · Many crossings</button>
+        <button data-step="2" aria-pressed="false">2 · Hyperbolae become lines</button>
+        <button data-step="3" aria-pressed="false">3 · Least squares picks a point</button>
+        <button data-step="4" aria-pressed="false">4 · When that point is infeasible</button>
+      </div>
+    <p id="mcap" aria-live="polite" class="caption-box"></p>
+    <div class="plots">
+      <section class="panel fig">
+        <div class="fig-head"><h2>Hyperbolae in slope space</h2><p>× marks where a pair crosses</p></div>
+        <div class="cv square"><canvas id="cvmA" aria-label="Exporter hyperbolae and their pairwise crossings in demand and supply slope space"></canvas></div>
+        <div class="legend"><span class="cm"><i class="sw"></i>one color per exporter</span><span class="cm">× pairwise crossing (dark if feasible)</span><span class="c2"><i class="sw sq"></i>2SLS and its mirror</span><span class="c1">◆ grid search</span><span class="ct">★ truth</span></div>
+      </section>
+      <section class="panel fig">
+        <div class="fig-head"><h2>The same data in the regression's coefficient space</h2><p>click to probe a point (step 3 on)</p></div>
+        <div class="cv square"><canvas id="cvmB" aria-label="Each exporter as a line in theta space, with the 2SLS objective"></canvas></div>
+        <div class="legend"><span class="cm"><i class="sw"></i>exporter lines</span><span class="cf"><i class="sw dot"></i>feasible wedge</span><span class="c2"><i class="sw"></i>2SLS objective (bowl)</span><span class="c1">· grid points</span></div>
+      </section>
+    </div>
+    <div class="plots">
+      <section class="panel fig"><div id="mbars"></div></section>
+      <section class="panel fig"><div class="tbl"><table><tbody id="tm"></tbody></table></div></section>
+    </div>
   </section>
 
   <section id="p-s2015" class="tabpanel" role="tabpanel" aria-labelledby="tab-s2015" hidden>
@@ -861,6 +911,161 @@ const ENG = (function(){
 </script>
 <script>
 (function(){
+const E=ENG,$=id=>document.getElementById(id);
+const MONO="'IBM Plex Mono', ui-monospace, Menlo, monospace",SANS="'IBM Plex Sans', system-ui, sans-serif";
+const fmt=(x,dp=2)=>!isFinite(x)?'—':(x<0?'−':'')+Math.abs(x).toFixed(dp);
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+let C={};
+function readC(){const cs=getComputedStyle(document.documentElement);for(const n of ['ink','muted','grid','rule','m1','m2','feas','truth','plot','panel','c1','c2','c3','c4','c5','c6'])C[n]=cs.getPropertyValue('--'+n).trim();}
+const CAT=()=>[C.c1,C.c2,C.c3,C.c4,C.c5,C.c6];
+function setup(cv){const dpr=window.devicePixelRatio||1,w=cv.clientWidth,h=cv.clientHeight;if(!w||!h)return null;const W=Math.round(w*dpr),H=Math.round(h*dpr);if(cv.width!==W||cv.height!==H){cv.width=W;cv.height=H;}const ctx=cv.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);return{ctx,w,h}}
+function frame(w,h,m,xr,yr){const pw=w-m.l-m.r,ph=h-m.t-m.b;return{m,pw,ph,xr,yr,w,h,X:x=>m.l+(x-xr[0])/(xr[1]-xr[0])*pw,Y:y=>m.t+(1-(y-yr[0])/(yr[1]-yr[0]))*ph,iX:px=>xr[0]+(px-m.l)/pw*(xr[1]-xr[0]),iY:py=>yr[0]+(1-(py-m.t)/ph)*(yr[1]-yr[0])}}
+function niceStep(raw){const e=Math.pow(10,Math.floor(Math.log10(raw)));const f=raw/e;return(f<1.5?1:f<3?2:f<7?5:10)*e}
+function ticks(r,st){const o=[];for(let v=Math.ceil(r[0]/st-1e-9)*st;v<=r[1]+1e-9;v+=st)o.push(Math.abs(v)<1e-9?0:v);return o}
+function line(ctx,a,b,c,d){ctx.beginPath();ctx.moveTo(a,b);ctx.lineTo(c,d);ctx.stroke()}
+function clip(ctx,F){ctx.save();ctx.beginPath();ctx.rect(F.m.l,F.m.t,F.pw,F.ph);ctx.clip()}
+function axes(ctx,F,o){
+  const {m,pw,ph}=F;ctx.fillStyle=C.plot;ctx.fillRect(m.l,m.t,pw,ph);
+  const xst=niceStep((F.xr[1]-F.xr[0])/6),yst=niceStep((F.yr[1]-F.yr[0])/6),xs=ticks(F.xr,xst),ys=ticks(F.yr,yst),dp=s=>s<1?(s<.1?2:1):0;
+  ctx.strokeStyle=C.grid;ctx.lineWidth=1;
+  xs.forEach(x=>line(ctx,Math.round(F.X(x))+.5,m.t,Math.round(F.X(x))+.5,m.t+ph));ys.forEach(y=>line(ctx,m.l,Math.round(F.Y(y))+.5,m.l+pw,Math.round(F.Y(y))+.5));
+  ctx.strokeStyle=C.rule;ctx.lineWidth=1.25;if(F.xr[0]<0&&F.xr[1]>0)line(ctx,F.X(0),m.t,F.X(0),m.t+ph);if(F.yr[0]<0&&F.yr[1]>0)line(ctx,m.l,F.Y(0),m.l+pw,F.Y(0));
+  ctx.lineWidth=1;ctx.strokeRect(m.l+.5,m.t+.5,pw-1,ph-1);
+  ctx.fillStyle=C.muted;ctx.font=`10.5px ${MONO}`;ctx.textAlign='center';ctx.textBaseline='top';xs.forEach(x=>ctx.fillText(fmt(x,dp(xst)),F.X(x),m.t+ph+5));
+  ctx.textAlign='right';ctx.textBaseline='middle';ys.forEach(y=>ctx.fillText(fmt(y,dp(yst)),m.l-6,F.Y(y)));
+  ctx.fillStyle=C.ink;ctx.font=`12px ${SANS}`;ctx.textAlign='center';ctx.textBaseline='bottom';ctx.fillText(o.xl,m.l+pw/2,F.h-2);
+  ctx.save();ctx.translate(11,m.t+ph/2);ctx.rotate(-Math.PI/2);ctx.textBaseline='middle';ctx.fillText(o.yl,0,0);ctx.restore();
+}
+function star(ctx,x,y,r){ctx.beginPath();for(let i=0;i<10;i++){const a=-Math.PI/2+i*Math.PI/5,rr=i%2?r*.45:r;ctx.lineTo(x+rr*Math.cos(a),y+rr*Math.sin(a));}ctx.closePath()}
+function labelBox(ctx,text,x,y,align,color){ctx.font=`11px ${MONO}`;const w=ctx.measureText(text).width+8,h=16;let bx=align==='right'?x-w:align==='center'?x-w/2:x;const cw=ctx.canvas.width/(window.devicePixelRatio||1);bx=Math.max(52,Math.min(bx,cw-16-w));
+  ctx.save();ctx.globalAlpha*=.9;ctx.fillStyle=C.panel;ctx.fillRect(bx,y-h/2,w,h);ctx.restore();ctx.fillStyle=color;ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillText(text,bx+4,y+.5);}
+const diamond=(ctx,x,y,r)=>{ctx.beginPath();ctx.moveTo(x,y-r);ctx.lineTo(x+r,y);ctx.lineTo(x,y+r);ctx.lineTo(x-r,y);ctx.closePath()};
+
+/* ---------- model ---------- */
+const SM={n:4,T:20,sig:3,om:.5,seed:11,step:1,probe:null};let RM=null;
+const DXR=[-2.5,1.5],DYR=[-1.5,2.5];
+function hyperSegsDS(M){
+  const d0=M.Vpq/M.Vqq;let ds=[];for(let i=0;i<=900;i++)ds.push(DXR[0]-.3+(DXR[1]-DXR[0]+.6)*i/900);
+  for(let k=0;k<=60;k++){const e=Math.pow(10,-k/12);ds.push(d0+e,d0-e);}
+  ds=ds.filter(d=>d>=DXR[0]-.3&&d<=DXR[1]+.3&&d!==d0).sort((a,b)=>a-b);
+  const L=[],R=[];for(const d of ds){const s=E.hyperS(M,d);if(!isFinite(s)||s<DYR[0]-30||s>DYR[1]+30)continue;(d<d0?L:R).push([d,s]);}
+  return [L,R].filter(a=>a.length>1);
+}
+function rootsDS(th){const [t1,t2]=th,disc=t2*t2+4*t1;if(!(disc>=0))return null;const a=(t2-Math.sqrt(disc))/2,b=(t2+Math.sqrt(disc))/2;return [[a,b],[b,a]]}
+const feasDS=([d,s])=>d<0&&s>=0&&s<1;
+function compute(seed){
+  const r=E.rng(seed??SM.seed),moms=[];for(let v=0;v<SM.n;v++)moms.push(E.varMoments(E.simVariety(r,SM.T,SM.sig,SM.om,9*r(),9*r())));
+  const St=E.stack(moms),th=E.kclass(St,1),el=E.thetaToElas(th);
+  const pairs=[];for(let i=0;i<moms.length;i++)for(let j=i+1;j<moms.length;j++){const A=moms[i],B=moms[j];const det=A.Vqq*B.Vpq-B.Vqq*A.Vpq;if(!det)continue;
+    const t1=(A.Vpp*B.Vpq-B.Vpp*A.Vpq)/det,t2=(A.Vqq*B.Vpp-B.Vqq*A.Vpp)/det;pairs.push({i,j,th:[t1,t2],ds:rootsDS([t1,t2])});}
+  return {moms,St,th,el,pairs,segs:moms.map(hyperSegsDS)};
+}
+function withGrid(R){if(!R.el.ok&&!R.grid){const g=E.gridSearch(R.St,E.obj2SLS);g.th=E.thetaOf(g.sigma,g.rho);g.edge=g.rho<1e-9?'om0':g.rho>=((g.sigma-1)/g.sigma)*0.97?'ominf':(g.sigma>50?'siginf':'interior');R.grid=g;}return R;}
+function recompute(){RM=compute();SM.probe=null;if(SM.step===4)ensureInfeasible();else draw();}
+function ensureInfeasible(){
+  if(RM.el.ok){let s=SM.seed;for(let k=0;k<2000;k++){s=(s*48271)%2147483647;const R=compute(s);if(!R.el.ok){SM.seed=s;RM=R;break;}}}
+  withGrid(RM);draw();
+}
+
+/* ---------- drawing ---------- */
+const trueTh=()=>{const [d,s]=E.toDS(SM.sig,SM.om);return [-d*s,d+s]};
+function drawDS(){
+  const o=setup($('cvmA'));if(!o)return;const {ctx,w,h}=o,cat=CAT(),st=SM.step;
+  const F=frame(w,h,{l:50,r:14,t:12,b:38},DXR,DYR);
+  axes(ctx,F,{xl:'demand slope d = −1/(σ−1)',yl:'supply slope s = ω/(1+ω)'});clip(ctx,F);
+  ctx.fillStyle=C.feas;ctx.globalAlpha=.1;ctx.fillRect(F.X(DXR[0]),F.Y(1),F.X(0)-F.X(DXR[0]),F.Y(0)-F.Y(1));ctx.globalAlpha=1;
+  ctx.strokeStyle=C.feas;ctx.globalAlpha=.6;ctx.setLineDash([4,3]);line(ctx,F.X(DXR[0]),F.Y(1),F.X(0),F.Y(1));ctx.setLineDash([]);ctx.globalAlpha=1;
+  ctx.fillStyle=C.feas;ctx.font=`600 11px ${SANS}`;ctx.textAlign='left';ctx.textBaseline='top';ctx.fillText('feasible: σ > 1, ω ≥ 0',F.X(DXR[0])+8,F.Y(1)+6);
+  ctx.strokeStyle=C.muted;ctx.globalAlpha=.45;ctx.setLineDash([2,4]);line(ctx,F.X(-3),F.Y(-3),F.X(3),F.Y(3));ctx.setLineDash([]);ctx.globalAlpha=1;
+  RM.segs.forEach((sg,v)=>{ctx.strokeStyle=cat[v%6];ctx.lineWidth=2;ctx.globalAlpha=st>=3?.55:.95;for(const seg of sg){ctx.beginPath();seg.forEach(([d,s],i)=>i?ctx.lineTo(F.X(d),F.Y(s)):ctx.moveTo(F.X(d),F.Y(s)));ctx.stroke();}});
+  ctx.globalAlpha=1;
+  for(const p of RM.pairs){if(!p.ds)continue;for(const q of p.ds){const x=F.X(q[0]),y=F.Y(q[1]),f=feasDS(q);ctx.strokeStyle=f?C.ink:C.muted;ctx.lineWidth=1.6;ctx.globalAlpha=f?.95:.6;line(ctx,x-4,y-4,x+4,y+4);line(ctx,x-4,y+4,x+4,y-4);}}
+  ctx.globalAlpha=1;
+  const [d0,s0]=E.toDS(SM.sig,SM.om);ctx.fillStyle=C.truth;ctx.strokeStyle=C.panel;ctx.lineWidth=1.5;star(ctx,F.X(d0),F.Y(s0),8);ctx.fill();ctx.stroke();
+  if(st>=3){const rt=rootsDS(RM.th);if(rt){rt.forEach(q=>{const f=feasDS(q),x=F.X(q[0]),y=F.Y(q[1]);ctx.fillStyle=f?C.m2:C.panel;ctx.strokeStyle=C.m2;ctx.lineWidth=2;ctx.beginPath();ctx.rect(x-6,y-6,12,12);ctx.fill();ctx.stroke();});
+      const fq=rt.find(feasDS);if(fq)labelBox(ctx,'2SLS',F.X(fq[0])+10,F.Y(fq[1])-12,'left',C.m2);else labelBox(ctx,'2SLS (both roots infeasible)',F.X(rt[0][0])+10,F.Y(rt[0][1])+16,'left',C.m2);}}
+  if(st>=4&&RM.grid){const [d,s]=E.toDS(RM.grid.sigma,RM.grid.omega),x=F.X(d),y=F.Y(Math.min(s,.999));ctx.fillStyle=C.m1;ctx.strokeStyle=C.panel;ctx.lineWidth=2;diamond(ctx,x,y,8);ctx.fill();ctx.stroke();labelBox(ctx,'grid search',x-10,y-16,'right',C.m1);}
+  if(SM.probe&&st>=3){const rt=rootsDS(SM.probe);if(rt)rt.forEach(q=>{ctx.strokeStyle=C.ink;ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(F.X(q[0]),F.Y(q[1]),5,0,7);ctx.stroke();});}
+  ctx.restore();
+}
+function thRange(){
+  const core=[trueTh(),RM.th];if(RM.grid)core.push(RM.grid.th);
+  const bx=(pts)=>[Math.min(...pts.map(p=>p[0])),Math.max(...pts.map(p=>p[0])),Math.min(...pts.map(p=>p[1])),Math.max(...pts.map(p=>p[1]))];
+  let [x0,x1,y0,y1]=bx(core);const cx=(x0+x1)/2,cy=(y0+y1)/2;let sx=Math.max(x1-x0,.5),sy=Math.max(y1-y0,.8);
+  const near=RM.pairs.map(p=>p.th).filter(p=>Math.abs(p[0]-cx)<sx*1.6&&Math.abs(p[1]-cy)<sy*1.6);
+  [x0,x1,y0,y1]=bx(core.concat(near));x0=Math.min(x0,-.05);
+  const px=Math.max(x1-x0,.5)*.25,py=Math.max(y1-y0,.8)*.25;return [[x0-px,x1+px],[y0-py,y1+py]];
+}
+let FT=null;
+function drawTheta(){
+  const o=setup($('cvmB'));if(!o)return;const {ctx,w,h}=o,cat=CAT(),st=SM.step;
+  if(st<2){ctx.fillStyle=C.plot;ctx.fillRect(50,12,w-64,h-50);ctx.fillStyle=C.muted;ctx.font=`13px ${SANS}`;ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('Step 2 maps each hyperbola into this plane.',w/2,h/2);FT=null;return;}
+  const [xr,yr]=thRange(),F=frame(w,h,{l:50,r:14,t:12,b:38},xr,yr);FT=F;
+  axes(ctx,F,{xl:'θ₁ = −d·s  (coefficient on Var x)',yl:'θ₂ = d + s  (coefficient on Cov)'});clip(ctx,F);
+  // feasible wedge θ1 > 0, θ1 + θ2 < 1
+  ctx.fillStyle=C.feas;ctx.globalAlpha=.1;ctx.beginPath();ctx.moveTo(F.X(0),F.Y(yr[0]-10));ctx.lineTo(F.X(0),F.Y(1));ctx.lineTo(F.X(xr[1]+10),F.Y(1-(xr[1]+10)));ctx.lineTo(F.X(xr[1]+10),F.Y(yr[0]-10));ctx.closePath();ctx.fill();ctx.globalAlpha=1;
+  ctx.strokeStyle=C.feas;ctx.lineWidth=2;line(ctx,F.X(0),F.Y(yr[0]),F.X(0),F.Y(1));line(ctx,F.X(0),F.Y(1),F.X(xr[1]+5),F.Y(1-(xr[1]+5)));
+  // bowl
+  if(st>=3){const H=[[RM.St.P[1][1],RM.St.P[1][2]],[RM.St.P[2][1],RM.St.P[2][2]]],a=H[0][0],b=H[0][1],c=H[1][1];const tr=a+c,dt=a*c-b*b,l1=tr/2+Math.sqrt(tr*tr/4-dt),l2=tr/2-Math.sqrt(tr*tr/4-dt);
+    const ang=Math.atan2(l1-a,b),e1=[Math.cos(ang),Math.sin(ang)],e2=[-e1[1],e1[0]],wv=(xr[1]-xr[0])*.07;
+    for(let k=5;k>=1;k--){const D=(k*wv)*(k*wv)*l2;const r1=Math.sqrt(D/l1),r2=Math.sqrt(D/l2);ctx.beginPath();for(let i=0;i<=80;i++){const t=i/80*2*Math.PI;const p=[RM.th[0]+r1*Math.cos(t)*e1[0]+r2*Math.sin(t)*e2[0],RM.th[1]+r1*Math.cos(t)*e1[1]+r2*Math.sin(t)*e2[1]];i?ctx.lineTo(F.X(p[0]),F.Y(p[1])):ctx.moveTo(F.X(p[0]),F.Y(p[1]));}
+      ctx.fillStyle=C.m2;ctx.globalAlpha=.05;ctx.fill();ctx.globalAlpha=.4;ctx.strokeStyle=C.m2;ctx.lineWidth=1;ctx.stroke();ctx.globalAlpha=1;}}
+  // grid points
+  if(st>=4){ctx.fillStyle=C.m1;ctx.globalAlpha=.35;for(let sig=1.05;sig<=55.06;sig+=1.04){const rm=(sig-1)/sig;for(let i=0;i<60;i+=3){const [a,b]=E.thetaOf(sig,rm*i/60);if(a>xr[1]||b>yr[1]||b<yr[0])continue;ctx.fillRect(F.X(a)-1,F.Y(b)-1,2,2);}}ctx.globalAlpha=1;}
+  // exporter lines: Vqq·θ1 + Vpq·θ2 = Vpp
+  RM.moms.forEach((M,v)=>{ctx.strokeStyle=cat[v%6];ctx.lineWidth=2.2;const X0=xr[0]-1,X1=xr[1]+1;
+    if(Math.abs(M.Vpq)>1e-9*Math.abs(M.Vqq))line(ctx,F.X(X0),F.Y((M.Vpp-M.Vqq*X0)/M.Vpq),F.X(X1),F.Y((M.Vpp-M.Vqq*X1)/M.Vpq));else line(ctx,F.X(M.Vpp/M.Vqq),F.Y(yr[0]),F.X(M.Vpp/M.Vqq),F.Y(yr[1]));});
+  for(const p of RM.pairs){const x=F.X(p.th[0]),y=F.Y(p.th[1]);ctx.strokeStyle=C.ink;ctx.lineWidth=1.6;line(ctx,x-4,y-4,x+4,y+4);line(ctx,x-4,y+4,x+4,y-4);}
+  const tt=trueTh();ctx.fillStyle=C.truth;ctx.strokeStyle=C.panel;ctx.lineWidth=1.5;star(ctx,F.X(tt[0]),F.Y(tt[1]),8);ctx.fill();ctx.stroke();
+  if(st>=3){const x=F.X(RM.th[0]),y=F.Y(RM.th[1]);ctx.fillStyle=RM.el.ok?C.m2:C.panel;ctx.strokeStyle=C.m2;ctx.lineWidth=2;ctx.beginPath();ctx.rect(x-6,y-6,12,12);ctx.fill();ctx.stroke();const t=RM.el.ok?'2SLS: bottom of the bowl':'2SLS: bottom of the bowl (infeasible)';if(st>=4&&RM.grid)labelBox(ctx,t,x-10,y+18,'right',C.m2);else labelBox(ctx,t,x+10,y-14,x>F.m.l+F.pw*.55?'right':'left',C.m2);}
+  if(st>=4&&RM.grid){const g=RM.grid.th,x=F.X(g[0]),y=F.Y(g[1]),x0=F.X(RM.th[0]),y0=F.Y(RM.th[1]);ctx.strokeStyle=C.m1;ctx.lineWidth=1.5;ctx.setLineDash([4,3]);line(ctx,x0,y0,x,y);ctx.setLineDash([]);
+    ctx.fillStyle=C.m1;ctx.strokeStyle=C.panel;ctx.lineWidth=2;diamond(ctx,x,y,8);ctx.fill();ctx.stroke();labelBox(ctx,'grid: lowest feasible point',x+12,y-16,x>F.m.l+F.pw*.6?'right':'left',C.m1);}
+  if(SM.probe&&st>=3){const x=F.X(SM.probe[0]),y=F.Y(SM.probe[1]);ctx.strokeStyle=C.ink;ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(x,y,6,0,7);ctx.stroke();line(ctx,x-10,y,x-7,y);line(ctx,x+7,y,x+10,y);line(ctx,x,y-10,x,y-7);line(ctx,x,y+7,x,y+10);}
+  ctx.restore();
+  ctx.font=`600 11px ${SANS}`;ctx.fillStyle=C.feas;ctx.textBaseline='middle';
+  if(F.X(0)>F.m.l+4){ctx.save();ctx.translate(F.X(0)-8,F.Y(Math.max(yr[0],-5))-60);ctx.rotate(-Math.PI/2);ctx.textAlign='left';ctx.fillText('θ₁ = 0 with θ₂ < 0: ω = 0',0,0);ctx.restore();}
+  const lx=Math.min(xr[1],1-yr[0])*.6+Math.max(0,xr[0])*.4;ctx.save();ctx.translate(F.X(lx),F.Y(1-lx)-10);ctx.rotate(Math.atan2(F.Y(1-lx-0.1)-F.Y(1-lx),F.X(lx+0.1)-F.X(lx)));ctx.textAlign='center';ctx.fillText('θ₁ + θ₂ = 1: ω → ∞',0,0);ctx.restore();
+}
+function contrib(th){const r=[1,-th[0],-th[1]];return RM.moms.map(M=>{const e=M.Vpp-th[0]*M.Vqq-th[1]*M.Vpq;return M.T*e*e});}
+function drawBars(){
+  const box=$('mbars');if(SM.step<3){box.innerHTML='<p class="note-sm">From step 3 on, this shows how much each exporter adds to the 2SLS objective. Click anywhere in the θ plane to try your own point.</p>';return;}
+  const cat=['c1','c2','c3','c4','c5','c6'],scale=RM.moms.reduce((t,M)=>t+M.T*M.Vpp*M.Vpp,0);let a=contrib(RM.th);if(a.reduce((x,y)=>x+y,0)<1e-9*scale)a=a.map(()=>0);const b=SM.probe?contrib(SM.probe):null,mx=Math.max(...a,...(b||[0]))||1;
+  const sum=x=>x.reduce((s,y)=>s+y,0);
+  let html=`<div class="bars-head"><span>Exporter's term T·(Var y − θ₁Var x − θ₂Cov)²</span><span><i class="bk sq2"></i>at 2SLS${b?' <i class="bk ring"></i>at your point':''}</span></div>`;
+  RM.moms.forEach((M,v)=>{html+=`<div class="brow"><span style="color:var(--${cat[v%6]})">Exporter ${'ABCDEF'[v]}</span><div class="btrack"><i style="width:${a[v]/mx*100}%;background:var(--${cat[v%6]})"></i>${b?`<i class="alt" style="width:${b[v]/mx*100}%;border-color:var(--${cat[v%6]})"></i>`:''}</div></div>`;});
+  html+=`<p class="tst-num">${RM.moms.length===2?'With two exporters the lines cross exactly, so the total at 2SLS is zero. ':''}Total at 2SLS: ${fmt(sum(a),3)}${b?` · at your point: ${fmt(sum(b),3)}`:''}. 2SLS is the point with the smallest total.</p>`;
+  box.innerHTML=html;
+}
+const CAPS={
+ 1:()=>`With ${SM.n} exporters there are ${SM.n*(SM.n-1)/2} pairs of hyperbolae, and each pair crosses at two mirror-image points (or not at all). Sampling noise means the crossings don't coincide. ${RM.pairs.filter(p=>p.ds&&p.ds.some(feasDS)).length} of the ${RM.pairs.length} pairs cross inside the feasible box. Which crossing is the estimate?`,
+ 2:()=>`Write each exporter's Leamer condition as Var(y) = θ₁·Var(x) + θ₂·Cov(x, y), with θ₁ = −d·s and θ₂ = d + s. In (θ₁, θ₂) it is a straight line. Each pair of lines crosses once, and that one point maps back to the pair's two mirror crossings on the left. Here the feasible region is the wedge θ₁ > 0, θ₁ + θ₂ < 1.`,
+ 3:()=>`Feenstra's 2SLS picks the (θ₁, θ₂) that minimizes the sum over exporters of T·(Var y − θ₁Var x − θ₂Cov)². That is least squares across the lines, the bottom of this bowl. It's a weighted compromise among the crossings, not any one of them. d and s are then the roots of t² − θ₂t − θ₁ = 0. Click the θ plane to compare your own point.`,
+ 4:()=>{if(!RM.grid)return 'This draw needs no grid search.';const g=RM.grid,ed=g.edge==='om0'?'on the θ₁ = 0 edge, which means ω̂ = 0 (perfectly elastic supply)':g.edge==='ominf'?'on the θ₁ + θ₂ = 1 edge, which means ω̂ → ∞':g.edge==='siginf'?'near θ₁ = 0 with σ̂ at the top of the grid':'just inside the wedge (the grid is coarse)';
+   return `Here the bottom of the bowl falls outside the feasible wedge, so 2SLS gives impossible elasticities. Broda and Weinstein then search a grid of feasible (σ, ρ) for the lowest point of the same bowl. A bowl's lowest point inside a wedge it doesn't contain sits on the wedge's edge, and here the grid lands ${ed}. Soderbery (2015, Sec. 4.2) finds that over 90% of grid-searched goods land at θ̂₁ ≈ 0: either ω̂ = 0, or ω̂ near infinity with a very large σ̂.`;}
+};
+function readout(){
+  const e=RM.el,rows=[];
+  rows.push(`<tr><td class="mk">Pairwise crossings</td><td>${RM.pairs.length} ${RM.pairs.length===1?'pair':'pairs'}; ${RM.pairs.filter(p=>p.ds&&p.ds.some(feasDS)).length} cross in the feasible box</td></tr>`);
+  if(SM.step>=3)rows.push(`<tr><td class="mk" style="color:var(--m2)">2SLS (Feenstra)</td><td>θ̂ = (${fmt(RM.th[0],3)}, ${fmt(RM.th[1],3)}) → ${e.ok?`σ̂ = ${fmt(e.sigma)}, ω̂ = ${fmt(e.omega)}`:`infeasible (${e.why})`}</td></tr>`);
+  if(SM.step>=4&&RM.grid)rows.push(`<tr><td class="mk" style="color:var(--m1)">Grid search (Broda–Weinstein)</td><td>σ̂ = ${fmt(RM.grid.sigma)}, ω̂ = ${RM.grid.omega>1e3?'→ ∞':fmt(RM.grid.omega)}, ρ̂ = ${fmt(RM.grid.rho,3)}</td></tr>`);
+  rows.push(`<tr><td class="mk" style="color:var(--truth)">True values</td><td>σ = ${fmt(SM.sig)}, ω = ${fmt(SM.om)} · θ = (${fmt(trueTh()[0],3)}, ${fmt(trueTh()[1],3)})</td></tr>`);
+  $('tm').innerHTML=rows.join('');
+}
+function draw(){if(!RM||$('p-many').hidden)return;readC();drawDS();drawTheta();drawBars();readout();$('mcap').textContent=CAPS[SM.step]();
+  document.querySelectorAll('#msteps button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.step===SM.step));}
+
+/* ---------- wiring ---------- */
+const bind=(id,key,f)=>{const el=$(id),out=$(id+'O');const sync=()=>{SM[key]=+el.value;out.textContent=f(+el.value)};sync();el.addEventListener('input',()=>{sync();recompute();});};
+bind('mn','n',v=>String(v));bind('mT','T',v=>String(v));
+document.querySelectorAll('#msteps button').forEach(b=>b.addEventListener('click',()=>{SM.step=+b.dataset.step;if(SM.step===4)ensureInfeasible();else draw();}));
+$('mnew').onclick=()=>{SM.seed=(SM.seed*48271)%2147483647;recompute();};
+$('cvmB').addEventListener('click',ev=>{if(!FT||SM.step<3)return;const rc=ev.currentTarget.getBoundingClientRect();SM.probe=[FT.iX(ev.clientX-rc.left),FT.iY(ev.clientY-rc.top)];draw();});
+window.MANY={draw:()=>{if(!RM)RM=compute();if(SM.step===4)withGrid(RM);draw();}};
+})();
+
+</script>
+<script>
+(function(){
 const E=ENG, $=id=>document.getElementById(id);
 const MONO="'IBM Plex Mono', ui-monospace, Menlo, monospace", SANS="'IBM Plex Sans', system-ui, sans-serif";
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
@@ -1160,8 +1365,8 @@ bind('sgV',SG,'V',f0,reG);bind('sgT',SG,'T',f0,reG);bind('sgh',SG,'h',f2,reG);bi
 $('sgnew').onclick=()=>{SG.seed=(SG.seed*48271)%2147483647;reG();};$('mcgrun').onclick=runMCG;
 
 /* ---------- tabs ---------- */
-const TABS=['leamer','s2015','s2018','gs2024'];let built={};
-function drawTab(t){readC();if(t==='s2015'){if(!R15)compute15();draw15();}if(t==='s2018'){if(!R18)compute18();draw18();}if(t==='gs2024'){if(!RG)computeG();drawG();}}
+const TABS=['leamer','many','s2015','s2018','gs2024'];let built={};
+function drawTab(t){readC();if(t==='many'&&window.MANY)window.MANY.draw();if(t==='s2015'){if(!R15)compute15();draw15();}if(t==='s2018'){if(!R18)compute18();draw18();}if(t==='gs2024'){if(!RG)computeG();drawG();}}
 function show(t){if(!TABS.includes(t))t='leamer';
   TABS.forEach(k=>{const on=k===t;$('p-'+k).hidden=!on;const b=$('tab-'+k);b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1;});
   window.dispatchEvent(new CustomEvent('lf-tab',{detail:t}));
