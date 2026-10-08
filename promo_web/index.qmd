@@ -1,0 +1,15 @@
+---
+title: "Leamer–Feenstra identification"
+search: false
+page-layout: full
+resources:
+  - app.html
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="robots" content="noindex, nofollow">
+        <meta http-equiv="refresh" content="0; url=app.html">
+---
+
+[Open the simulation](app.html)
