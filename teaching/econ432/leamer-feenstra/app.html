@@ -162,7 +162,7 @@ button:disabled{opacity:.5;cursor:progress}
   <nav class="tabs" id="tabbar" role="tablist" aria-label="Sections">
     <button role="tab" id="tab-leamer" aria-controls="p-leamer" aria-selected="true">Leamer &amp; Feenstra<small>1981 · 1994</small></button>
     <button role="tab" id="tab-many" aria-controls="p-many" aria-selected="false" tabindex="-1">Many exporters<small>Feenstra 1994 · grid search</small></button>
-    <button role="tab" id="tab-s2015" aria-controls="p-s2015" aria-selected="false" tabindex="-1">Small-sample bias<small>Soderbery 2015</small></button>
+    <button role="tab" id="tab-s2015" aria-controls="p-s2015" aria-selected="false" tabindex="-1">2SLS &amp; small samples<small>Soderbery 2015</small></button>
     <button role="tab" id="tab-s2018" aria-controls="p-s2018" aria-selected="false" tabindex="-1">Heterogeneous supply<small>Soderbery 2018</small></button>
     <button role="tab" id="tab-gs2024" aria-controls="p-gs2024" aria-selected="false" tabindex="-1">Testing the assumptions<small>Grant &amp; Soderbery 2024</small></button>
   </nav>
@@ -302,7 +302,7 @@ button:disabled{opacity:.5;cursor:progress}
   <section id="p-s2015" class="tabpanel" role="tabpanel" aria-labelledby="tab-s2015" hidden>
     <div class="intro">
       <p class="cite-top">Soderbery (2015), “Estimating import supply and demand elasticities: Analysis and implications,” <i>Journal of International Economics</i> 96.</p>
-      <p>Feenstra's estimator is 2SLS: regress price variances on share variances and price–share covariances, with exporter dummies as instruments. The dummies collapse each exporter's Leamer hyperbola into one point, and the second stage fits a line through those points. In short panels many hyperbolae are imprecise. 2SLS weights them too heavily, and its first step often lands outside the feasible region, where Broda and Weinstein's grid search takes over. Soderbery replaces 2SLS with LIML, which downweights imprecise hyperbolae, and replaces the grid with a constrained nonlinear LIML search.</p>
+      <p>The paper does both things. First it works back from Leamer to show what Feenstra's estimator actually does. It is 2SLS with exporter dummies as instruments. The first stage collapses each exporter's panel into its Leamer hyperbola, one point per exporter, and the second stage fits a line through those points. Feenstra (1994) noted the 2SLS equivalence; Soderbery uses it to diagnose the estimator. Second, it shows that in the short panels typical of trade data those instruments are weak: many hyperbolae are imprecise, 2SLS weights them too heavily, and its first step often lands outside the feasible region, where Broda and Weinstein's grid search takes over. The fix is LIML, which downweights imprecise hyperbolae, plus a constrained nonlinear LIML search in place of the grid.</p>
       <p class="note-sm">The simulation follows the paper's Monte Carlo design: 55 exporters, σ = 3, ω = 0.5, shock variances drawn from U(0, 9), and data differenced against a reference exporter. It leaves out the paper's unbalanced panels and unit-value measurement error, so the size of the 2SLS bias here differs from the paper's. What carries over is that LIML stays closer to the truth in short panels.</p>
     </div>
     <div class="panel ctlrow">
@@ -312,6 +312,17 @@ button:disabled{opacity:.5;cursor:progress}
       <div class="ctl"><label for="s15om">True ω</label><output id="s15omO"></output><input id="s15om" type="range" min="0.1" max="2" step="0.05" value="0.5"></div>
       <div class="row end"><button id="s15new">New shock draws</button></div>
     </div>
+        <section class="panel fig">
+      <div class="fig-head"><h2>Step 1 of 2SLS: from a panel to one point per exporter</h2><p>what the exporter dummies do</p></div>
+      <p class="note-sm">Feenstra's regression has one observation per exporter and period: (Δp)² on (Δs)² and Δs·Δp. Those regressors are built from the same shocks as the error term, so they are endogenous. The instruments are a full set of exporter dummies. Regressing any variable on exporter dummies replaces each period's value with that exporter's own average over time. So the first stage turns T periods into three numbers per exporter: its Var(y), Var(x) and Cov(x, y). Those three numbers are exactly what define the exporter's Leamer hyperbola, which is why the panels below can draw each exporter as one curve or one point. The second stage is then a regression across exporters.</p>
+      <div class="row"><div class="steps" id="c15vars" role="group" aria-label="Variable">
+        <button data-v="yy" aria-pressed="true">(Δp)²</button><button data-v="xx" aria-pressed="false">(Δs)²</button><button data-v="xy" aria-pressed="false">Δs·Δp</button></div>
+        <button id="c15go" class="primary">Collapse to exporter averages</button></div>
+      <div class="cv wide"><canvas id="cv15c" aria-label="Each exporter's period-by-period values and their averages"></canvas></div>
+      <div class="legend"><span class="cf"><i class="sw dot"></i>one period (▸ beyond the axis)</span><span class="c2"><i class="sw"></i>exporter's average = first-stage fitted value</span></div>
+      <p class="tst-num" id="c15F"></p>
+      <p class="note-sm">Why short panels are a problem: when T is small, the spread within each row is large compared with the differences between rows. Each exporter's averages are then noisy, the first stage is weak, and 2SLS treats every exporter's averages as if they were equally reliable. LIML also uses the spread within each row, so it can tell a precisely measured hyperbola from a noisy one. Drag T down to 5 and up to 45 to see the rows tighten.</p>
+    </section>
     <div class="plots">
       <section class="panel fig">
         <div class="fig-head"><h2>One hyperbola per exporter</h2><p>feasible arcs only: σ &gt; 1, ω ≥ 0</p></div>
@@ -1152,7 +1163,7 @@ function simGood(seed,V,T,sig,om,varDraw,corrDraw,reference){
   const r=E.rng(seed),raw=[];
   for(let v=0;v<V+(reference?1:0);v++){const [a,b]=varDraw(r);raw.push(E.simVariety(r,T,sig,om,a,b,corrDraw?corrDraw(r):0));}
   const series=reference?refDiff(raw):raw;
-  const moms=series.map(E.varMoments);return{moms,St:E.stack(moms)};
+  const moms=series.map(E.varMoments);return{moms,St:E.stack(moms),series};
 }
 function hybridLIML(St){const L=E.liml(St),e=E.thetaToElas(L.theta);if(e.ok)return{sigma:e.sigma,omega:e.omega,constrained:false,theta:L.theta};const n=E.nlSearch(St,E.objLIML);return{sigma:n.sigma,omega:n.omega,constrained:true,theta:L.theta}}
 const later=f=>new Promise(res=>setTimeout(()=>res(f()),0));
@@ -1165,6 +1176,7 @@ function compute15(){
 }
 function draw15(){
   if(!R15)return;
+  drawCollapse();
   // A: hyperbolae
   let o=setup($('cv15a'));if(o){const {ctx,w,h}=o;
     const F=frame(w,h,plotM,[1,Math.max(8,S15.sig*2.6)],[0,Math.max(2,S15.om*4)]);elasAxes(ctx,F);clip(ctx,F);
@@ -1198,6 +1210,37 @@ function draw15(){
     `<tr><td class="mk" style="color:var(--truth)">True values</td><td>${fmt(S15.sig)}</td><td>${fmt(S15.om)}</td><td></td><td class="tx">first-stage F = ${fmt(R15.F)}</td></tr>`;
   drawMC15();
 }
+
+/* --- 2015: the first stage collapses T periods into one average per exporter --- */
+const COL={v:'yy',k:0,anim:null,rows:12};
+const VARS={yy:{lab:'(Δp)², squared price change',f:(x,y)=>y*y,sym:'Var(y)'},xx:{lab:'(Δs)², squared share change',f:(x,y)=>x*x,sym:'Var(x)'},xy:{lab:'Δs·Δp, cross product',f:(x,y)=>x*y,sym:'Cov(x,y)'}};
+function firstStageF(vk){const f=VARS[vk].f,ser=R15.series;let N=0,tot=0;const ms=ser.map(sr=>{let m=0;for(let t=0;t<sr.T;t++)m+=f(sr.x[t],sr.y[t]);N+=sr.T;tot+=m;return m/sr.T});const g=tot/N;let B=0,W=0;
+  ser.forEach((sr,v)=>{B+=sr.T*(ms[v]-g)**2;for(let t=0;t<sr.T;t++)W+=(f(sr.x[t],sr.y[t])-ms[v])**2;});return (B/(ser.length-1))/(W/(N-ser.length));}
+function drawCollapse(){
+  const o=setup($('cv15c'));if(!o||!R15)return;const {ctx,w,h}=o,f=VARS[COL.v].f,K=COL.k;
+  const ser=R15.series.slice(0,COL.rows),R=ser.length;
+  const vals=ser.flatMap(sr=>Array.from({length:sr.T},(_,t)=>f(sr.x[t],sr.y[t]))).sort((a,b)=>a-b),q=p=>vals[Math.floor(p*(vals.length-1))];
+  let lo=COL.v==='xy'?q(.02):0,hi=q(.97);if(COL.v==='xy'){const m=Math.max(Math.abs(lo),Math.abs(hi));lo=-m;hi=m;}if(hi<=lo)hi=lo+1;
+  const F=frame(w,h,{l:92,r:20,t:8,b:34},[lo,hi],[0,R]);
+  ctx.fillStyle=C.plot;ctx.fillRect(F.m.l,F.m.t,F.pw,F.ph);
+  const xs=ticks(F.xr,niceStep((hi-lo)/6));ctx.strokeStyle=C.grid;ctx.lineWidth=1;xs.forEach(x=>line(ctx,F.X(x),F.m.t,F.X(x),F.m.t+F.ph));
+  if(lo<0){ctx.strokeStyle=C.rule;line(ctx,F.X(0),F.m.t,F.X(0),F.m.t+F.ph);}
+  ctx.fillStyle=C.muted;ctx.font=`10.5px ${MONO}`;ctx.textAlign='center';ctx.textBaseline='top';xs.forEach(x=>ctx.fillText(tl(x,niceStep((hi-lo)/6)),F.X(x),F.m.t+F.ph+5));
+  ctx.fillStyle=C.ink;ctx.font=`12px ${SANS}`;ctx.textBaseline='bottom';ctx.fillText(VARS[COL.v].lab+' in each period',F.m.l+F.pw/2,h-2);
+  const rh=F.ph/R;
+  ser.forEach((sr,v)=>{const yc=F.m.t+(v+.5)*rh;let m=0;for(let t=0;t<sr.T;t++)m+=f(sr.x[t],sr.y[t]);m/=sr.T;
+    ctx.strokeStyle=C.grid;ctx.lineWidth=1;line(ctx,F.m.l,F.m.t+(v+1)*rh,F.m.l+F.pw,F.m.t+(v+1)*rh);
+    ctx.fillStyle=C.muted;ctx.font=`11px ${SANS}`;ctx.textAlign='right';ctx.textBaseline='middle';ctx.fillText(`Exporter ${v+1}`,F.m.l-8,yc);
+    for(let t=0;t<sr.T;t++){const val=f(sr.x[t],sr.y[t]),off=val>hi||val<lo,vx=clamp(val,lo,hi),jit=((t*37)%11/10-.5)*rh*.55*(1-K);
+      const X=F.X(vx+(m-vx)*K);ctx.fillStyle=C.feas;ctx.globalAlpha=.55*(1-K*.7);
+      if(off&&K<.5){ctx.beginPath();const d=val>hi?1:-1;ctx.moveTo(X+4*d,yc+jit);ctx.lineTo(X-2*d,yc+jit-4);ctx.lineTo(X-2*d,yc+jit+4);ctx.closePath();ctx.fill();}
+      else{ctx.beginPath();ctx.arc(X,yc+jit,2.6,0,7);ctx.fill();}}
+    ctx.globalAlpha=1;const mx=F.X(clamp(m,lo,hi));ctx.strokeStyle=C.m2;ctx.lineWidth=3;line(ctx,mx,yc-rh*.38,mx,yc+rh*.38);});
+  $('c15F').innerHTML=`First-stage F for ${VARS[COL.v].sym}: <b>${fmt(firstStageF(COL.v),2)}</b> (variation between exporters' averages ÷ variation within them). Showing ${R} of ${R15.series.length} exporters, T = ${S15.T}.`;
+}
+function animCollapse(to){const from=COL.k,t0=performance.now(),dur=matchMedia('(prefers-reduced-motion: reduce)').matches?1:900;cancelAnimationFrame(COL.anim);
+  const step=now=>{const p=Math.min(1,(now-t0)/dur),e=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;COL.k=from+(to-from)*e;drawCollapse();if(p<1)COL.anim=requestAnimationFrame(step);};COL.anim=requestAnimationFrame(step);
+  $('c15go').textContent=to?'Show the individual periods':'Collapse to exporter averages';}
 async function runMC15(sweep){
   const btns=[$('mc15run'),$('mc15sweep')];btns.forEach(b=>b.disabled=true);
   const Ts=sweep?[5,10,15,20,25,30,35,40,45]:[S15.T],reps=200,res=[];
@@ -1373,7 +1416,9 @@ const f2=v=>fmt(v,2),f0=v=>String(Math.round(v)),f1=v=>fmt(v,1);
 const re15=()=>{compute15();draw15();},re18=()=>{compute18();draw18();},reG=()=>{computeG();drawG();};
 bind('s15V',S15,'V',f0,re15);bind('s15T',S15,'T',f0,re15);bind('s15sig',S15,'sig',f1,re15);bind('s15om',S15,'om',f2,re15);
 $('s15new').onclick=()=>{S15.seed=(S15.seed*48271)%2147483647;re15();};
-$('mc15run').onclick=()=>runMC15(false);$('mc15sweep').onclick=()=>runMC15(true);
+$('mc15run').onclick=()=>runMC15(false);
+$('c15go').onclick=()=>animCollapse(COL.k<.5?1:0);
+document.querySelectorAll('#c15vars button').forEach(b=>b.addEventListener('click',()=>{COL.v=b.dataset.v;document.querySelectorAll('#c15vars button').forEach(x=>x.setAttribute('aria-pressed',x===b));drawCollapse();}));$('mc15sweep').onclick=()=>runMC15(true);
 bind('s18J',S18,'J',f0,re18);bind('s18T',S18,'T',f0,re18);bind('s18sig',S18,'sig',f1,re18);bind('s18om',S18,'omMed',f2,re18);bind('s18sp',S18,'omSpread',f2,re18);bind('s18h',S18,'h',f2,re18);
 $('s18orth').onchange=e=>{S18.orth=e.target.checked;re18();};$('s18new').onclick=()=>{S18.seed=(S18.seed*48271)%2147483647;re18();};
 bind('sgV',SG,'V',f0,reG);bind('sgT',SG,'T',f0,reG);bind('sgh',SG,'h',f2,reG);bind('sgc',SG,'c',f2,reG);bind('sgcs',SG,'cs',f2,reG);bind('sgF',SG,'Fcut',f1,()=>{RG.passF=RG.F>=SG.Fcut;drawG();});
