@@ -288,7 +288,7 @@ button:disabled{opacity:.5;cursor:progress}
         <div class="legend"><span class="cm"><i class="sw"></i>one color per exporter</span><span class="cm">× pairwise crossing (dark if feasible)</span><span class="c2"><i class="sw sq"></i>2SLS and its mirror</span><span class="c1">◆ grid search</span><span class="ct">★ truth</span></div>
       </section>
       <section class="panel fig">
-        <div class="fig-head"><h2>The same data in the regression's coefficient space</h2><p>click to probe a point (step 3 on)</p></div>
+        <div class="fig-head"><h2>The same data in the regression's coefficient space</h2><p>click or drag to pick a point (step 2 on)</p></div>
         <div class="cv square"><canvas id="cvmB" aria-label="Each exporter as a line in theta space, with the 2SLS objective"></canvas></div>
         <div class="legend"><span class="cm"><i class="sw"></i>exporter lines</span><span class="cf"><i class="sw dot"></i>feasible wedge</span><span class="c2"><i class="sw"></i>2SLS objective (bowl)</span><span class="c1">· grid points</span></div>
       </section>
@@ -961,7 +961,7 @@ function compute(seed){
   return {moms,St,th,el,pairs,segs:moms.map(hyperSegsDS)};
 }
 function withGrid(R){if(!R.el.ok&&!R.grid){const g=E.gridSearch(R.St,E.obj2SLS);g.th=E.thetaOf(g.sigma,g.rho);g.edge=g.rho<1e-9?'om0':g.rho>=((g.sigma-1)/g.sigma)*0.97?'ominf':(g.sigma>50?'siginf':'interior');R.grid=g;}return R;}
-function recompute(){RM=compute();SM.probe=null;if(SM.step===4)ensureInfeasible();else draw();}
+function recompute(){RM=compute();SM.probe=null;if(SM.step===2)defaultProbe();if(SM.step===4)ensureInfeasible();else draw();}
 function ensureInfeasible(){
   if(RM.el.ok){let s=SM.seed;for(let k=0;k<2000;k++){s=(s*48271)%2147483647;const R=compute(s);if(!R.el.ok){SM.seed=s;RM=R;break;}}}
   withGrid(RM);draw();
@@ -985,7 +985,7 @@ function drawDS(){
   if(st>=3){const rt=rootsDS(RM.th);if(rt){rt.forEach(q=>{const f=feasDS(q),x=F.X(q[0]),y=F.Y(q[1]);ctx.fillStyle=f?C.m2:C.panel;ctx.strokeStyle=C.m2;ctx.lineWidth=2;ctx.beginPath();ctx.rect(x-6,y-6,12,12);ctx.fill();ctx.stroke();});
       const fq=rt.find(feasDS);if(fq)labelBox(ctx,'2SLS',F.X(fq[0])+10,F.Y(fq[1])-12,'left',C.m2);else labelBox(ctx,'2SLS (both roots infeasible)',F.X(rt[0][0])+10,F.Y(rt[0][1])+16,'left',C.m2);}}
   if(st>=4&&RM.grid){const [d,s]=E.toDS(RM.grid.sigma,RM.grid.omega),x=F.X(d),y=F.Y(Math.min(s,.999));ctx.fillStyle=C.m1;ctx.strokeStyle=C.panel;ctx.lineWidth=2;diamond(ctx,x,y,8);ctx.fill();ctx.stroke();labelBox(ctx,'grid search',x-10,y-16,'right',C.m1);}
-  if(SM.probe&&st>=3){const rt=rootsDS(SM.probe);if(rt)rt.forEach(q=>{ctx.strokeStyle=C.ink;ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(F.X(q[0]),F.Y(q[1]),5,0,7);ctx.stroke();});}
+  if(SM.probe&&st>=2){const rt=rootsDS(SM.probe);if(rt){ctx.strokeStyle=C.ink;ctx.lineWidth=1;ctx.setLineDash([3,3]);line(ctx,F.X(rt[0][0]),F.Y(rt[0][1]),F.X(rt[1][0]),F.Y(rt[1][1]));ctx.setLineDash([]);rt.forEach(q=>{const f=feasDS(q);ctx.fillStyle=f?C.ink:C.panel;ctx.strokeStyle=C.ink;ctx.lineWidth=2;ctx.beginPath();ctx.arc(F.X(q[0]),F.Y(q[1]),6,0,7);ctx.fill();ctx.stroke();});const fq=rt.find(feasDS)||rt[0];labelBox(ctx,'your point',F.X(fq[0])+10,F.Y(fq[1])-14,'left',C.ink);}}
   ctx.restore();
 }
 function thRange(){
@@ -1020,15 +1020,26 @@ function drawTheta(){
   if(st>=3){const x=F.X(RM.th[0]),y=F.Y(RM.th[1]);ctx.fillStyle=RM.el.ok?C.m2:C.panel;ctx.strokeStyle=C.m2;ctx.lineWidth=2;ctx.beginPath();ctx.rect(x-6,y-6,12,12);ctx.fill();ctx.stroke();const t=RM.el.ok?'2SLS: bottom of the bowl':'2SLS: bottom of the bowl (infeasible)';if(st>=4&&RM.grid)labelBox(ctx,t,x-10,y+18,'right',C.m2);else labelBox(ctx,t,x+10,y-14,x>F.m.l+F.pw*.55?'right':'left',C.m2);}
   if(st>=4&&RM.grid){const g=RM.grid.th,x=F.X(g[0]),y=F.Y(g[1]),x0=F.X(RM.th[0]),y0=F.Y(RM.th[1]);ctx.strokeStyle=C.m1;ctx.lineWidth=1.5;ctx.setLineDash([4,3]);line(ctx,x0,y0,x,y);ctx.setLineDash([]);
     ctx.fillStyle=C.m1;ctx.strokeStyle=C.panel;ctx.lineWidth=2;diamond(ctx,x,y,8);ctx.fill();ctx.stroke();labelBox(ctx,'grid: lowest feasible point',x+12,y-16,x>F.m.l+F.pw*.6?'right':'left',C.m1);}
-  if(SM.probe&&st>=3){const x=F.X(SM.probe[0]),y=F.Y(SM.probe[1]);ctx.strokeStyle=C.ink;ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(x,y,6,0,7);ctx.stroke();line(ctx,x-10,y,x-7,y);line(ctx,x+7,y,x+10,y);line(ctx,x,y-10,x,y-7);line(ctx,x,y+7,x,y+10);}
+  if(SM.probe&&st>=2){const x=F.X(SM.probe[0]),y=F.Y(SM.probe[1]);ctx.strokeStyle=C.ink;ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(x,y,6,0,7);ctx.stroke();line(ctx,x-10,y,x-7,y);line(ctx,x+7,y,x+10,y);line(ctx,x,y-10,x,y-7);line(ctx,x,y+7,x,y+10);}
   ctx.restore();
   ctx.font=`600 11px ${SANS}`;ctx.fillStyle=C.feas;ctx.textBaseline='middle';
   if(F.X(0)>F.m.l+4){ctx.save();ctx.translate(F.X(0)-8,F.Y(Math.max(yr[0],-5))-60);ctx.rotate(-Math.PI/2);ctx.textAlign='left';ctx.fillText('θ₁ = 0 with θ₂ < 0: ω = 0',0,0);ctx.restore();}
   const lx=Math.min(xr[1],1-yr[0])*.6+Math.max(0,xr[0])*.4;ctx.save();ctx.translate(F.X(lx),F.Y(1-lx)-10);ctx.rotate(Math.atan2(F.Y(1-lx-0.1)-F.Y(1-lx),F.X(lx+0.1)-F.X(lx)));ctx.textAlign='center';ctx.fillText('θ₁ + θ₂ = 1: ω → ∞',0,0);ctx.restore();
 }
+function probeInfo(){
+  if(!SM.probe)return '<p class="note-sm">Click or drag anywhere in the θ plane to pick a point.</p>';
+  const [t1,t2]=SM.probe,rt=rootsDS(SM.probe);let h=`<div class="bars-head"><span><b>Your point</b> θ₁ = ${fmt(t1,3)}, θ₂ = ${fmt(t2,3)}</span></div>`;
+  if(!rt)return h+`<p class="note-sm">No real slopes match this point: θ₂² + 4θ₁ &lt; 0, so t² − θ₂t − θ₁ = 0 has no real roots. It lies beyond the image of the 45° line, and no hyperbola passes through slopes that would map here.</p>`;
+  const [a,b]=rt[0],f=rt.find(feasDS);
+  h+=`<p class="tst-num">Slopes are the roots of t² − θ₂t − θ₁ = 0: ${fmt(a,3)} and ${fmt(b,3)}. They give two points on the left, (d, s) = (${fmt(a,2)}, ${fmt(b,2)}) and its mirror (${fmt(b,2)}, ${fmt(a,2)}).</p>`;
+  h+=f?`<p class="note-sm">The filled circle is feasible: σ = ${fmt(1-1/f[0])}, ω = ${fmt(f[1]/(1-f[1]))}.</p>`:`<p class="note-sm">Neither is feasible: ${t1<=0?'θ₁ ≤ 0 means d and s have the same sign':'θ₁ + θ₂ ≥ 1 means s ≥ 1, so ω would be negative'}.</p>`;
+  const on=RM.moms.map((M,v)=>({v,e:Math.abs(M.Vpp-t1*M.Vqq-t2*M.Vpq)/Math.hypot(M.Vqq,M.Vpq)})).filter(o=>o.e<0.015*(FT?FT.xr[1]-FT.xr[0]:1));
+  h+=`<p class="note-sm">${on.length?`This point is on exporter ${on.map(o=>'ABCDEF'[o.v]).join(' and ')}'s line, so both circles sit on ${on.length>1?'those hyperbolae':'that hyperbola'}. Drag along a line and the circles trace its hyperbola.`:'Drag the point onto a line: the circles then sit on that exporter\'s hyperbola, one on each mirror half.'}</p>`;
+  return h;
+}
 function contrib(th){const r=[1,-th[0],-th[1]];return RM.moms.map(M=>{const e=M.Vpp-th[0]*M.Vqq-th[1]*M.Vpq;return M.T*e*e});}
 function drawBars(){
-  const box=$('mbars');if(SM.step<3){box.innerHTML='<p class="note-sm">From step 3 on, this shows how much each exporter adds to the 2SLS objective. Click anywhere in the θ plane to try your own point.</p>';return;}
+  const box=$('mbars');if(SM.step===2){box.innerHTML=probeInfo();return;}if(SM.step<3){box.innerHTML='<p class="note-sm">From step 3 on, this shows how much each exporter adds to the 2SLS objective. Click anywhere in the θ plane to try your own point.</p>';return;}
   const cat=['c1','c2','c3','c4','c5','c6'],scale=RM.moms.reduce((t,M)=>t+M.T*M.Vpp*M.Vpp,0);let a=contrib(RM.th);if(a.reduce((x,y)=>x+y,0)<1e-9*scale)a=a.map(()=>0);const b=SM.probe?contrib(SM.probe):null,mx=Math.max(...a,...(b||[0]))||1;
   const sum=x=>x.reduce((s,y)=>s+y,0);
   let html=`<div class="bars-head"><span>Exporter's term T·(Var y − θ₁Var x − θ₂Cov)²</span><span><i class="bk sq2"></i>at 2SLS${b?' <i class="bk ring"></i>at your point':''}</span></div>`;
@@ -1038,7 +1049,7 @@ function drawBars(){
 }
 const CAPS={
  1:()=>`With ${SM.n} exporters there are ${SM.n*(SM.n-1)/2} pairs of hyperbolae, and each pair crosses at two mirror-image points (or not at all). Sampling noise means the crossings don't coincide. ${RM.pairs.filter(p=>p.ds&&p.ds.some(feasDS)).length} of the ${RM.pairs.length} pairs cross inside the feasible box. Which crossing is the estimate?`,
- 2:()=>`Write each exporter's Leamer condition as Var(y) = θ₁·Var(x) + θ₂·Cov(x, y), with θ₁ = −d·s and θ₂ = d + s. In (θ₁, θ₂) it is a straight line. Each pair of lines crosses once, and that one point maps back to the pair's two mirror crossings on the left. Here the feasible region is the wedge θ₁ > 0, θ₁ + θ₂ < 1.`,
+ 2:()=>`Drag the point on the right. Write each exporter's Leamer condition as Var(y) = θ₁·Var(x) + θ₂·Cov(x, y), with θ₁ = −d·s and θ₂ = d + s. In (θ₁, θ₂) it is a straight line. Each pair of lines crosses once, and that one point maps back to the pair's two mirror crossings on the left. Here the feasible region is the wedge θ₁ > 0, θ₁ + θ₂ < 1. The circles on the left are the slope pairs your point stands for.`,
  3:()=>`Feenstra's 2SLS picks the (θ₁, θ₂) that minimizes the sum over exporters of T·(Var y − θ₁Var x − θ₂Cov)². That is least squares across the lines, the bottom of this bowl. It's a weighted compromise among the crossings, not any one of them. d and s are then the roots of t² − θ₂t − θ₁ = 0. Click the θ plane to compare your own point.`,
  4:()=>{if(!RM.grid)return 'This draw needs no grid search.';const g=RM.grid,ed=g.edge==='om0'?'on the θ₁ = 0 edge, which means ω̂ = 0 (perfectly elastic supply)':g.edge==='ominf'?'on the θ₁ + θ₂ = 1 edge, which means ω̂ → ∞':g.edge==='siginf'?'near θ₁ = 0 with σ̂ at the top of the grid':'just inside the wedge (the grid is coarse)';
    return `Here the bottom of the bowl falls outside the feasible wedge, so 2SLS gives impossible elasticities. Broda and Weinstein then search a grid of feasible (σ, ρ) for the lowest point of the same bowl. A bowl's lowest point inside a wedge it doesn't contain sits on the wedge's edge, and here the grid lands ${ed}. Soderbery (2015, Sec. 4.2) finds that over 90% of grid-searched goods land at θ̂₁ ≈ 0: either ω̂ = 0, or ω̂ near infinity with a very large σ̂.`;}
@@ -1057,9 +1068,13 @@ function draw(){if(!RM||$('p-many').hidden)return;readC();drawDS();drawTheta();d
 /* ---------- wiring ---------- */
 const bind=(id,key,f)=>{const el=$(id),out=$(id+'O');const sync=()=>{SM[key]=+el.value;out.textContent=f(+el.value)};sync();el.addEventListener('input',()=>{sync();recompute();});};
 bind('mn','n',v=>String(v));bind('mT','T',v=>String(v));
-document.querySelectorAll('#msteps button').forEach(b=>b.addEventListener('click',()=>{SM.step=+b.dataset.step;if(SM.step===4)ensureInfeasible();else draw();}));
+function defaultProbe(){const [xr]=thRange(),M=RM.moms[0];const t1=Math.max(0.02,(Math.max(0,xr[0])+xr[1])/2*0.6);SM.probe=[t1,(M.Vpp-M.Vqq*t1)/M.Vpq];}
+document.querySelectorAll('#msteps button').forEach(b=>b.addEventListener('click',()=>{SM.step=+b.dataset.step;if(SM.step===2&&!SM.probe)defaultProbe();if(SM.step===4)ensureInfeasible();else draw();}));
 $('mnew').onclick=()=>{SM.seed=(SM.seed*48271)%2147483647;recompute();};
-$('cvmB').addEventListener('click',ev=>{if(!FT||SM.step<3)return;const rc=ev.currentTarget.getBoundingClientRect();SM.probe=[FT.iX(ev.clientX-rc.left),FT.iY(ev.clientY-rc.top)];draw();});
+let dragging=false;const setProbe=ev=>{if(!FT||SM.step<2)return;const rc=$('cvmB').getBoundingClientRect();SM.probe=[FT.iX(ev.clientX-rc.left),FT.iY(ev.clientY-rc.top)];draw();};
+$('cvmB').addEventListener('pointerdown',ev=>{dragging=true;try{ev.currentTarget.setPointerCapture(ev.pointerId)}catch(e){}setProbe(ev);});
+$('cvmB').addEventListener('pointermove',ev=>{if(dragging)setProbe(ev);});
+['pointerup','pointercancel'].forEach(t=>$('cvmB').addEventListener(t,()=>{dragging=false;}));
 window.MANY={draw:()=>{if(!RM)RM=compute();if(SM.step===4)withGrid(RM);draw();}};
 })();
 
