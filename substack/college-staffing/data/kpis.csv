@@ -1,8 +1,8 @@
 key,value,fmt,label,source,column
-ratio_rise_unw,12.616,num1,"Rise in staff per student, FY2013-24 (log points, unweighted, S11)",online/output/D1_decomposition_oncampus_S11.csv (= D2_decomposition_headline.csv),"unw_dlog_ratio, version B, All"
-ratio_rise_w,11.797,num1,"Same, weighted (sum staff / sum FTE)",online/output/D1_decomposition_oncampus_S11.csv,"w_dlog_ratio, version B, All"
-staff_dlog_unw,-4.78,num1,"Change in staff, FY2013-24 (log points, unweighted)",online/output/D1_decomposition_oncampus_S11.csv,"unw_dlog_staff, version B, All"
-fte_dlog_unw,-17.396,num1,"Change in fall FTE, FY2013-24 (log points, unweighted)",online/output/D1_decomposition_oncampus_S11.csv,"unw_dlog_den, version B, All"
+ratio_rise_unw,12.6161,num1,"Rise in staff per student, FY2013-24 (log points, unweighted, S11)",online/output/D1_decomposition_oncampus_S11.csv (= D2_decomposition_headline.csv),"unw_dlog_ratio, version B, All"
+ratio_rise_w,11.7974,num1,"Same, weighted (sum staff / sum FTE)",online/output/D1_decomposition_oncampus_S11.csv,"w_dlog_ratio, version B, All"
+staff_dlog_unw,-4.7798,num1,"Change in staff, FY2013-24 (log points, unweighted)",online/output/D1_decomposition_oncampus_S11.csv,"unw_dlog_staff, version B, All"
+fte_dlog_unw,-17.3959,num1,"Change in fall FTE, FY2013-24 (log points, unweighted)",online/output/D1_decomposition_oncampus_S11.csv,"unw_dlog_den, version B, All"
 dec_dlog_fte,-17.834,num1,"Enrollment change FY2013-24, gravity sample (log points)",causal/output/c_decomposition.csv,"dlog_fte, sector x FY, All, unweighted"
 dec_demographic,0.5289,num1,of which population,causal/output/c_decomposition.csv,"demographic, sector x FY, All, unweighted"
 dec_cycle_national,-3.5897,num1,of which national cycle (upper bound),causal/output/c_decomposition.csv,"cycle_national, sector x FY, All, unweighted"

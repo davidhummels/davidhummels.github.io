@@ -13,7 +13,7 @@ In progress
 
 ## The question
 
-In 2014 the Delta Cost Project's brief *Labor Intensive or Labor Expensive?* reported that colleges kept adding staff faster than students through 2012, mostly outside the faculty. This project rebuilds that brief from IPEDS, extends it to fiscal 2025, and asks what happened next. Public colleges reversed course: staff per student had been falling and began rising after 2012. Much of that rise comes from the denominator. Enrollment fell, mostly for reasons other than population, and staffing responded less than one for one. The rest comes from hiring aimed at attracting students: enrollment-facing staff, amenities and athletics.
+In 2014 the Delta Cost Project's brief *Labor Intensive or Labor Expensive?* found that public colleges' hiring through 2012 had "largely mirrored rising enrollments" while private colleges added staff per student, mostly professionals rather than executives. This project rebuilds that brief from IPEDS, extends it through fiscal 2024 (staff trends to 2025), and asks what happened next. Public colleges reversed course: staff per student had been falling and began rising after 2012. Much of that rise comes from the denominator. Enrollment fell, mostly for reasons other than population, and staffing responded less than one for one. The rest comes from hiring aimed at attracting students: enrollment-facing staff, amenities and athletics.
 
 ## White paper
 
@@ -36,4 +36,4 @@ In 2014 the Delta Cost Project's brief *Labor Intensive or Labor Expensive?* rep
 
 ## Data and methods
 
-All tools use public, aggregated data: IPEDS (NCES), NSF HERD, the Equity in Athletics Data Analysis (EADA), USA Today NCAA finances, BLS local-area unemployment and Census population estimates. Fiscal 2024 and 2025 IPEDS values are NCES provisional. Each tool's data folder has a [README](data/README.txt) listing every file, its source and its years.
+All tools use public, aggregated data: IPEDS (NCES), NSF HERD, the Equity in Athletics Data Analysis (EADA), USA Today NCAA finances, BLS local-area unemployment and SEER county population estimates. Fiscal 2024 and 2025 IPEDS values are NCES provisional. Each tool's data folder has a [README](data/README.txt) listing every file, its source and its years.

@@ -27,7 +27,7 @@ FIN = FileAttachment("../data/finance_growth.csv").csv({typed: true})
 ```
 
 ::: {.cs-links}
-Read more: [white paper §2](../paper/index.qmd#sec-2) (the Delta Cost brief and its replication) and [§4](../paper/index.qmd#sec-4) (staffing and spending since 2012). Substack post: Post 1 (link on publication).
+Read more: [white paper §2](../paper/index.qmd#sec-2) (the Delta Cost brief), [§3](../paper/index.qmd#sec-3) (data and the replication) and [§4](../paper/index.qmd#sec-4) (staffing and spending since 2012). Substack post: Post 1 (link on publication).
 :::
 
 Pick a staff category. Each panel is one sector of surviving institutions (the same colleges in every year). The shaded years are the ones the 2014 brief covered. The red dashed line marks the 2012–13 redesign of the IPEDS staff survey: executive, professional and nonprofessional staff were reclassified then, so those three categories are drawn as two separate segments and should only be compared within a segment. Faculty, non-faculty and total staff are unaffected.

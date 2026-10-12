@@ -51,7 +51,7 @@ band = (m) => pick ? BANDS.filter(d => d.sec === pick.sec && d.m === m) : []
 ```{ojs}
 {
   if (!pick) return md`*Choose an institution in the table.*`;
-  const amc = pick.amc === "hosp" ? "Owns an academic medical center (hospital): its staff counts include hospital employees reported to IPEDS, so staff per student is much higher than at other research universities." : pick.amc === "med" ? "Has a medical school but no owned hospital in its IPEDS reporting." : "";
+  const amc = pick.amc === "hosp" ? "Owns a hospital (academic medical center). Most hospital employees are not in IPEDS staff counts, but a few owners report some of them, and staff per student at hospital owners averages about twice that at research universities without a medical school." : pick.amc === "med" ? "Has a medical school but no owned hospital in its IPEDS reporting." : "";
   const set = pick.s11 ? "In the S11 surviving set used for the FY2013–24 decomposition." : "Not in the S11 surviving set (it lacks a Delta Cost 11-year matched campus or a year of staff or enrollment), so it is excluded from sector aggregates on the other pages.";
   const sys = pick.campuses > 1 ? ` This unit combines ${pick.campuses} IPEDS campuses${pick.campuses >= 4 ? " (a system the Delta Cost Project reported as one unit, kept whole for every year)" : " that merged or report together"}.` : "";
   return md`### ${pick.label}

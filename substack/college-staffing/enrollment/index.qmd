@@ -77,7 +77,7 @@ viewof base = Inputs.radio(new Map([["FY1990 = 100", 1990], ["FY2012 = 100", 201
 ```
 
 ::: {.cs-note}
-Fall FTE students (full-time plus one-third of part-time, as in Delta Cost), surviving sets: S24 for the index (1,909 institutions), S11 for the share that shrank (2,038). Peer groups: **flagships** are each state's flagship campus with its own branches (42 states; 8 states whose flagship sits inside a system-wide unit are excluded); **regional publics** are public master's and bachelor's colleges other than flagships; **small privates** are private bachelor's colleges with fewer than 2,000 FTE students in FY2012. Survivor sets exclude colleges that closed, which were mostly small and shrinking, so declines are understated. FY2024–25 NCES provisional.
+Fall FTE students (full-time plus part-time converted with the NCES Digest part-time factors, as in Delta Cost), surviving sets: S24 for the index (1,909 institutions), S11 for the share that shrank (2,038). Peer groups: **flagships** are each state's flagship campus with its own branches (42 states; 8 states whose flagship sits inside a system-wide unit are excluded); **regional publics** are public master's and bachelor's colleges other than flagships; **small privates** are private bachelor's colleges with fewer than 2,000 FTE students in FY2012. Survivor sets exclude colleges that closed, which were mostly small and shrinking, so declines are understated. FY2024–25 NCES provisional.
 :::
 
 ## Staff or students? Decomposing the rise in staff per student

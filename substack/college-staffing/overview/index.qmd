@@ -91,7 +91,7 @@ viewof sx = Inputs.radio(new Map([["Staff per 1,000", "pk"], ["FT faculty per 1,
 ```
 
 ::: {.cs-note}
-Staff per 1,000 fall FTE students, S24 surviving set (1,909 institutions), mean of institution ratios; shaded years are those covered by the 2014 Delta Cost brief. FT faculty per 1,000 rose in every sector from FY2012 to FY2024. Enrollment change: sector totals, S24. Elasticity: two-stage least squares of total staff on fall FTE using the gravity population instrument (standard error in parentheses); public master's and bachelor's colleges are pooled as regional publics, private master's and bachelor's colleges are pooled. Private-sector first stages are weak. Every number on this page is listed with its source file and column in [kpis.csv](../data/kpis.csv). Data: IPEDS (FY2024–25 NCES provisional), Census and SEER population, BLS LAUS, EADA.
+Staff per 1,000 fall FTE students, S24 surviving set (1,909 institutions), mean of institution ratios; shaded years are those covered by the 2014 Delta Cost brief. FT faculty per 1,000 rose in every sector from FY2012 to FY2024. Enrollment change: sector totals, S24. Elasticity: two-stage least squares of total staff on fall FTE using the gravity population instrument (standard error in parentheses); public master's and bachelor's colleges are pooled as regional publics, private master's and bachelor's colleges are pooled. Private-sector first stages are weak. Every number on this page is listed with its source file and column in [kpis.csv](../data/kpis.csv). Data: IPEDS (FY2024–25 NCES provisional), SEER population, BLS LAUS, EADA.
 :::
 
 ## The tools

@@ -104,7 +104,7 @@ viewof bse = Inputs.radio(new Map([["Main (county base 1987)", "b1987"], ["Robus
 {
   setParam("cat", cat === "total" ? null : cat); setParam("base", bse === "b1987" ? null : bse);
   const order = ["all", ...SGROUPS.map(s => s.k)];
-  const r = EL.filter(d => d.outcome === cat && d.base === bse && order.includes(d.sg)).map(d => ({...d, l: SGL[d.sg], lo: d.coef - 1.96 * d.se, hi: d.coef + 1.96 * d.se, weak: d.fs_F < 20}));
+  const r = EL.filter(d => d.outcome === cat && d.base === bse && order.includes(d.sg) && d.fs_F >= 20 && (cat === "total" || d.sg !== "all")).map(d => ({...d, l: SGL[d.sg], lo: d.coef - 1.96 * d.se, hi: d.coef + 1.96 * d.se, weak: d.fs_F < 20}));
   const narrow = width < 640;
   return html`${Plot.plot({
     width: Math.min(width, 860), height: 60 + order.length * 40, marginLeft: narrow ? 120 : 200, marginRight: 70,
@@ -114,7 +114,7 @@ viewof bse = Inputs.radio(new Map([["Main (county base 1987)", "b1987"], ["Robus
       Plot.dot(r, {y: "l", x: "coef", r: 6, fill: d => d.weak ? "white" : SGC[d.sg], stroke: d => d.weak ? GRAY : "white", strokeWidth: 2}),
       Plot.text(r, {y: "l", x: "hi", text: d => `${f2(d.coef)}${d.weak ? " (weak)" : ""}`, dx: 6, textAnchor: "start", fontSize: 11, fill: INK}),
       Plot.tip(r, Plot.pointerY({y: "l", x: "coef", title: d => `${d.l}: ${f2(d.coef)} (SE ${f2(d.se)})\nfirst-stage F ${f1(d.fs_F)}${d.weak ? " (weak first stage: read with caution)" : ""}${d.fe_coef != null && isFinite(d.fe_coef) ? `\nwithin-institution OLS ${f2(d.fe_coef)}` : ""}\nN ${f0(d.N)}`}))]
-  })}<p class="cs-note">Red dashed line: elasticity 1. Hollow grey: first-stage F below 20 (the private sectors; weak instrument, read with caution). "All institutions" pools sectors with sector × year effects. EAM + professional and nonprofessional staff use institution × HR-era effects because of the 2012–13 redesign. The category elasticities are less robust than the total: EAM + professional is 0.89 at public research universities but 0.44 at regional publics, and noisy at community colleges, so there is no national "sticky administrators" pattern.</p>`;
+  })}<p class="cs-note">Red dashed line: elasticity 1. Private sectors are not shown: their first stages are too weak (F below 20) to report. "All institutions" pools sectors with sector × year effects and is shown for total staff only; pooled category elasticities are not robust across instrument bases and are not reported. EAM + professional and nonprofessional staff use institution × HR-era effects because of the 2012–13 redesign. The category elasticities are less robust than the total: EAM + professional is 0.89 at public research universities but 0.44 at regional publics, and noisy at community colleges, so there is no national "sticky administrators" pattern.</p>`;
 }
 ```
 
@@ -152,7 +152,7 @@ viewof bse = Inputs.radio(new Map([["Main (county base 1987)", "b1987"], ["Robus
 :::
 
 ::: {.cs-note}
-**Data.** IPEDS fall enrollment and Human Resources (FY2024 NCES provisional); Census and SEER county population by single year of age; BLS Local Area Unemployment Statistics; IPEDS distance-education counts. Gravity population instrument with county base years 1987 and 2002; standard errors clustered by state. Sector groups pool public master's and bachelor's colleges (regional publics) and private master's and bachelor's colleges.
+**Data.** IPEDS fall enrollment and Human Resources (FY2024 NCES provisional); SEER county population by single year of age; BLS Local Area Unemployment Statistics; IPEDS distance-education counts. Gravity population instrument with county base years 1987 and 2002; standard errors clustered by state. Sector groups pool public master's and bachelor's colleges (regional publics) and private master's and bachelor's colleges.
 :::
 
 ```{ojs}
