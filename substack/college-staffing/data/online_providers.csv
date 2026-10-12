@@ -1,0 +1,31 @@
+sg,sgroup,spec,term,coef,se,N,groups,mean_dX
+all,All,main,X_NT,0.0538,0.0745,31935,2045,0.482
+all,All,main,X_LOC,-0.0098,0.0599,31935,2045,0.482
+all,All,main,X,0.0388,0.0464,31935,2045,0.482
+all,All,+ state x FY,X_NT,0.083,0.0549,31919,2045,0.482
+all,All,+ state x FY,X_LOC,-0.0298,0.048,31919,2045,0.482
+pr,Public research,main,X_NT,0.0334,0.1924,2274,144,0.514
+pr,Public research,main,X_LOC,0.0455,0.1737,2274,144,0.514
+pr,Public research,main,X,0.0022,0.0966,2274,144,0.514
+pr,Public research,+ state x FY,X_NT,-0.2367,0.1481,2078,144,0.514
+pr,Public research,+ state x FY,X_LOC,0.1349,0.151,2078,144,0.514
+rp,Regional publics,main,X_NT,-0.0765,0.162,4695,296,0.472
+rp,Regional publics,main,X_LOC,-0.0518,0.0829,4695,296,0.472
+rp,Regional publics,main,X,-0.0142,0.1055,4695,296,0.472
+rp,Regional publics,+ state x FY,X_NT,-0.1087,0.1364,4567,296,0.472
+rp,Regional publics,+ state x FY,X_LOC,0.0279,0.0664,4567,296,0.472
+cc,Community colleges,main,X_NT,0.0049,0.0615,11597,735,0.494
+cc,Community colleges,main,X_LOC,0.198,0.0761,11597,735,0.494
+cc,Community colleges,main,X,-0.1416,0.0654,11597,735,0.494
+cc,Community colleges,+ state x FY,X_NT,0.1751,0.095,11544,735,0.494
+cc,Community colleges,+ state x FY,X_LOC,0.0579,0.0699,11544,735,0.494
+xr,Private research,main,X_NT,-0.3656,0.1837,1359,89,0.411
+xr,Private research,main,X_LOC,-0.396,0.316,1359,89,0.411
+xr,Private research,main,X,-0.4472,0.4538,1359,89,0.411
+xr,Private research,+ state x FY,X_NT,-0.4874,0.2618,1144,89,0.411
+xr,Private research,+ state x FY,X_LOC,-1.0402,0.3381,1144,89,0.411
+xmb,Private master's & bachelor's,main,X_NT,0.2966,0.1037,12010,781,0.477
+xmb,Private master's & bachelor's,main,X_LOC,-0.0269,0.0917,12010,781,0.477
+xmb,Private master's & bachelor's,main,X,0.2868,0.1757,12010,781,0.477
+xmb,Private master's & bachelor's,+ state x FY,X_NT,0.2946,0.1092,11948,781,0.477
+xmb,Private master's & bachelor's,+ state x FY,X_LOC,-0.1966,0.1129,11948,781,0.477

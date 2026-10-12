@@ -1,0 +1,161 @@
+---
+title: "Population shocks"
+subtitle: "What population change predicted for enrollment, and how staffing responds to shifts colleges don't control"
+page-layout: full
+execute:
+  echo: false
+---
+
+{{< include ../_nav.qmd >}}
+
+{{< include ../_common.qmd >}}
+
+```{ojs}
+GP = FileAttachment("../data/gravity_paths.csv").csv({typed: true})
+DC = FileAttachment("../data/decline_decomp.csv").csv({typed: true})
+EL = FileAttachment("../data/elasticities.csv").csv({typed: true})
+SP = FileAttachment("../data/staff_split.csv").csv({typed: true})
+OP = FileAttachment("../data/online_providers.csv").csv({typed: true})
+```
+
+```{ojs}
+{
+  const a = DC.find(d => d.sec === "all" && d.weights === "unweighted");
+  const s = SP.find(d => d.sec === "all" && d.weights === "unweighted");
+  return md`<div class="cs-lead">Enrollment at the typical surviving college fell <b>${f1(-a.dlog_fte)}</b> log points from FY2013 to FY2024. Population change, measured by an instrument that ages each college's recruiting counties forward from age 10, accounts for <b>${s1(a.demographic)}</b>; the business cycle at most ${s1(a.cycle_national)}; the remaining <b>${s1(a.residual)}</b> is something else. Because staff respond to enrollment less than one for one, the fall raised staff per student: ${f1(s.enrollment_part)} of a ${f1(s.rise)}-point rise, with ${f1(s.beyond)} from staff growth beyond enrollment.</div>`;
+}
+```
+
+::: {.cs-links}
+Read more: [white paper §6](../paper/index.qmd#sec-6) (population shocks) and [Appendix A](../paper/index.qmd#app-a) (methods). Substack post: Post 2 (link on publication).
+:::
+
+::: {.cs-box}
+#### How the instrument works
+For each college, a gravity model gives the share of its students that comes from each county, based on distance and competing colleges. The instrument is the number of young people in those counties, built by aging each county's 10-year-olds forward, so current students' own choices never enter it. Its change over time is a demand shift the college does not control. The sample is the **1,903 surviving (S11) institutions** with the instrument; that is why its staff-per-student rise (12.8) differs slightly from the 12.6 for all 2,038 S11 institutions on the [Enrollment](../enrollment/index.qmd) page.
+:::
+
+```{ojs}
+viewof wt2 = Inputs.radio(new Map([["Typical institution", "unweighted"], ["Weighted by FY2013 enrollment", "FY2013 FTE"]]), {value: param("w", "0") === "1" ? "FY2013 FTE" : "unweighted", label: "Average"})
+```
+
+## Predicted vs actual enrollment
+
+```{ojs}
+viewof psec = Inputs.select(["all", ...SECTORS.map(s => s.k)], {format: k => k === "all" ? "All sectors" : SECL[k], value: param("sector", "all"), label: "Sector"})
+```
+
+```{ojs}
+{
+  setParam("sector", psec === "all" ? null : psec); setParam("w", wt2 === "unweighted" ? null : "1");
+  const r = GP.filter(d => d.sec === psec && d.weights === wt2);
+  const S3 = ["Actual", "Predicted by population", "Population + national cycle"];
+  const pts = r.flatMap(d => [{fy: d.fy, s: S3[0], v: d.actual, n: d.n}, {fy: d.fy, s: S3[1], v: d.population, n: d.n}, {fy: d.fy, s: S3[2], v: d.population + d.cycle, n: d.n}]);
+  const c = psec === "all" ? BLUE : SECC[psec];
+  const narrow = width < 640;
+  return Plot.plot({
+    width: Math.min(width, 900), height: 360, marginRight: narrow ? 10 : 200, marginLeft: 50,
+    x: {...yearAxis, domain: [2013, 2024]}, y: {grid: true, label: "Change in log fall FTE since FY2013 (×100)"},
+    color: {domain: S3, range: [c, INK, GRAY], legend: narrow},
+    marks: [Plot.ruleY([0], {stroke: INK}), Plot.rectX([{a: 2020.5, b: 2022.5}], {x1: "a", x2: "b", fill: SHADE}),
+      Plot.lineY(pts.filter(d => d.s !== S3[0]), {x: "fy", y: "v", stroke: "s", strokeWidth: 2, strokeDasharray: "5,3"}),
+      Plot.lineY(pts.filter(d => d.s === S3[0]), {x: "fy", y: "v", stroke: "s", strokeWidth: 2.8}),
+      narrow ? null : Plot.text(pts, Plot.selectLast({x: "fy", y: "v", z: "s", text: d => `${d.s} ${s1(d.v)}`, dx: 6, textAnchor: "start", fontSize: 10, fill: INK})),
+      Plot.tip(pts, Plot.pointer({x: "fy", y: "v", title: d => `${d.s}, FY${d.fy}: ${s1(d.v)}\n${d.n} institutions`}))]
+  });
+}
+```
+
+::: {.cs-note}
+Predicted by population: the sector's first-stage coefficient times each college's change in the gravity population instrument (base 2002), averaged. National cycle: the sector's time-series response to the national unemployment rate (an upper bound, because federal aid and GI Bill changes moved with the cycle). Shaded: the COVID falls. Sample: 1,903 S11 groups present in FY2013 and FY2024 (each year averages the groups reporting that year). FY2024 NCES provisional.
+:::
+
+## Why enrollment fell, by sector
+
+```{ojs}
+{
+  const PARTS = [["demographic", "Population"], ["cycle_national", "National cycle (upper bound)"], ["cycle_local", "Local cycle"], ["residual", "Everything else (residual)"]];
+  const order = [{k: "all", l: "All sectors"}, ...SECTORS];
+  const lab = Object.fromEntries(order.map(d => [d.k, d.l]));
+  const r = DC.filter(d => d.weights === wt2);
+  const long = r.flatMap(d => PARTS.map(([k, l]) => ({sec: lab[d.sec], part: l, v: d[k], tot: d.dlog_fte, n: d.n})));
+  const narrow = width < 640;
+  return html`${Plot.plot({
+    width: Math.min(width, 900), height: 50 + order.length * 34, marginLeft: narrow ? 120 : 150, marginRight: 30,
+    x: {grid: true, label: "Change in log fall FTE, FY2013–24 (×100)"}, y: {domain: order.map(d => d.l), label: null},
+    color: {domain: PARTS.map(p => p[1]), range: ["#2a78d6", "#eda100", "#c3ccd5", "#6250d6"], legend: true},
+    marks: [Plot.barX(long, Plot.stackX({y: "sec", x: "v", fill: "part", inset: 0.5})), Plot.ruleX([0], {stroke: INK}),
+      Plot.dot(r, {y: d => lab[d.sec], x: "dlog_fte", r: 5, fill: "white", stroke: INK, strokeWidth: 2}),
+      Plot.tip(r, Plot.pointerY({y: d => lab[d.sec], x: "dlog_fte", title: d => `${lab[d.sec]} (${d.n} institutions)\ntotal ${s1(d.dlog_fte)}\npopulation ${s1(d.demographic)}\nnational cycle ${s1(d.cycle_national)}\nlocal cycle ${s1(d.cycle_local)}\nresidual ${s1(d.residual)}\nonline growth kept ${f1(d.online_offset)} points`}))]
+  })}<p class="cs-note">Ring: the total change. Hover for each part and for the online offset (the part of total enrollment kept by growth in exclusively online students). Population added a little in most sectors; the decline is mostly the residual: competition, prices, the labor market for young adults, and choices colleges and students made.</p>`;
+}
+```
+
+## How staffing responds to enrollment
+
+An elasticity of 1 means staff move one for one with enrollment, keeping staff per student constant. Below 1, a falling enrollment raises staff per student.
+
+```{ojs}
+viewof cat = Inputs.select(new Map([["All staff", "total"], ["Full-time faculty", "ftfac"], ["Non-faculty staff", "nonfac"], ["EAM + professional", "eamprof"], ["Nonprofessional staff", "nonprof"]]), {value: param("cat", "total"), label: "Staff category"})
+viewof bse = Inputs.radio(new Map([["Main (county base 1987)", "b1987"], ["Robustness (base 2002, FY2006+)", "b2002"]]), {value: param("base", "b1987"), label: "Instrument"})
+```
+
+```{ojs}
+{
+  setParam("cat", cat === "total" ? null : cat); setParam("base", bse === "b1987" ? null : bse);
+  const order = ["all", ...SGROUPS.map(s => s.k)];
+  const r = EL.filter(d => d.outcome === cat && d.base === bse && order.includes(d.sg)).map(d => ({...d, l: SGL[d.sg], lo: d.coef - 1.96 * d.se, hi: d.coef + 1.96 * d.se, weak: d.fs_F < 20}));
+  const narrow = width < 640;
+  return html`${Plot.plot({
+    width: Math.min(width, 860), height: 60 + order.length * 40, marginLeft: narrow ? 120 : 200, marginRight: 70,
+    x: {grid: true, label: "Elasticity of staff to fall FTE (95% interval)", domain: [Math.min(-0.2, d3.min(r, d => d.lo)), Math.max(2, d3.max(r, d => d.hi))]}, y: {domain: order.map(k => SGL[k]), label: null},
+    marks: [Plot.ruleX([1], {stroke: BREAKC, strokeDasharray: "4,3"}), Plot.ruleX([0], {stroke: "#bbb"}),
+      Plot.ruleY(r, {y: "l", x1: "lo", x2: "hi", stroke: d => d.weak ? "#c3ccd5" : SGC[d.sg], strokeWidth: 3}),
+      Plot.dot(r, {y: "l", x: "coef", r: 6, fill: d => d.weak ? "white" : SGC[d.sg], stroke: d => d.weak ? GRAY : "white", strokeWidth: 2}),
+      Plot.text(r, {y: "l", x: "hi", text: d => `${f2(d.coef)}${d.weak ? " (weak)" : ""}`, dx: 6, textAnchor: "start", fontSize: 11, fill: INK}),
+      Plot.tip(r, Plot.pointerY({y: "l", x: "coef", title: d => `${d.l}: ${f2(d.coef)} (SE ${f2(d.se)})\nfirst-stage F ${f1(d.fs_F)}${d.weak ? " (weak first stage: read with caution)" : ""}${d.fe_coef != null && isFinite(d.fe_coef) ? `\nwithin-institution OLS ${f2(d.fe_coef)}` : ""}\nN ${f0(d.N)}`}))]
+  })}<p class="cs-note">Red dashed line: elasticity 1. Hollow grey: first-stage F below 20 (the private sectors; weak instrument, read with caution). "All institutions" pools sectors with sector × year effects. EAM + professional and nonprofessional staff use institution × HR-era effects because of the 2012–13 redesign. The category elasticities are less robust than the total: EAM + professional is 0.89 at public research universities but 0.44 at regional publics, and noisy at community colleges, so there is no national "sticky administrators" pattern.</p>`;
+}
+```
+
+## Why staff per student rose, by sector
+
+```{ojs}
+{
+  const order = [{k: "all", l: "All sectors"}, ...SECTORS];
+  const lab = Object.fromEntries(order.map(d => [d.k, d.l]));
+  const r = SP.filter(d => d.weights === wt2);
+  const P2 = ["Elasticity below 1 meets the enrollment change", "Staff growth beyond enrollment"];
+  const long = r.flatMap(d => [{sec: lab[d.sec], part: P2[0], v: d.enrollment_part}, {sec: lab[d.sec], part: P2[1], v: d.beyond}]);
+  const narrow = width < 640;
+  return html`${Plot.plot({
+    width: Math.min(width, 900), height: 50 + order.length * 34, marginLeft: narrow ? 120 : 150, marginRight: 40,
+    x: {grid: true, label: "Change in log staff per student, FY2013–24 (×100)"}, y: {domain: order.map(d => d.l), label: null},
+    color: {domain: P2, range: [LIGHT, BLUE], legend: true},
+    marks: [Plot.barX(long, Plot.stackX({y: "sec", x: "v", fill: "part", inset: 0.5})), Plot.ruleX([0], {stroke: INK}),
+      Plot.dot(r, {y: d => lab[d.sec], x: "rise", r: 5, fill: "white", stroke: INK, strokeWidth: 2}),
+      Plot.text(r, {y: d => lab[d.sec], x: d => Math.max(d.rise, d.enrollment_part + Math.max(0, d.beyond), d.beyond), text: d => s1(d.rise), dx: 10, textAnchor: "start", fontSize: 11, fill: INK}),
+      Plot.tip(r, Plot.pointerY({y: d => lab[d.sec], x: "rise", title: d => `${lab[d.sec]} (${d.n} institutions)\nrise ${s1(d.rise)}\n= enrollment part ${s1(d.enrollment_part)}\n+ beyond enrollment ${s1(d.beyond)}\nFTE ${s1(d.dlog_fte)}, staff ${s1(d.dlog_staff)}`}))]
+  })}<p class="cs-note">Enrollment part = (0.70 − 1) × population-driven change + (0.57 − 1) × all other enrollment change, using the pooled control-function elasticities; staff growth beyond enrollment is the remainder. Sector rows apply the pooled elasticities to each sector's own enrollment changes (a simple aggregation for this site); the sector elasticities above differ, so read sector splits as approximate. At research universities enrollment grew, so the enrollment part is negative and the whole rise is staff growth.</p>`;
+}
+```
+
+::: {.cs-box}
+#### A hypothesis that didn't hold: national online providers
+```{ojs}
+{
+  const g = (sg, t, spec = "main") => OP.find(d => d.sg === sg && d.term === t && d.spec === spec);
+  const cc = g("cc", "X");
+  return md`If large national online universities (Western Governors, Southern New Hampshire, Arizona State's online campus and 48 others) were pulling students from nearby campuses, colleges in states where those providers grew fastest should have lost more, especially colleges serving older, part-time and commuting students. They didn't. Non-traditional and local colleges did not lose more where exposure was higher, and placebo pre-trends are flat. Community colleges in high-exposure states lost ${f2(cc.coef)} (SE ${f2(cc.se)}) log points per percentage point of exposure, about −7 log points in all, but the more local colleges lost less, not more. **The hypothesis is not supported.**`;
+}
+```
+:::
+
+::: {.cs-note}
+**Data.** IPEDS fall enrollment and Human Resources (FY2024 NCES provisional); Census and SEER county population by single year of age; BLS Local Area Unemployment Statistics; IPEDS distance-education counts. Gravity population instrument with county base years 1987 and 2002; standard errors clustered by state. Sector groups pool public master's and bachelor's colleges (regional publics) and private master's and bachelor's colleges.
+:::
+
+```{ojs}
+//| output: false
+1
+```

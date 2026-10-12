@@ -1,0 +1,39 @@
+---
+title: "Counting College Staff"
+subtitle: "Staffing at U.S. colleges since the Delta Cost Project, and why staff per student rose after 2012"
+---
+
+::: {.callout-note appearance="simple"}
+**Preview, not yet public.** Built for David's review from the white paper draft (October 2026). Numbers can change as the draft changes. Not linked from the site menu.
+:::
+
+::: {.status-tag}
+In progress
+:::
+
+## The question
+
+In 2014 the Delta Cost Project's brief *Labor Intensive or Labor Expensive?* reported that colleges kept adding staff faster than students through 2012, mostly outside the faculty. This project rebuilds that brief from IPEDS, extends it to fiscal 2025, and asks what happened next. Public colleges reversed course: staff per student had been falling and began rising after 2012. Much of that rise comes from the denominator. Enrollment fell, mostly for reasons other than population, and staffing responded less than one for one. The rest comes from hiring aimed at attracting students: enrollment-facing staff, amenities and athletics.
+
+## White paper
+
+[Read the white paper (HTML)](paper/index.qmd). A PDF will be posted with it.
+
+## Posts
+
+*Substack series, links added on publication.* Follow along at [Finding Equilibrium](https://findingequilibriumfuturehighered.substack.com/).
+
+## Interactive tools
+
+- [Overview](overview/index.qmd): the headline numbers by sector, and a guide to the tools.
+- [Sector trends](sector-trends/index.qmd): staff per 1,000 students by category, fiscal 1988 to 2025, with the replication of the 2014 brief.
+- [Institution explorer](institution-explorer/index.qmd): any college's staffing, enrollment, spending by function and athletics against its sector.
+- [Enrollment](enrollment/index.qmd): enrollment by sector and peer group, how much of the rise in staff per student is the denominator, online and dual enrollment.
+- [State explorer](state-explorer/index.qmd): a state map of enrollment change, staffing and dual enrollment.
+- [Population shocks](population-shocks/index.qmd): what population change predicted for enrollment, how staffing responds, and what explains the decline.
+- [Who was hired](who-was-hired/index.qmd): occupation groups since 2015, enrollment-facing staff and coaches.
+- [Amenities and athletics](amenities-athletics/index.qmd): amenity, academic and athletic spending per student, and whether any of it paid off in enrollment.
+
+## Data and methods
+
+All tools use public, aggregated data: IPEDS (NCES), NSF HERD, the Equity in Athletics Data Analysis (EADA), USA Today NCAA finances, BLS local-area unemployment and Census population estimates. Fiscal 2024 and 2025 IPEDS values are NCES provisional. Each tool's data folder has a [README](data/README.txt) listing every file, its source and its years.

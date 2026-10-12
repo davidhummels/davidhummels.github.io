@@ -1,0 +1,349 @@
+{
+ "built": "2026-10-12 15:26",
+ "files": {
+  "trends.csv": {
+   "rows": 1638,
+   "kb": 49.4
+  },
+  "replication.csv": {
+   "rows": 252,
+   "kb": 10.1
+  },
+  "apptable1.csv": {
+   "rows": 56,
+   "kb": 1.7
+  },
+  "finance_growth.csv": {
+   "rows": 168,
+   "kb": 15.0
+  },
+  "fte_index.csv": {
+   "rows": 418,
+   "kb": 21.3
+  },
+  "fte_change.csv": {
+   "rows": 7,
+   "kb": 0.6
+  },
+  "decomp.csv": {
+   "rows": 380,
+   "kb": 44.2
+  },
+  "online_share.csv": {
+   "rows": 104,
+   "kb": 6.6
+  },
+  "dual_sector.csv": {
+   "rows": 18,
+   "kb": 1.0
+  },
+  "dual_decline.csv": {
+   "rows": 12,
+   "kb": 1.1
+  },
+  "inst_index.csv": {
+   "rows": 2227,
+   "kb": 182.0
+  },
+  "inst/AK.csv": {
+   "rows": 81,
+   "kb": 6.0
+  },
+  "inst/AL.csv": {
+   "rows": 1289,
+   "kb": 99.1
+  },
+  "inst/AR.csv": {
+   "rows": 1023,
+   "kb": 78.8
+  },
+  "inst/AS.csv": {
+   "rows": 26,
+   "kb": 2.0
+  },
+  "inst/AZ.csv": {
+   "rows": 623,
+   "kb": 46.9
+  },
+  "inst/CA.csv": {
+   "rows": 4090,
+   "kb": 305.3
+  },
+  "inst/CO.csv": {
+   "rows": 858,
+   "kb": 65.5
+  },
+  "inst/CT.csv": {
+   "rows": 568,
+   "kb": 44.0
+  },
+  "inst/DC.csv": {
+   "rows": 219,
+   "kb": 17.8
+  },
+  "inst/DE.csv": {
+   "rows": 104,
+   "kb": 8.2
+  },
+  "inst/FL.csv": {
+   "rows": 1668,
+   "kb": 128.9
+  },
+  "inst/FM.csv": {
+   "rows": 26,
+   "kb": 2.0
+  },
+  "inst/GA.csv": {
+   "rows": 1768,
+   "kb": 135.7
+  },
+  "inst/GU.csv": {
+   "rows": 52,
+   "kb": 4.0
+  },
+  "inst/HI.csv": {
+   "rows": 335,
+   "kb": 25.3
+  },
+  "inst/IA.csv": {
+   "rows": 1134,
+   "kb": 88.3
+  },
+  "inst/ID.csv": {
+   "rows": 258,
+   "kb": 20.1
+  },
+  "inst/IL.csv": {
+   "rows": 2315,
+   "kb": 179.1
+  },
+  "inst/IN.csv": {
+   "rows": 1100,
+   "kb": 85.4
+  },
+  "inst/KS.csv": {
+   "rows": 1211,
+   "kb": 93.6
+  },
+  "inst/KY.csv": {
+   "rows": 676,
+   "kb": 52.8
+  },
+  "inst/LA.csv": {
+   "rows": 668,
+   "kb": 51.1
+  },
+  "inst/MA.csv": {
+   "rows": 1805,
+   "kb": 141.5
+  },
+  "inst/MD.csv": {
+   "rows": 1022,
+   "kb": 80.0
+  },
+  "inst/ME.csv": {
+   "rows": 435,
+   "kb": 33.7
+  },
+  "inst/MH.csv": {
+   "rows": 23,
+   "kb": 1.8
+  },
+  "inst/MI.csv": {
+   "rows": 1687,
+   "kb": 129.7
+  },
+  "inst/MN.csv": {
+   "rows": 1344,
+   "kb": 103.2
+  },
+  "inst/MO.csv": {
+   "rows": 1216,
+   "kb": 93.0
+  },
+  "inst/MP.csv": {
+   "rows": 26,
+   "kb": 2.0
+  },
+  "inst/MS.csv": {
+   "rows": 754,
+   "kb": 58.1
+  },
+  "inst/MT.csv": {
+   "rows": 362,
+   "kb": 27.8
+  },
+  "inst/NC.csv": {
+   "rows": 2798,
+   "kb": 216.6
+  },
+  "inst/ND.csv": {
+   "rows": 260,
+   "kb": 20.2
+  },
+  "inst/NE.csv": {
+   "rows": 506,
+   "kb": 39.1
+  },
+  "inst/NH.csv": {
+   "rows": 370,
+   "kb": 28.3
+  },
+  "inst/NJ.csv": {
+   "rows": 1142,
+   "kb": 87.2
+  },
+  "inst/NM.csv": {
+   "rows": 472,
+   "kb": 36.6
+  },
+  "inst/NV.csv": {
+   "rows": 197,
+   "kb": 15.2
+  },
+  "inst/NY.csv": {
+   "rows": 3447,
+   "kb": 268.0
+  },
+  "inst/OH.csv": {
+   "rows": 2049,
+   "kb": 158.4
+  },
+  "inst/OK.csv": {
+   "rows": 952,
+   "kb": 73.4
+  },
+  "inst/OR.csv": {
+   "rows": 904,
+   "kb": 69.9
+  },
+  "inst/PA.csv": {
+   "rows": 2620,
+   "kb": 206.5
+  },
+  "inst/PR.csv": {
+   "rows": 704,
+   "kb": 50.6
+  },
+  "inst/PW.csv": {
+   "rows": 26,
+   "kb": 2.1
+  },
+  "inst/RI.csv": {
+   "rows": 234,
+   "kb": 18.4
+  },
+  "inst/SC.csv": {
+   "rows": 1320,
+   "kb": 101.7
+  },
+  "inst/SD.csv": {
+   "rows": 329,
+   "kb": 25.4
+  },
+  "inst/TN.csv": {
+   "rows": 1238,
+   "kb": 94.9
+  },
+  "inst/TX.csv": {
+   "rows": 2868,
+   "kb": 220.3
+  },
+  "inst/UT.csv": {
+   "rows": 334,
+   "kb": 25.8
+  },
+  "inst/VA.csv": {
+   "rows": 1664,
+   "kb": 128.4
+  },
+  "inst/VI.csv": {
+   "rows": 26,
+   "kb": 2.1
+  },
+  "inst/VT.csv": {
+   "rows": 331,
+   "kb": 25.2
+  },
+  "inst/WA.csv": {
+   "rows": 1337,
+   "kb": 102.1
+  },
+  "inst/WI.csv": {
+   "rows": 1265,
+   "kb": 97.7
+  },
+  "inst/WV.csv": {
+   "rows": 518,
+   "kb": 39.9
+  },
+  "inst/WY.csv": {
+   "rows": 207,
+   "kb": 16.3
+  },
+  "bands.csv": {
+   "rows": 2338,
+   "kb": 76.5
+  },
+  "states.csv": {
+   "rows": 197,
+   "kb": 15.5
+  },
+  "decline_decomp.csv": {
+   "rows": 16,
+   "kb": 1.4
+  },
+  "staff_split.csv": {
+   "rows": 16,
+   "kb": 1.3
+  },
+  "elasticities.csv": {
+   "rows": 55,
+   "kb": 3.7
+  },
+  "gravity_paths.csv": {
+   "rows": 192,
+   "kb": 8.0
+  },
+  "online_providers.csv": {
+   "rows": 30,
+   "kb": 1.9
+  },
+  "occupations.csv": {
+   "rows": 66,
+   "kb": 4.8
+  },
+  "coaches.csv": {
+   "rows": 6,
+   "kb": 0.7
+  },
+  "occ_elasticity.csv": {
+   "rows": 66,
+   "kb": 4.0
+  },
+  "amenity_growth.csv": {
+   "rows": 12,
+   "kb": 0.8
+  },
+  "athletics_growth.csv": {
+   "rows": 12,
+   "kb": 1.0
+  },
+  "athletics_share.csv": {
+   "rows": 12,
+   "kb": 1.3
+  },
+  "d1_subsidy.csv": {
+   "rows": 6,
+   "kb": 0.7
+  },
+  "payoff.csv": {
+   "rows": 72,
+   "kb": 3.9
+  },
+  "kpis.csv": {
+   "rows": 81,
+   "kb": 13.2
+  }
+ }
+}

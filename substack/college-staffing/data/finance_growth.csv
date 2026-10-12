@@ -1,0 +1,169 @@
+source,window,sec,measure,label,pct,brief
+replication_dcp,FY2002-FY2010,pr,tuition_fees_sticker,Sticker tuition and fees,5.36,5.4
+replication_dcp,FY2002-FY2010,pm,tuition_fees_sticker,Sticker tuition and fees,5.41,5.4
+replication_dcp,FY2002-FY2010,pb,tuition_fees_sticker,Sticker tuition and fees,4.97,5.0
+replication_dcp,FY2002-FY2010,cc,tuition_fees_sticker,Sticker tuition and fees,3.77,3.8
+replication_dcp,FY2002-FY2010,xr,tuition_fees_sticker,Sticker tuition and fees,3.09,3.1
+replication_dcp,FY2002-FY2010,xm,tuition_fees_sticker,Sticker tuition and fees,3.35,3.3
+replication_dcp,FY2002-FY2010,xb,tuition_fees_sticker,Sticker tuition and fees,3.15,3.1
+extension,FY2013-FY2017,pr,tuition_fees_sticker,Sticker tuition and fees,2.06,
+extension,FY2013-FY2017,pm,tuition_fees_sticker,Sticker tuition and fees,2.13,
+extension,FY2013-FY2017,pb,tuition_fees_sticker,Sticker tuition and fees,2.4,
+extension,FY2013-FY2017,cc,tuition_fees_sticker,Sticker tuition and fees,2.14,
+extension,FY2013-FY2017,xr,tuition_fees_sticker,Sticker tuition and fees,2.53,
+extension,FY2013-FY2017,xm,tuition_fees_sticker,Sticker tuition and fees,1.98,
+extension,FY2013-FY2017,xb,tuition_fees_sticker,Sticker tuition and fees,2.13,
+extension,FY2017-FY2024,pr,tuition_fees_sticker,Sticker tuition and fees,-1.28,
+extension,FY2017-FY2024,pm,tuition_fees_sticker,Sticker tuition and fees,-1.28,
+extension,FY2017-FY2024,pb,tuition_fees_sticker,Sticker tuition and fees,-1.1,
+extension,FY2017-FY2024,cc,tuition_fees_sticker,Sticker tuition and fees,-1.14,
+extension,FY2017-FY2024,xr,tuition_fees_sticker,Sticker tuition and fees,-0.17,
+extension,FY2017-FY2024,xm,tuition_fees_sticker,Sticker tuition and fees,-0.66,
+extension,FY2017-FY2024,xb,tuition_fees_sticker,Sticker tuition and fees,-0.89,
+extension,FY2013-FY2024,pr,tuition_fees_sticker,Sticker tuition and fees,-0.08,
+extension,FY2013-FY2024,pm,tuition_fees_sticker,Sticker tuition and fees,-0.05,
+extension,FY2013-FY2024,pb,tuition_fees_sticker,Sticker tuition and fees,0.16,
+extension,FY2013-FY2024,cc,tuition_fees_sticker,Sticker tuition and fees,0.04,
+extension,FY2013-FY2024,xr,tuition_fees_sticker,Sticker tuition and fees,0.8,
+extension,FY2013-FY2024,xm,tuition_fees_sticker,Sticker tuition and fees,0.29,
+extension,FY2013-FY2024,xb,tuition_fees_sticker,Sticker tuition and fees,0.2,
+replication_dcp,FY2002-FY2010,pr,eandr_per_fte_student,Education & related spending per FTE student,0.79,0.9
+replication_dcp,FY2002-FY2010,pm,eandr_per_fte_student,Education & related spending per FTE student,0.48,0.5
+replication_dcp,FY2002-FY2010,pb,eandr_per_fte_student,Education & related spending per FTE student,0.84,0.8
+replication_dcp,FY2002-FY2010,cc,eandr_per_fte_student,Education & related spending per FTE student,-0.9,-0.9
+replication_dcp,FY2002-FY2010,xr,eandr_per_fte_student,Education & related spending per FTE student,1.74,1.7
+replication_dcp,FY2002-FY2010,xm,eandr_per_fte_student,Education & related spending per FTE student,1.04,1.0
+replication_dcp,FY2002-FY2010,xb,eandr_per_fte_student,Education & related spending per FTE student,0.88,0.9
+extension,FY2013-FY2017,pr,eandr_per_fte_student,Education & related spending per FTE student,1.91,
+extension,FY2013-FY2017,pm,eandr_per_fte_student,Education & related spending per FTE student,2.11,
+extension,FY2013-FY2017,pb,eandr_per_fte_student,Education & related spending per FTE student,1.49,
+extension,FY2013-FY2017,cc,eandr_per_fte_student,Education & related spending per FTE student,3.6,
+extension,FY2013-FY2017,xr,eandr_per_fte_student,Education & related spending per FTE student,1.74,
+extension,FY2013-FY2017,xm,eandr_per_fte_student,Education & related spending per FTE student,1.75,
+extension,FY2013-FY2017,xb,eandr_per_fte_student,Education & related spending per FTE student,1.83,
+extension,FY2017-FY2024,pr,eandr_per_fte_student,Education & related spending per FTE student,-0.88,
+extension,FY2017-FY2024,pm,eandr_per_fte_student,Education & related spending per FTE student,0.12,
+extension,FY2017-FY2024,pb,eandr_per_fte_student,Education & related spending per FTE student,1.04,
+extension,FY2017-FY2024,cc,eandr_per_fte_student,Education & related spending per FTE student,0.69,
+extension,FY2017-FY2024,xr,eandr_per_fte_student,Education & related spending per FTE student,-0.14,
+extension,FY2017-FY2024,xm,eandr_per_fte_student,Education & related spending per FTE student,0.01,
+extension,FY2017-FY2024,xb,eandr_per_fte_student,Education & related spending per FTE student,0.26,
+extension,FY2013-FY2024,pr,eandr_per_fte_student,Education & related spending per FTE student,0.13,
+extension,FY2013-FY2024,pm,eandr_per_fte_student,Education & related spending per FTE student,0.84,
+extension,FY2013-FY2024,pb,eandr_per_fte_student,Education & related spending per FTE student,1.2,
+extension,FY2013-FY2024,cc,eandr_per_fte_student,Education & related spending per FTE student,1.74,
+extension,FY2013-FY2024,xr,eandr_per_fte_student,Education & related spending per FTE student,0.54,
+extension,FY2013-FY2024,xm,eandr_per_fte_student,Education & related spending per FTE student,0.64,
+extension,FY2013-FY2024,xb,eandr_per_fte_student,Education & related spending per FTE student,0.83,
+replication_dcp,FY2002-FY2010,pr,ft_faculty_avg_salary,FT-faculty average salary,0.23,0.2
+replication_dcp,FY2002-FY2010,pm,ft_faculty_avg_salary,FT-faculty average salary,-0.07,-0.1
+replication_dcp,FY2002-FY2010,pb,ft_faculty_avg_salary,FT-faculty average salary,0.02,0.0
+replication_dcp,FY2002-FY2010,cc,ft_faculty_avg_salary,FT-faculty average salary,0.07,0.1
+replication_dcp,FY2002-FY2010,xr,ft_faculty_avg_salary,FT-faculty average salary,0.63,0.6
+replication_dcp,FY2002-FY2010,xm,ft_faculty_avg_salary,FT-faculty average salary,0.63,0.6
+replication_dcp,FY2002-FY2010,xb,ft_faculty_avg_salary,FT-faculty average salary,0.44,0.4
+extension,FY2013-FY2017,pr,ft_faculty_avg_salary,FT-faculty average salary,0.83,
+extension,FY2013-FY2017,pm,ft_faculty_avg_salary,FT-faculty average salary,0.7,
+extension,FY2013-FY2017,pb,ft_faculty_avg_salary,FT-faculty average salary,0.43,
+extension,FY2013-FY2017,cc,ft_faculty_avg_salary,FT-faculty average salary,0.21,
+extension,FY2013-FY2017,xr,ft_faculty_avg_salary,FT-faculty average salary,0.91,
+extension,FY2013-FY2017,xm,ft_faculty_avg_salary,FT-faculty average salary,0.3,
+extension,FY2013-FY2017,xb,ft_faculty_avg_salary,FT-faculty average salary,0.28,
+extension,FY2017-FY2024,pr,ft_faculty_avg_salary,FT-faculty average salary,-1.17,
+extension,FY2017-FY2024,pm,ft_faculty_avg_salary,FT-faculty average salary,-1.23,
+extension,FY2017-FY2024,pb,ft_faculty_avg_salary,FT-faculty average salary,-1.31,
+extension,FY2017-FY2024,cc,ft_faculty_avg_salary,FT-faculty average salary,-1.02,
+extension,FY2017-FY2024,xr,ft_faculty_avg_salary,FT-faculty average salary,-1.24,
+extension,FY2017-FY2024,xm,ft_faculty_avg_salary,FT-faculty average salary,-1.82,
+extension,FY2017-FY2024,xb,ft_faculty_avg_salary,FT-faculty average salary,-1.91,
+extension,FY2013-FY2024,pr,ft_faculty_avg_salary,FT-faculty average salary,-0.45,
+extension,FY2013-FY2024,pm,ft_faculty_avg_salary,FT-faculty average salary,-0.53,
+extension,FY2013-FY2024,pb,ft_faculty_avg_salary,FT-faculty average salary,-0.68,
+extension,FY2013-FY2024,cc,ft_faculty_avg_salary,FT-faculty average salary,-0.57,
+extension,FY2013-FY2024,xr,ft_faculty_avg_salary,FT-faculty average salary,-0.46,
+extension,FY2013-FY2024,xm,ft_faculty_avg_salary,FT-faculty average salary,-1.06,
+extension,FY2013-FY2024,xb,ft_faculty_avg_salary,FT-faculty average salary,-1.12,
+replication_dcp,FY2002-FY2010,pr,salaries_per_fte_employee,Salary outlay per FTE employee,1.13,1.2
+replication_dcp,FY2002-FY2010,pm,salaries_per_fte_employee,Salary outlay per FTE employee,-0.12,-0.1
+replication_dcp,FY2002-FY2010,pb,salaries_per_fte_employee,Salary outlay per FTE employee,0.22,0.3
+replication_dcp,FY2002-FY2010,cc,salaries_per_fte_employee,Salary outlay per FTE employee,0.74,0.8
+replication_dcp,FY2002-FY2010,xr,salaries_per_fte_employee,Salary outlay per FTE employee,0.62,0.6
+replication_dcp,FY2002-FY2010,xm,salaries_per_fte_employee,Salary outlay per FTE employee,0.3,0.3
+replication_dcp,FY2002-FY2010,xb,salaries_per_fte_employee,Salary outlay per FTE employee,0.25,0.2
+extension,FY2013-FY2017,pr,salaries_per_fte_employee,Salary outlay per FTE employee,1.44,
+extension,FY2013-FY2017,pm,salaries_per_fte_employee,Salary outlay per FTE employee,1.46,
+extension,FY2013-FY2017,pb,salaries_per_fte_employee,Salary outlay per FTE employee,1.52,
+extension,FY2013-FY2017,cc,salaries_per_fte_employee,Salary outlay per FTE employee,1.32,
+extension,FY2013-FY2017,xr,salaries_per_fte_employee,Salary outlay per FTE employee,1.56,
+extension,FY2013-FY2017,xm,salaries_per_fte_employee,Salary outlay per FTE employee,1.16,
+extension,FY2013-FY2017,xb,salaries_per_fte_employee,Salary outlay per FTE employee,0.77,
+extension,FY2017-FY2024,pr,salaries_per_fte_employee,Salary outlay per FTE employee,-0.18,
+extension,FY2017-FY2024,pm,salaries_per_fte_employee,Salary outlay per FTE employee,-0.45,
+extension,FY2017-FY2024,pb,salaries_per_fte_employee,Salary outlay per FTE employee,-0.66,
+extension,FY2017-FY2024,cc,salaries_per_fte_employee,Salary outlay per FTE employee,-0.32,
+extension,FY2017-FY2024,xr,salaries_per_fte_employee,Salary outlay per FTE employee,0.2,
+extension,FY2017-FY2024,xm,salaries_per_fte_employee,Salary outlay per FTE employee,-0.97,
+extension,FY2017-FY2024,xb,salaries_per_fte_employee,Salary outlay per FTE employee,-0.98,
+extension,FY2013-FY2024,pr,salaries_per_fte_employee,Salary outlay per FTE employee,0.41,
+extension,FY2013-FY2024,pm,salaries_per_fte_employee,Salary outlay per FTE employee,0.24,
+extension,FY2013-FY2024,pb,salaries_per_fte_employee,Salary outlay per FTE employee,0.12,
+extension,FY2013-FY2024,cc,salaries_per_fte_employee,Salary outlay per FTE employee,0.28,
+extension,FY2013-FY2024,xr,salaries_per_fte_employee,Salary outlay per FTE employee,0.69,
+extension,FY2013-FY2024,xm,salaries_per_fte_employee,Salary outlay per FTE employee,-0.2,
+extension,FY2013-FY2024,xb,salaries_per_fte_employee,Salary outlay per FTE employee,-0.35,
+replication_dcp,FY2002-FY2010,pr,compensation_per_fte_employee,Compensation per FTE employee,1.79,1.8
+replication_dcp,FY2002-FY2010,pm,compensation_per_fte_employee,Compensation per FTE employee,0.71,0.7
+replication_dcp,FY2002-FY2010,pb,compensation_per_fte_employee,Compensation per FTE employee,1.14,1.2
+replication_dcp,FY2002-FY2010,cc,compensation_per_fte_employee,Compensation per FTE employee,1.38,1.5
+replication_dcp,FY2002-FY2010,xr,compensation_per_fte_employee,Compensation per FTE employee,0.97,1.0
+replication_dcp,FY2002-FY2010,xm,compensation_per_fte_employee,Compensation per FTE employee,0.63,0.6
+replication_dcp,FY2002-FY2010,xb,compensation_per_fte_employee,Compensation per FTE employee,0.44,0.4
+extension,FY2013-FY2017,pr,compensation_per_fte_employee,Compensation per FTE employee,1.97,
+extension,FY2013-FY2017,pm,compensation_per_fte_employee,Compensation per FTE employee,2.31,
+extension,FY2013-FY2017,pb,compensation_per_fte_employee,Compensation per FTE employee,2.09,
+extension,FY2013-FY2017,cc,compensation_per_fte_employee,Compensation per FTE employee,2.14,
+extension,FY2013-FY2017,xr,compensation_per_fte_employee,Compensation per FTE employee,1.37,
+extension,FY2013-FY2017,xm,compensation_per_fte_employee,Compensation per FTE employee,1.09,
+extension,FY2013-FY2017,xb,compensation_per_fte_employee,Compensation per FTE employee,0.58,
+extension,FY2017-FY2024,pr,compensation_per_fte_employee,Compensation per FTE employee,-0.52,
+extension,FY2017-FY2024,pm,compensation_per_fte_employee,Compensation per FTE employee,-1.24,
+extension,FY2017-FY2024,pb,compensation_per_fte_employee,Compensation per FTE employee,-1.06,
+extension,FY2017-FY2024,cc,compensation_per_fte_employee,Compensation per FTE employee,-0.62,
+extension,FY2017-FY2024,xr,compensation_per_fte_employee,Compensation per FTE employee,0.06,
+extension,FY2017-FY2024,xm,compensation_per_fte_employee,Compensation per FTE employee,-1.12,
+extension,FY2017-FY2024,xb,compensation_per_fte_employee,Compensation per FTE employee,-1.12,
+extension,FY2013-FY2024,pr,compensation_per_fte_employee,Compensation per FTE employee,0.38,
+extension,FY2013-FY2024,pm,compensation_per_fte_employee,Compensation per FTE employee,0.04,
+extension,FY2013-FY2024,pb,compensation_per_fte_employee,Compensation per FTE employee,0.08,
+extension,FY2013-FY2024,cc,compensation_per_fte_employee,Compensation per FTE employee,0.38,
+extension,FY2013-FY2024,xr,compensation_per_fte_employee,Compensation per FTE employee,0.54,
+extension,FY2013-FY2024,xm,compensation_per_fte_employee,Compensation per FTE employee,-0.32,
+extension,FY2013-FY2024,xb,compensation_per_fte_employee,Compensation per FTE employee,-0.5,
+replication_dcp,FY2002-FY2010,pr,compensation_per_fte_student,Compensation per FTE student,0.91,1.1
+replication_dcp,FY2002-FY2010,pm,compensation_per_fte_student,Compensation per FTE student,0.12,0.1
+replication_dcp,FY2002-FY2010,pb,compensation_per_fte_student,Compensation per FTE student,0.66,0.7
+replication_dcp,FY2002-FY2010,cc,compensation_per_fte_student,Compensation per FTE student,-0.91,-0.9
+replication_dcp,FY2002-FY2010,xr,compensation_per_fte_student,Compensation per FTE student,1.86,1.9
+replication_dcp,FY2002-FY2010,xm,compensation_per_fte_student,Compensation per FTE student,0.91,0.9
+replication_dcp,FY2002-FY2010,xb,compensation_per_fte_student,Compensation per FTE student,0.65,0.7
+extension,FY2013-FY2017,pr,compensation_per_fte_student,Compensation per FTE student,2.72,
+extension,FY2013-FY2017,pm,compensation_per_fte_student,Compensation per FTE student,3.36,
+extension,FY2013-FY2017,pb,compensation_per_fte_student,Compensation per FTE student,3.6,
+extension,FY2013-FY2017,cc,compensation_per_fte_student,Compensation per FTE student,4.94,
+extension,FY2013-FY2017,xr,compensation_per_fte_student,Compensation per FTE student,1.38,
+extension,FY2013-FY2017,xm,compensation_per_fte_student,Compensation per FTE student,3.25,
+extension,FY2013-FY2017,xb,compensation_per_fte_student,Compensation per FTE student,2.04,
+extension,FY2017-FY2024,pr,compensation_per_fte_student,Compensation per FTE student,0.52,
+extension,FY2017-FY2024,pm,compensation_per_fte_student,Compensation per FTE student,0.14,
+extension,FY2017-FY2024,pb,compensation_per_fte_student,Compensation per FTE student,0.76,
+extension,FY2017-FY2024,cc,compensation_per_fte_student,Compensation per FTE student,0.79,
+extension,FY2017-FY2024,xr,compensation_per_fte_student,Compensation per FTE student,0.94,
+extension,FY2017-FY2024,xm,compensation_per_fte_student,Compensation per FTE student,0.16,
+extension,FY2017-FY2024,xb,compensation_per_fte_student,Compensation per FTE student,-0.28,
+extension,FY2013-FY2024,pr,compensation_per_fte_student,Compensation per FTE student,1.32,
+extension,FY2013-FY2024,pm,compensation_per_fte_student,Compensation per FTE student,1.3,
+extension,FY2013-FY2024,pb,compensation_per_fte_student,Compensation per FTE student,1.78,
+extension,FY2013-FY2024,cc,compensation_per_fte_student,Compensation per FTE student,2.28,
+extension,FY2013-FY2024,xr,compensation_per_fte_student,Compensation per FTE student,1.1,
+extension,FY2013-FY2024,xm,compensation_per_fte_student,Compensation per FTE student,1.27,
+extension,FY2013-FY2024,xb,compensation_per_fte_student,Compensation per FTE student,0.55,

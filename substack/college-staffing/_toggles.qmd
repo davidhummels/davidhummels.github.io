@@ -1,0 +1,11 @@
+::: {.cs-toggles}
+```{ojs}
+viewof wt = Inputs.radio(new Map([["Typical institution (mean of institution ratios)", "u"], ["Students' view (total staff ÷ total students)", "w"]]), {value: param("w", "0") === "1" ? "w" : "u", label: "Average"})
+```
+:::
+
+```{ojs}
+//| output: false
+wlab = wt === "w" ? "weighted: total staff ÷ total students" : "unweighted: mean of institution ratios"
+syncW = { setParam("w", wt === "w" ? "1" : null); return true; }
+```

@@ -1,0 +1,125 @@
+```{ojs}
+//| output: false
+BLUE = "#1f4e79"
+LIGHT = "#9cb9d6"
+GRAY = "#8a949e"
+INK = "#1d2a36"
+SHADE = "#eef2f6"
+BREAKC = "#b03a2e"
+urlParams = new URLSearchParams(window.location.search)
+param = (k, d) => urlParams.get(k) ?? d
+setParam = (k, v) => { try { const u = new URL(window.location.href); if (v == null || v === "") u.searchParams.delete(k); else u.searchParams.set(k, v); history.replaceState(null, "", u); } catch (e) {} }
+f0 = x => x == null || !isFinite(x) ? "–" : d3.format(",.0f")(x)
+f1 = x => x == null || !isFinite(x) ? "–" : d3.format(",.1f")(x)
+f2 = x => x == null || !isFinite(x) ? "–" : d3.format(".2f")(x)
+s1 = x => x == null || !isFinite(x) ? "–" : d3.format("+.1f")(x).replace("-", "−")
+s0 = x => x == null || !isFinite(x) ? "–" : d3.format("+.0f")(x).replace("-", "−")
+pct0 = x => x == null || !isFinite(x) ? "–" : d3.format(".0%")(x)
+pct1 = x => x == null || !isFinite(x) ? "–" : d3.format(".1%")(x)
+usd = x => x == null || !isFinite(x) ? "–" : d3.format("$,.0f")(x)
+yearAxis = ({tickFormat: "d", label: null})
+// sectors: fixed order and fixed colors (validated categorical palette; color follows the sector everywhere)
+SECTORS = [
+  {k: "pr", l: "Public research", c: "#2a78d6"},
+  {k: "pm", l: "Public master's", c: "#eb6834"},
+  {k: "pb", l: "Public bachelor's", c: "#1baf7a"},
+  {k: "cc", l: "Community colleges", c: "#eda100"},
+  {k: "xr", l: "Private research", c: "#e87ba4"},
+  {k: "xm", l: "Private master's", c: "#008300"},
+  {k: "xb", l: "Private bachelor's", c: "#6250d6"}]
+SECL = Object.fromEntries(SECTORS.map(d => [d.k, d.l]))
+SECC = Object.fromEntries(SECTORS.map(d => [d.k, d.c]))
+// sector groups used by the causal analysis (regional publics = public master's + bachelor's)
+SGROUPS = [
+  {k: "pr", l: "Public research", c: "#2a78d6"},
+  {k: "rp", l: "Regional publics", c: "#eb6834"},
+  {k: "cc", l: "Community colleges", c: "#eda100"},
+  {k: "xr", l: "Private research", c: "#e87ba4"},
+  {k: "xmb", l: "Private master's & bachelor's", c: "#008300"}]
+SGL = Object.fromEntries([["all", "All institutions"], ...SGROUPS.map(d => [d.k, d.l])])
+SGC = Object.fromEntries([["all", BLUE], ...SGROUPS.map(d => [d.k, d.c])])
+MEAS = [
+  {k: "total", l: "All employees (headcount)"},
+  {k: "fte_staff", l: "FTE staff"},
+  {k: "ftfac", l: "Full-time faculty"},
+  {k: "ptfac", l: "Part-time faculty"},
+  {k: "nonfac", l: "Non-faculty staff"},
+  {k: "eam", l: "Executive, administrative & managerial (EAM)", brk: true},
+  {k: "prof", l: "Professional staff", brk: true},
+  {k: "nonprof", l: "Nonprofessional staff", brk: true},
+  {k: "eamprof", l: "EAM + professional", brk: true}]
+MEASL = Object.fromEntries(MEAS.map(d => [d.k, d.l]))
+BRK = new Set(MEAS.filter(d => d.brk).map(d => d.k))
+// era of an FY for break categories: FY2012 and earlier = old HR scheme, FY2013+ = new
+era = fy => fy >= 2013 ? "post" : "pre"
+STNAME = ({AL:"Alabama",AK:"Alaska",AZ:"Arizona",AR:"Arkansas",CA:"California",CO:"Colorado",CT:"Connecticut",DE:"Delaware",DC:"District of Columbia",FL:"Florida",GA:"Georgia",HI:"Hawaii",ID:"Idaho",IL:"Illinois",IN:"Indiana",IA:"Iowa",KS:"Kansas",KY:"Kentucky",LA:"Louisiana",ME:"Maine",MD:"Maryland",MA:"Massachusetts",MI:"Michigan",MN:"Minnesota",MS:"Mississippi",MO:"Missouri",MT:"Montana",NE:"Nebraska",NV:"Nevada",NH:"New Hampshire",NJ:"New Jersey",NM:"New Mexico",NY:"New York",NC:"North Carolina",ND:"North Dakota",OH:"Ohio",OK:"Oklahoma",OR:"Oregon",PA:"Pennsylvania",RI:"Rhode Island",SC:"South Carolina",SD:"South Dakota",TN:"Tennessee",TX:"Texas",UT:"Utah",VT:"Vermont",VA:"Virginia",WA:"Washington",WV:"West Virginia",WI:"Wisconsin",WY:"Wyoming"})
+STLIST = Object.keys(STNAME).sort((a, b) => STNAME[a].localeCompare(STNAME[b]))
+TILES = ({AK:[0,0],ME:[11,0],WI:[6,1],VT:[10,1],NH:[11,1],WA:[1,2],ID:[2,2],MT:[3,2],ND:[4,2],MN:[5,2],IL:[6,2],MI:[7,2],NY:[9,2],MA:[10,2],OR:[1,3],NV:[2,3],WY:[3,3],SD:[4,3],IA:[5,3],IN:[6,3],OH:[7,3],PA:[8,3],NJ:[9,3],CT:[10,3],RI:[11,3],CA:[1,4],UT:[2,4],CO:[3,4],NE:[4,4],MO:[5,4],KY:[6,4],WV:[7,4],VA:[8,4],MD:[9,4],DE:[10,4],AZ:[2,5],NM:[3,5],KS:[4,5],AR:[5,5],TN:[6,5],NC:[7,5],SC:[8,5],DC:[9,5],OK:[4,6],LA:[5,6],MS:[6,6],AL:[7,6],GA:[8,6],HI:[0,7],TX:[4,7],FL:[9,7]})
+// tile map: data = [{st, v}]; calls onPick(st) on click
+tileMap = (data, {color, fmt = f1, selected = null, onPick = null, w = 640} = {}) => {
+  const byst = new Map(data.map(d => [d.st, d.v]));
+  const cs = Math.min(52, (w - 10) / 12), H = cs * 8 + 10;
+  const svg = d3.create("svg").attr("width", cs * 12 + 4).attr("height", H).attr("viewBox", [0, 0, cs * 12 + 4, H]).style("max-width", "100%").style("height", "auto").style("font-family", "inherit");
+  const ok = s => byst.has(s) && byst.get(s) != null && isFinite(byst.get(s));
+  const g = svg.selectAll("g").data(Object.entries(TILES)).join("g").attr("transform", ([s, [x, y]]) => `translate(${x * cs + 2},${y * cs + 2})`).style("cursor", onPick ? "pointer" : "default");
+  g.append("rect").attr("width", cs - 3).attr("height", cs - 3).attr("rx", 4)
+    .attr("fill", ([s]) => ok(s) ? color(byst.get(s)) : "#e6e9ec")
+    .attr("stroke", ([s]) => s === selected ? INK : "none").attr("stroke-width", 2.5);
+  const lum = c => { const r = d3.rgb(c); return 0.299 * r.r + 0.587 * r.g + 0.114 * r.b; };
+  const tc = ([s]) => ok(s) && lum(color(byst.get(s))) < 140 ? "white" : INK;
+  g.append("text").attr("x", (cs - 3) / 2).attr("y", cs * 0.4).attr("text-anchor", "middle").attr("font-size", cs * 0.27).attr("font-weight", 700).attr("fill", tc).text(([s]) => s);
+  g.append("text").attr("x", (cs - 3) / 2).attr("y", cs * 0.72).attr("text-anchor", "middle").attr("font-size", cs * 0.21).attr("fill", tc).text(([s]) => ok(s) ? fmt(byst.get(s)) : "");
+  g.append("title").text(([s]) => `${STNAME[s]}: ${ok(s) ? fmt(byst.get(s)) : "n/a"}`);
+  if (onPick) g.on("click", (e, [s]) => onPick(s));
+  return svg.node();
+}
+// set an Inputs view programmatically
+setView = (v, value) => { v.value = value; v.dispatchEvent(new Event("input", {bubbles: true})); }
+// end-of-line labels that don't collide: rows = [{x, y, label}], returns rows with ly (label y) spread >= gap px
+spreadLabels = (rows, {domain, height, gap = 12}) => {
+  const [lo, hi] = domain, u = (hi - lo) / Math.max(1, height - 50) * gap;
+  const r = rows.map(d => ({...d, ly: d.y})).sort((a, b) => a.y - b.y);
+  for (let i = 1; i < r.length; i++) if (r[i].ly - r[i - 1].ly < u) r[i].ly = r[i - 1].ly + u;
+  const over = r.length ? r.at(-1).ly - hi : 0; if (over > 0) r.forEach(d => d.ly -= over);
+  for (let i = r.length - 2; i >= 0; i--) if (r[i + 1].ly - r[i].ly < u) r[i].ly = r[i + 1].ly - u;
+  return r;
+}
+// width helper: two-up on desktop, full width on phones
+half = w => w > 820 ? w / 2 - 16 : w
+```
+<style>
+.cs-preview { background:#fff6e5; border:1px solid #e8c88a; border-radius:6px; padding:.5rem .8rem; font-size:.9rem; margin-bottom:1rem; }
+.cs-nav { display:flex; flex-wrap:wrap; gap:.35rem .9rem; font-size:.92rem; border-bottom:1px solid #dde3ea; padding-bottom:.5rem; margin-bottom:1.2rem; }
+.cs-nav p { display:flex; flex-wrap:wrap; gap:.35rem 1.1rem; margin:0; }
+.cs-nav a { text-decoration:none; color:#1f4e79; }
+.cs-nav a.cs-here { font-weight:700; border-bottom:2px solid #1f4e79; }
+.cs-lead { font-size:1.15rem; line-height:1.45; color:#1d2a36; margin:.4rem 0 1rem; }
+.cs-lead b { color:#1f4e79; }
+.cs-note { font-size:.85rem; color:#5b6670; }
+.cs-links { font-size:.88rem; color:#44515c; border-left:3px solid #9cb9d6; padding:.15rem .7rem; margin:.2rem 0 1rem; }
+.cs-links p { margin:.1rem 0; }
+.cs-cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:.8rem; margin:1rem 0; }
+.cs-card { border:1px solid #dde3ea; border-radius:8px; padding:.8rem .9rem; background:#fafcfe; }
+.cs-card h4 { margin:.1rem 0 .35rem; font-size:1rem; } .cs-card h4 a { text-decoration:none; }
+.cs-card p { margin:0; font-size:.88rem; color:#44515c; }
+.cs-kpis { display:flex; flex-wrap:wrap; gap:.7rem; margin:.6rem 0 1rem; }
+.cs-kpi { flex:1 1 170px; border-left:3px solid #1f4e79; padding:.2rem .7rem; min-width:0; }
+.cs-kpi .v { font-size:1.45rem; font-weight:700; color:#1f4e79; line-height:1.15; }
+.cs-kpi .l { font-size:.8rem; color:#5b6670; }
+.cs-box { border:1px solid #dde3ea; background:#f7f9fb; border-radius:8px; padding:.7rem .9rem; margin:1rem 0; font-size:.92rem; }
+.cs-box h4 { margin:.1rem 0 .4rem; font-size:1rem; color:#1f4e79; }
+.cs-toggles { background:#f3f6f9; border-radius:6px; padding:.4rem .8rem .1rem; margin:.3rem 0 1rem; }
+.cs-toggles form { margin-bottom:.25rem; }
+.cs-sectab { width:100%; border-collapse:collapse; font-size:.88rem; }
+.cs-sectab th, .cs-sectab td { padding:.3rem .45rem; border-bottom:1px solid #e3e8ee; text-align:right; }
+.cs-sectab th:first-child, .cs-sectab td:first-child { text-align:left; }
+.cs-sectab .sw { display:inline-block; width:.7rem; height:.7rem; border-radius:2px; margin-right:.35rem; vertical-align:-1px; }
+.cs-scroll { overflow-x:auto; max-width:100%; }
+figure > h2 { font-size: 1.02rem; font-weight: 600; border: none; margin: .3rem 0 .2rem; padding: 0; }
+figure > figcaption { font-size: .82rem; color: #5b6670; }
+main.content { max-width: min(1180px, 100%); min-width: 0; margin-left:auto; margin-right:auto; overflow-x: hidden; }
+.cell-output-display { max-width:100%; overflow-x:auto; }
+.cs-two { display:grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 1.2rem; }
+@media (max-width: 820px) { .cs-two { grid-template-columns: minmax(0,1fr); } }
+@media (max-width: 700px) { main form[class^="oi-"] { --label-width: 100%; max-width:100%; } .cs-kpi .v { font-size:1.25rem; } }
+</style>

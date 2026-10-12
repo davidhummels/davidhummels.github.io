@@ -1,0 +1,67 @@
+sg,sgroup,occ,n,per1000_fy2015,per1000_fy2024,dlog,share_fy2015,contribution,dlog_fte
+all,All,instr,1905,66.669,71.269,-8.136,0.4059,-3.905,-14.325
+all,All,enrfacing,1905,22.986,30.861,17.841,0.132,0.858,-14.325
+all,All,studaff,1905,9.971,12.384,16.37,0.0596,-1.496,-14.325
+all,All,commsport,1905,12.267,17.81,26.212,0.0681,0.84,-14.325
+all,All,sales,1905,0.748,0.666,-11.238,0.0044,-0.384,-14.325
+all,All,amenserv,1905,16.9,17.593,-7.481,0.0897,-1.558,-14.325
+all,All,mgmt,1905,17.135,20.698,5.781,0.096,-0.298,-14.325
+all,All,backoffice,1905,39.445,40.035,-13.111,0.2263,-3.166,-14.325
+all,All,library,1905,2.986,2.72,-17.452,0.0162,-0.466,-14.325
+all,All,maint,1905,5.118,5.118,-6.139,0.0278,-0.905,-14.325
+all,All,allstaff,1905,172.573,190.046,-4.491,1.0,-4.491,-14.325
+pr,Public research,instr,141,53.612,56.064,4.87,0.2966,0.946,0.29
+pr,Public research,enrfacing,141,19.14,24.504,26.598,0.101,2.098,0.29
+pr,Public research,studaff,141,7.604,9.125,42.188,0.0397,-0.389,0.29
+pr,Public research,commsport,141,11.19,15.125,29.232,0.0595,1.406,0.29
+pr,Public research,sales,141,0.346,0.254,-14.102,0.0018,-0.122,0.29
+pr,Public research,amenserv,141,21.476,21.153,-3.178,0.1078,-0.516,0.29
+pr,Public research,mgmt,141,15.232,18.252,19.563,0.0827,0.832,0.29
+pr,Public research,backoffice,141,61.1,60.227,-0.575,0.3111,-0.158,0.29
+pr,Public research,library,141,2.71,2.471,-6.912,0.0143,-0.245,0.29
+pr,Public research,maint,141,9.41,8.645,-7.899,0.0475,-0.563,0.29
+pr,Public research,allstaff,141,191.028,202.653,6.676,1.0,6.676,0.29
+rp,Regional publics,instr,288,56.085,61.425,-5.919,0.3951,-2.399,-14.275
+rp,Regional publics,enrfacing,288,16.895,22.787,19.042,0.1139,1.264,-14.275
+rp,Regional publics,studaff,288,6.447,8.263,16.182,0.0427,-0.472,-14.275
+rp,Regional publics,commsport,288,10.115,14.287,21.394,0.0691,0.963,-14.275
+rp,Regional publics,sales,288,0.333,0.237,-13.928,0.0021,-0.235,-14.275
+rp,Regional publics,amenserv,288,16.114,16.213,-11.973,0.1036,-2.001,-14.275
+rp,Regional publics,mgmt,288,12.734,15.007,2.631,0.0834,-0.28,-14.275
+rp,Regional publics,backoffice,288,34.807,37.655,-8.11,0.2377,-2.052,-14.275
+rp,Regional publics,library,288,2.527,2.29,-21.284,0.0171,-0.516,-14.275
+rp,Regional publics,maint,288,6.768,6.689,-17.383,0.0445,-1.183,-14.275
+rp,Regional publics,allstaff,288,146.747,162.771,-4.323,1.0,-4.323,-14.275
+cc,Community colleges,instr,704,59.482,63.831,-15.75,0.4574,-7.426,-22.255
+cc,Community colleges,enrfacing,704,17.573,23.635,10.055,0.1289,-0.319,-22.255
+cc,Community colleges,studaff,704,10.755,13.591,7.869,0.0773,-1.619,-22.255
+cc,Community colleges,commsport,704,6.26,9.497,21.458,0.0473,-0.207,-22.255
+cc,Community colleges,sales,704,0.558,0.547,-9.387,0.0043,-0.276,-22.255
+cc,Community colleges,amenserv,704,9.633,11.525,-3.531,0.0729,-1.042,-22.255
+cc,Community colleges,mgmt,704,11.718,16.699,12.841,0.0864,0.484,-22.255
+cc,Community colleges,backoffice,704,28.521,31.545,-13.432,0.2193,-3.2,-22.255
+cc,Community colleges,library,704,1.666,1.708,-12.645,0.0124,-0.321,-22.255
+cc,Community colleges,maint,704,2.675,3.085,0.017,0.0198,-0.792,-22.255
+cc,Community colleges,allstaff,704,131.76,152.669,-7.963,1.0,-7.963,-22.255
+xr,Private research,instr,80,76.436,78.587,3.928,0.3377,0.919,2.092
+xr,Private research,enrfacing,80,24.473,29.824,27.258,0.1008,1.174,2.092
+xr,Private research,studaff,80,9.449,11.282,37.052,0.0385,-0.608,2.092
+xr,Private research,commsport,80,14.431,18.191,29.01,0.0599,0.871,2.092
+xr,Private research,sales,80,0.593,0.352,-24.169,0.0024,-0.226,2.092
+xr,Private research,amenserv,80,22.302,21.269,-7.672,0.0858,-0.613,2.092
+xr,Private research,mgmt,80,29.413,31.012,0.108,0.1216,-0.783,2.092
+xr,Private research,backoffice,80,73.293,67.723,-8.619,0.2878,-2.251,2.092
+xr,Private research,library,80,5.297,4.193,-22.072,0.0202,-0.577,2.092
+xr,Private research,maint,80,7.038,5.735,-4.527,0.0266,-0.738,2.092
+xr,Private research,allstaff,80,244.972,247.631,2.296,1.0,2.296,2.092
+xmb,Private master's & bachelor's,instr,692,79.917,85.185,-5.358,0.3883,-2.494,-11.154
+xmb,Private master's & bachelor's,enrfacing,692,31.64,42.987,22.389,0.1527,1.598,-11.154
+xmb,Private master's & bachelor's,studaff,692,11.182,13.664,17.443,0.055,-2.125,-11.154
+xmb,Private master's & bachelor's,commsport,692,19.244,28.238,32.114,0.0916,1.735,-11.154
+xmb,Private master's & bachelor's,sales,692,1.214,1.085,-9.922,0.0061,-0.626,-11.154
+xmb,Private master's & bachelor's,amenserv,692,23.063,23.191,-10.485,0.0978,-2.22,-11.154
+xmb,Private master's & bachelor's,mgmt,692,23.447,26.442,-2.244,0.1108,-1.275,-11.154
+xmb,Private master's & bachelor's,backoffice,692,44.163,42.348,-17.939,0.2043,-4.313,-11.154
+xmb,Private master's & bachelor's,library,692,4.31,3.81,-22.361,0.0195,-0.624,-11.154
+xmb,Private master's & bachelor's,maint,692,5.82,5.744,-7.549,0.0251,-0.992,-11.154
+xmb,Private master's & bachelor's,allstaff,692,212.713,230.197,-4.089,1.0,-4.089,-11.154

@@ -1,0 +1,163 @@
+---
+title: "Sector trends"
+subtitle: "Staff per 1,000 students by category and sector, fiscal 1988–2025"
+page-layout: full
+execute:
+  echo: false
+---
+
+{{< include ../_nav.qmd >}}
+
+{{< include ../_common.qmd >}}
+
+```{ojs}
+TR = FileAttachment("../data/trends.csv").csv({typed: true})
+REP = FileAttachment("../data/replication.csv").csv({typed: true})
+FIN = FileAttachment("../data/finance_growth.csv").csv({typed: true})
+```
+
+```{ojs}
+{
+  const g = (k, fy) => TR.find(d => d.sec === k && d.fy === fy && d.m === "total").unw;
+  const pub = ["pr", "pm", "pb", "cc"];
+  const fell = pub.filter(k => g(k, 2012) < g(k, 2000));
+  const ch = pub.map(k => g(k, 2024) / g(k, 2012) - 1);
+  return md`<div class="cs-lead">The 2014 Delta Cost brief found that public colleges had been <b>shedding staff relative to students</b> from 2000 to 2012. That reversed. Staff per 1,000 students fell in ${fell.length} of the 4 public sectors over FY2000–12, then <b>rose in every public sector</b> from FY2012 to FY2024, by ${pct0(d3.min(ch))} to ${pct0(d3.max(ch))}. Community colleges went from ${f0(g("cc", 2012))} to ${f0(g("cc", 2024))} employees per 1,000 students.</div>`;
+}
+```
+
+::: {.cs-links}
+Read more: [white paper §2](../paper/index.qmd#sec-2) (the Delta Cost brief and its replication) and [§4](../paper/index.qmd#sec-4) (staffing and spending since 2012). Substack post: Post 1 (link on publication).
+:::
+
+Pick a staff category. Each panel is one sector of surviving institutions (the same colleges in every year). The shaded years are the ones the 2014 brief covered. The red dashed line marks the 2012–13 redesign of the IPEDS staff survey: executive, professional and nonprofessional staff were reclassified then, so those three categories are drawn as two separate segments and should only be compared within a segment. Faculty, non-faculty and total staff are unaffected.
+
+{{< include ../_toggles.qmd >}}
+
+```{ojs}
+viewof meas = Inputs.select(MEAS.map(d => d.k), {format: k => MEASL[k], value: param("m", "total"), label: "Staff category"})
+viewof secSel = Inputs.select(["all", ...SECTORS.map(d => d.k)], {format: k => k === "all" ? "All sectors (small multiples)" : SECL[k], value: param("sector", "all"), label: "Sector"})
+viewof view = Inputs.radio(new Map([["Chart", "chart"], ["Table", "table"]]), {value: param("view", "chart"), label: "View"})
+```
+
+```{ojs}
+//| output: false
+v = d => wt === "w" ? d.w : d.unw
+rowsM = TR.filter(d => d.m === meas).map(d => ({...d, v: v(d), era: BRK.has(meas) ? era(d.fy) : "all", lab: SECL[d.sec]}))
+ydom = [0, d3.max(rowsM, d => d.v) * 1.05]
+sync1 = { setParam("m", meas); setParam("sector", secSel === "all" ? null : secSel); setParam("view", view === "chart" ? null : view); return syncW; }
+panel = (k, w, h, ctx) => {
+  const pts = rowsM.filter(d => d.sec === k);
+  const other = ctx ? rowsM.filter(d => d.sec !== k) : [];
+  const last = pts.at(-1);
+  return Plot.plot({
+    width: w, height: h, marginLeft: 40, marginRight: ctx ? 70 : 12, marginTop: 24,
+    title: ctx ? null : SECL[k],
+    x: {...yearAxis, domain: [1987, 2026], ticks: w < 300 ? [1990, 2000, 2010, 2020] : 8},
+    y: {domain: ydom, grid: true, label: ctx ? `${MEASL[meas]} per 1,000 FTE students` : null},
+    marks: [
+      Plot.rectX([{a: 1989.5, b: 2012.5}], {x1: "a", x2: "b", fill: SHADE}),
+      Plot.ruleX([2012.5], {stroke: BREAKC, strokeDasharray: "4,3", strokeOpacity: BRK.has(meas) ? 0.9 : 0.35}),
+      ctx ? Plot.lineY(other, {x: "fy", y: "v", z: d => d.sec + d.era, stroke: "#c9d1d9", strokeWidth: 1}) : null,
+      Plot.lineY(pts, {x: "fy", y: "v", z: "era", stroke: SECC[k], strokeWidth: 2.2}),
+      Plot.dot(pts.filter(d => [2000, 2012, 2013, 2024].includes(d.fy)), {x: "fy", y: "v", r: 3, fill: SECC[k], stroke: "white"}),
+      ctx ? Plot.text([last], {x: "fy", y: "v", text: d => `${SECL[k]} ${f0(d.v)}`, dx: 6, textAnchor: "start", fill: INK, fontSize: 11}) : null,
+      Plot.tip(pts, Plot.pointerX({x: "fy", y: "v", title: d => `${SECL[k]}, FY${d.fy}\n${f1(d.v)} per 1,000 (${wlab})\n${d.n} institutions${BRK.has(meas) && d.fy >= 2013 ? "\npost-2013 HR scheme" : ""}`}))
+    ]
+  });
+}
+```
+
+```{ojs}
+{
+  if (view === "table") return html``;
+  if (secSel !== "all") return panel(secSel, Math.min(width, 900), 380, true);
+  const cols = width > 1000 ? 4 : width > 640 ? 3 : width > 420 ? 2 : 1;
+  const w = Math.floor((width - (cols - 1) * 12) / cols);
+  return html`<div style="display:grid;grid-template-columns:repeat(${cols},minmax(0,1fr));gap:12px">${SECTORS.map(s => panel(s.k, w, 210, false))}</div>`;
+}
+```
+
+```{ojs}
+{
+  if (view !== "table") return html``;
+  const yrs = [1990, 2000, 2012, 2013, 2024, 2025];
+  const a = BRK.has(meas) ? 2013 : 2012;
+  const get = (k, fy) => rowsM.find(d => d.sec === k && d.fy === fy)?.v;
+  return html`<div class="cs-scroll"><table class="cs-sectab"><thead><tr><th>Sector</th><th>n</th>${yrs.map(y => html`<th>FY${y}</th>`)}<th>FY2000→12</th><th>FY${a}→24</th></tr></thead><tbody>
+  ${SECTORS.map(s => html`<tr><td><span class="sw" style="background:${s.c}"></span>${s.l}</td><td>${rowsM.find(d => d.sec === s.k).n}</td>${yrs.map(y => html`<td>${f1(get(s.k, y))}</td>`)}
+    <td>${s1(get(s.k, 2012) - get(s.k, 2000))}</td><td>${s1(get(s.k, 2024) - get(s.k, a))}</td></tr>`)}</tbody></table></div>
+  <p class="cs-note">${MEASL[meas]} per 1,000 fall FTE students, ${wlab}. ${BRK.has(meas) ? "This category is not comparable across the FY2012|FY2013 HR redesign, so the post-2012 change starts at FY2013." : "Comparable across the 2012–13 HR redesign, so the post-2012 change starts at FY2012."}</p>`;
+}
+```
+
+::: {.cs-note}
+**Data.** IPEDS Human Resources and 12-month/fall enrollment, rebuilt from the item-3 staffing panel. **S24**: the 1,909 surviving institutions (extension groups containing a Delta Cost 26-year matched campus) with staff and fall FTE students in FY1990, 2000, 2010, 2012 and every year FY2013–2025. Fiscal year *t* staff are counted in fall *t*−1. Even years only before FY2012 (the odd years FY2003–11 have partial coverage). FY2024 and FY2025 IPEDS values are NCES provisional. Because the set requires survival to 2025, FY1990–2012 values sit 0–14 per 1,000 above the brief's; the replication below uses the brief's own matched set.
+:::
+
+## Replication: the 2014 brief, rebuilt
+
+The brief's Appendix Tables 1–3, recomputed two ways for its own 26-year matched set: from the Delta Cost Project database and from a clean rebuild of IPEDS. Rings are the brief's published values.
+
+```{ojs}
+REPM = new Map([["Total headcount", "total_headcount"], ["FTE staff", "fte_staff"], ["Full-time faculty", "ft_faculty"], ["Part-time faculty", "pt_faculty"], ["EAM", "eam"], ["Professional", "professional"], ["Nonprofessional", "nonprofessional"]])
+viewof repm = Inputs.select(REPM, {value: param("rm", "total_headcount"), label: "Measure"})
+viewof repy = Inputs.radio([1990, 2000, 2010, 2012], {value: +param("ry", 2012), format: d => `FY${d}`, label: "Fiscal year"})
+```
+
+```{ojs}
+{
+  setParam("rm", repm === "total_headcount" ? null : repm); setParam("ry", repy === 2012 ? null : repy);
+  const r = REP.filter(d => d.measure === repm && d.fy === repy);
+  const pts = r.flatMap(d => [{sec: d.sec, src: "Delta Cost database", v: d.dcp}, {sec: d.sec, src: "Clean IPEDS rebuild", v: d.clean}]);
+  const dom = SECTORS.map(s => SECL[s.k]);
+  return html`${Plot.plot({
+    width: Math.min(width, 820), height: 300, marginLeft: 140, marginRight: 30,
+    x: {label: "Per 1,000 FTE students", grid: true}, y: {domain: dom, label: null},
+    color: {domain: ["Delta Cost database", "Clean IPEDS rebuild"], range: [GRAY, BLUE], legend: true},
+    marks: [
+      Plot.dot(r, {y: d => SECL[d.sec], x: "brief", r: 9, stroke: INK, strokeWidth: 1.5, title: d => `Brief: ${f0(d.brief)}`}),
+      Plot.dot(pts, {y: d => SECL[d.sec], x: "v", fill: "src", r: 4.5, stroke: "white", title: d => `${d.src}: ${f1(d.v)}`}),
+      Plot.tip(r, Plot.pointerY({y: d => SECL[d.sec], x: "clean", title: d => `${SECL[d.sec]}, FY${d.fy}\nbrief ${f0(d.brief)}\nDCP database ${f1(d.dcp)}\nclean rebuild ${f1(d.clean)}\n${d.n} institutions`}))
+    ]
+  })}<p class="cs-note">Ring: the brief's value (rounded to whole numbers in the brief). Both rebuilds match it within about 1 per 1,000 in FY2010 and FY2012 for most cells. Source: replication gate, item 3 (DCP 26-year matched set; mean of institution ratios).</p>`;
+}
+```
+
+## Spending stalled after 2017
+
+The brief's finance measures, carried forward for the F13 finance set (institutions with every finance input in every year FY2013–2024). Real growth was positive to FY2017 and turned negative in most measures over FY2017–24, when inflation outran budgets.
+
+```{ojs}
+FM = new Map(d3.groups(FIN, d => d.measure).map(([k, v]) => [v[0].label, k]))
+viewof finm = Inputs.select(FM, {value: param("fm", "ft_faculty_avg_salary"), label: "Measure"})
+```
+
+```{ojs}
+{
+  setParam("fm", finm === "ft_faculty_avg_salary" ? null : finm);
+  const WIN = ["FY2002-FY2010", "FY2013-FY2017", "FY2017-FY2024"];
+  const WL = {"FY2002-FY2010": "FY2002–10 (replication)", "FY2013-FY2017": "FY2013–17", "FY2017-FY2024": "FY2017–24"};
+  const r = FIN.filter(d => d.measure === finm && WIN.includes(d.window)).map(d => ({...d, wl: WL[d.window], sl: SECL[d.sec]}));
+  return Plot.plot({
+    width: Math.min(width, 820), height: 40 + SECTORS.length * 3 * 15 + 30, marginLeft: 140, marginRight: 50,
+    x: {label: "Real average annual % change", grid: true, insetLeft: 30, insetRight: 30}, y: {domain: Object.values(WL), axis: null},
+    fy: {domain: SECTORS.map(s => s.l), label: null},
+    color: {domain: Object.values(WL), range: ["#c3ccd5", LIGHT, BLUE], legend: true},
+    marks: [Plot.ruleX([0], {stroke: INK}),
+      Plot.barX(r, {fy: "sl", y: "wl", x: "pct", fill: "wl", inset: 1}),
+      Plot.text(r.filter(d => d.pct < 0), {fy: "sl", y: "wl", x: "pct", text: d => s1(d.pct), dx: -4, textAnchor: "end", fontSize: 10, fill: INK}),
+      Plot.text(r.filter(d => d.pct >= 0), {fy: "sl", y: "wl", x: "pct", text: d => s1(d.pct), dx: 4, textAnchor: "start", fontSize: 10, fill: INK}),
+      Plot.tip(r, Plot.pointerY({fy: "sl", y: "wl", x: "pct", title: d => `${d.sl}, ${d.wl}\n${s1(d.pct)}%/yr${d.brief != null && isFinite(d.brief) ? `\nbrief: ${d.brief}` : ""}`}))]
+  });
+}
+```
+
+::: {.cs-note}
+CAGR of each sector's mean real institution value, deflated by CPI-U fiscal-year averages, as in the brief. Replication FY2002–10 uses the Delta Cost database's 11-year set and matches the brief within ±0.1 point in almost every cell. Extension windows start in FY2013 because the IPEDS salary survey was redesigned then; total salaries have a +1.1% step at FY2016. FY2024 finance data are NCES provisional. Source: white paper Appendix (exhibits, item 5).
+:::
+
+```{ojs}
+//| output: false
+sync1
+```

@@ -1,0 +1,10 @@
+---
+title: "Counting College Staff"
+subtitle: "White paper"
+---
+
+{{< include ../_nav.qmd >}}
+
+*The HTML version of the white paper will appear here.*
+
+Section anchors used by the interactive tools: §2 history (`#sec-2`), §3 data (`#sec-3`), §4 staffing and spending since 2012 (`#sec-4`), §5 the denominator (`#sec-5`), §6 population shocks (`#sec-6`), §7 staff mix, research and medical centers (`#sec-7`), §8 hiring to attract students (`#sec-8`), §9 conclusions (`#sec-9`); appendices `#app-a` to `#app-d`.

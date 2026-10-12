@@ -1,0 +1,67 @@
+sg,sgroup,occ,iv,iv_se,fs_F,fe,fe_se,N
+all,All,instr,0.59,0.127,13.5,0.544,0.02,19922
+all,All,enrfacing,0.398,0.268,13.5,0.479,0.041,19922
+all,All,studaff,0.57,0.536,13.5,0.454,0.073,19922
+all,All,commsport,0.173,0.525,13.5,0.39,0.048,19922
+all,All,sales,-0.916,0.565,13.5,0.163,0.051,19922
+all,All,amenserv,0.637,0.278,13.5,0.322,0.054,19922
+all,All,mgmt,1.133,0.263,13.5,0.302,0.04,19922
+all,All,backoffice,0.383,0.165,13.5,0.419,0.023,19922
+all,All,library,0.226,0.278,13.5,0.241,0.034,19922
+all,All,maint,-0.245,0.325,13.5,0.38,0.045,19922
+all,All,allstaff,0.515,0.109,13.5,0.47,0.016,19922
+pr,Public research,instr,0.873,0.181,5.6,0.619,0.043,1431
+pr,Public research,enrfacing,0.484,0.712,5.6,0.499,0.102,1431
+pr,Public research,studaff,-1.294,4.185,5.6,1.082,0.519,1431
+pr,Public research,commsport,1.805,1.338,5.6,0.309,0.163,1431
+pr,Public research,sales,-2.913,3.199,5.6,0.064,0.245,1431
+pr,Public research,amenserv,-0.028,0.771,5.6,0.652,0.134,1431
+pr,Public research,mgmt,2.338,1.262,5.6,0.508,0.209,1431
+pr,Public research,backoffice,0.615,0.405,5.6,0.513,0.101,1431
+pr,Public research,library,-0.09,0.936,5.6,0.834,0.19,1431
+pr,Public research,maint,0.783,1.408,5.6,0.461,0.13,1431
+pr,Public research,allstaff,0.814,0.181,5.6,0.578,0.036,1431
+rp,Regional publics,instr,0.496,0.144,10.1,0.565,0.037,2938
+rp,Regional publics,enrfacing,-0.108,0.409,10.1,0.38,0.101,2938
+rp,Regional publics,studaff,-1.097,1.178,10.1,0.153,0.252,2938
+rp,Regional publics,commsport,0.462,0.55,10.1,0.393,0.101,2938
+rp,Regional publics,sales,-0.844,0.577,10.1,-0.087,0.119,2938
+rp,Regional publics,amenserv,0.159,0.418,10.1,0.411,0.063,2938
+rp,Regional publics,mgmt,1.355,0.432,10.1,0.354,0.069,2938
+rp,Regional publics,backoffice,0.25,0.326,10.1,0.468,0.059,2938
+rp,Regional publics,library,-0.217,0.487,10.1,0.344,0.112,2938
+rp,Regional publics,maint,0.22,0.478,10.1,0.267,0.115,2938
+rp,Regional publics,allstaff,0.417,0.148,10.1,0.483,0.03,2938
+cc,Community colleges,instr,0.554,0.166,14.8,0.441,0.05,7273
+cc,Community colleges,enrfacing,0.466,0.322,14.8,0.359,0.082,7273
+cc,Community colleges,studaff,1.03,0.484,14.8,0.384,0.118,7273
+cc,Community colleges,commsport,-0.097,0.674,14.8,0.447,0.113,7273
+cc,Community colleges,sales,-0.717,0.402,14.8,0.094,0.075,7273
+cc,Community colleges,amenserv,0.609,0.381,14.8,0.157,0.073,7273
+cc,Community colleges,mgmt,0.783,0.264,14.8,0.282,0.06,7273
+cc,Community colleges,backoffice,0.335,0.171,14.8,0.3,0.04,7273
+cc,Community colleges,library,0.523,0.275,14.8,0.107,0.056,7273
+cc,Community colleges,maint,-0.34,0.449,14.8,0.518,0.106,7273
+cc,Community colleges,allstaff,0.455,0.133,14.8,0.378,0.036,7273
+xr,Private research,instr,0.591,0.076,14.8,0.551,0.043,849
+xr,Private research,enrfacing,-0.377,1.369,14.8,0.248,0.301,849
+xr,Private research,studaff,-0.0,2.318,14.8,0.747,0.354,849
+xr,Private research,commsport,-0.342,1.484,14.8,-0.109,0.385,849
+xr,Private research,sales,-2.141,1.739,14.8,0.359,0.808,849
+xr,Private research,amenserv,1.57,0.849,14.8,0.703,0.254,849
+xr,Private research,mgmt,2.842,1.164,14.8,0.853,0.311,849
+xr,Private research,backoffice,0.57,0.333,14.8,0.55,0.14,849
+xr,Private research,library,-0.542,1.447,14.8,0.546,0.302,849
+xr,Private research,maint,0.265,1.794,14.8,0.22,0.379,849
+xr,Private research,allstaff,0.829,0.156,14.8,0.572,0.065,849
+xmb,Private master's & bachelor's,instr,1.037,1.197,0.4,0.591,0.018,7431
+xmb,Private master's & bachelor's,enrfacing,1.711,3.065,0.4,0.572,0.055,7431
+xmb,Private master's & bachelor's,studaff,3.605,8.271,0.4,0.499,0.095,7431
+xmb,Private master's & bachelor's,commsport,0.702,2.466,0.4,0.386,0.078,7431
+xmb,Private master's & bachelor's,sales,-0.359,4.139,0.4,0.243,0.072,7431
+xmb,Private master's & bachelor's,amenserv,3.174,4.619,0.4,0.36,0.069,7431
+xmb,Private master's & bachelor's,mgmt,2.305,3.41,0.4,0.267,0.055,7431
+xmb,Private master's & bachelor's,backoffice,1.087,1.327,0.4,0.465,0.03,7431
+xmb,Private master's & bachelor's,library,-1.179,2.886,0.4,0.249,0.045,7431
+xmb,Private master's & bachelor's,maint,-2.414,5.212,0.4,0.328,0.058,7431
+xmb,Private master's & bachelor's,allstaff,1.09,1.344,0.4,0.507,0.016,7431

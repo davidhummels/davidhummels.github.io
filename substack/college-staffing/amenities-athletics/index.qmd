@@ -1,0 +1,144 @@
+---
+title: "Amenities and athletics"
+subtitle: "Spending to attract students, and whether it brought them"
+page-layout: full
+execute:
+  echo: false
+---
+
+{{< include ../_nav.qmd >}}
+
+{{< include ../_common.qmd >}}
+
+```{ojs}
+AM = FileAttachment("../data/amenity_growth.csv").csv({typed: true})
+AG = FileAttachment("../data/athletics_growth.csv").csv({typed: true})
+AS = FileAttachment("../data/athletics_share.csv").csv({typed: true})
+D1 = FileAttachment("../data/d1_subsidy.csv").csv({typed: true})
+PO = FileAttachment("../data/payoff.csv").csv({typed: true})
+```
+
+```{ojs}
+{
+  const a = AM.find(d => d.sg === "all" && d.window === "FY2004-FY2024");
+  const g = AG.find(d => d.sg === "all" && d.window === "FY2008-FY2024");
+  const s8 = AS.find(d => d.sg === "all" && d.window === "FY2008-FY2024"), s13 = AS.find(d => d.sg === "all" && d.window === "FY2013-FY2024");
+  return md`<div class="cs-lead">From FY2004 to FY2024 the typical college's real <b>amenity spending per student rose ${f0(a.d_amen_pf)}</b> log points (student services, housing, dining and other auxiliaries) against <b>${f0(a.d_acad_pf)}</b> for academic spending. Athletics grew fastest: <b>${s0(g.d_ath_pf)}</b> per student FY2008–24 against ${s0(g.d_acad_pf)} for academics, and ${pct0(s8.ath_opex_share_of_amenity_growth)} of all amenity spending growth (${pct0(s13.ath_opex_share_of_amenity_growth)} since FY2013). Only at private master's and bachelor's colleges did amenity spending predict later enrollment, and athletics predicted it nowhere.</div>`;
+}
+```
+
+::: {.cs-links}
+Read more: [white paper §8](../paper/index.qmd#sec-8) (hiring to attract students). Substack post: Post 3 (link on publication).
+:::
+
+```{ojs}
+viewof win = Inputs.radio(new Map([["Long run", "long"], ["Since FY2013", "13"]]), {value: param("win", "long"), label: "Window"})
+```
+
+## Amenity vs academic spending
+
+<div class="cs-two">
+
+```{ojs}
+{
+  setParam("win", win === "long" ? null : win);
+  const w = win === "long" ? "FY2004-FY2024" : "FY2013-FY2024";
+  const K = [["d_amen_pf", "Amenity"], ["d_acad_pf", "Academic"], ["d_ss_pf", "Student services"], ["d_instr_pf", "Instruction"]];
+  const order = ["all", ...SGROUPS.map(s => s.k)].map(k => SGL[k]);
+  const rows = AM.filter(d => d.window === w).flatMap(d => K.map(([k, l]) => ({g: SGL[d.sg], c: l, v: d[k], n: d.n})));
+  return Plot.plot({
+    width: half(width), height: 60 + order.length * 70, marginLeft: 150, marginRight: 40, title: `Real spending per FTE student, ${w.replace("FY2004-FY2024", "FY2004–24").replace("FY2013-FY2024", "FY2013–24")} (median log points)`,
+    x: {grid: true, insetLeft: 30, insetRight: 30, label: null}, y: {domain: K.map(k => k[1]), axis: null}, fy: {domain: order, label: null},
+    color: {domain: K.map(k => k[1]), range: [BLUE, "#eb6834", LIGHT, "#f5b48c"], legend: true},
+    marks: [Plot.ruleX([0], {stroke: INK}), Plot.barX(rows, {fy: "g", y: "c", x: "v", fill: "c", inset: 1}),
+      Plot.text(rows.filter(d => d.v < 0), {fy: "g", y: "c", x: "v", text: d => s0(d.v), dx: -4, textAnchor: "end", fontSize: 10, fill: INK}),
+      Plot.text(rows.filter(d => d.v >= 0), {fy: "g", y: "c", x: "v", text: d => s0(d.v), dx: 4, textAnchor: "start", fontSize: 10, fill: INK}),
+      Plot.tip(rows, Plot.pointerY({fy: "g", y: "c", x: "v", title: d => `${d.g}: ${d.c} ${s1(d.v)}\n${d.n} institutions`}))]
+  });
+}
+```
+
+```{ojs}
+{
+  const w = win === "long" ? "FY2008-FY2024" : "FY2013-FY2024";
+  const order = ["all", ...SGROUPS.map(s => s.k)].map(k => SGL[k]);
+  const rows = AG.filter(d => d.window === w).flatMap(d => [{g: SGL[d.sg], c: "Athletics", v: d.d_ath_pf, d}, {g: SGL[d.sg], c: "Academic", v: d.d_acad_pf, d}]);
+  return Plot.plot({
+    width: half(width), height: 60 + order.length * 52, marginLeft: 150, marginRight: 40, title: `Athletics vs academic spending per FTE student, ${w.replace("FY2008-FY2024", "FY2008–24").replace("FY2013-FY2024", "FY2013–24")}`,
+    x: {grid: true, insetLeft: 30, insetRight: 30, label: null}, y: {domain: ["Athletics", "Academic"], axis: null}, fy: {domain: order, label: null},
+    color: {domain: ["Athletics", "Academic"], range: ["#6250d6", "#eb6834"], legend: true},
+    marks: [Plot.ruleX([0], {stroke: INK}), Plot.barX(rows, {fy: "g", y: "c", x: "v", fill: "c", inset: 1}),
+      Plot.text(rows.filter(d => d.v < 0), {fy: "g", y: "c", x: "v", text: d => s0(d.v), dx: -4, textAnchor: "end", fontSize: 10, fill: INK}),
+      Plot.text(rows.filter(d => d.v >= 0), {fy: "g", y: "c", x: "v", text: d => s0(d.v), dx: 4, textAnchor: "start", fontSize: 10, fill: INK}),
+      Plot.tip(rows, Plot.pointerY({fy: "g", y: "c", x: "v", title: x => `${x.g}: ${x.c} ${s1(x.v)} log pts\nmedian athletics per FTE ${usd(x.d.ath_per_fte_start)} → ${usd(x.d.ath_per_fte_end)}\nathletics share of amenity spending ${pct0(x.d.ath_share_of_amenity_start)} → ${pct0(x.d.ath_share_of_amenity_end)}\n${x.d.n} institutions`}))]
+  });
+}
+```
+
+</div>
+
+::: {.cs-note}
+Medians of institution log changes in real (CPI-U, 2024 dollars) spending per fall FTE student, hospitals excluded. Amenity = student services + auxiliary enterprises (housing, dining, bookstores and much of athletics), the definition in Jacob, McCall and Stange, "College as Country Club" (2018); academic = instruction + academic support. Athletics: EADA total athletic expense, starting FY2008 (the analysis panel has even years only before FY2012). The amenity tilt is larger at less-selective colleges and, among publics, in less concentrated markets. FY2024 IPEDS finance data are NCES provisional.
+:::
+
+## Athletics' share of the growth
+
+```{ojs}
+viewof aid = Inputs.toggle({label: "Include athletic scholarships", value: param("aid", "0") === "1"})
+```
+
+```{ojs}
+{
+  setParam("aid", aid ? "1" : null);
+  const w = win === "long" ? "FY2008-FY2024" : "FY2013-FY2024";
+  const col = aid ? "ath_total_share_of_amenity_growth" : "ath_opex_share_of_amenity_growth";
+  const order = ["all", ...SGROUPS.map(s => s.k)].map(k => SGL[k]);
+  const r = AS.filter(d => d.window === w).map(d => ({...d, l: SGL[d.sg], v: d[col]}));
+  return html`${Plot.plot({
+    width: Math.min(width, 820), height: 60 + order.length * 34, marginLeft: 200, marginRight: 60,
+    x: {grid: true, tickFormat: "%", label: `Athletics' share of the growth in amenity spending, ${w.replace("FY2008-FY2024", "FY2008–24").replace("FY2013-FY2024", "FY2013–24")} (real $)`}, y: {domain: order, label: null},
+    marks: [Plot.ruleX([0], {stroke: INK}), Plot.barX(r, {y: "l", x: "v", fill: d => SGC[d.sg], rx: 2}),
+      Plot.text(r, {y: "l", x: d => Math.max(0, d.v), text: d => pct0(d.v), dx: 5, textAnchor: "start", fontSize: 11, fill: INK}),
+      Plot.tip(r, Plot.pointerY({y: "l", x: "v", title: d => `${d.l}\namenity spending ${d.d_amenity_bn >= 0 ? "+" : ""}$${f1(d.d_amenity_bn)}bn, athletics +$${f1(aid ? d.d_ath_total_bn : d.d_ath_opex_bn)}bn\nshare of non-instructional growth ${pct0(d.ath_opex_share_of_noninstr_growth)}\nmedian school share ${pct0(d.median_school_share_of_amenity_growth)}\n${d.n} institutions`}))]
+  })}<p class="cs-note">Dollar-weighted: the change in total real athletic expense divided by the change in total amenity spending across the group's institutions. Without scholarships, athletic aid is excluded. Since FY2013, community colleges' total amenity spending fell while athletics grew, so their share is negative.</p>`;
+}
+```
+
+## Who pays for Division I athletics at public universities
+
+```{ojs}
+{
+  const r = D1.filter(d => d.window === "FY2006-FY2022");
+  return html`<div class="cs-scroll"><table class="cs-sectab"><thead><tr><th>Division I publics</th><th>n</th><th>Subsidy per FTE student FY2006</th><th>FY2022</th><th>Subsidy share of athletic revenue FY2022</th><th>Subsidy growth (log pts)</th><th>Instruction growth</th></tr></thead><tbody>
+  ${r.map(d => html`<tr><td>${d.group}</td><td>${d.n}</td><td>${usd(d.subsidy_pf_start)}</td><td><b>${usd(d.subsidy_pf_end)}</b></td><td>${pct0(d.subsidy_share_end)}</td><td>${s0(d.dlog_subsidy_pf)}</td><td>${s0(d.dlog_instr_pf)}</td></tr>`)}</tbody></table></div>
+  <p class="cs-note">Subsidy = student fees plus institutional funds allocated to athletics, real dollars per FTE student, FY2006 → FY2022 (USA Today NCAA finances database for Division I public universities). Regional publics' programs depend most on subsidy.</p>`;
+}
+```
+
+## Did the spending bring students? {#payoff}
+
+Each row asks whether colleges that raised a kind of spending more over FY2015–19 gained more first-time students over FY2019–24, holding constant the population shift (gravity instrument) in both windows and the college's own prior trend. Bold: statistically different from zero (|coefficient| > 1.96 × SE).
+
+```{ojs}
+viewof spec = Inputs.select(new Map([["Academic + amenity", "A"], ["Academic + non-athletic amenity + athletics", "B"], ["Academic + all non-instructional", "C"], ["Academic + institutional support", "D"], ["Enrollment-facing staff (with instruction and amenity)", "E"]]), {value: param("spec", "A"), label: "Specification"})
+```
+
+```{ojs}
+{
+  setParam("spec", spec === "A" ? null : spec);
+  const TL = {d1_acad_exp: "Academic spending", d1_amen_exp: "Amenity spending", d1_amen_nonath: "Non-athletic amenity", d1_ath: "Athletics", d1_nonins: "Non-instructional spending", d1_instsupp_exp: "Institutional support", d1_ln_enrfacing: "Enrollment-facing staff"};
+  const r = PO.filter(d => d.spec === spec);
+  const terms = [...new Set(r.map(d => d.term))];
+  const order = ["all", ...SGROUPS.map(s => s.k)];
+  const cell = d => { if (!d) return html`<td>–</td>`; const sig = Math.abs(d.coef) > 1.96 * d.se; return html`<td style="${sig ? "font-weight:700;color:#1f4e79" : "color:#5b6670"}">${d3.format("+.2f")(d.coef).replace("-", "−")} <span style="font-weight:400;color:#8a949e">(${f2(d.se)})</span></td>`; };
+  return html`<div class="cs-scroll"><table class="cs-sectab"><thead><tr><th>Sector group</th>${terms.map(t => html`<th>${TL[t] ?? t}</th>`)}<th>N</th></tr></thead><tbody>
+  ${order.map(k => { const rr = r.filter(d => d.sg === k); return html`<tr><td>${SGL[k]}</td>${terms.map(t => cell(rr.find(d => d.term === t)))}<td>${rr[0]?.N ?? "–"}</td></tr>`; })}
+  </tbody></table></div>
+  <p class="cs-note">Elasticity of FY2019–24 growth in first-time students to FY2015–19 growth in each spending (or staff) measure, standard errors clustered by state in parentheses; sector fixed effects in the pooled row. Specification B uses the colleges with EADA athletics data. These are associations, not causal effects. Amenity spending predicts later enrollment only at private master's and bachelor's colleges; athletics does not anywhere; academic spending does as well or better. For fall FTE instead of first-time students, amenity and athletics spending show no association; academic spending does. In the pooled row the amenity coefficient reflects the private master's and bachelor's colleges.</p>`;
+}
+```
+
+```{ojs}
+//| output: false
+1
+```

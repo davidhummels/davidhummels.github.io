@@ -1,0 +1,22 @@
+::: {.cs-preview}
+**Preview, not yet public.** Companion to the white paper *Counting College Staff* (draft, October 2026), built for David's review. Numbers can change as the draft changes. Not linked from the site menu.
+:::
+
+::: {.cs-nav}
+[Overview](../overview/index.qmd)
+[Sector trends](../sector-trends/index.qmd)
+[Institution explorer](../institution-explorer/index.qmd)
+[Enrollment](../enrollment/index.qmd)
+[State explorer](../state-explorer/index.qmd)
+[Population shocks](../population-shocks/index.qmd)
+[Who was hired](../who-was-hired/index.qmd)
+[Amenities & athletics](../amenities-athletics/index.qmd)
+[White paper](../paper/index.qmd)
+:::
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const here = location.pathname.replace(/index\.html$/, "");
+  document.querySelectorAll(".cs-nav a").forEach(a => { if (new URL(a.href, location.href).pathname.replace(/index\.html$/, "") === here) a.classList.add("cs-here"); });
+});
+</script>

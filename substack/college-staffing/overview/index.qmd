@@ -1,0 +1,133 @@
+---
+title: "Counting college staff"
+subtitle: "What happened to staffing at U.S. colleges after the Delta Cost Project, and why"
+page-layout: full
+execute:
+  echo: false
+---
+
+{{< include ../_nav.qmd >}}
+
+{{< include ../_common.qmd >}}
+
+```{ojs}
+K0 = FileAttachment("../data/kpis.csv").csv({typed: true})
+EL = FileAttachment("../data/elasticities.csv").csv({typed: true})
+TR = FileAttachment("../data/trends.csv").csv({typed: true})
+```
+
+```{ojs}
+//| output: false
+K = Object.fromEntries(K0.map(d => [d.key, d.value]))
+```
+
+```{ojs}
+md`<div class="cs-lead">Staff per student at public colleges <b>fell or held flat from 2000 to 2012, then rose</b>. From FY2013 to FY2024 the typical surviving college added <b>${f1(K.ratio_rise_unw)}</b> log points of staff per student (${f1(K.ratio_rise_w)} counting every employee and student together). Most of that is the denominator: enrollment fell ${f1(-K.fte_dlog_unw)} points while staff fell ${f1(-K.staff_dlog_unw)}.</div>`
+```
+
+::: {.cs-links}
+Read more: [white paper §4](../paper/index.qmd#sec-4) (staffing since 2012) and [§9](../paper/index.qmd#sec-9) (conclusions). Substack post: Post 4 (link on publication).
+:::
+
+```{ojs}
+md`### Four findings
+
+<div class="cs-kpis">
+<div class="cs-kpi"><div class="v">${f1(K.split_enrollment)} + ${f1(K.split_beyond)}</div><div class="l"><b>Why staff per student rose.</b> Of a ${f1(K.split_rise)}-point rise (1,903 colleges with the population instrument), ${f1(K.split_enrollment)} points come from staffing that moves less than one for one with enrollment, ${f1(K.split_beyond)} from staff growth beyond enrollment</div></div>
+<div class="cs-kpi"><div class="v">${f1(K.dec_dlog_fte)}</div><div class="l"><b>Enrollment fell, mostly not from population.</b> Change in log fall FTE FY2013–24 = population ${s1(K.dec_demographic)}, business cycle ${s1(K.dec_cycle_national)}, everything else ${s1(K.dec_residual)}</div></div>
+<div class="cs-kpi"><div class="v">${f2(K.elas_pr)} / ${f2(K.elas_rp)} / ${f2(K.elas_cc)}</div><div class="l"><b>Staffing elasticity</b> to population-driven enrollment: public research / regional publics / community colleges. Below 1 in every public sector</div></div>
+<div class="cs-kpi"><div class="v">${f0(K.enrf_share_of_rise)}%</div><div class="l"><b>Hiring to attract students.</b> Enrollment-facing staff (student affairs, counseling, athletics, media, sales) rose ${f1(K.enrf_dlog)} log points FY2015–24, about ${f0(K.enrf_share_of_rise)}% of the rise in staff per 1,000 students</div></div>
+</div>
+
+### Around the denominator and the budget
+
+<div class="cs-kpis">
+<div class="cs-kpi"><div class="v">${f1(K.online_2013)}% → ${f1(K.online_2024)}%</div><div class="l">students enrolled exclusively online, FY2013 → FY2024 (typical surviving college)</div></div>
+<div class="cs-kpi"><div class="v">${f1(K.dual_cc_2013)}% → ${f1(K.dual_cc_2023)}%</div><div class="l">of community-college FTE that is high-school dual enrollment, fall 2013 → 2023; CC FTE ${f1(K.cc_fte_incl)} log points with it, ${f1(K.cc_fte_excl)} without (FY2014–24)</div></div>
+<div class="cs-kpi"><div class="v">${s0(K.amen_growth)} vs ${s0(K.acad_growth)}</div><div class="l">amenity vs academic spending per student, FY2004–24 (median log points); athletics ${s0(K.ath_growth)} vs academic ${s0(K.ath_acad_growth)} FY2008–24</div></div>
+<div class="cs-kpi"><div class="v">${f1(K.fac_sal_17_24_max)} to ${f1(K.fac_sal_17_24_min)}%</div><div class="l">real annual change in full-time faculty average salary FY2017–24, by sector; real sticker tuition ${f1(K.tuition_17_24_max)} to ${f1(K.tuition_17_24_min)}%/yr</div></div>
+</div>`
+```
+
+## By sector
+
+```{ojs}
+viewof sx = Inputs.radio(new Map([["Staff per 1,000", "pk"], ["FT faculty per 1,000", "ftf"], ["Enrollment", "fte"]]), {value: param("k", "pk"), label: "Show"})
+```
+
+```{ojs}
+{
+  setParam("k", sx === "pk" ? null : sx);
+  const SG = {pr: "pr", pm: "rp", pb: "rp", cc: "cc", xr: "xr", xm: "xmb", xb: "xmb"};
+  const el = k => EL.find(d => d.sg === SG[k] && d.base === "b1987" && d.outcome === "total");
+  return html`<div class="cs-scroll"><table class="cs-sectab"><thead><tr><th>Sector</th>
+    <th>Staff per 1,000<br>FY2000</th><th>FY2012</th><th>FY2024</th><th>FT faculty per 1,000<br>FY2012 → 24</th><th>Fall FTE<br>FY2012–24</th><th>Staffing elasticity<br>(sector group)</th></tr></thead><tbody>
+    ${SECTORS.map(s => { const e = el(s.k); return html`<tr><td><span class="sw" style="background:${s.c}"></span>${s.l}</td>
+      <td>${f0(K[`pk_${s.k}_2000`])}</td><td>${f0(K[`pk_${s.k}_2012`])}</td><td><b>${f0(K[`pk_${s.k}_2024`])}</b></td>
+      <td>${f1(K[`ftf_${s.k}_2012`])} → ${f1(K[`ftf_${s.k}_2024`])}</td><td>${s0(K[`fte_${s.k}_12_24`])}%</td>
+      <td>${e ? `${f2(e.coef)} (${f2(e.se)})` : "–"}</td></tr>`; })}</tbody></table></div>`;
+}
+```
+
+```{ojs}
+{
+  const m = sx === "pk" ? "total" : sx === "ftf" ? "ftfac" : null;
+  if (!m) {
+    return html`<p class="cs-note">Enrollment trends by sector and peer group are on the <a href="../enrollment/index.html">Enrollment</a> page.</p>`;
+  }
+  const pts = TR.filter(d => d.m === m && d.fy >= 1990).map(d => ({...d, lab: SECL[d.sec]}));
+  const dom = [d3.min(pts, d => d.unw) * 0.95, d3.max(pts, d => d.unw) * 1.03];
+  const ends = spreadLabels(SECTORS.map(s => { const l = pts.filter(d => d.sec === s.k).at(-1); return {x: l.fy, y: l.unw, label: `${s.l} ${f0(l.unw)}`}; }), {domain: dom, height: 340});
+  return Plot.plot({
+    width: Math.min(width, 900), height: 340, marginRight: width < 600 ? 10 : 150, marginLeft: 44,
+    x: {...yearAxis}, y: {grid: true, domain: dom, label: `${MEASL[m]} per 1,000 FTE students`},
+    color: {domain: SECTORS.map(s => s.l), range: SECTORS.map(s => s.c), legend: width < 600},
+    marks: [Plot.rectX([{a: 1989.5, b: 2012.5}], {x1: "a", x2: "b", fill: SHADE}),
+      Plot.lineY(pts, {x: "fy", y: "unw", stroke: "lab", strokeWidth: 2}),
+      width < 600 ? null : Plot.text(ends, {x: "x", y: "ly", text: "label", dx: 6, textAnchor: "start", fontSize: 10, fill: INK}),
+      Plot.tip(pts, Plot.pointer({x: "fy", y: "unw", title: d => `${d.lab}, FY${d.fy}: ${f1(d.unw)}`}))]
+  });
+}
+```
+
+::: {.cs-note}
+Staff per 1,000 fall FTE students, S24 surviving set (1,909 institutions), mean of institution ratios; shaded years are those covered by the 2014 Delta Cost brief. FT faculty per 1,000 rose in every sector from FY2012 to FY2024. Enrollment change: sector totals, S24. Elasticity: two-stage least squares of total staff on fall FTE using the gravity population instrument (standard error in parentheses); public master's and bachelor's colleges are pooled as regional publics, private master's and bachelor's colleges are pooled. Private-sector first stages are weak. Every number on this page is listed with its source file and column in [kpis.csv](../data/kpis.csv). Data: IPEDS (FY2024–25 NCES provisional), Census and SEER population, BLS LAUS, EADA.
+:::
+
+## The tools
+
+::: {.cs-cards}
+::: {.cs-card}
+#### [Sector trends](../sector-trends/index.qmd)
+Staff per 1,000 students by category for seven sectors, FY1988–2025; the replication of the 2014 brief; finance growth.
+:::
+::: {.cs-card}
+#### [Institution explorer](../institution-explorer/index.qmd)
+Any college: staff by category, enrollment, spending by function and athletics against its sector's middle half.
+:::
+::: {.cs-card}
+#### [Enrollment](../enrollment/index.qmd)
+Enrollment by sector and peer group, how much of the rise in staff per student is the denominator, online and dual enrollment.
+:::
+::: {.cs-card}
+#### [State explorer](../state-explorer/index.qmd)
+A state map of enrollment change, staffing and dual enrollment; click a state for its detail.
+:::
+::: {.cs-card}
+#### [Population shocks](../population-shocks/index.qmd)
+What population predicted for enrollment, how staffing responds by sector, and what explains the decline.
+:::
+::: {.cs-card}
+#### [Who was hired](../who-was-hired/index.qmd)
+Occupation groups since FY2015: enrollment-facing staff, coaches and instruction.
+:::
+::: {.cs-card}
+#### [Amenities and athletics](../amenities-athletics/index.qmd)
+Amenity, academic and athletic spending per student, Division I subsidies, and whether spending paid off in enrollment.
+:::
+:::
+
+```{ojs}
+//| output: false
+1
+```

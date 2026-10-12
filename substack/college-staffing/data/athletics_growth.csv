@@ -1,0 +1,13 @@
+window,sg,sgroup,n,d_ath_pf,d_acad_pf,ath_per_fte_start,ath_per_fte_end,ath_share_of_amenity_start,ath_share_of_amenity_end
+FY2008-FY2024,all,All,1557,55.54,7.83,1043,1883,0.1517,0.2106
+FY2008-FY2024,pr,Public research,138,37.43,10.54,1665,2566,0.2579,0.2942
+FY2008-FY2024,rp,Regional publics,275,55.86,17.68,993,1726,0.189,0.2314
+FY2008-FY2024,cc,Community colleges,444,63.97,18.52,212,388,0.0774,0.1106
+FY2008-FY2024,xr,Private research,77,29.29,1.14,1442,1992,0.1664,0.2111
+FY2008-FY2024,xmb,Private master's & bachelor's,623,62.01,0.46,1778,3220,0.1577,0.2456
+FY2013-FY2024,all,All,1609,40.64,1.87,1189,1869,0.1579,0.2074
+FY2013-FY2024,pr,Public research,138,25.9,1.16,1806,2537,0.2431,0.2942
+FY2013-FY2024,rp,Regional publics,280,38.51,3.42,1149,1718,0.1786,0.2354
+FY2013-FY2024,cc,Community colleges,468,52.57,10.37,218,383,0.0751,0.1092
+FY2013-FY2024,xr,Private research,78,15.56,-2.34,1612,1950,0.1731,0.211
+FY2013-FY2024,xmb,Private master's & bachelor's,645,41.58,-2.1,2085,3214,0.1848,0.2442

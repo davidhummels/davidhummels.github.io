@@ -1,0 +1,19 @@
+fall,sg,sgroup,n,u18_share_hc_mean,de_share_fte_mean,de_share_fte_weighted
+2005,all,All,2111,0.0437,0.0313,0.0232
+2005,pr,Public research,141,0.0176,0.0117,0.0115
+2005,rp,Regional publics,316,0.0256,0.0172,0.0151
+2005,cc,Community colleges,782,0.0791,0.057,0.0461
+2005,xr,Private research,88,0.0248,0.0145,0.0145
+2005,xmb,Private master's & bachelor's,784,0.0225,0.0167,0.0171
+2013,all,All,2134,0.0603,0.0404,0.0303
+2013,pr,Public research,141,0.0236,0.0146,0.0131
+2013,rp,Regional publics,320,0.04,0.0236,0.0209
+2013,cc,Community colleges,786,0.109,0.076,0.0636
+2013,xr,Private research,89,0.0285,0.0157,0.0158
+2013,xmb,Private master's & bachelor's,798,0.0305,0.0195,0.0177
+2023,all,All,2083,0.1361,0.0938,0.0639
+2023,pr,Public research,143,0.0518,0.0285,0.024
+2023,rp,Regional publics,320,0.0924,0.055,0.0492
+2023,cc,Community colleges,785,0.2544,0.1891,0.1678
+2023,xr,Private research,88,0.0466,0.0209,0.0212
+2023,xmb,Private master's & bachelor's,747,0.0573,0.0315,0.028

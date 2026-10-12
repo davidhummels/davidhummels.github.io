@@ -1,0 +1,17 @@
+sec,group,weights,n,dlog_fte,demographic,cycle_national,cycle_local,residual,online_offset,dlog_staff
+all,All,unweighted,1903,-17.834,0.529,-3.59,-0.031,-14.742,16.816,-5.067
+all,All,FY2013 FTE,1903,-11.654,1.06,-3.411,-0.009,-9.294,14.783,-0.75
+pr,Public research,unweighted,139,1.217,1.944,-1.73,-0.062,1.065,7.945,7.8
+pr,Public research,FY2013 FTE,139,4.095,1.859,-1.73,-0.038,4.004,7.089,10.52
+pm,Public master's,unweighted,211,-16.995,0.446,-3.128,0.013,-14.326,15.897,-4.901
+pm,Public master's,FY2013 FTE,211,-11.999,0.666,-3.128,0.104,-9.641,13.78,-0.84
+pb,Public bachelor's,unweighted,76,-15.082,1.443,-4.336,-0.758,-11.43,16.439,-1.189
+pb,Public bachelor's,FY2013 FTE,76,-11.622,3.599,-4.336,-0.662,-10.223,15.015,2.177
+cc,Public community colleges,unweighted,705,-30.124,0.537,-6.962,-0.018,-23.681,23.816,-13.72
+cc,Public community colleges,FY2013 FTE,705,-30.328,1.14,-6.962,-0.007,-24.499,24.126,-14.224
+xr,Private research,unweighted,80,2.942,0.29,-0.362,-0.037,3.051,11.254,4.381
+xr,Private research,FY2013 FTE,80,7.293,0.051,-0.362,-0.024,7.628,6.73,8.867
+xm,Private master's,unweighted,280,-12.652,-0.113,-1.544,0.078,-11.073,15.223,-2.347
+xm,Private master's,FY2013 FTE,280,-9.451,-0.266,-1.544,0.04,-7.68,17.038,1.866
+xb,Private bachelor's,unweighted,412,-11.725,0.393,-0.562,-0.003,-11.553,10.534,0.914
+xb,Private bachelor's,FY2013 FTE,412,-18.273,0.27,-0.562,-0.003,-17.977,13.762,-3.041

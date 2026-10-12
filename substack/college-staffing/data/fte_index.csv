@@ -1,0 +1,419 @@
+kind,key,label,fy,n,total_fte,idx1990
+sector,pr,Public research,1988,150,2671740,95.57
+sector,pr,Public research,1989,150,2731119,97.69
+sector,pr,Public research,1990,150,2795623,100.0
+sector,pr,Public research,1991,150,2854180,102.09
+sector,pr,Public research,1992,150,2876515,102.89
+sector,pr,Public research,1993,150,2869377,102.64
+sector,pr,Public research,1994,150,2849366,101.92
+sector,pr,Public research,1995,150,2845162,101.77
+sector,pr,Public research,1996,150,2855615,102.15
+sector,pr,Public research,1997,150,2858704,102.26
+sector,pr,Public research,1998,150,2885968,103.23
+sector,pr,Public research,1999,150,2923097,104.56
+sector,pr,Public research,2000,150,2967050,106.13
+sector,pr,Public research,2001,150,3010363,107.68
+sector,pr,Public research,2002,150,3108087,111.18
+sector,pr,Public research,2003,150,3221653,115.24
+sector,pr,Public research,2004,150,3286281,117.55
+sector,pr,Public research,2005,150,3320507,118.78
+sector,pr,Public research,2006,150,3348641,119.78
+sector,pr,Public research,2007,150,3391788,121.32
+sector,pr,Public research,2008,150,3453938,123.55
+sector,pr,Public research,2009,150,3518254,125.85
+sector,pr,Public research,2010,150,3634543,130.01
+sector,pr,Public research,2011,150,3717165,132.96
+sector,pr,Public research,2012,150,3753527,134.26
+sector,pr,Public research,2013,150,3770308,134.86
+sector,pr,Public research,2014,150,3786690,135.45
+sector,pr,Public research,2015,150,3835734,137.2
+sector,pr,Public research,2016,150,3872187,138.51
+sector,pr,Public research,2017,150,3921753,140.28
+sector,pr,Public research,2018,150,3949897,141.29
+sector,pr,Public research,2019,150,3962724,141.75
+sector,pr,Public research,2020,150,3962323,141.73
+sector,pr,Public research,2021,150,3932272,140.66
+sector,pr,Public research,2022,150,3939053,140.9
+sector,pr,Public research,2023,150,3946945,141.18
+sector,pr,Public research,2024,150,4002397,143.17
+sector,pr,Public research,2025,150,4089890,146.3
+sector,pm,Public master's,1988,222,1525343,94.51
+sector,pm,Public master's,1989,222,1567827,97.15
+sector,pm,Public master's,1990,222,1613873,100.0
+sector,pm,Public master's,1991,222,1679330,104.06
+sector,pm,Public master's,1992,222,1706307,105.73
+sector,pm,Public master's,1993,222,1712730,106.13
+sector,pm,Public master's,1994,222,1693482,104.93
+sector,pm,Public master's,1995,222,1683436,104.31
+sector,pm,Public master's,1996,222,1678074,103.98
+sector,pm,Public master's,1997,222,1686126,104.48
+sector,pm,Public master's,1998,222,1697728,105.2
+sector,pm,Public master's,1999,222,1704614,105.62
+sector,pm,Public master's,2000,222,1734003,107.44
+sector,pm,Public master's,2001,222,1757800,108.92
+sector,pm,Public master's,2002,222,1814447,112.43
+sector,pm,Public master's,2003,222,1887815,116.97
+sector,pm,Public master's,2004,222,1933032,119.78
+sector,pm,Public master's,2005,222,1955385,121.16
+sector,pm,Public master's,2006,222,1983410,122.9
+sector,pm,Public master's,2007,222,2013621,124.77
+sector,pm,Public master's,2008,222,2049439,126.99
+sector,pm,Public master's,2009,222,2096057,129.88
+sector,pm,Public master's,2010,222,2170597,134.5
+sector,pm,Public master's,2011,222,2205350,136.65
+sector,pm,Public master's,2012,222,2233500,138.39
+sector,pm,Public master's,2013,222,2229353,138.14
+sector,pm,Public master's,2014,222,2229119,138.12
+sector,pm,Public master's,2015,222,2240252,138.81
+sector,pm,Public master's,2016,222,2251852,139.53
+sector,pm,Public master's,2017,222,2256344,139.81
+sector,pm,Public master's,2018,222,2261429,140.12
+sector,pm,Public master's,2019,222,2239818,138.79
+sector,pm,Public master's,2020,222,2215484,137.28
+sector,pm,Public master's,2021,222,2169196,134.41
+sector,pm,Public master's,2022,222,2076016,128.64
+sector,pm,Public master's,2023,222,2015781,124.9
+sector,pm,Public master's,2024,222,2038950,126.34
+sector,pm,Public master's,2025,222,2085982,129.25
+sector,pb,Public bachelor's,1988,80,187613,92.62
+sector,pb,Public bachelor's,1989,80,194060,95.8
+sector,pb,Public bachelor's,1990,80,202562,100.0
+sector,pb,Public bachelor's,1991,80,208788,103.07
+sector,pb,Public bachelor's,1992,80,213682,105.49
+sector,pb,Public bachelor's,1993,80,217166,107.21
+sector,pb,Public bachelor's,1994,80,216267,106.77
+sector,pb,Public bachelor's,1995,80,216472,106.87
+sector,pb,Public bachelor's,1996,80,215863,106.57
+sector,pb,Public bachelor's,1997,80,213276,105.29
+sector,pb,Public bachelor's,1998,80,215073,106.18
+sector,pb,Public bachelor's,1999,80,217781,107.51
+sector,pb,Public bachelor's,2000,80,222187,109.69
+sector,pb,Public bachelor's,2001,80,223682,110.43
+sector,pb,Public bachelor's,2002,80,232912,114.98
+sector,pb,Public bachelor's,2003,80,242656,119.79
+sector,pb,Public bachelor's,2004,80,249825,123.33
+sector,pb,Public bachelor's,2005,80,254018,125.4
+sector,pb,Public bachelor's,2006,80,255329,126.05
+sector,pb,Public bachelor's,2007,80,254914,125.84
+sector,pb,Public bachelor's,2008,80,258290,127.51
+sector,pb,Public bachelor's,2009,80,267876,132.24
+sector,pb,Public bachelor's,2010,80,284530,140.47
+sector,pb,Public bachelor's,2011,80,295548,145.9
+sector,pb,Public bachelor's,2012,80,295564,145.91
+sector,pb,Public bachelor's,2013,80,291493,143.9
+sector,pb,Public bachelor's,2014,80,287772,142.07
+sector,pb,Public bachelor's,2015,80,283499,139.96
+sector,pb,Public bachelor's,2016,80,282357,139.39
+sector,pb,Public bachelor's,2017,80,285049,140.72
+sector,pb,Public bachelor's,2018,80,284467,140.43
+sector,pb,Public bachelor's,2019,80,285795,141.09
+sector,pb,Public bachelor's,2020,80,286209,141.29
+sector,pb,Public bachelor's,2021,80,279787,138.12
+sector,pb,Public bachelor's,2022,80,270257,133.42
+sector,pb,Public bachelor's,2023,80,265383,131.01
+sector,pb,Public bachelor's,2024,80,267916,132.26
+sector,pb,Public bachelor's,2025,80,274538,135.53
+sector,cc,Community colleges,1988,677,2086317,93.0
+sector,cc,Community colleges,1989,677,2147980,95.75
+sector,cc,Community colleges,1990,677,2243414,100.0
+sector,cc,Community colleges,1991,677,2336972,104.17
+sector,cc,Community colleges,1992,677,2532616,112.89
+sector,cc,Community colleges,1993,677,2575441,114.8
+sector,cc,Community colleges,1994,677,2528261,112.7
+sector,cc,Community colleges,1995,677,2508265,111.81
+sector,cc,Community colleges,1996,677,2467954,110.01
+sector,cc,Community colleges,1997,677,2481605,110.62
+sector,cc,Community colleges,1998,677,2498667,111.38
+sector,cc,Community colleges,1999,677,2504415,111.63
+sector,cc,Community colleges,2000,677,2570742,114.59
+sector,cc,Community colleges,2001,677,2675528,119.26
+sector,cc,Community colleges,2002,677,2842192,126.69
+sector,cc,Community colleges,2003,677,3033070,135.2
+sector,cc,Community colleges,2004,677,3076352,137.13
+sector,cc,Community colleges,2005,677,3115992,138.9
+sector,cc,Community colleges,2006,677,3102174,138.28
+sector,cc,Community colleges,2007,677,3123613,139.23
+sector,cc,Community colleges,2008,677,3229919,143.97
+sector,cc,Community colleges,2009,677,3395681,151.36
+sector,cc,Community colleges,2010,677,3789725,168.93
+sector,cc,Community colleges,2011,677,3902617,173.96
+sector,cc,Community colleges,2012,677,3782646,168.61
+sector,cc,Community colleges,2013,677,3626658,161.66
+sector,cc,Community colleges,2014,677,3534460,157.55
+sector,cc,Community colleges,2015,677,3422002,152.54
+sector,cc,Community colleges,2016,677,3321283,148.05
+sector,cc,Community colleges,2017,677,3267112,145.63
+sector,cc,Community colleges,2018,677,3217603,143.42
+sector,cc,Community colleges,2019,677,3157540,140.75
+sector,cc,Community colleges,2020,677,3130831,139.56
+sector,cc,Community colleges,2021,677,2839923,126.59
+sector,cc,Community colleges,2022,677,2664914,118.79
+sector,cc,Community colleges,2023,677,2681305,119.52
+sector,cc,Community colleges,2024,677,2814407,125.45
+sector,cc,Community colleges,2025,677,2986475,133.12
+sector,xr,Private research,1988,93,759493,97.44
+sector,xr,Private research,1989,93,767639,98.49
+sector,xr,Private research,1990,93,779447,100.0
+sector,xr,Private research,1991,93,785205,100.74
+sector,xr,Private research,1992,93,796205,102.15
+sector,xr,Private research,1993,93,798199,102.41
+sector,xr,Private research,1994,93,799565,102.58
+sector,xr,Private research,1995,93,810132,103.94
+sector,xr,Private research,1996,93,809385,103.84
+sector,xr,Private research,1997,93,816214,104.72
+sector,xr,Private research,1998,93,821360,105.38
+sector,xr,Private research,1999,93,835129,107.14
+sector,xr,Private research,2000,93,849270,108.96
+sector,xr,Private research,2001,93,862186,110.62
+sector,xr,Private research,2002,93,875593,112.34
+sector,xr,Private research,2003,93,899575,115.41
+sector,xr,Private research,2004,93,915390,117.44
+sector,xr,Private research,2005,93,926417,118.86
+sector,xr,Private research,2006,92,933914,119.82
+sector,xr,Private research,2007,93,949950,121.87
+sector,xr,Private research,2008,93,966102,123.95
+sector,xr,Private research,2009,93,981648,125.94
+sector,xr,Private research,2010,93,1008135,129.34
+sector,xr,Private research,2011,93,1031474,132.33
+sector,xr,Private research,2012,93,1039380,133.35
+sector,xr,Private research,2013,93,1045528,134.14
+sector,xr,Private research,2014,93,1046445,134.25
+sector,xr,Private research,2015,93,1052085,134.98
+sector,xr,Private research,2016,93,1063011,136.38
+sector,xr,Private research,2017,93,1070533,137.35
+sector,xr,Private research,2018,93,1083786,139.05
+sector,xr,Private research,2019,93,1099302,141.04
+sector,xr,Private research,2020,93,1105037,141.77
+sector,xr,Private research,2021,93,1080749,138.66
+sector,xr,Private research,2022,93,1134439,145.54
+sector,xr,Private research,2023,93,1137781,145.97
+sector,xr,Private research,2024,93,1140617,146.34
+sector,xr,Private research,2025,93,1151109,147.68
+sector,xm,Private master's,1988,285,565446,92.65
+sector,xm,Private master's,1989,285,583665,95.63
+sector,xm,Private master's,1990,285,610333,100.0
+sector,xm,Private master's,1991,285,619155,101.45
+sector,xm,Private master's,1992,285,637774,104.5
+sector,xm,Private master's,1993,285,653759,107.12
+sector,xm,Private master's,1994,285,662688,108.58
+sector,xm,Private master's,1995,285,671261,109.98
+sector,xm,Private master's,1996,285,687494,112.64
+sector,xm,Private master's,1997,285,695056,113.88
+sector,xm,Private master's,1998,285,706797,115.81
+sector,xm,Private master's,1999,285,727493,119.2
+sector,xm,Private master's,2000,285,750454,122.96
+sector,xm,Private master's,2001,285,771866,126.47
+sector,xm,Private master's,2002,285,796486,130.5
+sector,xm,Private master's,2003,285,826665,135.44
+sector,xm,Private master's,2004,285,853767,139.89
+sector,xm,Private master's,2005,285,885766,145.13
+sector,xm,Private master's,2006,285,907513,148.69
+sector,xm,Private master's,2007,285,925761,151.68
+sector,xm,Private master's,2008,285,956237,156.67
+sector,xm,Private master's,2009,285,974424,159.65
+sector,xm,Private master's,2010,285,1008810,165.29
+sector,xm,Private master's,2011,285,1042321,170.78
+sector,xm,Private master's,2012,285,1051603,172.3
+sector,xm,Private master's,2013,285,1057404,173.25
+sector,xm,Private master's,2014,285,1066975,174.82
+sector,xm,Private master's,2015,285,1073404,175.87
+sector,xm,Private master's,2016,285,1081961,177.27
+sector,xm,Private master's,2017,285,1079809,176.92
+sector,xm,Private master's,2018,285,1079716,176.91
+sector,xm,Private master's,2019,285,1080648,177.06
+sector,xm,Private master's,2020,285,1082421,177.35
+sector,xm,Private master's,2021,285,1085156,177.8
+sector,xm,Private master's,2022,285,1069136,175.17
+sector,xm,Private master's,2023,285,1059497,173.59
+sector,xm,Private master's,2024,285,1090525,178.68
+sector,xm,Private master's,2025,285,1107690,181.49
+sector,xb,Private bachelor's,1988,402,463565,94.54
+sector,xb,Private bachelor's,1989,402,479750,97.84
+sector,xb,Private bachelor's,1990,402,490318,100.0
+sector,xb,Private bachelor's,1991,402,493206,100.59
+sector,xb,Private bachelor's,1992,402,497532,101.47
+sector,xb,Private bachelor's,1993,402,503787,102.75
+sector,xb,Private bachelor's,1994,402,509998,104.01
+sector,xb,Private bachelor's,1995,402,514649,104.96
+sector,xb,Private bachelor's,1996,402,518672,105.78
+sector,xb,Private bachelor's,1997,402,526114,107.3
+sector,xb,Private bachelor's,1998,402,538228,109.77
+sector,xb,Private bachelor's,1999,402,549686,112.11
+sector,xb,Private bachelor's,2000,402,557632,113.73
+sector,xb,Private bachelor's,2001,402,567320,115.7
+sector,xb,Private bachelor's,2002,402,579979,118.29
+sector,xb,Private bachelor's,2003,402,595417,121.43
+sector,xb,Private bachelor's,2004,402,608826,124.17
+sector,xb,Private bachelor's,2005,402,620948,126.64
+sector,xb,Private bachelor's,2006,401,628888,128.26
+sector,xb,Private bachelor's,2007,402,637701,130.06
+sector,xb,Private bachelor's,2008,402,645319,131.61
+sector,xb,Private bachelor's,2009,402,653704,133.32
+sector,xb,Private bachelor's,2010,402,673731,137.41
+sector,xb,Private bachelor's,2011,402,687760,140.27
+sector,xb,Private bachelor's,2012,402,690277,140.78
+sector,xb,Private bachelor's,2013,402,690783,140.88
+sector,xb,Private bachelor's,2014,402,687109,140.14
+sector,xb,Private bachelor's,2015,402,684957,139.7
+sector,xb,Private bachelor's,2016,402,683187,139.34
+sector,xb,Private bachelor's,2017,402,683070,139.31
+sector,xb,Private bachelor's,2018,402,677711,138.22
+sector,xb,Private bachelor's,2019,402,677393,138.15
+sector,xb,Private bachelor's,2020,402,669494,136.54
+sector,xb,Private bachelor's,2021,402,652990,133.18
+sector,xb,Private bachelor's,2022,402,647711,132.1
+sector,xb,Private bachelor's,2023,402,643702,131.28
+sector,xb,Private bachelor's,2024,402,655588,133.71
+sector,xb,Private bachelor's,2025,402,669539,136.55
+peer,flag,Flagships,1988,42,953216,97.62
+peer,flag,Flagships,1989,42,967165,99.05
+peer,flag,Flagships,1990,42,976449,100.0
+peer,flag,Flagships,1991,42,983319,100.7
+peer,flag,Flagships,1992,42,989067,101.29
+peer,flag,Flagships,1993,42,985973,100.98
+peer,flag,Flagships,1994,42,976351,99.99
+peer,flag,Flagships,1995,42,973023,99.65
+peer,flag,Flagships,1996,42,979532,100.32
+peer,flag,Flagships,1997,42,977126,100.07
+peer,flag,Flagships,1998,42,986556,101.04
+peer,flag,Flagships,1999,42,998552,102.26
+peer,flag,Flagships,2000,42,1009736,103.41
+peer,flag,Flagships,2001,42,1021538,104.62
+peer,flag,Flagships,2002,42,1050963,107.63
+peer,flag,Flagships,2003,42,1081835,110.79
+peer,flag,Flagships,2004,42,1098215,112.47
+peer,flag,Flagships,2005,42,1105269,113.19
+peer,flag,Flagships,2006,42,1116718,114.37
+peer,flag,Flagships,2007,42,1126876,115.41
+peer,flag,Flagships,2008,42,1142982,117.06
+peer,flag,Flagships,2009,42,1164805,119.29
+peer,flag,Flagships,2010,42,1194480,122.33
+peer,flag,Flagships,2011,42,1213184,124.24
+peer,flag,Flagships,2012,42,1226155,125.57
+peer,flag,Flagships,2013,42,1236595,126.64
+peer,flag,Flagships,2014,42,1252312,128.25
+peer,flag,Flagships,2015,42,1266207,129.67
+peer,flag,Flagships,2016,42,1277601,130.84
+peer,flag,Flagships,2017,42,1295688,132.69
+peer,flag,Flagships,2018,42,1305540,133.7
+peer,flag,Flagships,2019,42,1311799,134.34
+peer,flag,Flagships,2020,42,1313840,134.55
+peer,flag,Flagships,2021,42,1303047,133.45
+peer,flag,Flagships,2022,42,1327013,135.9
+peer,flag,Flagships,2023,42,1340058,137.24
+peer,flag,Flagships,2024,42,1366541,139.95
+peer,flag,Flagships,2025,42,1408521,144.25
+peer,reg,Regional publics,1988,301,1674687,94.19
+peer,reg,Regional publics,1989,301,1723486,96.94
+peer,reg,Regional publics,1990,301,1777911,100.0
+peer,reg,Regional publics,1991,301,1849573,104.03
+peer,reg,Regional publics,1992,301,1880569,105.77
+peer,reg,Regional publics,1993,301,1890771,106.35
+peer,reg,Regional publics,1994,301,1871174,105.25
+peer,reg,Regional publics,1995,301,1861555,104.7
+peer,reg,Regional publics,1996,301,1854989,104.34
+peer,reg,Regional publics,1997,301,1860341,104.64
+peer,reg,Regional publics,1998,301,1873086,105.35
+peer,reg,Regional publics,1999,301,1882107,105.86
+peer,reg,Regional publics,2000,301,1914909,107.71
+peer,reg,Regional publics,2001,301,1939824,109.11
+peer,reg,Regional publics,2002,301,2004871,112.77
+peer,reg,Regional publics,2003,301,2087054,117.39
+peer,reg,Regional publics,2004,301,2139065,120.31
+peer,reg,Regional publics,2005,301,2166165,121.84
+peer,reg,Regional publics,2006,301,2195942,123.51
+peer,reg,Regional publics,2007,301,2225709,125.19
+peer,reg,Regional publics,2008,301,2264098,127.35
+peer,reg,Regional publics,2009,301,2318135,130.39
+peer,reg,Regional publics,2010,301,2407198,135.39
+peer,reg,Regional publics,2011,301,2450752,137.84
+peer,reg,Regional publics,2012,301,2477444,139.35
+peer,reg,Regional publics,2013,301,2468622,138.85
+peer,reg,Regional publics,2014,301,2459418,138.33
+peer,reg,Regional publics,2015,301,2465672,138.68
+peer,reg,Regional publics,2016,301,2474590,139.19
+peer,reg,Regional publics,2017,301,2480490,139.52
+peer,reg,Regional publics,2018,301,2484741,139.76
+peer,reg,Regional publics,2019,301,2462949,138.53
+peer,reg,Regional publics,2020,301,2438664,137.16
+peer,reg,Regional publics,2021,301,2386321,134.22
+peer,reg,Regional publics,2022,301,2284502,128.49
+peer,reg,Regional publics,2023,301,2220970,124.92
+peer,reg,Regional publics,2024,301,2246545,126.36
+peer,reg,Regional publics,2025,301,2298105,129.26
+peer,small,"Small privates (<2,000 FTE)",1988,288,244985,92.92
+peer,small,"Small privates (<2,000 FTE)",1989,288,254595,96.56
+peer,small,"Small privates (<2,000 FTE)",1990,288,263662,100.0
+peer,small,"Small privates (<2,000 FTE)",1991,288,264818,100.44
+peer,small,"Small privates (<2,000 FTE)",1992,288,266325,101.01
+peer,small,"Small privates (<2,000 FTE)",1993,288,269441,102.19
+peer,small,"Small privates (<2,000 FTE)",1994,288,273822,103.85
+peer,small,"Small privates (<2,000 FTE)",1995,288,276068,104.71
+peer,small,"Small privates (<2,000 FTE)",1996,288,277726,105.33
+peer,small,"Small privates (<2,000 FTE)",1997,288,281707,106.84
+peer,small,"Small privates (<2,000 FTE)",1998,288,288031,109.24
+peer,small,"Small privates (<2,000 FTE)",1999,288,293268,111.23
+peer,small,"Small privates (<2,000 FTE)",2000,288,296214,112.35
+peer,small,"Small privates (<2,000 FTE)",2001,288,301087,114.19
+peer,small,"Small privates (<2,000 FTE)",2002,288,307430,116.6
+peer,small,"Small privates (<2,000 FTE)",2003,288,312353,118.47
+peer,small,"Small privates (<2,000 FTE)",2004,288,316748,120.13
+peer,small,"Small privates (<2,000 FTE)",2005,288,320558,121.58
+peer,small,"Small privates (<2,000 FTE)",2006,288,322403,122.28
+peer,small,"Small privates (<2,000 FTE)",2007,288,323945,122.86
+peer,small,"Small privates (<2,000 FTE)",2008,288,327799,124.33
+peer,small,"Small privates (<2,000 FTE)",2009,288,330528,125.36
+peer,small,"Small privates (<2,000 FTE)",2010,288,339039,128.59
+peer,small,"Small privates (<2,000 FTE)",2011,288,345722,131.12
+peer,small,"Small privates (<2,000 FTE)",2012,288,347766,131.9
+peer,small,"Small privates (<2,000 FTE)",2013,288,347546,131.81
+peer,small,"Small privates (<2,000 FTE)",2014,288,346298,131.34
+peer,small,"Small privates (<2,000 FTE)",2015,288,344980,130.84
+peer,small,"Small privates (<2,000 FTE)",2016,288,343230,130.18
+peer,small,"Small privates (<2,000 FTE)",2017,288,343255,130.19
+peer,small,"Small privates (<2,000 FTE)",2018,288,339050,128.59
+peer,small,"Small privates (<2,000 FTE)",2019,288,337819,128.13
+peer,small,"Small privates (<2,000 FTE)",2020,288,332424,126.08
+peer,small,"Small privates (<2,000 FTE)",2021,288,322134,122.18
+peer,small,"Small privates (<2,000 FTE)",2022,288,320804,121.67
+peer,small,"Small privates (<2,000 FTE)",2023,288,316696,120.11
+peer,small,"Small privates (<2,000 FTE)",2024,288,320881,121.7
+peer,small,"Small privates (<2,000 FTE)",2025,288,325568,123.48
+peer,largepb,Larger private bachelor's,1988,114,218580,96.44
+peer,largepb,Larger private bachelor's,1989,114,225154,99.34
+peer,largepb,Larger private bachelor's,1990,114,226656,100.0
+peer,largepb,Larger private bachelor's,1991,114,228388,100.76
+peer,largepb,Larger private bachelor's,1992,114,231207,102.01
+peer,largepb,Larger private bachelor's,1993,114,234346,103.39
+peer,largepb,Larger private bachelor's,1994,114,236176,104.2
+peer,largepb,Larger private bachelor's,1995,114,238581,105.26
+peer,largepb,Larger private bachelor's,1996,114,240945,106.3
+peer,largepb,Larger private bachelor's,1997,114,244407,107.83
+peer,largepb,Larger private bachelor's,1998,114,250197,110.39
+peer,largepb,Larger private bachelor's,1999,114,256418,113.13
+peer,largepb,Larger private bachelor's,2000,114,261418,115.34
+peer,largepb,Larger private bachelor's,2001,114,266233,117.46
+peer,largepb,Larger private bachelor's,2002,114,272549,120.25
+peer,largepb,Larger private bachelor's,2003,114,283065,124.89
+peer,largepb,Larger private bachelor's,2004,114,292077,128.86
+peer,largepb,Larger private bachelor's,2005,114,300390,132.53
+peer,largepb,Larger private bachelor's,2006,114,306486,135.22
+peer,largepb,Larger private bachelor's,2007,114,313756,138.43
+peer,largepb,Larger private bachelor's,2008,114,317520,140.09
+peer,largepb,Larger private bachelor's,2009,114,323176,142.58
+peer,largepb,Larger private bachelor's,2010,114,334692,147.67
+peer,largepb,Larger private bachelor's,2011,114,342038,150.91
+peer,largepb,Larger private bachelor's,2012,114,342511,151.11
+peer,largepb,Larger private bachelor's,2013,114,343237,151.44
+peer,largepb,Larger private bachelor's,2014,114,340811,150.37
+peer,largepb,Larger private bachelor's,2015,114,339977,150.0
+peer,largepb,Larger private bachelor's,2016,114,339957,149.99
+peer,largepb,Larger private bachelor's,2017,114,339815,149.93
+peer,largepb,Larger private bachelor's,2018,114,338661,149.42
+peer,largepb,Larger private bachelor's,2019,114,339574,149.82
+peer,largepb,Larger private bachelor's,2020,114,337070,148.71
+peer,largepb,Larger private bachelor's,2021,114,330856,145.97
+peer,largepb,Larger private bachelor's,2022,114,326907,144.23
+peer,largepb,Larger private bachelor's,2023,114,327006,144.27
+peer,largepb,Larger private bachelor's,2024,114,334707,147.67
+peer,largepb,Larger private bachelor's,2025,114,343971,151.76

@@ -1,0 +1,73 @@
+spec,sg,sgroup,term,coef,se,N
+A,all,All,d1_acad_exp,0.0551,0.044,1911
+A,all,All,d1_amen_exp,0.0975,0.0444,1911
+A,pr,Public research,d1_acad_exp,0.2862,0.1115,135
+A,pr,Public research,d1_amen_exp,0.0895,0.1599,135
+A,rp,Regional publics,d1_acad_exp,0.0147,0.0937,290
+A,rp,Regional publics,d1_amen_exp,-0.0066,0.0886,290
+A,cc,Community colleges,d1_acad_exp,-0.0772,0.0785,718
+A,cc,Community colleges,d1_amen_exp,0.0564,0.0515,718
+A,xr,Private research,d1_acad_exp,0.2159,0.3647,75
+A,xr,Private research,d1_amen_exp,-0.7898,0.4636,75
+A,xmb,Private master's & bachelor's,d1_acad_exp,0.1408,0.0894,693
+A,xmb,Private master's & bachelor's,d1_amen_exp,0.28,0.1108,693
+B,all,All,d1_acad_exp,0.1543,0.0537,1595
+B,all,All,d1_amen_nonath,0.0312,0.028,1595
+B,all,All,d1_ath,0.0291,0.0307,1595
+B,pr,Public research,d1_acad_exp,0.306,0.1205,134
+B,pr,Public research,d1_amen_nonath,0.0906,0.0785,134
+B,pr,Public research,d1_ath,-0.0408,0.0924,134
+B,rp,Regional publics,d1_acad_exp,0.0726,0.1157,278
+B,rp,Regional publics,d1_amen_nonath,-0.0519,0.0629,278
+B,rp,Regional publics,d1_ath,-0.0058,0.0944,278
+B,cc,Community colleges,d1_acad_exp,0.0471,0.1028,474
+B,cc,Community colleges,d1_amen_nonath,-0.0071,0.0581,474
+B,cc,Community colleges,d1_ath,0.0339,0.0311,474
+B,xr,Private research,d1_acad_exp,0.2655,0.4023,74
+B,xr,Private research,d1_amen_nonath,-0.7876,0.4877,74
+B,xr,Private research,d1_ath,-0.0286,0.1214,74
+B,xmb,Private master's & bachelor's,d1_acad_exp,0.2537,0.0914,635
+B,xmb,Private master's & bachelor's,d1_amen_nonath,0.0974,0.053,635
+B,xmb,Private master's & bachelor's,d1_ath,0.0658,0.0722,635
+C,all,All,d1_acad_exp,0.0472,0.0586,1911
+C,all,All,d1_nonins,0.1155,0.053,1911
+C,pr,Public research,d1_acad_exp,0.3344,0.1848,135
+C,pr,Public research,d1_nonins,-0.0134,0.3155,135
+C,rp,Regional publics,d1_acad_exp,-0.0836,0.0921,290
+C,rp,Regional publics,d1_nonins,0.2501,0.1363,290
+C,cc,Community colleges,d1_acad_exp,-0.1097,0.0924,718
+C,cc,Community colleges,d1_nonins,0.1136,0.0896,718
+C,xr,Private research,d1_acad_exp,-0.3917,0.2909,75
+C,xr,Private research,d1_nonins,0.019,0.2969,75
+C,xmb,Private master's & bachelor's,d1_acad_exp,0.222,0.1074,693
+C,xmb,Private master's & bachelor's,d1_nonins,0.137,0.1074,693
+D,all,All,d1_acad_exp,0.0925,0.0593,1911
+D,all,All,d1_instsupp_exp,0.0356,0.0359,1911
+D,pr,Public research,d1_acad_exp,0.4217,0.1147,135
+D,pr,Public research,d1_instsupp_exp,-0.1442,0.1036,135
+D,rp,Regional publics,d1_acad_exp,-0.007,0.082,290
+D,rp,Regional publics,d1_instsupp_exp,0.0951,0.0619,290
+D,cc,Community colleges,d1_acad_exp,-0.0748,0.071,718
+D,cc,Community colleges,d1_instsupp_exp,0.0703,0.0536,718
+D,xr,Private research,d1_acad_exp,-0.5537,0.3693,76
+D,xr,Private research,d1_instsupp_exp,0.568,0.4458,76
+D,xmb,Private master's & bachelor's,d1_acad_exp,0.286,0.102,692
+D,xmb,Private master's & bachelor's,d1_instsupp_exp,-0.0441,0.0611,692
+A_athsample,all,All,d1_acad_exp,0.1425,0.0516,1595
+A_athsample,all,All,d1_amen_exp,0.0717,0.0458,1595
+A_athsample,pr,Public research,d1_acad_exp,0.2971,0.1102,134
+A_athsample,pr,Public research,d1_amen_exp,0.0738,0.158,134
+A_athsample,rp,Regional publics,d1_acad_exp,0.0702,0.1113,278
+A_athsample,rp,Regional publics,d1_amen_exp,-0.0581,0.0847,278
+A_athsample,cc,Community colleges,d1_acad_exp,0.0432,0.0992,474
+A_athsample,cc,Community colleges,d1_amen_exp,0.0172,0.0609,474
+A_athsample,xr,Private research,d1_acad_exp,0.2189,0.3617,74
+A_athsample,xr,Private research,d1_amen_exp,-0.7867,0.464,74
+A_athsample,xmb,Private master's & bachelor's,d1_acad_exp,0.1771,0.0865,635
+A_athsample,xmb,Private master's & bachelor's,d1_amen_exp,0.2837,0.1096,635
+E,all,All,d1_ln_enrfacing,0.005,0.0167,1911
+E,pr,Public research,d1_ln_enrfacing,-0.0762,0.0723,135
+E,rp,Regional publics,d1_ln_enrfacing,-0.0734,0.0524,290
+E,cc,Community colleges,d1_ln_enrfacing,0.006,0.0249,718
+E,xr,Private research,d1_ln_enrfacing,-0.1938,0.1354,75
+E,xmb,Private master's & bachelor's,d1_ln_enrfacing,0.0168,0.0235,693

@@ -1,0 +1,13 @@
+sg,sgroup,weights,n,dlog_fte,dlog_fte_excl_dual,dual_masks,dlog_staff,dstaff_per_fte,dstaff_per_fte_excl_dual,de_share_fy2014,de_share_fy2024
+all,All,unweighted,1962,-16.36,-22.75,6.39,-6.01,10.34,16.73,4.18,9.48
+all,All,FY2014 FTE,1962,-10.16,-14.81,4.65,-1.45,8.71,13.37,3.05,7.04
+pr,Public research,unweighted,140,1.18,-0.27,1.45,6.88,5.69,7.15,1.47,2.84
+pr,Public research,FY2014 FTE,140,3.9,2.77,1.13,9.4,5.49,6.63,1.31,2.39
+rp,Regional publics,unweighted,302,-14.66,-17.9,3.24,-3.79,10.87,14.11,2.41,5.32
+rp,Regional publics,FY2014 FTE,302,-10.99,-14.05,3.06,-1.5,9.49,12.55,2.05,4.81
+cc,Community colleges,unweighted,740,-26.85,-40.86,14.01,-13.86,12.99,27.0,7.77,19.18
+cc,Community colleges,FY2014 FTE,740,-27.19,-39.13,11.94,-14.65,12.54,24.48,6.4,16.43
+xr,Private research,unweighted,82,3.61,3.17,0.44,3.34,-0.27,0.17,1.63,2.05
+xr,Private research,FY2014 FTE,82,7.58,7.23,0.35,8.07,0.49,0.84,1.61,1.93
+xmb,Private master's & bachelor's,unweighted,698,-11.82,-13.19,1.37,-2.34,9.48,10.85,1.97,3.2
+xmb,Private master's & bachelor's,FY2014 FTE,698,-11.1,-12.31,1.2,-0.66,10.44,11.64,1.74,2.84

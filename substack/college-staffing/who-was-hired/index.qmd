@@ -1,0 +1,117 @@
+---
+title: "Who was hired"
+subtitle: "Occupation groups since 2015: enrollment-facing staff, coaches and instruction"
+page-layout: full
+execute:
+  echo: false
+---
+
+{{< include ../_nav.qmd >}}
+
+{{< include ../_common.qmd >}}
+
+```{ojs}
+OC = FileAttachment("../data/occupations.csv").csv({typed: true})
+CO = FileAttachment("../data/coaches.csv").csv({typed: true})
+OE = FileAttachment("../data/occ_elasticity.csv").csv({typed: true})
+```
+
+```{ojs}
+//| output: false
+OCCL = ({instr: "Instruction", enrfacing: "Enrollment-facing (sum of the next three)", studaff: "  Student & academic affairs (advising, admissions, student life)", commsport: "  Counseling, arts, sports & media (incl. coaches, marketing)", sales: "  Sales (recruiters, fundraising)", mgmt: "Management", backoffice: "Business, finance, computing & office", amenserv: "Service & health (food, residence life, security, student health)", library: "Library", maint: "Maintenance", allstaff: "All non-medical staff"})
+OCCO = ["allstaff", "instr", "enrfacing", "studaff", "commsport", "sales", "mgmt", "backoffice", "amenserv", "library", "maint"]
+```
+
+```{ojs}
+{
+  const a = OC.filter(d => d.sg === "all"), g = k => a.find(d => d.occ === k);
+  const e = g("enrfacing"), t = g("allstaff");
+  const sh = (e.per1000_fy2024 - e.per1000_fy2015) / (t.per1000_fy2024 - t.per1000_fy2015);
+  const c = CO.find(d => d.sg === "all"), cx = CO.find(d => d.sg === "xmb");
+  return md`<div class="cs-lead">From FY2015 to FY2024, while enrollment at the typical surviving college fell ${f1(-e.dlog_fte)} log points, <b>enrollment-facing staff rose ${f1(e.dlog)}</b>: advisers, admissions and student-life staff, counselors, coaches, marketing and recruiters. They account for about <b>${pct0(sh)}</b> of the rise in staff per 1,000 students. Coaches alone are ${pct0(c.coach_share_of_enrfacing_growth)} of that growth, and ${pct0(cx.coach_share_of_enrfacing_growth)} at private master's and bachelor's colleges.</div>`;
+}
+```
+
+::: {.cs-links}
+Read more: [white paper §8](../paper/index.qmd#sec-8) (hiring to attract students). Substack post: Post 3 (link on publication).
+:::
+
+```{ojs}
+viewof sg = Inputs.select(["all", ...SGROUPS.map(s => s.k)], {format: k => SGL[k], value: param("sg", "all"), label: "Sector group"})
+viewof ov = Inputs.radio(new Map([["Staff per 1,000 students", "lvl"], ["Change in staff (log points)", "chg"]]), {value: param("view", "lvl"), label: "Show"})
+```
+
+```{ojs}
+{
+  setParam("sg", sg === "all" ? null : sg); setParam("view", ov === "lvl" ? null : ov);
+  const r = OC.filter(d => d.sg === sg);
+  const order = OCCO.filter(k => r.some(d => d.occ === k)).map(k => OCCL[k]);
+  const rows = r.map(d => ({...d, l: OCCL[d.occ], ef: ["enrfacing", "studaff", "commsport", "sales"].includes(d.occ)}));
+  const c = SGC[sg];
+  const narrow = width < 640;
+  if (ov === "lvl") {
+    const sub = rows.filter(d => d.occ !== "allstaff");
+    return html`${Plot.plot({
+      width: Math.min(width, 900), height: 40 + sub.length * 34, marginLeft: narrow ? 150 : 380, marginRight: 95,
+      x: {grid: true, label: "FTE staff per 1,000 FTE students"}, y: {domain: order.filter(l => l !== OCCL.allstaff), label: null, tickFormat: l => narrow ? l.trim().split(" (")[0] : l},
+      marks: [Plot.link(sub, {y1: "l", y2: "l", x1: "per1000_fy2015", x2: "per1000_fy2024", stroke: d => d.ef ? c : GRAY, strokeWidth: 3, markerEnd: "arrow"}),
+        Plot.dot(sub, {y: "l", x: "per1000_fy2015", r: 4, fill: "white", stroke: GRAY, strokeWidth: 2}),
+        Plot.text(sub, {y: "l", x: d => Math.max(d.per1000_fy2015, d.per1000_fy2024), text: d => `${f1(d.per1000_fy2015)} → ${f1(d.per1000_fy2024)}`, dx: 8, textAnchor: "start", fontSize: 10, fill: INK}),
+        Plot.tip(sub, Plot.pointerY({y: "l", x: "per1000_fy2024", title: d => `${d.l.trim()}\nper 1,000: ${f1(d.per1000_fy2015)} (FY2015) → ${f1(d.per1000_fy2024)} (FY2024)\nstaff ${s1(d.dlog)} log pts; students ${s1(d.dlog_fte)}\n${d.n} institutions`}))]
+    })}<p class="cs-note">Open circle: FY2015; arrow tip: FY2024. Colored: enrollment-facing groups. ${SGL[sg]}, ${rows[0].n} institutions; all staff ${f1(rows.find(d => d.occ === "allstaff").per1000_fy2015)} → ${f1(rows.find(d => d.occ === "allstaff").per1000_fy2024)} per 1,000.</p>`;
+  }
+  const fte = rows[0].dlog_fte;
+  return html`${Plot.plot({
+    width: Math.min(width, 900), height: 40 + rows.length * 32, marginLeft: narrow ? 150 : 380, marginRight: 95,
+    x: {grid: true, insetLeft: 36, insetRight: 36, label: "Change in FTE staff, FY2015–24 (log points ×100)"}, y: {domain: order, label: null, tickFormat: l => narrow ? l.trim().split(" (")[0] : l},
+    marks: [Plot.ruleX([0], {stroke: INK}), Plot.ruleX([fte], {stroke: BREAKC, strokeDasharray: "4,3"}),
+      Plot.barX(rows, {y: "l", x: "dlog", fill: d => d.ef ? c : d.occ === "allstaff" ? INK : LIGHT, rx: 2}),
+      Plot.text(rows.filter(d => d.dlog < 0), {y: "l", x: "dlog", text: d => s1(d.dlog), dx: -4, textAnchor: "end", fontSize: 10, fill: INK}),
+      Plot.text(rows.filter(d => d.dlog >= 0), {y: "l", x: "dlog", text: d => s1(d.dlog), dx: 4, textAnchor: "start", fontSize: 10, fill: INK}),
+      Plot.text([fte], {x: d => d, frameAnchor: "top", text: d => `students ${s1(d)}`, dy: -4, fill: BREAKC, fontSize: 10})]
+  })}<p class="cs-note">Red dashed line: the change in fall FTE students. A group whose bar lies to the right of the line grew per student.</p>`;
+}
+```
+
+::: {.cs-note}
+**Data.** IPEDS Human Resources occupation codes (the detailed categories exist from fall 2012), non-medical staff, FTE = full-time + one-third of part-time; S11 surviving institutions; FY2015 base, because student-affairs staff (code 270) jump 22–24% in FY2014 as reporting settled; a FY2016 base gives the same split. Mean of institution ratios. FY2024 NCES provisional.
+:::
+
+## Enrollment-facing staff don't track enrollment
+
+```{ojs}
+{
+  const keep = ["instr", "enrfacing", "allstaff"];
+  const r = OE.filter(d => keep.includes(d.occ) && d.sg === "all").map(d => ({...d, l: {instr: "Instruction", enrfacing: "Enrollment-facing", allstaff: "All non-medical staff"}[d.occ], lo: d.iv - 1.96 * d.iv_se, hi: d.iv + 1.96 * d.iv_se}));
+  return html`${Plot.plot({
+    width: Math.min(width, 760), height: 170, marginLeft: 160, marginRight: 60,
+    x: {grid: true, domain: [-0.3, 1.4], label: "Elasticity to fall FTE, gravity instrument (95% interval)"}, y: {domain: ["Instruction", "Enrollment-facing", "All non-medical staff"], label: null},
+    marks: [Plot.ruleX([1], {stroke: BREAKC, strokeDasharray: "4,3"}), Plot.ruleX([0], {stroke: "#bbb"}),
+      Plot.ruleY(r, {y: "l", x1: "lo", x2: "hi", stroke: BLUE, strokeWidth: 3}), Plot.dot(r, {y: "l", x: "iv", r: 6, fill: BLUE, stroke: "white", strokeWidth: 2}),
+      Plot.text(r, {y: "l", x: "hi", text: d => f2(d.iv), dx: 6, textAnchor: "start", fontSize: 11, fill: INK})]
+  })}<p class="cs-note">Pooled across sectors, gravity population instrument (base 2002), FY2015–24. Enrollment-facing staff move about ${f2(r.find(d => d.occ === "enrfacing").iv)} with enrollment, instructional staff ${f2(r.find(d => d.occ === "instr").iv)}. Growth in enrollment-facing staff over FY2015–19 also does not predict first-time enrollment over FY2019–24 (see the payoff table on <a href="../amenities-athletics/index.html#payoff">Amenities and athletics</a>).</p>`;
+}
+```
+
+## Coaches
+
+IPEDS has no code for coaches; they sit inside "counseling, arts, sports and media." Subtracting coach FTE reported to the Equity in Athletics survey shows how much of the enrollment-facing growth is coaching.
+
+```{ojs}
+{
+  const r = CO.map(d => ({...d, l: SGL[d.sg]}));
+  const order = ["all", ...SGROUPS.map(s => s.k)].map(k => SGL[k]);
+  return html`${Plot.plot({
+    width: Math.min(width, 820), height: 60 + order.length * 34, marginLeft: 200, marginRight: 60,
+    x: {domain: [0, 0.7], tickFormat: "%", grid: true, label: "Coaches' share of growth in enrollment-facing staff, FY2015–24"}, y: {domain: order, label: null},
+    marks: [Plot.barX(r, {y: "l", x: "coach_share_of_enrfacing_growth", fill: d => SGC[d.sg], rx: 2}),
+      Plot.text(r, {y: "l", x: "coach_share_of_enrfacing_growth", text: d => pct0(d.coach_share_of_enrfacing_growth), dx: 5, textAnchor: "start", fontSize: 11, fill: INK}),
+      Plot.tip(r, Plot.pointerY({y: "l", x: "coach_share_of_enrfacing_growth", title: d => `${d.l}\nenrollment-facing FTE +${f0(d.d_enrfacing_total)}, of which coaches +${f0(d.d_coach_fte_total)}\nper 1,000 students: +${f1(d.d_enrfacing_per1000)}, coaches +${f1(d.d_coach_fte_per1000)}\n${d.n} institutions`}))]
+  })}<p class="cs-note">Lower bounds on athletics staffing: athletic directors and administrators, trainers and sports-information staff are not counted as coaches. Share of the growth in total enrollment-facing FTE across the group's institutions. Source: IPEDS Human Resources; Equity in Athletics Data Analysis (EADA) coach FTE.</p>`;
+}
+```
+
+```{ojs}
+//| output: false
+1
+```

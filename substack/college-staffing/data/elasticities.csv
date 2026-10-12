@@ -1,0 +1,56 @@
+sg,sgroup,base,outcome,coef,se,fs_F,fe_coef,N,groups
+all,All,b1987,total,0.722,0.101,137.0,,49995,
+all,All,b1987,ftfac,0.867,0.054,137.0,,49995,
+all,All,b1987,nonprof,0.719,0.131,54.9,,49990,
+all,All,b1987,nonfac,0.75,0.13,137.0,,49995,
+all,All,b1987,eamprof,0.244,0.436,54.9,,49990,
+pr,Public research,b1987,total,0.881,0.13,60.7,0.639,3557,151.0
+pr,Public research,b1987,ftfac,0.799,0.112,60.7,0.655,3557,151.0
+pr,Public research,b1987,nonfac,0.84,0.143,60.7,0.597,3557,151.0
+pr,Public research,b1987,nonprof,0.482,0.24,34.9,0.487,3557,151.0
+pr,Public research,b1987,eamprof,0.887,0.154,34.9,0.604,3557,151.0
+pr,Public research,b2002,total,0.989,0.202,16.8,0.563,2274,144.0
+pr,Public research,b2002,ftfac,0.952,0.207,16.8,0.669,2274,144.0
+pr,Public research,b2002,nonfac,0.91,0.312,16.8,0.483,2274,144.0
+pr,Public research,b2002,nonprof,0.721,0.472,5.3,0.5,2274,144.0
+pr,Public research,b2002,eamprof,0.713,0.324,5.3,0.416,2274,144.0
+rp,Regional publics,b1987,total,0.704,0.099,91.6,0.647,7352,300.0
+rp,Regional publics,b1987,ftfac,0.813,0.117,91.6,0.732,7352,300.0
+rp,Regional publics,b1987,nonfac,0.706,0.102,91.6,0.559,7352,300.0
+rp,Regional publics,b1987,nonprof,0.567,0.186,30.9,0.51,7351,300.0
+rp,Regional publics,b1987,eamprof,0.437,0.168,30.9,0.481,7351,300.0
+rp,Regional publics,b2002,total,0.672,0.101,19.6,0.608,4695,296.0
+rp,Regional publics,b2002,ftfac,0.838,0.133,19.6,0.575,4695,296.0
+rp,Regional publics,b2002,nonfac,0.747,0.166,19.6,0.511,4695,296.0
+rp,Regional publics,b2002,nonprof,0.357,0.247,8.0,0.413,4694,296.0
+rp,Regional publics,b2002,eamprof,0.531,0.23,8.0,0.445,4694,296.0
+cc,Community colleges,b1987,total,0.653,0.138,56.3,0.624,18018,755.0
+cc,Community colleges,b1987,ftfac,0.921,0.099,56.3,0.556,18018,755.0
+cc,Community colleges,b1987,nonfac,0.7,0.198,56.3,0.575,18018,755.0
+cc,Community colleges,b1987,nonprof,0.893,0.205,22.7,0.609,18018,755.0
+cc,Community colleges,b1987,eamprof,-0.256,0.839,22.7,0.426,18018,755.0
+cc,Community colleges,b2002,total,0.661,0.118,33.0,0.499,11613,736.0
+cc,Community colleges,b2002,ftfac,0.668,0.079,33.0,0.402,11613,736.0
+cc,Community colleges,b2002,nonfac,0.773,0.187,33.0,0.391,11613,736.0
+cc,Community colleges,b2002,nonprof,0.541,0.198,12.5,0.322,11608,736.0
+cc,Community colleges,b2002,eamprof,0.861,0.198,12.5,0.416,11608,736.0
+xr,Private research,b1987,total,1.806,0.4,13.9,0.774,2131,93.0
+xr,Private research,b1987,ftfac,1.098,0.34,13.9,0.721,2131,93.0
+xr,Private research,b1987,nonfac,2.092,0.481,13.9,0.719,2131,93.0
+xr,Private research,b1987,nonprof,1.442,0.313,22.6,0.77,2131,93.0
+xr,Private research,b1987,eamprof,1.182,0.386,22.6,0.654,2131,93.0
+xr,Private research,b2002,total,1.249,0.346,7.0,0.654,1359,89.0
+xr,Private research,b2002,ftfac,0.46,0.276,7.0,0.611,1359,89.0
+xr,Private research,b2002,nonfac,1.268,0.398,7.0,0.623,1359,89.0
+xr,Private research,b2002,nonprof,0.934,0.334,13.0,0.699,1359,89.0
+xr,Private research,b2002,eamprof,0.784,0.394,13.0,0.72,1359,89.0
+xmb,Private master's & bachelor's,b1987,total,0.851,0.224,10.9,0.693,18937,791.0
+xmb,Private master's & bachelor's,b1987,ftfac,0.76,0.208,10.9,0.551,18937,791.0
+xmb,Private master's & bachelor's,b1987,nonfac,0.877,0.195,10.9,0.586,18937,791.0
+xmb,Private master's & bachelor's,b1987,nonprof,0.328,0.302,11.3,0.529,18933,791.0
+xmb,Private master's & bachelor's,b1987,eamprof,1.237,0.449,11.3,0.488,18933,791.0
+xmb,Private master's & bachelor's,b2002,total,0.943,0.349,4.3,0.626,12010,781.0
+xmb,Private master's & bachelor's,b2002,ftfac,0.434,0.275,4.3,0.499,12010,781.0
+xmb,Private master's & bachelor's,b2002,nonfac,0.893,0.338,4.3,0.512,12010,781.0
+xmb,Private master's & bachelor's,b2002,nonprof,0.551,0.888,1.8,0.511,12001,781.0
+xmb,Private master's & bachelor's,b2002,eamprof,1.641,1.155,1.8,0.457,12001,781.0
