@@ -16,7 +16,7 @@ BANDS = FileAttachment("../data/bands.csv").csv({typed: true})
 ```
 
 ::: {.cs-lead}
-Search for a college to see its staff per 1,000 students, enrollment and spending per student, year by year, against the **middle half of its sector** (the 25th to 75th percentile of every college in the sector reporting that year). The cards give its own FY2013–24 decomposition: how much of any change in staff per student came from staff and how much from students.
+Search for a college to see its faculty and non-faculty staff per 1,000 students, enrollment and spending per student, year by year, against the **middle half of its sector** (the 25th to 75th percentile of every college in the sector reporting that year). The cards give its own FY2013–24 decomposition: how much of any change in staff per student came from staff and how much from students.
 :::
 
 ::: {.cs-links}
@@ -31,9 +31,9 @@ viewof q = Inputs.search(IDX.filter(d => (secF === "all" || d.sec === secF) && (
 
 ```{ojs}
 viewof pick = Inputs.table(q, {
-  columns: ["label", "st", "sec", "fte24", "d_staff", "d_fte", "d_ratio"],
-  header: {label: "Institution", st: "State", sec: "Sector", fte24: "Fall FTE FY2024", d_staff: "Staff FY13→24", d_fte: "FTE FY13→24", d_ratio: "Staff per student FY13→24"},
-  format: {sec: k => SECL[k], fte24: f0, d_staff: s1, d_fte: s1, d_ratio: s1},
+  columns: ["label", "st", "sec", "fte24", "d_fte", "d_facfte_r", "d_nonfacfte_r"],
+  header: {label: "Institution", st: "State", sec: "Sector", fte24: "Fall FTE FY2024", d_fte: "FTE FY13→24", d_facfte_r: "Faculty FTE per student FY13→24", d_nonfacfte_r: "Non-faculty FTE per student FY13→24"},
+  format: {sec: k => SECL[k], fte24: f0, d_fte: s1, d_facfte_r: s1, d_nonfacfte_r: s1},
   width: {label: 300}, layout: "auto",
   sort: "fte24", reverse: true, rows: 8, multiple: false,
   value: q.find(d => String(d.id) === param("id", "243780")) ?? d3.greatest(q, d => d.fte24 ?? 0)
@@ -57,37 +57,42 @@ band = (m) => pick ? BANDS.filter(d => d.sec === pick.sec && d.m === m) : []
   return md`### ${pick.label}
 <p class="cs-note">${SECL[pick.sec]}, ${STNAME[pick.st] ?? pick.st}${pick.peer === "flag" ? " · state flagship" : pick.peer === "reg" ? " · regional public" : pick.peer === "small" ? " · small private (<2,000 FTE in FY2012)" : ""}. ${set}${sys} ${amc}</p>
 <div class="cs-kpis">
-<div class="cs-kpi"><div class="v">${s1(pick.d_ratio)}</div><div class="l">change in staff per student, FY2013→24 (log points ≈ %)</div></div>
-<div class="cs-kpi"><div class="v">${s1(pick.d_staff)}</div><div class="l">change in staff (total headcount)</div></div>
+<div class="cs-kpi"><div class="v">${s1(pick.d_facfte_r)} / ${s1(pick.d_nonfacfte_r)}</div><div class="l">change in faculty FTE / non-faculty FTE per student, FY2013→24 (log points ≈ %)</div></div>
+<div class="cs-kpi"><div class="v">${s1(pick.d_facfte)} / ${s1(pick.d_nonfacfte)}</div><div class="l">change in faculty FTE / non-faculty FTE (staff alone)</div></div>
 <div class="cs-kpi"><div class="v">${s1(pick.d_fte)}</div><div class="l">change in fall FTE students (${f0(pick.fte13)} → ${f0(pick.fte24)})</div></div>
 <div class="cs-kpi"><div class="v">${s1(pick.d_oncampus)}</div><div class="l">change in on-campus FTE (excluding exclusively online students)</div></div>
-</div>`;
+</div>
+<p class="cs-note">For comparison, all employees by headcount (v1 measure): staff ${s1(pick.d_staff)}, staff per student ${s1(pick.d_ratio)}.</p>`;
 }
 ```
 
 ```{ojs}
-viewof im = Inputs.select(new Map([["All employees (headcount)", "tot"], ["Full-time faculty", "ftf"], ["Part-time faculty", "ptf"], ["Non-faculty staff", "nfc"], ["EAM", "eam"], ["Professional staff", "pro"], ["Nonprofessional staff", "npr"], ["EAM + professional", "ep"]]), {value: param("m", "tot"), label: "Staff category"})
+viewof im = measSelect(IMEAS.map(d => d.k), {value: param("m", "pair"), label: "Staff measure", L: IMEASL})
 ```
 
 ```{ojs}
 //| output: false
-IBRK = new Set(["eam", "pro", "npr", "ep"])
 bandChart = (m, {w, h = 280, title, fmt = f0, ylab, era: useEra = false}) => {
-  const me = I.filter(d => d[m] != null && isFinite(d[m])).map(d => ({...d, v: d[m], e: useEra ? era(d.fy) : "a"}));
-  const b = band(m).map(d => ({...d, e: useEra ? era(d.fy) : "a"}));
+  // m may be one column or an array (the faculty / non-faculty pair: solid / dashed, each with its sector band)
+  const ms = Array.isArray(m) ? m : [m];
+  const me = ms.flatMap(c => I.filter(d => d[c] != null && isFinite(d[c])).map(d => ({...d, c, v: d[c], e: c + (useEra || IBRK.has(c) ? era(d.fy) : "a")})));
+  const b = ms.flatMap(c => band(c).map(d => ({...d, c, e: c + (useEra || IBRK.has(c) ? era(d.fy) : "a")})));
   if (!me.length) return html`<div style="width:${w}px"><h4 style="font-size:1rem;margin:.3rem 0">${title}</h4><p class="cs-note">No data reported for this institution.</p></div>`;
+  const brk = useEra || ms.some(c => IBRK.has(c));
   const x0 = d3.min(me, d => d.fy) - 1;
   const bb = b.filter(d => d.fy >= x0);
+  const dash = c => ms.length > 1 && c === "nfte" ? "5,3" : null;
   return Plot.plot({
-    width: w, height: h, marginLeft: 52, marginTop: 28, title,
+    width: w, height: h, marginLeft: 52, marginTop: 28, marginRight: ms.length > 1 ? 70 : 20, title,
     x: {...yearAxis, domain: [x0, 2026]}, y: {grid: true, label: ylab, tickFormat: fmt === usd ? "$,.0f" : null},
     marks: [
-      useEra ? Plot.ruleX([2012.5], {stroke: BREAKC, strokeDasharray: "4,3"}) : null,
+      brk ? Plot.ruleX([2012.5], {stroke: BREAKC, strokeDasharray: "4,3"}) : null,
       Plot.areaY(bb, {x: "fy", y1: "p25", y2: "p75", z: "e", fill: SECC[pick.sec], fillOpacity: 0.15}),
-      Plot.lineY(bb, {x: "fy", y: "p50", z: "e", stroke: SECC[pick.sec], strokeDasharray: "4,3", strokeWidth: 1.3}),
-      Plot.lineY(me, {x: "fy", y: "v", z: "e", stroke: INK, strokeWidth: 2.2}),
+      Plot.lineY(bb, {x: "fy", y: "p50", z: "e", stroke: SECC[pick.sec], strokeDasharray: "2,3", strokeWidth: 1.1}),
+      ...ms.map(c => Plot.lineY(me.filter(d => d.c === c), {x: "fy", y: "v", z: "e", stroke: INK, strokeWidth: 2.2, strokeDasharray: dash(c)})),
       Plot.dot(me, {x: "fy", y: "v", r: 2.5, fill: INK}),
-      Plot.tip(me, Plot.pointerX({x: "fy", y: "v", title: d => { const s = b.find(x => x.fy === d.fy); return `FY${d.fy}: ${fmt(d.v)}${s ? `\nsector median ${fmt(s.p50)} (middle half ${fmt(s.p25)}–${fmt(s.p75)})` : ""}`; }}))
+      ms.length > 1 ? Plot.text(ms.map(c => me.filter(d => d.c === c).at(-1)).filter(Boolean), {x: "fy", y: "v", text: d => d.c === "ffte" ? "Faculty" : "Non-faculty", dx: 6, textAnchor: "start", fontSize: 10, fill: INK}) : null,
+      Plot.tip(me, Plot.pointer({x: "fy", y: "v", title: d => { const s = b.find(x => x.fy === d.fy && x.c === d.c); return `${ms.length > 1 ? IMEASL[d.c] + "\n" : ""}FY${d.fy}: ${fmt(d.v)}${s ? `\nsector median ${fmt(s.p50)} (middle half ${fmt(s.p25)}–${fmt(s.p75)})` : ""}`; }}))
     ]
   });
 }
@@ -96,7 +101,7 @@ bandChart = (m, {w, h = 280, title, fmt = f0, ylab, era: useEra = false}) => {
 <div class="cs-two">
 
 ```{ojs}
-pick ? bandChart(im, {w: half(width), title: `${new Map([["tot","All employees"],["ftf","Full-time faculty"],["ptf","Part-time faculty"],["nfc","Non-faculty staff"],["eam","EAM"],["pro","Professional staff"],["npr","Nonprofessional staff"],["ep","EAM + professional"]]).get(im)} per 1,000 FTE students`, fmt: f1, ylab: null, era: IBRK.has(im)}) : html``
+pick ? bandChart(im === "pair" ? IPAIR : im, {w: half(width), title: im === "pair" ? "Faculty FTE (solid) and non-faculty FTE (dashed) per 1,000 FTE students" : im === "pts" ? "Part-time share of faculty headcount (%)" : `${IMEASL[im]} per 1,000 FTE students`, fmt: f1, ylab: null}) : html``
 ```
 
 ```{ojs}
@@ -106,7 +111,7 @@ pick ? bandChart("fte", {w: half(width), title: "Fall FTE students", fmt: f0, yl
 </div>
 
 ::: {.cs-note}
-Black line: this institution. Shaded band: middle half of its sector; dashed line: sector median (all institutions in the sector reporting that year, not only surviving ones). Red dashed line: the 2012–13 IPEDS staff-survey redesign; EAM, professional and nonprofessional staff are not comparable across it and are drawn as separate segments.
+Black line: this institution (in the default view, faculty FTE solid and non-faculty FTE dashed). Shaded band: middle half of its sector; dotted line: sector median (all institutions in the sector reporting that year, not only surviving ones). FTE staff = full-time + one-third of part-time; faculty excludes graduate assistants, shown as their own measure. Red dashed line: the FY2012|FY2013 IPEDS staff-survey redesign. Part-time faculty, graduate assistants and the part-time share are spliced there, EAM, professional and nonprofessional staff were reclassified, and the v1 headcounts contain the spliced series, so those measures are drawn as separate segments. Faculty FTE, non-faculty FTE and full-time faculty are continuous at the median institution; community-college non-faculty FTE steps up about 1 log point (part-time staff) in FY2013.
 :::
 
 ### Spending per student
@@ -141,10 +146,10 @@ pick ? bandChart("ath", {w: half(width), title: "Athletics spending per FTE stud
 ```
 
 ::: {.cs-note}
-**Data.** Staff: IPEDS Human Resources (FY *t* = fall *t*−1); students: fall FTE enrollment. Institutions are Delta Cost extension groups: campuses that merged, or that a Delta Cost-era system reported together, are one unit for every year. Spending: IPEDS Finance by function, real 2024 dollars (CPI-U fiscal year), hospital expenses excluded, FY2004 onward (even years before FY2012). Athletics: Equity in Athletics (EADA) total athletic expense, FY2007–2024. FY2024–25 IPEDS values are NCES provisional. Staff per student changes are in log points ×100 (about percent for small changes).
+**Data.** Staff: IPEDS Human Resources (FY *t* = fall *t*−1); students: fall FTE enrollment. Institutions are Delta Cost extension groups: campuses that merged, or that a Delta Cost-era system reported together, are one unit for every year. Spending: IPEDS Finance by function, real 2024 dollars (CPI-U fiscal year), hospital expenses excluded, FY2004 onward (even years before FY2012). Athletics: Equity in Athletics (EADA) total athletic expense, FY2007–2024. FY2024–25 IPEDS values are NCES provisional. Staff per student changes are in log points ×100 (about percent for small changes), FY2013→24 so that every change lies within the redesigned staff survey.
 :::
 
 ```{ojs}
 //| output: false
-{ syncI; setParam("m", im === "tot" ? null : im); setParam("f", fm === "ins" ? null : fm); return 1; }
+{ syncI; setParam("m", im === "pair" ? null : im); setParam("f", fm === "ins" ? null : fm); return 1; }
 ```

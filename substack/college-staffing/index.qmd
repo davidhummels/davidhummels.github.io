@@ -26,7 +26,7 @@ In 2014 the Delta Cost Project's brief *Labor Intensive or Labor Expensive?* fou
 ## Interactive tools
 
 - [Overview](overview/index.qmd): the headline numbers by sector, and a guide to the tools.
-- [Sector trends](sector-trends/index.qmd): staff per 1,000 students by category, fiscal 1988 to 2025, with the replication of the 2014 brief.
+- [Sector trends](sector-trends/index.qmd): faculty FTE, non-faculty FTE and other staff measures per 1,000 students, fiscal 1988 to 2025, with the replication of the 2014 brief.
 - [Institution explorer](institution-explorer/index.qmd): any college's staffing, enrollment, spending by function and athletics against its sector.
 - [Enrollment](enrollment/index.qmd): enrollment by sector and peer group, how much of the rise in staff per student is the denominator, online and dual enrollment.
 - [State explorer](state-explorer/index.qmd): a state map of enrollment change, staffing and dual enrollment.

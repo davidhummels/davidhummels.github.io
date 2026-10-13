@@ -65,3 +65,15 @@ xmb,Private master's & bachelor's,backoffice,1.087,1.327,0.4,0.465,0.03,7431
 xmb,Private master's & bachelor's,library,-1.179,2.886,0.4,0.249,0.045,7431
 xmb,Private master's & bachelor's,maint,-2.414,5.212,0.4,0.328,0.058,7431
 xmb,Private master's & bachelor's,allstaff,1.09,1.344,0.4,0.507,0.016,7431
+all,All,noninstr,0.467,0.129,13.5,0.419,0.017,19922
+all,All,instr_ft,0.392,0.12,13.5,0.424,0.024,19922
+pr,Public research,noninstr,0.787,0.226,5.6,0.551,0.041,1431
+pr,Public research,instr_ft,0.633,0.23,5.6,0.6,0.051,1431
+rp,Regional publics,noninstr,0.374,0.191,10.1,0.437,0.038,2938
+rp,Regional publics,instr_ft,0.461,0.194,10.1,0.5,0.044,2938
+cc,Community colleges,noninstr,0.379,0.154,14.8,0.325,0.028,7273
+cc,Community colleges,instr_ft,0.367,0.134,14.8,0.323,0.031,7273
+xr,Private research,noninstr,1.021,0.241,14.8,0.598,0.085,849
+xr,Private research,instr_ft,0.447,0.17,14.8,0.548,0.084,849
+xmb,Private master's & bachelor's,noninstr,1.217,1.662,0.4,0.452,0.023,7431
+xmb,Private master's & bachelor's,instr_ft,0.102,1.266,0.4,0.451,0.041,7431

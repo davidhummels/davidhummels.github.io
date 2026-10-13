@@ -21,10 +21,11 @@ DD = FileAttachment("../data/dual_decline.csv").csv({typed: true})
 
 ```{ojs}
 {
-  const h = DE.find(d => d.grouping === "all" && d.ver === "b" && d.measure === "total");
+  const hf = DE.find(d => d.grouping === "all" && d.ver === "b" && d.measure === "facfte");
+  const hn = DE.find(d => d.grouping === "all" && d.ver === "b" && d.measure === "nonfacfte");
   const pc = k => FC.find(d => d.sec === k);
   const reg = FI.filter(d => d.key === "reg"), r12 = reg.find(d => d.fy === 2012), r24 = reg.find(d => d.fy === 2024);
-  return md`<div class="cs-lead">From FY2013 to FY2024 staff per student rose <b>${f1(h.u_ratio)}</b> log points at the typical surviving college, but staff themselves <b>fell ${f1(-h.u_staff)}</b>. The rise came from students: fall FTE fell ${f1(-h.u_den)}. Community colleges lost ${f0(-pc("cc").pct_s24_12_24)}% of their FTE students from FY2012 to FY2024 and regional publics ${f0(100 * (1 - r24.total_fte / r12.total_fte))}%; ${pct0(pc("cc").share_shrank)} of community colleges shrank.</div>`;
+  return md`<div class="cs-lead">From FY2013 to FY2024 faculty FTE per student rose <b>${f1(hf.u_ratio)}</b> log points at the typical surviving college and non-faculty FTE per student <b>${f1(hn.u_ratio)}</b>, but staff themselves <b>fell</b>: faculty FTE ${f1(hf.u_staff)}, non-faculty FTE ${f1(hn.u_staff)}. The rise came from students: fall FTE fell ${f1(-hf.u_den)}. Community colleges lost ${f0(-pc("cc").pct_s24_12_24)}% of their FTE students from FY2012 to FY2024 and regional publics ${f0(100 * (1 - r24.total_fte / r12.total_fte))}%; ${pct0(pc("cc").share_shrank)} of community colleges shrank.</div>`;
 }
 ```
 
@@ -82,46 +83,60 @@ Fall FTE students (full-time plus part-time converted with the NCES Digest part-
 
 ## Staff or students? Decomposing the rise in staff per student
 
-The change in staff per student is the change in staff minus the change in students (in log points, about percent). Bars to the right of zero raise staff per student; a falling enrollment bar (the denominator) raises it too.
+The change in staff per student is the change in staff minus the change in students (in log points, about percent). Bars to the right of zero raise staff per student; a falling enrollment bar (the denominator) raises it too. The default shows faculty FTE and non-faculty FTE side by side (full-time + one-third of part-time; faculty excludes graduate assistants). The denominator is the same for every staff measure.
 
 {{< include ../_toggles.qmd >}}
 
 ```{ojs}
 viewof by = Inputs.select(new Map([["All institutions", "all"], ["Sector", "sector"], ["Enrollment-growth third (within sector)", "third"], ["Enrollment rose or fell", "rosefell"], ["Peer group", "peer"], ["Online enrollment rose or fell", "online"]]), {value: param("by", "sector"), label: "Group by"})
 viewof ver = Inputs.select(new Map([["Total FTE, FY2013–24 (headline)", "b"], ["On-campus FTE only, FY2013–24", "c"], ["Total FTE, FY2012–24 (continuous categories only)", "a"]]), {value: param("v", "b"), label: "Students"})
-viewof dm = Inputs.select(MEAS.map(d => d.k), {format: k => MEASL[k], value: param("dm", "total"), label: "Staff"})
+DMK = ["pair", ...MEAS.map(d => d.k).filter(k => k !== "pair" && DE.some(d => d.measure === k))]
+viewof dm = measSelect(DMK, {value: param("dm", "pair"), label: "Staff"})
+```
+
+```{ojs}
+//| output: false
+DMS = dm === "pair" ? PAIR : [dm]
+// FY2012–24 window only for measures with no part-time faculty or GAs (same rule as faculty FTE)
+VERA = new Set(["nonfacfte", "ftfac"])
+DML = k => dm === "pair" ? PAIRL[k] : "Staff"
 ```
 
 ```{ojs}
 {
-  setParam("by", by === "sector" ? null : by); setParam("v", ver === "b" ? null : ver); setParam("dm", dm === "total" ? null : dm);
+  setParam("by", by === "sector" ? null : by); setParam("v", ver === "b" ? null : ver); setParam("dm", dm === "pair" ? null : dm);
   const p = wt === "w" ? "w" : "u";
-  const rows = DE.filter(d => d.grouping === by && d.ver === ver && d.measure === dm);
-  if (!rows.length) return md`*No FY2012–24 decomposition for this category: it is not comparable across the 2012–13 HR redesign. Choose FY2013–24.*`;
-  const order = by === "sector" ? SECTORS.map(s => s.l).filter(l => rows.some(r => r.group === l)) : rows.map(d => d.group);
-  const COMP = ["Staff", "Students (denominator)", "Staff per student"];
-  const long = rows.flatMap(d => [
-    {g: d.group, c: "Staff", v: d[`${p}_staff`]}, {g: d.group, c: "Students (denominator)", v: d[`${p}_den`]}, {g: d.group, c: "Staff per student", v: d[`${p}_ratio`]}].map(x => ({...x, n: d.n, a: d[`${p}aa`], b: d[`${p}ab`], w: d.window})));
+  const rows = DE.filter(d => d.grouping === by && d.ver === ver && DMS.includes(d.measure));
+  if (!rows.length || (ver === "a" && DMS.some(m => !VERA.has(m) || !rows.some(r => r.measure === m)))) return md`*No FY2012–24 decomposition for this measure: it is not comparable across the 2012–13 HR redesign (it contains part-time faculty or graduate assistants, which are spliced there, or executive, professional and nonprofessional staff, which were reclassified). Choose FY2013–24.*`;
+  const groups = [...new Set(rows.map(d => d.group))];
+  const order = by === "sector" ? SECTORS.map(s => s.l).filter(l => groups.includes(l)) : groups;
+  const COMP = [...DMS.map(m => `${DML(m)}`), "Students (denominator)", ...DMS.map(m => `${DML(m)} per student`)];
+  const CC = dm === "pair" ? [LIGHT, "#f2c18d", GRAY, BLUE, "#c8701e"] : [LIGHT, GRAY, BLUE];
+  const long = order.flatMap(g => {
+    const rr = DMS.map(m => rows.find(d => d.group === g && d.measure === m)).filter(Boolean);
+    if (!rr.length) return [];
+    return [...rr.map(d => ({g, c: DML(d.measure), v: d[`${p}_staff`], d})), {g, c: "Students (denominator)", v: rr[0][`${p}_den`], d: rr[0]}, ...rr.map(d => ({g, c: `${DML(d.measure)} per student`, v: d[`${p}_ratio`], d}))];
+  }).map(x => ({...x, n: x.d.n, a: x.d[`${p}aa`], b: x.d[`${p}ab`], m: x.d.measure}));
   const narrow = width < 640;
   return html`${Plot.plot({
-    width: Math.min(width, 900), height: 50 + order.length * 66, marginLeft: narrow ? 110 : 210, marginRight: 50,
+    width: Math.min(width, 900), height: 50 + order.length * (dm === "pair" ? 100 : 66), marginLeft: narrow ? 110 : 210, marginRight: 50,
     x: {grid: true, insetLeft: 36, insetRight: 36, label: `Log points ×100, ${rows[0].window.replace("FY2013-FY2024", "FY2013–24").replace("FY2012-FY2024", "FY2012–24")} (${wlab})`},
     y: {domain: COMP, axis: null}, fy: {domain: order, label: null},
-    color: {domain: COMP, range: [LIGHT, GRAY, BLUE], legend: true},
+    color: {domain: COMP, range: CC, legend: true},
     marks: [Plot.ruleX([0], {stroke: INK}),
       Plot.barX(long, {fy: "g", y: "c", x: "v", fill: "c", inset: 1}),
       Plot.text(long.filter(d => d.v < 0), {fy: "g", y: "c", x: "v", text: d => s1(d.v), dx: -4, textAnchor: "end", fontSize: 10, fill: INK}),
       Plot.text(long.filter(d => d.v >= 0), {fy: "g", y: "c", x: "v", text: d => s1(d.v), dx: 4, textAnchor: "start", fontSize: 10, fill: INK}),
-      Plot.tip(long, Plot.pointerY({fy: "g", y: "c", x: "v", title: d => `${d.g}: ${d.c} ${s1(d.v)}\nstaff per 1,000: ${f1(d.a)} → ${f1(d.b)}\n${d.n} institutions`}))]
+      Plot.tip(long, Plot.pointerY({fy: "g", y: "c", x: "v", title: d => `${d.g}: ${d.c} ${s1(d.v)}\n${MEASL[d.m]} per 1,000: ${f1(d.a)} → ${f1(d.b)}\n${d.n} institutions`}))]
   })}
-  <div class="cs-scroll"><table class="cs-sectab"><thead><tr><th>Group</th><th>n</th><th>Per 1,000, start</th><th>Per 1,000, FY2024</th><th>Staff</th><th>Students</th><th>Staff per student</th></tr></thead><tbody>
-  ${order.map(g => { const d = rows.find(r => r.group === g); return html`<tr><td>${g}</td><td>${d.n}</td><td>${f1(d[`${p}aa`])}</td><td>${f1(d[`${p}ab`])}</td><td>${s1(d[`${p}_staff`])}</td><td>${s1(d[`${p}_den`])}</td><td><b>${s1(d[`${p}_ratio`])}</b></td></tr>`; })}
-  </tbody></table></div>`;
+  <div class="cs-scroll"><table class="cs-sectab"><thead><tr><th>Group</th>${dm === "pair" ? html`<th>Measure</th>` : ""}<th>n</th><th>Per 1,000, start</th><th>Per 1,000, FY2024</th><th>Staff</th><th>Students</th><th>Staff per student</th></tr></thead><tbody>
+  ${order.flatMap(g => DMS.map(m => { const d = rows.find(r => r.group === g && r.measure === m); return d ? html`<tr><td>${g}</td>${dm === "pair" ? html`<td>${PAIRL[m]}</td>` : ""}<td>${d.n}</td><td>${f1(d[`${p}aa`])}</td><td>${f1(d[`${p}ab`])}</td><td>${s1(d[`${p}_staff`])}</td><td>${s1(d[`${p}_den`])}</td><td><b>${s1(d[`${p}_ratio`])}</b></td></tr>` : ""; }))}
+  </tbody></table></div>${dm === "ga" ? html`<p class="cs-note">Graduate assistants: research sectors only; small n.</p>` : ""}`;
 }
 ```
 
 ::: {.cs-note}
-S11 surviving set (2,038 institutions). Unweighted: means of institution log changes, so the identity holds exactly for the typical institution. Weighted: log changes of group totals. On-campus FTE removes students enrolled exclusively online (IPEDS distance-education counts), so it shows staff per student actually on campus. Growth thirds are formed within each sector on FY2012–24 FTE change. The FY2012–24 version is the earlier (item 10) window; it can't be used for EAM, professional or nonprofessional staff because of the HR redesign. FY2024 NCES provisional.
+S11 surviving set (2,038 institutions). Unweighted: means of institution log changes, so the identity holds exactly for the typical institution. Weighted: log changes of group totals. On-campus FTE removes students enrolled exclusively online (IPEDS distance-education counts), so it shows staff per student actually on campus. Growth thirds are formed within each sector on FY2012–24 FTE change. The FY2012–24 version is the earlier (item 10) window; it is shown only for measures that contain no part-time faculty or graduate assistants and are continuous across the 2012–13 HR redesign (non-faculty FTE and full-time faculty), not for faculty FTE, all FTE excluding graduate assistants, v1 FTE staff, part-time faculty, graduate assistants, the v1 headcounts or executive, professional and nonprofessional staff, all of which contain part-time faculty spliced at the redesign or were reclassified there. At community colleges non-faculty FTE also steps up about 1 log point (part-time staff) at the redesign, so use FY2013–24 there. FY2024 NCES provisional.
 :::
 
 ## Online students
@@ -155,23 +170,26 @@ viewof onw = Inputs.radio(new Map([["Typical institution", "unw"], ["All student
 ```{ojs}
 {
   const p = wt === "w" ? "w" : "u";
-  const rows = SECTORS.map(s => {
-    const b = DE.find(d => d.grouping === "sector" && d.group === s.l && d.ver === "b" && d.measure === "total");
-    const c = DE.find(d => d.grouping === "sector" && d.group === s.l && d.ver === "c" && d.measure === "total");
-    return [{l: s.l, k: "All students", v: b[`${p}_ratio`]}, {l: s.l, k: "On-campus students", v: c[`${p}_ratio`]}];
-  }).flat();
+  const K2 = DMS.flatMap(m => [`${DML(m)}, all students`, `${DML(m)}, on-campus students`]);
+  const rows = SECTORS.flatMap(s => DMS.flatMap(m => {
+    const b = DE.find(d => d.grouping === "sector" && d.group === s.l && d.ver === "b" && d.measure === m);
+    const c = DE.find(d => d.grouping === "sector" && d.group === s.l && d.ver === "c" && d.measure === m);
+    return [b ? {l: s.l, k: K2[DMS.indexOf(m) * 2], v: b[`${p}_ratio`]} : null, c ? {l: s.l, k: K2[DMS.indexOf(m) * 2 + 1], v: c[`${p}_ratio`]} : null].filter(Boolean);
+  }));
+  if (!rows.length) return html`<p class="cs-note">No on-campus decomposition for this measure.</p>`;
   return Plot.plot({
-    width: Math.min(width, 820), height: 360, marginLeft: 140, marginRight: 50, title: "Rise in staff per student, FY2013–24: all students vs on-campus students",
-    x: {grid: true, label: `Log points ×100 (${wlab})`}, y: {domain: ["All students", "On-campus students"], axis: null}, fy: {domain: SECTORS.map(s => s.l), label: null},
-    color: {domain: ["All students", "On-campus students"], range: [BLUE, LIGHT], legend: true},
+    width: Math.min(width, 820), height: 60 + SECTORS.length * K2.length * 14, marginLeft: 140, marginRight: 50, title: `Rise in ${dm === "pair" ? "faculty FTE and non-faculty FTE" : MEASL[dm].toLowerCase()} per student, FY2013–24: all students vs on-campus students`,
+    x: {grid: true, insetLeft: 30, label: `Log points ×100 (${wlab})`}, y: {domain: K2, axis: null}, fy: {domain: SECTORS.map(s => s.l), label: null},
+    color: {domain: K2, range: dm === "pair" ? [BLUE, LIGHT, "#c8701e", "#f2c18d"] : [BLUE, LIGHT], legend: true},
     marks: [Plot.ruleX([0]), Plot.barX(rows, {fy: "l", y: "k", x: "v", fill: "k", inset: 1}),
-      Plot.text(rows, {fy: "l", y: "k", x: "v", text: d => s1(d.v), dx: 4, textAnchor: "start", fontSize: 10, fill: INK})]
+      Plot.text(rows.filter(d => d.v >= 0), {fy: "l", y: "k", x: "v", text: d => s1(d.v), dx: 4, textAnchor: "start", fontSize: 10, fill: INK}),
+      Plot.text(rows.filter(d => d.v < 0), {fy: "l", y: "k", x: "v", text: d => s1(d.v), dx: -4, textAnchor: "end", fontSize: 10, fill: INK})]
   });
 }
 ```
 
 ::: {.cs-note}
-Exclusively online students as a share of fall headcount, S24 set. Falls 2020–21 (shaded, FY2021–22) are distorted by COVID; FY2025 is NCES provisional. Counting only on-campus students more than doubles the rise in staff per student: online growth offset about half of the fall in on-campus enrollment.
+Exclusively online students as a share of fall headcount, S24 set. Falls 2020–21 (shaded, FY2021–22) are distorted by COVID; FY2025 is NCES provisional. Counting only on-campus students more than doubles the rise in staff per student for every staff measure (faculty FTE and non-faculty FTE alike; the staff measure on this chart follows the "Staff" choice above): online growth offset about half of the fall in on-campus enrollment.
 :::
 
 ## Dual enrollment
@@ -195,7 +213,7 @@ High-school students taking college courses are counted as college enrollment. T
 
 ```{ojs}
 {
-  const rows = DD.filter(d => d.weights === "unweighted" && d.sg !== "all").flatMap(d => [
+  const rows = DD.filter(d => d.weights === "unweighted" && d.sg !== "all" && d.measure === "total").flatMap(d => [
     {l: SGL[d.sg], k: "Including dual enrollment", v: d.dlog_fte}, {l: SGL[d.sg], k: "Excluding dual enrollment", v: d.dlog_fte_excl_dual}]);
   return Plot.plot({
     width: half(width), height: 320, marginLeft: 190, marginRight: 50, title: "Change in fall FTE, FY2014–24 (log points)",
@@ -209,6 +227,18 @@ High-school students taking college courses are counted as college enrollment. T
 ```
 
 </div>
+
+```{ojs}
+{
+  const r = DD.filter(d => d.weights === "unweighted" && DMS.includes(d.measure));
+  if (!r.length) return html`<p class="cs-note">No dual-enrollment staff comparison for this measure.</p>`;
+  const order = ["all", ...SGROUPS.map(s => s.k)];
+  return html`<h4 style="font-size:1rem;margin:.6rem 0 .3rem">Change in ${dm === "pair" ? "faculty FTE and non-faculty FTE" : MEASL[dm].toLowerCase()} per student, FY2014–24: per student vs per regular (non-dual) student</h4>
+  <div class="cs-scroll"><table class="cs-sectab"><thead><tr><th>Sector group</th>${DMS.map(m => html`<th>${DML(m)} per student</th><th>per regular student</th>`)}</tr></thead><tbody>
+  ${order.map(sg => html`<tr><td>${SGL[sg]}</td>${DMS.map(m => { const d = r.find(x => x.sg === sg && x.measure === m); return d ? html`<td>${s1(d.dstaff_per_fte)}</td><td><b>${s1(d.dstaff_per_fte_excl_dual)}</b></td>` : html`<td>–</td><td>–</td>`; })}</tr>`)}
+  </tbody></table></div><p class="cs-note">Log points ×100, S11, unweighted. Removing dual-enrollment students from the denominator adds the same amount to every staff measure; at community colleges non-faculty FTE per regular student rose far more than faculty FTE.</p>`;
+}
+```
 
 ::: {.cs-note}
 Proxy: undergraduates under 18 from IPEDS fall enrollment by age (odd falls only), converted to FTE with the Digest part-time factors; the same proxy as the completion-efficiency project. Sector groups pool public master's and bachelor's colleges (regional publics) and private master's and bachelor's colleges. FY2014–24 changes use the S11 set, unweighted. No measurable spillover from state dual-enrollment growth to four-year enrollment was found. FY2024 NCES provisional.

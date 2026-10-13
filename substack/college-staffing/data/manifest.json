@@ -1,9 +1,9 @@
 {
- "built": "2026-10-12 16:25",
+ "built": "2026-10-13 05:49",
  "files": {
   "trends.csv": {
-   "rows": 1638,
-   "kb": 49.4
+   "rows": 3094,
+   "kb": 93.8
   },
   "replication.csv": {
    "rows": 252,
@@ -26,8 +26,8 @@
    "kb": 0.6
   },
   "decomp.csv": {
-   "rows": 380,
-   "kb": 46.4
+   "rows": 665,
+   "kb": 80.9
   },
   "online_share.csv": {
    "rows": 104,
@@ -38,268 +38,268 @@
    "kb": 1.0
   },
   "dual_decline.csv": {
-   "rows": 12,
-   "kb": 1.1
+   "rows": 94,
+   "kb": 8.1
   },
   "inst_index.csv": {
    "rows": 2227,
-   "kb": 182.0
+   "kb": 225.3
   },
   "inst/AK.csv": {
    "rows": 81,
-   "kb": 6.0
+   "kb": 8.6
   },
   "inst/AL.csv": {
    "rows": 1289,
-   "kb": 99.1
+   "kb": 137.2
   },
   "inst/AR.csv": {
    "rows": 1023,
-   "kb": 78.8
+   "kb": 109.3
   },
   "inst/AS.csv": {
    "rows": 26,
-   "kb": 2.0
+   "kb": 2.8
   },
   "inst/AZ.csv": {
    "rows": 623,
-   "kb": 46.9
+   "kb": 65.2
   },
   "inst/CA.csv": {
    "rows": 4090,
-   "kb": 305.3
+   "kb": 425.7
   },
   "inst/CO.csv": {
    "rows": 858,
-   "kb": 65.5
+   "kb": 90.9
   },
   "inst/CT.csv": {
    "rows": 568,
-   "kb": 44.0
+   "kb": 61.2
   },
   "inst/DC.csv": {
    "rows": 219,
-   "kb": 17.8
+   "kb": 24.6
   },
   "inst/DE.csv": {
    "rows": 104,
-   "kb": 8.2
+   "kb": 11.3
   },
   "inst/FL.csv": {
    "rows": 1668,
-   "kb": 128.9
+   "kb": 178.5
   },
   "inst/FM.csv": {
    "rows": 26,
-   "kb": 2.0
+   "kb": 2.8
   },
   "inst/GA.csv": {
    "rows": 1768,
-   "kb": 135.7
+   "kb": 188.3
   },
   "inst/GU.csv": {
    "rows": 52,
-   "kb": 4.0
+   "kb": 5.6
   },
   "inst/HI.csv": {
    "rows": 335,
-   "kb": 25.3
+   "kb": 35.2
   },
   "inst/IA.csv": {
    "rows": 1134,
-   "kb": 88.3
+   "kb": 122.0
   },
   "inst/ID.csv": {
    "rows": 258,
-   "kb": 20.1
+   "kb": 27.8
   },
   "inst/IL.csv": {
    "rows": 2315,
-   "kb": 179.1
+   "kb": 248.1
   },
   "inst/IN.csv": {
    "rows": 1100,
-   "kb": 85.4
+   "kb": 118.4
   },
   "inst/KS.csv": {
    "rows": 1211,
-   "kb": 93.6
+   "kb": 129.8
   },
   "inst/KY.csv": {
    "rows": 676,
-   "kb": 52.8
+   "kb": 73.1
   },
   "inst/LA.csv": {
    "rows": 668,
-   "kb": 51.1
+   "kb": 70.8
   },
   "inst/MA.csv": {
    "rows": 1805,
-   "kb": 141.5
+   "kb": 196.1
   },
   "inst/MD.csv": {
    "rows": 1022,
-   "kb": 80.0
+   "kb": 111.2
   },
   "inst/ME.csv": {
    "rows": 435,
-   "kb": 33.7
+   "kb": 46.7
   },
   "inst/MH.csv": {
    "rows": 23,
-   "kb": 1.8
+   "kb": 2.5
   },
   "inst/MI.csv": {
    "rows": 1687,
-   "kb": 129.7
+   "kb": 179.7
   },
   "inst/MN.csv": {
    "rows": 1344,
-   "kb": 103.2
+   "kb": 142.6
   },
   "inst/MO.csv": {
    "rows": 1216,
-   "kb": 93.0
+   "kb": 129.1
   },
   "inst/MP.csv": {
    "rows": 26,
-   "kb": 2.0
+   "kb": 2.8
   },
   "inst/MS.csv": {
    "rows": 754,
-   "kb": 58.1
+   "kb": 80.3
   },
   "inst/MT.csv": {
    "rows": 362,
-   "kb": 27.8
+   "kb": 38.6
   },
   "inst/NC.csv": {
    "rows": 2798,
-   "kb": 216.6
+   "kb": 301.8
   },
   "inst/ND.csv": {
    "rows": 260,
-   "kb": 20.2
+   "kb": 27.9
   },
   "inst/NE.csv": {
    "rows": 506,
-   "kb": 39.1
+   "kb": 54.2
   },
   "inst/NH.csv": {
    "rows": 370,
-   "kb": 28.3
+   "kb": 39.5
   },
   "inst/NJ.csv": {
    "rows": 1142,
-   "kb": 87.2
+   "kb": 121.0
   },
   "inst/NM.csv": {
    "rows": 472,
-   "kb": 36.6
+   "kb": 50.9
   },
   "inst/NV.csv": {
    "rows": 197,
-   "kb": 15.2
+   "kb": 21.0
   },
   "inst/NY.csv": {
    "rows": 3447,
-   "kb": 268.0
+   "kb": 371.4
   },
   "inst/OH.csv": {
    "rows": 2049,
-   "kb": 158.4
+   "kb": 219.8
   },
   "inst/OK.csv": {
    "rows": 952,
-   "kb": 73.4
+   "kb": 101.5
   },
   "inst/OR.csv": {
    "rows": 904,
-   "kb": 69.9
+   "kb": 97.1
   },
   "inst/PA.csv": {
    "rows": 2620,
-   "kb": 206.5
+   "kb": 285.9
   },
   "inst/PR.csv": {
    "rows": 704,
-   "kb": 50.6
+   "kb": 71.0
   },
   "inst/PW.csv": {
    "rows": 26,
-   "kb": 2.1
+   "kb": 2.9
   },
   "inst/RI.csv": {
    "rows": 234,
-   "kb": 18.4
+   "kb": 25.5
   },
   "inst/SC.csv": {
    "rows": 1320,
-   "kb": 101.7
+   "kb": 140.7
   },
   "inst/SD.csv": {
    "rows": 329,
-   "kb": 25.4
+   "kb": 35.2
   },
   "inst/TN.csv": {
    "rows": 1238,
-   "kb": 94.9
+   "kb": 131.7
   },
   "inst/TX.csv": {
    "rows": 2868,
-   "kb": 220.3
+   "kb": 305.3
   },
   "inst/UT.csv": {
    "rows": 334,
-   "kb": 25.8
+   "kb": 35.6
   },
   "inst/VA.csv": {
    "rows": 1664,
-   "kb": 128.4
+   "kb": 177.7
   },
   "inst/VI.csv": {
    "rows": 26,
-   "kb": 2.1
+   "kb": 3.0
   },
   "inst/VT.csv": {
    "rows": 331,
-   "kb": 25.2
+   "kb": 35.3
   },
   "inst/WA.csv": {
    "rows": 1337,
-   "kb": 102.1
+   "kb": 141.6
   },
   "inst/WI.csv": {
    "rows": 1265,
-   "kb": 97.7
+   "kb": 135.6
   },
   "inst/WV.csv": {
    "rows": 518,
-   "kb": 39.9
+   "kb": 55.3
   },
   "inst/WY.csv": {
    "rows": 207,
-   "kb": 16.3
+   "kb": 22.5
   },
   "bands.csv": {
-   "rows": 2338,
-   "kb": 76.5
+   "rows": 3430,
+   "kb": 110.0
   },
   "states.csv": {
    "rows": 197,
-   "kb": 15.5
+   "kb": 30.6
   },
   "decline_decomp.csv": {
    "rows": 16,
    "kb": 1.4
   },
   "staff_split.csv": {
-   "rows": 16,
-   "kb": 1.3
+   "rows": 953,
+   "kb": 112.8
   },
   "elasticities.csv": {
-   "rows": 55,
-   "kb": 3.7
+   "rows": 271,
+   "kb": 21.2
   },
   "gravity_paths.csv": {
    "rows": 192,
@@ -310,16 +310,20 @@
    "kb": 1.9
   },
   "occupations.csv": {
-   "rows": 66,
-   "kb": 4.8
+   "rows": 108,
+   "kb": 7.5
   },
   "coaches.csv": {
    "rows": 6,
    "kb": 0.7
   },
   "occ_elasticity.csv": {
-   "rows": 66,
-   "kb": 4.0
+   "rows": 78,
+   "kb": 4.8
+  },
+  "enrfacing_share.csv": {
+   "rows": 6,
+   "kb": 0.6
   },
   "amenity_growth.csv": {
    "rows": 12,
@@ -342,8 +346,8 @@
    "kb": 3.9
   },
   "kpis.csv": {
-   "rows": 81,
-   "kb": 13.2
+   "rows": 115,
+   "kb": 20.7
   }
  }
 }

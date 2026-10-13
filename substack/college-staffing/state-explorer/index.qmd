@@ -17,13 +17,18 @@ IDX = FileAttachment("../data/inst_index.csv").csv({typed: true})
 
 ```{ojs}
 //| output: false
-S = S0.map(d => ({...d, dpk: d.pk_2024 - d.pk_2012, dpkw: d.pkw_2024 - d.pkw_2012, ddual: d.dual_2023 - d.dual_2013}))
+S = S0.map(d => ({...d, dpk: d.pk_2024 - d.pk_2012, dpkw: d.pkw_2024 - d.pkw_2012, ddual: d.dual_2023 - d.dual_2013,
+  ...Object.fromEntries(["fac", "nonfac", "allx"].flatMap(p => [[`${p}_dpk`, d[`${p}_pk_2024`] - d[`${p}_pk_2013`]], [`${p}_dpkw`, d[`${p}_pkw_2024`] - d[`${p}_pkw_2013`]]]))}))
+// staff measures on this page: FTE measures from FY2013 (first year of the redesigned staff survey); v1 headcount from FY2012
+SPRE = ({facfte: "fac", nonfacfte: "nonfac", allftex: "allx"})
+DMK = ["pair", "facfte", "nonfacfte", "allftex", "total"]
+scol = (m, k) => m === "total" ? k : `${SPRE[m]}_${k}`        // k in dpk, dpkw, pk_2024, pk_2013, pk_2012
 CLL = ({all: "All surviving institutions", pub4: "Public 4-year", pub2: "Public 2-year (community colleges)", priv4: "Private nonprofit 4-year"})
 SM = [
   {k: "pct_2012_2024", l: "Fall FTE students, % change FY2012–24", f: d => s0(d) + "%", div: true},
-  {k: "dpk", l: "Staff per 1,000 students, change FY2012–24 (typical institution)", f: s0, div: true},
-  {k: "dpkw", l: "Staff per 1,000 students, change FY2012–24 (all staff ÷ all students)", f: s0, div: true},
-  {k: "pk_2024", l: "Staff per 1,000 students, FY2024 (typical institution)", f: f0},
+  {k: "dpk", l: "Staff per 1,000 students, change since FY2013 (typical institution)", f: s0, div: true, staff: true},
+  {k: "dpkw", l: "Staff per 1,000 students, change since FY2013 (all staff ÷ all students)", f: s0, div: true, staff: true},
+  {k: "pk_2024", l: "Staff per 1,000 students, FY2024 (typical institution)", f: f0, staff: true},
   {k: "dual_2023", l: "Dual-enrollment intensity, fall 2023 (per 100 residents aged 15–17)", f: f1, statewide: true},
   {k: "ddual", l: "Change in dual-enrollment intensity, fall 2013–23", f: s1, statewide: true}]
 SMB = new Map(SM.map(m => [m.k, m]))
@@ -33,8 +38,8 @@ SMB = new Map(SM.map(m => [m.k, m]))
 {
   const a = S.filter(d => d.cl === "pub2" && isFinite(d.pct_2012_2024));
   const fell = a.filter(d => d.pct_2012_2024 < 0).length;
-  const rose = a.filter(d => d.dpk > 0).length;
-  return md`<div class="cs-lead">Community-college enrollment fell from FY2012 to FY2024 in <b>${fell} of ${a.length}</b> states with surviving community colleges, and community-college staff per 1,000 students rose in <b>${rose}</b> of them. Pick a measure and a type of institution for the map; click a state for its detail.</div>`;
+  const rn = a.filter(d => d.nonfac_dpk > 0).length, rf = a.filter(d => d.fac_dpk > 0).length;
+  return md`<div class="cs-lead">Community-college enrollment fell from FY2012 to FY2024 in <b>${fell} of ${a.length}</b> states with surviving community colleges. From FY2013 to FY2024 community-college <b>non-faculty FTE per 1,000 students rose in ${rn}</b> of them and faculty FTE per 1,000 in ${rf}. Pick a measure, a staff measure and a type of institution for the map; click a state for its detail.</div>`;
 }
 ```
 
@@ -44,6 +49,7 @@ Read more: [white paper §5](../paper/index.qmd#sec-5) (the denominator) and [§
 
 ```{ojs}
 viewof sm = Inputs.select(SM.map(m => m.k), {format: k => SMB.get(k).l, value: param("map", "pct_2012_2024"), label: "Map measure"})
+viewof dm = Inputs.select(DMK, {format: k => k === "total" ? "All employees, headcount (v1; change from FY2012)" : MEASL[k], value: DMK.includes(param("dm", "pair")) ? param("dm", "pair") : "pair", label: "Staff measure"})
 viewof cl = Inputs.radio(new Map(Object.entries(CLL).map(([k, v]) => [v, k])), {value: param("cl", "pub2"), label: "Institutions", disabled: false})
 viewof st = Inputs.select(STLIST, {format: s => STNAME[s], value: param("st", "IN"), label: "State"})
 viewof mode = Inputs.radio(new Map([["Map", "map"], ["Table", "table"]]), {value: param("view", "map"), label: "View"})
@@ -51,23 +57,31 @@ viewof mode = Inputs.radio(new Map([["Map", "map"], ["Table", "table"]]), {value
 
 ```{ojs}
 {
-  setParam("map", sm === "pct_2012_2024" ? null : sm); setParam("cl", cl === "pub2" ? null : cl); setParam("st", st); setParam("view", mode === "map" ? null : mode);
+  setParam("map", sm === "pct_2012_2024" ? null : sm); setParam("cl", cl === "pub2" ? null : cl); setParam("st", st); setParam("view", mode === "map" ? null : mode); setParam("dm", dm === "pair" ? null : dm);
   const m = SMB.get(sm);
   const rows = S.filter(d => d.cl === (m.statewide ? "all" : cl));
+  const DS = dm === "pair" ? PAIR : [dm];
+  const yA = d => d === "total" ? 2012 : 2013;
   if (mode === "table") {
-    return Inputs.table(rows.map(d => ({...d, name: STNAME[d.st]})), {columns: ["name", "n", "fte_2012", "fte_2024", "pct_2012_2024", "pk_2012", "pk_2024", "pkw_2012", "pkw_2024", "dual_2013", "dual_2023"],
-      header: {name: "State", n: "Institutions", fte_2012: "FTE FY2012", fte_2024: "FTE FY2024", pct_2012_2024: "% change", pk_2012: "Staff/1,000 FY2012", pk_2024: "FY2024", pkw_2012: "Weighted FY2012", pkw_2024: "Weighted FY2024", dual_2013: "Dual 2013", dual_2023: "Dual 2023"},
-      format: {fte_2012: f0, fte_2024: f0, pct_2012_2024: s1, pk_2012: f0, pk_2024: f0, pkw_2012: f0, pkw_2024: f0, dual_2013: f1, dual_2023: f1}, sort: sm in rows[0] ? sm : "pct_2012_2024", rows: 20});
+    const sc = DS.flatMap(x => [scol(x, `pk_${yA(x)}`), scol(x, "pk_2024"), scol(x, `pkw_${yA(x)}`), scol(x, "pkw_2024")]);
+    const short = x => x === "total" ? "Headcount" : x === "facfte" ? "Faculty FTE" : x === "nonfacfte" ? "Non-faculty FTE" : "All FTE";
+    const hdr = Object.fromEntries(DS.flatMap(x => [[scol(x, `pk_${yA(x)}`), `${short(x)}/1,000 FY${yA(x)}`], [scol(x, "pk_2024"), "FY2024"], [scol(x, `pkw_${yA(x)}`), `Weighted FY${yA(x)}`], [scol(x, "pkw_2024"), "Weighted FY2024"]]));
+    const sortk = m.staff ? scol(DS[0], sm) : sm;
+    return Inputs.table(rows.map(d => ({...d, name: STNAME[d.st]})), {columns: ["name", "n", "fte_2012", "fte_2024", "pct_2012_2024", ...sc, "dual_2013", "dual_2023"],
+      header: {name: "State", n: "Institutions", fte_2012: "FTE FY2012", fte_2024: "FTE FY2024", pct_2012_2024: "% change", ...hdr, dual_2013: "Dual 2013", dual_2023: "Dual 2023"},
+      format: {fte_2012: f0, fte_2024: f0, pct_2012_2024: s1, ...Object.fromEntries(sc.map(c => [c, f0])), dual_2013: f1, dual_2023: f1}, sort: sortk in rows[0] ? sortk : "pct_2012_2024", rows: 20});
   }
-  const data = rows.map(d => ({st: d.st, v: d[sm]}));
-  const vals = data.map(d => d.v).filter(isFinite);
+  const maps = m.staff ? DS.map(x => ({x, data: rows.map(d => ({st: d.st, v: d[scol(x, sm)]}))})) : [{x: null, data: rows.map(d => ({st: d.st, v: d[sm]}))}];
+  const vals = maps.flatMap(q => q.data.map(d => d.v)).filter(isFinite);
   const a = d3.max(vals, Math.abs);
   const cs = m.div ? {type: "diverging", domain: [-a, a], scheme: "rdbu", pivot: 0, reverse: sm !== "pct_2012_2024"} : {type: "linear", domain: d3.extent(vals), scheme: "blues"};
   const sc = Plot.scale({color: cs});
+  const mw = maps.length > 1 && width > 900 ? width / 2 - 20 : Math.min(width, 700);
+  const lab = m.staff ? m.l.replace("Staff", DS.length > 1 ? "Staff" : (dm === "total" ? "Staff (headcount)" : MEASL[dm])).replace("since FY2013", dm === "total" ? "FY2012–24" : "FY2013–24") : m.l;
   return html`<div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:flex-start">
-    ${tileMap(data, {color: v => sc.apply(v), fmt: m.f, selected: st, onPick: s => setView(viewof st, s), w: Math.min(width, 700)})}
-    <div style="max-width:300px">${Plot.legend({color: cs, label: m.l, width: Math.min(280, width - 20)})}
-    <p class="cs-note">${m.statewide ? "Dual-enrollment intensity is statewide (public under-18 undergraduates per 100 residents aged 15–17), so the institution type does not apply." : `${CLL[cl]}. Grey: no surviving institution of this type.`} Click a state for its detail below.</p></div></div>`;
+    ${maps.map(q => html`<div>${q.x && maps.length > 1 ? html`<h4 style="font-size:1rem;margin:.2rem 0">${PAIRL[q.x]}</h4>` : ""}${tileMap(q.data, {color: v => sc.apply(v), fmt: m.f, selected: st, onPick: s => setView(viewof st, s), w: mw})}</div>`)}
+    <div style="max-width:300px">${Plot.legend({color: cs, label: lab, width: Math.min(280, width - 20)})}
+    <p class="cs-note">${m.statewide ? "Dual-enrollment intensity is statewide (public under-18 undergraduates per 100 residents aged 15–17), so the institution type does not apply." : `${CLL[cl]}. Grey: no surviving institution of this type.`}${m.staff ? (dm === "total" ? " Headcount (v1): every employee counted once, graduate assistants as faculty; change from FY2012." : " FTE = full-time + one-third of part-time; faculty excludes graduate assistants; change from FY2013, the first year of the redesigned staff survey." + (DS.length > 1 ? " Both maps share one color scale." : "")) : ""} Click a state for its detail below.</p></div></div>`;
 }
 ```
 
@@ -79,7 +93,8 @@ viewof mode = Inputs.radio(new Map([["Map", "map"], ["Table", "table"]]), {value
   return md`## ${STNAME[st]}
 <div class="cs-kpis">
 <div class="cs-kpi"><div class="v">${s0(a.pct_2012_2024)}%</div><div class="l">fall FTE students FY2012→24, all ${a.n ?? 0} surviving institutions (${f0(a.fte_2012)} → ${f0(a.fte_2024)})</div></div>
-<div class="cs-kpi"><div class="v">${f0(a.pk_2012)} → ${f0(a.pk_2024)}</div><div class="l">staff per 1,000 students, typical institution, FY2012 → FY2024</div></div>
+<div class="cs-kpi"><div class="v">${f0(a.fac_pk_2013)} → ${f0(a.fac_pk_2024)}</div><div class="l">faculty FTE per 1,000 students, typical institution, FY2013 → FY2024</div></div>
+<div class="cs-kpi"><div class="v">${f0(a.nonfac_pk_2013)} → ${f0(a.nonfac_pk_2024)}</div><div class="l">non-faculty FTE per 1,000 students, FY2013 → FY2024 (headcount, v1: all employees ${f0(a.pk_2012)} → ${f0(a.pk_2024)} from FY2012)</div></div>
 <div class="cs-kpi"><div class="v">${f1(a.dual_2013)} → ${f1(a.dual_2023)}</div><div class="l">dual-enrollment intensity per 100 residents aged 15–17, fall 2013 → 2023 (national 6.1 → 12.4)</div></div>
 </div>`;
 }
@@ -105,8 +120,11 @@ viewof mode = Inputs.radio(new Map([["Map", "map"], ["Table", "table"]]), {value
 ```{ojs}
 {
   const R = S.filter(d => d.st === st && d.cl !== "all");
-  return html`<h4 style="font-size:1rem;margin:.3rem 0 .5rem">By type of institution</h4><div class="cs-scroll"><table class="cs-sectab"><thead><tr><th>Type</th><th>n</th><th>FTE FY2012–24</th><th>Staff per 1,000 FY2012</th><th>FY2024</th></tr></thead><tbody>
-    ${R.map(d => html`<tr><td>${CLL[d.cl]}</td><td>${d.n}</td><td>${s0(d.pct_2012_2024)}%</td><td>${f0(d.pk_2012)}</td><td>${f0(d.pk_2024)}</td></tr>`)}</tbody></table></div>
+  const DS = dm === "pair" ? PAIR : [dm];
+  const yA = x => x === "total" ? 2012 : 2013;
+  const short = x => x === "total" ? "Headcount (v1)" : x === "facfte" ? "Faculty FTE" : x === "nonfacfte" ? "Non-faculty FTE" : "All FTE";
+  return html`<h4 style="font-size:1rem;margin:.3rem 0 .5rem">By type of institution</h4><div class="cs-scroll"><table class="cs-sectab"><thead><tr><th>Type</th><th>n</th><th>FTE FY2012–24</th>${DS.map(x => html`<th>${short(x)} per 1,000 FY${yA(x)} → FY2024</th>`)}</tr></thead><tbody>
+    ${R.map(d => html`<tr><td>${CLL[d.cl]}</td><td>${d.n}</td><td>${s0(d.pct_2012_2024)}%</td>${DS.map(x => html`<td>${f0(d[scol(x, `pk_${yA(x)}`)])} → <b>${f0(d[scol(x, "pk_2024")])}</b></td>`)}</tr>`)}</tbody></table></div>
     <p class="cs-note">Small groups (a few institutions) move a lot from one college's change. Staff per 1,000: mean of institution ratios.</p>`;
 }
 ```
@@ -117,11 +135,11 @@ viewof mode = Inputs.radio(new Map([["Map", "map"], ["Table", "table"]]), {value
 {
   const L = IDX.filter(d => d.st === st && d.s24 === 1).sort((a, b) => (b.fte24 ?? 0) - (a.fte24 ?? 0));
   return html`<details><summary>Surviving institutions in ${STNAME[st]} (${L.length}); open one in the institution explorer</summary>
-  <div class="cs-scroll"><table class="cs-sectab"><thead><tr><th>Institution</th><th>Sector</th><th>FTE FY2024</th><th>FTE FY13→24</th><th>Staff per student FY13→24</th></tr></thead><tbody>
-  ${L.map(d => html`<tr><td><a href="../institution-explorer/index.html?id=${d.id}">${d.name}${d.campuses > 1 ? ` (+${d.campuses - 1} campuses)` : ""}</a></td><td>${SECL[d.sec]}</td><td>${f0(d.fte24)}</td><td>${s1(d.d_fte)}</td><td>${s1(d.d_ratio)}</td></tr>`)}</tbody></table></div></details>`;
+  <div class="cs-scroll"><table class="cs-sectab"><thead><tr><th>Institution</th><th>Sector</th><th>FTE FY2024</th><th>FTE FY13→24</th><th>Faculty FTE per student FY13→24</th><th>Non-faculty FTE per student FY13→24</th></tr></thead><tbody>
+  ${L.map(d => html`<tr><td><a href="../institution-explorer/index.html?id=${d.id}">${d.name}${d.campuses > 1 ? ` (+${d.campuses - 1} campuses)` : ""}</a></td><td>${SECL[d.sec]}</td><td>${f0(d.fte24)}</td><td>${s1(d.d_fte)}</td><td>${s1(d.d_facfte_r)}</td><td>${s1(d.d_nonfacfte_r)}</td></tr>`)}</tbody></table></div></details>`;
 }
 ```
 
 ::: {.cs-note}
-**Data.** S24 surviving set (institutions with staff and fall FTE in FY1990, 2000, 2010, 2012 and every year FY2013–2025), grouped by the state of the main campus; Delta Cost-era systems that reported as one unit stay one unit, so a few states' public 4-year sector is a single system. Fall FTE = full-time plus part-time students converted with the NCES Digest part-time factors. Staff per 1,000 = total headcount employees (IPEDS Human Resources, FY *t* = fall *t*−1) per 1,000 fall FTE students; total headcount is comparable across the 2012–13 HR redesign. Dual-enrollment intensity: IPEDS public undergraduates under 18 per 100 state residents aged 15–17 (Census/SEER). FY2024 IPEDS NCES provisional.
+**Data.** S24 surviving set (institutions with staff and fall FTE in FY1990, 2000, 2010, 2012 and every year FY2013–2025), grouped by the state of the main campus; Delta Cost-era systems that reported as one unit stay one unit, so a few states' public 4-year sector is a single system. Fall FTE = full-time plus part-time students converted with the NCES Digest part-time factors. Staff per 1,000 = faculty FTE and non-faculty FTE (full-time + one-third of part-time; faculty excludes graduate assistants) per 1,000 fall FTE students, IPEDS Human Resources, FY *t* = fall *t*−1, from FY2013, the first year of the redesigned staff survey (part-time faculty are spliced at the redesign, and community-college non-faculty FTE steps up about 1 log point (part-time staff) there). The v1 headcount option counts every employee once from FY2012; it contains the spliced part-time faculty and graduate assistants, so read its change as approximate. Dual-enrollment intensity: IPEDS public undergraduates under 18 per 100 state residents aged 15–17 (Census/SEER). FY2024 IPEDS NCES provisional.
 :::

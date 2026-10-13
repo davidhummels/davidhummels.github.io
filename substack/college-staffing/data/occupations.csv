@@ -65,3 +65,45 @@ xmb,Private master's & bachelor's,backoffice,692,44.163,42.348,-17.939,0.2043,-4
 xmb,Private master's & bachelor's,library,692,4.31,3.81,-22.361,0.0195,-0.624,-11.154
 xmb,Private master's & bachelor's,maint,692,5.82,5.744,-7.549,0.0251,-0.992,-11.154
 xmb,Private master's & bachelor's,allstaff,692,212.713,230.197,-4.089,1.0,-4.089,-11.154
+all,All,noninstr,1905,105.904,118.777,-1.878,,,-14.325
+all,All,instr_ft,1905,47.784,51.633,-6.003,,,-14.325
+all,All,instr_pt,1905,56.655,58.908,-5.165,,,-14.325
+all,All,noninstr_ft,1905,97.675,110.547,-0.594,,,-14.325
+all,All,noninstr_pt,1905,24.686,24.691,-17.69,,,-14.325
+all,All,allstaff_ft,1905,145.46,162.18,-2.339,,,-14.325
+all,All,allstaff_pt,1905,81.341,83.599,-11.036,,,-14.325
+pr,Public research,noninstr,141,137.416,146.59,7.292,,,0.29
+pr,Public research,instr_ft,141,47.294,48.986,3.909,,,0.29
+pr,Public research,instr_pt,141,18.955,21.232,14.274,,,0.29
+pr,Public research,noninstr_ft,141,131.862,142.651,8.605,,,0.29
+pr,Public research,noninstr_pt,141,16.66,11.816,-39.312,,,0.29
+pr,Public research,allstaff_ft,141,179.156,191.637,7.397,,,0.29
+pr,Public research,allstaff_pt,141,35.615,33.048,-8.704,,,0.29
+rp,Regional publics,noninstr,288,90.661,101.346,-3.14,,,-14.275
+rp,Regional publics,instr_ft,288,45.577,50.004,-5.771,,,-14.275
+rp,Regional publics,instr_pt,288,31.526,34.261,1.709,,,-14.275
+rp,Regional publics,noninstr_ft,288,86.784,97.415,-2.678,,,-14.275
+rp,Regional publics,noninstr_pt,288,11.633,11.794,-20.757,,,-14.275
+rp,Regional publics,allstaff_ft,288,132.36,147.42,-3.738,,,-14.275
+rp,Regional publics,allstaff_pt,288,43.159,46.054,-5.34,,,-14.275
+cc,Community colleges,noninstr,704,72.278,88.838,-1.941,,,-22.255
+cc,Community colleges,instr_ft,704,35.018,40.091,-8.243,,,-22.255
+cc,Community colleges,instr_pt,704,73.392,71.22,-25.867,,,-22.255
+cc,Community colleges,noninstr_ft,704,61.763,77.975,0.595,,,-22.255
+cc,Community colleges,noninstr_pt,704,31.545,32.589,-17.29,,,-22.255
+cc,Community colleges,allstaff_ft,704,96.781,118.066,-2.453,,,-22.255
+cc,Community colleges,allstaff_pt,704,104.937,103.809,-24.538,,,-22.255
+xr,Private research,noninstr,80,168.536,169.044,0.827,,,2.092
+xr,Private research,instr_ft,80,59.62,60.077,2.068,,,2.092
+xr,Private research,instr_pt,80,50.447,55.532,12.583,,,2.092
+xr,Private research,noninstr_ft,80,161.464,163.47,1.781,,,2.092
+xr,Private research,noninstr_pt,80,21.216,16.723,-28.009,,,2.092
+xr,Private research,allstaff_ft,80,221.085,223.546,2.178,,,2.092
+xr,Private research,allstaff_pt,80,71.663,72.254,-0.049,,,2.092
+xmb,Private master's & bachelor's,noninstr,692,132.796,145.012,-3.47,,,-11.154
+xmb,Private master's & bachelor's,instr_ft,692,60.422,63.616,-6.773,,,-11.154
+xmb,Private master's & bachelor's,instr_pt,692,58.486,64.707,7.023,,,-11.154
+xmb,Private master's & bachelor's,noninstr_ft,692,124.404,136.489,-3.086,,,-11.154
+xmb,Private master's & bachelor's,noninstr_pt,692,25.177,25.569,-11.222,,,-11.154
+xmb,Private master's & bachelor's,allstaff_ft,692,184.825,200.105,-4.147,,,-11.154
+xmb,Private master's & bachelor's,allstaff_pt,692,83.663,90.276,-1.417,,,-11.154

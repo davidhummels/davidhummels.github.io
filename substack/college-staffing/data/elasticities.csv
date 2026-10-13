@@ -1,56 +1,272 @@
-sg,sgroup,base,outcome,coef,se,fs_F,fe_coef,N,groups
-all,All,b1987,total,0.722,0.101,137.0,,49995,
-all,All,b1987,ftfac,0.867,0.054,137.0,,49995,
-all,All,b1987,nonprof,0.719,0.131,54.9,,49990,
-all,All,b1987,nonfac,0.75,0.13,137.0,,49995,
-all,All,b1987,eamprof,0.244,0.436,54.9,,49990,
-pr,Public research,b1987,total,0.881,0.13,60.7,0.639,3557,151.0
-pr,Public research,b1987,ftfac,0.799,0.112,60.7,0.655,3557,151.0
-pr,Public research,b1987,nonfac,0.84,0.143,60.7,0.597,3557,151.0
-pr,Public research,b1987,nonprof,0.482,0.24,34.9,0.487,3557,151.0
-pr,Public research,b1987,eamprof,0.887,0.154,34.9,0.604,3557,151.0
-pr,Public research,b2002,total,0.989,0.202,16.8,0.563,2274,144.0
-pr,Public research,b2002,ftfac,0.952,0.207,16.8,0.669,2274,144.0
-pr,Public research,b2002,nonfac,0.91,0.312,16.8,0.483,2274,144.0
-pr,Public research,b2002,nonprof,0.721,0.472,5.3,0.5,2274,144.0
-pr,Public research,b2002,eamprof,0.713,0.324,5.3,0.416,2274,144.0
-rp,Regional publics,b1987,total,0.704,0.099,91.6,0.647,7352,300.0
-rp,Regional publics,b1987,ftfac,0.813,0.117,91.6,0.732,7352,300.0
-rp,Regional publics,b1987,nonfac,0.706,0.102,91.6,0.559,7352,300.0
-rp,Regional publics,b1987,nonprof,0.567,0.186,30.9,0.51,7351,300.0
-rp,Regional publics,b1987,eamprof,0.437,0.168,30.9,0.481,7351,300.0
-rp,Regional publics,b2002,total,0.672,0.101,19.6,0.608,4695,296.0
-rp,Regional publics,b2002,ftfac,0.838,0.133,19.6,0.575,4695,296.0
-rp,Regional publics,b2002,nonfac,0.747,0.166,19.6,0.511,4695,296.0
-rp,Regional publics,b2002,nonprof,0.357,0.247,8.0,0.413,4694,296.0
-rp,Regional publics,b2002,eamprof,0.531,0.23,8.0,0.445,4694,296.0
-cc,Community colleges,b1987,total,0.653,0.138,56.3,0.624,18018,755.0
-cc,Community colleges,b1987,ftfac,0.921,0.099,56.3,0.556,18018,755.0
-cc,Community colleges,b1987,nonfac,0.7,0.198,56.3,0.575,18018,755.0
-cc,Community colleges,b1987,nonprof,0.893,0.205,22.7,0.609,18018,755.0
-cc,Community colleges,b1987,eamprof,-0.256,0.839,22.7,0.426,18018,755.0
-cc,Community colleges,b2002,total,0.661,0.118,33.0,0.499,11613,736.0
-cc,Community colleges,b2002,ftfac,0.668,0.079,33.0,0.402,11613,736.0
-cc,Community colleges,b2002,nonfac,0.773,0.187,33.0,0.391,11613,736.0
-cc,Community colleges,b2002,nonprof,0.541,0.198,12.5,0.322,11608,736.0
-cc,Community colleges,b2002,eamprof,0.861,0.198,12.5,0.416,11608,736.0
-xr,Private research,b1987,total,1.806,0.4,13.9,0.774,2131,93.0
-xr,Private research,b1987,ftfac,1.098,0.34,13.9,0.721,2131,93.0
-xr,Private research,b1987,nonfac,2.092,0.481,13.9,0.719,2131,93.0
-xr,Private research,b1987,nonprof,1.442,0.313,22.6,0.77,2131,93.0
-xr,Private research,b1987,eamprof,1.182,0.386,22.6,0.654,2131,93.0
-xr,Private research,b2002,total,1.249,0.346,7.0,0.654,1359,89.0
-xr,Private research,b2002,ftfac,0.46,0.276,7.0,0.611,1359,89.0
-xr,Private research,b2002,nonfac,1.268,0.398,7.0,0.623,1359,89.0
-xr,Private research,b2002,nonprof,0.934,0.334,13.0,0.699,1359,89.0
-xr,Private research,b2002,eamprof,0.784,0.394,13.0,0.72,1359,89.0
-xmb,Private master's & bachelor's,b1987,total,0.851,0.224,10.9,0.693,18937,791.0
-xmb,Private master's & bachelor's,b1987,ftfac,0.76,0.208,10.9,0.551,18937,791.0
-xmb,Private master's & bachelor's,b1987,nonfac,0.877,0.195,10.9,0.586,18937,791.0
-xmb,Private master's & bachelor's,b1987,nonprof,0.328,0.302,11.3,0.529,18933,791.0
-xmb,Private master's & bachelor's,b1987,eamprof,1.237,0.449,11.3,0.488,18933,791.0
-xmb,Private master's & bachelor's,b2002,total,0.943,0.349,4.3,0.626,12010,781.0
-xmb,Private master's & bachelor's,b2002,ftfac,0.434,0.275,4.3,0.499,12010,781.0
-xmb,Private master's & bachelor's,b2002,nonfac,0.893,0.338,4.3,0.512,12010,781.0
-xmb,Private master's & bachelor's,b2002,nonprof,0.551,0.888,1.8,0.511,12001,781.0
-xmb,Private master's & bachelor's,b2002,eamprof,1.641,1.155,1.8,0.457,12001,781.0
+sg,sgroup,base,outcome,gfe,main,coef,se,fs_F,fe_coef,N,groups
+all,All,b1987,total,ext_group,1,0.722,0.101,137.0,,49995,
+all,All,b1987,ftfac,ext_group,1,0.867,0.054,137.0,,49995,
+all,All,b1987,nonprof,group_era,1,0.719,0.131,54.9,,49990,
+all,All,b1987,nonfac,ext_group,1,0.75,0.13,137.0,,49995,
+all,All,b1987,eamprof,group_era,1,0.244,0.436,54.9,,49990,
+pr,Public research,b1987,total,ext_group,1,0.881,0.13,60.7,0.639,3557,151.0
+pr,Public research,b1987,ftfac,ext_group,1,0.799,0.112,60.7,0.655,3557,151.0
+pr,Public research,b1987,nonfac,ext_group,1,0.84,0.143,60.7,0.597,3557,151.0
+pr,Public research,b1987,nonprof,group_era,1,0.482,0.24,34.9,0.487,3557,151.0
+pr,Public research,b1987,eamprof,group_era,1,0.887,0.154,34.9,0.604,3557,151.0
+pr,Public research,b2002,total,ext_group,1,0.989,0.202,16.8,0.563,2274,144.0
+pr,Public research,b2002,ftfac,ext_group,1,0.952,0.207,16.8,0.669,2274,144.0
+pr,Public research,b2002,nonfac,ext_group,1,0.91,0.312,16.8,0.483,2274,144.0
+pr,Public research,b2002,nonprof,group_era,1,0.721,0.472,5.3,0.5,2274,144.0
+pr,Public research,b2002,eamprof,group_era,1,0.713,0.324,5.3,0.416,2274,144.0
+rp,Regional publics,b1987,total,ext_group,1,0.704,0.099,91.6,0.647,7352,300.0
+rp,Regional publics,b1987,ftfac,ext_group,1,0.813,0.117,91.6,0.732,7352,300.0
+rp,Regional publics,b1987,nonfac,ext_group,1,0.706,0.102,91.6,0.559,7352,300.0
+rp,Regional publics,b1987,nonprof,group_era,1,0.567,0.186,30.9,0.51,7351,300.0
+rp,Regional publics,b1987,eamprof,group_era,1,0.437,0.168,30.9,0.481,7351,300.0
+rp,Regional publics,b2002,total,ext_group,1,0.672,0.101,19.6,0.608,4695,296.0
+rp,Regional publics,b2002,ftfac,ext_group,1,0.838,0.133,19.6,0.575,4695,296.0
+rp,Regional publics,b2002,nonfac,ext_group,1,0.747,0.166,19.6,0.511,4695,296.0
+rp,Regional publics,b2002,nonprof,group_era,1,0.357,0.247,8.0,0.413,4694,296.0
+rp,Regional publics,b2002,eamprof,group_era,1,0.531,0.23,8.0,0.445,4694,296.0
+cc,Community colleges,b1987,total,ext_group,1,0.653,0.138,56.3,0.624,18018,755.0
+cc,Community colleges,b1987,ftfac,ext_group,1,0.921,0.099,56.3,0.556,18018,755.0
+cc,Community colleges,b1987,nonfac,ext_group,1,0.7,0.198,56.3,0.575,18018,755.0
+cc,Community colleges,b1987,nonprof,group_era,1,0.893,0.205,22.7,0.609,18018,755.0
+cc,Community colleges,b1987,eamprof,group_era,1,-0.256,0.839,22.7,0.426,18018,755.0
+cc,Community colleges,b2002,total,ext_group,1,0.661,0.118,33.0,0.499,11613,736.0
+cc,Community colleges,b2002,ftfac,ext_group,1,0.668,0.079,33.0,0.402,11613,736.0
+cc,Community colleges,b2002,nonfac,ext_group,1,0.773,0.187,33.0,0.391,11613,736.0
+cc,Community colleges,b2002,nonprof,group_era,1,0.541,0.198,12.5,0.322,11608,736.0
+cc,Community colleges,b2002,eamprof,group_era,1,0.861,0.198,12.5,0.416,11608,736.0
+xr,Private research,b1987,total,ext_group,1,1.806,0.4,13.9,0.774,2131,93.0
+xr,Private research,b1987,ftfac,ext_group,1,1.098,0.34,13.9,0.721,2131,93.0
+xr,Private research,b1987,nonfac,ext_group,1,2.092,0.481,13.9,0.719,2131,93.0
+xr,Private research,b1987,nonprof,group_era,1,1.442,0.313,22.6,0.77,2131,93.0
+xr,Private research,b1987,eamprof,group_era,1,1.182,0.386,22.6,0.654,2131,93.0
+xr,Private research,b2002,total,ext_group,1,1.249,0.346,7.0,0.654,1359,89.0
+xr,Private research,b2002,ftfac,ext_group,1,0.46,0.276,7.0,0.611,1359,89.0
+xr,Private research,b2002,nonfac,ext_group,1,1.268,0.398,7.0,0.623,1359,89.0
+xr,Private research,b2002,nonprof,group_era,1,0.934,0.334,13.0,0.699,1359,89.0
+xr,Private research,b2002,eamprof,group_era,1,0.784,0.394,13.0,0.72,1359,89.0
+xmb,Private master's & bachelor's,b1987,total,ext_group,1,0.851,0.224,10.9,0.693,18937,791.0
+xmb,Private master's & bachelor's,b1987,ftfac,ext_group,1,0.76,0.208,10.9,0.551,18937,791.0
+xmb,Private master's & bachelor's,b1987,nonfac,ext_group,1,0.877,0.195,10.9,0.586,18937,791.0
+xmb,Private master's & bachelor's,b1987,nonprof,group_era,1,0.328,0.302,11.3,0.529,18933,791.0
+xmb,Private master's & bachelor's,b1987,eamprof,group_era,1,1.237,0.449,11.3,0.488,18933,791.0
+xmb,Private master's & bachelor's,b2002,total,ext_group,1,0.943,0.349,4.3,0.626,12010,781.0
+xmb,Private master's & bachelor's,b2002,ftfac,ext_group,1,0.434,0.275,4.3,0.499,12010,781.0
+xmb,Private master's & bachelor's,b2002,nonfac,ext_group,1,0.893,0.338,4.3,0.512,12010,781.0
+xmb,Private master's & bachelor's,b2002,nonprof,group_era,1,0.551,0.888,1.8,0.511,12001,781.0
+xmb,Private master's & bachelor's,b2002,eamprof,group_era,1,1.641,1.155,1.8,0.457,12001,781.0
+all,All,b1987,facfte,ext_group,1,0.823,0.069,137.0,0.68,49995,2090.0
+all,All,b1987,facfte,group_era,0,0.853,0.098,54.9,0.605,49990,2090.0
+all,All,b1987,facfte4,ext_group,1,0.829,0.062,137.0,0.664,49995,2090.0
+all,All,b1987,facfte4,group_era,0,0.845,0.091,54.9,0.589,49990,2090.0
+all,All,b1987,facfte2,ext_group,1,0.814,0.081,137.0,0.705,49995,2090.0
+all,All,b1987,facfte2,group_era,0,0.865,0.112,54.9,0.631,49990,2090.0
+all,All,b1987,ptfacx,ext_group,0,0.65,0.335,137.0,0.883,49995,2090.0
+all,All,b1987,ptfacx,group_era,1,0.765,0.552,54.9,0.802,49990,2090.0
+all,All,b1987,ga,ext_group,0,-0.663,0.359,137.0,0.319,49995,2090.0
+all,All,b1987,ga,group_era,1,-1.573,0.68,54.9,0.217,49990,2090.0
+all,All,b1987,ptshare,ext_group,0,-0.027,0.052,137.0,0.064,49987,2090.0
+all,All,b1987,ptshare,group_era,1,0.016,0.071,54.9,0.065,49982,2090.0
+all,All,b1987,nonfacfte,ext_group,1,0.751,0.098,137.0,0.58,49995,2090.0
+all,All,b1987,allftex,ext_group,1,0.77,0.069,137.0,0.619,49995,2090.0
+all,All,b1987,eamproffte,group_era,1,0.306,0.392,54.9,0.467,49990,2090.0
+all,All,b1987,eamfte,group_era,1,0.557,0.184,54.9,0.359,49990,2090.0
+all,All,b1987,proffte,group_era,1,-0.113,0.761,54.9,0.501,49990,2090.0
+all,All,b1987,nonproffte,group_era,1,0.709,0.095,54.9,0.549,49990,2090.0
+all,All,b2002,facfte,ext_group,1,0.674,0.083,35.6,0.68,31951,2046.0
+all,All,b2002,facfte,group_era,0,0.587,0.134,12.0,0.605,31936,2046.0
+all,All,b2002,facfte4,ext_group,1,0.671,0.077,35.6,0.664,31951,2046.0
+all,All,b2002,facfte4,group_era,0,0.564,0.128,12.0,0.589,31936,2046.0
+all,All,b2002,facfte2,ext_group,1,0.68,0.095,35.6,0.705,31951,2046.0
+all,All,b2002,facfte2,group_era,0,0.626,0.145,12.0,0.631,31936,2046.0
+all,All,b2002,ptfacx,ext_group,0,0.854,0.333,35.6,0.883,31951,2046.0
+all,All,b2002,ptfacx,group_era,1,1.309,0.351,12.0,0.802,31936,2046.0
+all,All,b2002,ga,ext_group,0,0.459,0.243,35.6,0.319,31951,2046.0
+all,All,b2002,ga,group_era,1,0.511,0.32,12.0,0.217,31936,2046.0
+all,All,b2002,ptshare,ext_group,0,0.035,0.063,35.6,0.064,31951,2046.0
+all,All,b2002,ptshare,group_era,1,0.136,0.061,12.0,0.065,31936,2046.0
+all,All,b2002,nonfacfte,ext_group,1,0.697,0.117,35.6,0.58,31951,2046.0
+all,All,b2002,allftex,ext_group,1,0.672,0.078,35.6,0.619,31951,2046.0
+all,All,b2002,eamproffte,group_era,1,0.709,0.128,12.0,0.467,31936,2046.0
+all,All,b2002,eamfte,group_era,1,0.928,0.195,12.0,0.359,31936,2046.0
+all,All,b2002,proffte,group_era,1,0.683,0.147,12.0,0.501,31936,2046.0
+all,All,b2002,nonproffte,group_era,1,0.318,0.182,12.0,0.549,31936,2046.0
+pr,Public research,b1987,facfte,ext_group,1,0.816,0.11,60.7,0.666,3557,151.0
+pr,Public research,b1987,facfte,group_era,0,0.754,0.115,34.9,0.586,3557,151.0
+pr,Public research,b1987,facfte4,ext_group,1,0.812,0.109,60.7,0.664,3557,151.0
+pr,Public research,b1987,facfte4,group_era,0,0.744,0.112,34.9,0.579,3557,151.0
+pr,Public research,b1987,facfte2,ext_group,1,0.823,0.113,60.7,0.671,3557,151.0
+pr,Public research,b1987,facfte2,group_era,0,0.771,0.121,34.9,0.599,3557,151.0
+pr,Public research,b1987,ptfacx,ext_group,0,1.305,0.742,60.7,0.79,3557,151.0
+pr,Public research,b1987,ptfacx,group_era,1,1.251,0.899,34.9,0.967,3557,151.0
+pr,Public research,b1987,ga,ext_group,0,1.092,0.841,60.7,0.667,3557,151.0
+pr,Public research,b1987,ga,group_era,1,0.626,1.406,34.9,0.679,3557,151.0
+pr,Public research,b1987,ptshare,ext_group,0,0.035,0.068,60.7,0.019,3557,151.0
+pr,Public research,b1987,ptshare,group_era,1,0.067,0.087,34.9,0.055,3557,151.0
+pr,Public research,b1987,nonfacfte,ext_group,1,0.835,0.137,60.7,0.596,3557,151.0
+pr,Public research,b1987,allftex,ext_group,1,0.795,0.118,60.7,0.605,3557,151.0
+pr,Public research,b1987,eamproffte,group_era,1,0.839,0.145,34.9,0.599,3557,151.0
+pr,Public research,b1987,eamfte,group_era,1,1.295,0.489,34.9,0.555,3557,151.0
+pr,Public research,b1987,proffte,group_era,1,0.641,0.256,34.9,0.658,3557,151.0
+pr,Public research,b1987,nonproffte,group_era,1,0.495,0.238,34.9,0.502,3557,151.0
+pr,Public research,b2002,facfte,ext_group,1,0.992,0.17,16.8,0.676,2274,144.0
+pr,Public research,b2002,facfte,group_era,0,1.02,0.186,5.3,0.653,2274,144.0
+pr,Public research,b2002,facfte4,ext_group,1,0.983,0.176,16.8,0.675,2274,144.0
+pr,Public research,b2002,facfte4,group_era,0,1.0,0.193,5.3,0.65,2274,144.0
+pr,Public research,b2002,facfte2,ext_group,1,1.009,0.164,16.8,0.679,2274,144.0
+pr,Public research,b2002,facfte2,group_era,0,1.058,0.178,5.3,0.658,2274,144.0
+pr,Public research,b2002,ptfacx,ext_group,0,1.44,0.955,16.8,0.672,2274,144.0
+pr,Public research,b2002,ptfacx,group_era,1,1.689,0.876,5.3,0.783,2274,144.0
+pr,Public research,b2002,ga,ext_group,0,1.01,0.526,16.8,0.589,2274,144.0
+pr,Public research,b2002,ga,group_era,1,1.123,0.426,5.3,0.762,2274,144.0
+pr,Public research,b2002,ptshare,ext_group,0,0.072,0.13,16.8,0.008,2274,144.0
+pr,Public research,b2002,ptshare,group_era,1,0.154,0.15,5.3,0.021,2274,144.0
+pr,Public research,b2002,nonfacfte,ext_group,1,0.864,0.325,16.8,0.491,2274,144.0
+pr,Public research,b2002,allftex,ext_group,1,0.862,0.229,16.8,0.539,2274,144.0
+pr,Public research,b2002,eamproffte,group_era,1,0.743,0.298,5.3,0.44,2274,144.0
+pr,Public research,b2002,eamfte,group_era,1,2.582,1.488,5.3,0.411,2274,144.0
+pr,Public research,b2002,proffte,group_era,1,0.238,0.335,5.3,0.44,2274,144.0
+pr,Public research,b2002,nonproffte,group_era,1,0.483,0.525,5.3,0.504,2274,144.0
+rp,Regional publics,b1987,facfte,ext_group,1,0.788,0.11,91.6,0.737,7352,300.0
+rp,Regional publics,b1987,facfte,group_era,0,0.65,0.169,30.9,0.674,7351,300.0
+rp,Regional publics,b1987,facfte4,ext_group,1,0.79,0.111,91.6,0.731,7352,300.0
+rp,Regional publics,b1987,facfte4,group_era,0,0.646,0.168,30.9,0.666,7351,300.0
+rp,Regional publics,b1987,facfte2,ext_group,1,0.786,0.111,91.6,0.748,7352,300.0
+rp,Regional publics,b1987,facfte2,group_era,0,0.658,0.173,30.9,0.689,7351,300.0
+rp,Regional publics,b1987,ptfacx,ext_group,0,0.739,0.521,91.6,0.928,7352,300.0
+rp,Regional publics,b1987,ptfacx,group_era,1,0.528,0.716,30.9,0.872,7351,300.0
+rp,Regional publics,b1987,ga,ext_group,0,-0.164,0.447,91.6,0.267,7352,300.0
+rp,Regional publics,b1987,ga,group_era,1,-0.579,0.749,30.9,0.41,7351,300.0
+rp,Regional publics,b1987,ptshare,ext_group,0,-0.004,0.049,91.7,0.041,7351,300.0
+rp,Regional publics,b1987,ptshare,group_era,1,0.024,0.062,30.9,0.053,7350,300.0
+rp,Regional publics,b1987,nonfacfte,ext_group,1,0.713,0.088,91.6,0.566,7352,300.0
+rp,Regional publics,b1987,allftex,ext_group,1,0.728,0.087,91.6,0.63,7352,300.0
+rp,Regional publics,b1987,eamproffte,group_era,1,0.427,0.16,30.9,0.48,7351,300.0
+rp,Regional publics,b1987,eamfte,group_era,1,-0.054,0.432,30.9,0.364,7351,300.0
+rp,Regional publics,b1987,proffte,group_era,1,0.632,0.258,30.9,0.527,7351,300.0
+rp,Regional publics,b1987,nonproffte,group_era,1,0.571,0.168,30.9,0.5,7351,300.0
+rp,Regional publics,b2002,facfte,ext_group,1,0.708,0.102,19.6,0.654,4695,296.0
+rp,Regional publics,b2002,facfte,group_era,0,0.607,0.175,8.0,0.591,4694,296.0
+rp,Regional publics,b2002,facfte4,ext_group,1,0.731,0.104,19.6,0.64,4695,296.0
+rp,Regional publics,b2002,facfte4,group_era,0,0.616,0.176,8.0,0.579,4694,296.0
+rp,Regional publics,b2002,facfte2,ext_group,1,0.669,0.103,19.6,0.676,4695,296.0
+rp,Regional publics,b2002,facfte2,group_era,0,0.592,0.177,8.0,0.612,4694,296.0
+rp,Regional publics,b2002,ptfacx,ext_group,0,0.177,0.691,19.6,1.017,4695,296.0
+rp,Regional publics,b2002,ptfacx,group_era,1,0.483,0.634,8.0,0.874,4694,296.0
+rp,Regional publics,b2002,ga,ext_group,0,1.508,1.073,19.6,0.453,4695,296.0
+rp,Regional publics,b2002,ga,group_era,1,1.304,1.502,8.0,0.544,4694,296.0
+rp,Regional publics,b2002,ptshare,ext_group,0,-0.128,0.108,19.6,0.076,4695,296.0
+rp,Regional publics,b2002,ptshare,group_era,1,-0.04,0.102,8.0,0.071,4694,296.0
+rp,Regional publics,b2002,nonfacfte,ext_group,1,0.735,0.167,19.6,0.524,4695,296.0
+rp,Regional publics,b2002,allftex,ext_group,1,0.711,0.12,19.6,0.575,4695,296.0
+rp,Regional publics,b2002,eamproffte,group_era,1,0.452,0.23,8.0,0.446,4694,296.0
+rp,Regional publics,b2002,eamfte,group_era,1,1.087,0.313,8.0,0.381,4694,296.0
+rp,Regional publics,b2002,proffte,group_era,1,0.275,0.332,8.0,0.466,4694,296.0
+rp,Regional publics,b2002,nonproffte,group_era,1,0.38,0.243,8.0,0.428,4694,296.0
+cc,Community colleges,b1987,facfte,ext_group,1,0.819,0.108,56.3,0.623,18018,755.0
+cc,Community colleges,b1987,facfte,group_era,0,0.921,0.207,22.7,0.546,18018,755.0
+cc,Community colleges,b1987,facfte4,ext_group,1,0.835,0.099,56.3,0.612,18018,755.0
+cc,Community colleges,b1987,facfte4,group_era,0,0.913,0.199,22.7,0.534,18018,755.0
+cc,Community colleges,b1987,facfte2,ext_group,1,0.794,0.127,56.3,0.64,18018,755.0
+cc,Community colleges,b1987,facfte2,group_era,0,0.929,0.226,22.7,0.565,18018,755.0
+cc,Community colleges,b1987,ptfacx,ext_group,0,0.316,0.548,56.3,0.805,18018,755.0
+cc,Community colleges,b1987,ptfacx,group_era,1,0.502,1.005,22.7,0.727,18018,755.0
+cc,Community colleges,b1987,ga,ext_group,0,-1.02,0.369,56.3,0.062,18018,755.0
+cc,Community colleges,b1987,ga,group_era,1,-2.342,1.039,22.7,0.152,18018,755.0
+cc,Community colleges,b1987,ptshare,ext_group,0,-0.085,0.088,56.3,0.047,18018,755.0
+cc,Community colleges,b1987,ptshare,group_era,1,-0.026,0.126,22.7,0.047,18018,755.0
+cc,Community colleges,b1987,nonfacfte,ext_group,1,0.699,0.151,56.3,0.56,18018,755.0
+cc,Community colleges,b1987,allftex,ext_group,1,0.745,0.09,56.3,0.581,18018,755.0
+cc,Community colleges,b1987,eamproffte,group_era,1,-0.129,0.749,22.7,0.412,18018,755.0
+cc,Community colleges,b1987,eamfte,group_era,1,0.4,0.282,22.7,0.311,18018,755.0
+cc,Community colleges,b1987,proffte,group_era,1,-0.891,1.545,22.7,0.435,18018,755.0
+cc,Community colleges,b1987,nonproffte,group_era,1,0.879,0.143,22.7,0.576,18018,755.0
+cc,Community colleges,b2002,facfte,ext_group,1,0.629,0.105,33.0,0.513,11613,736.0
+cc,Community colleges,b2002,facfte,group_era,0,0.597,0.142,12.5,0.457,11608,736.0
+cc,Community colleges,b2002,facfte4,ext_group,1,0.632,0.093,33.0,0.495,11613,736.0
+cc,Community colleges,b2002,facfte4,group_era,0,0.569,0.131,12.5,0.439,11608,736.0
+cc,Community colleges,b2002,facfte2,ext_group,1,0.626,0.126,33.0,0.539,11613,736.0
+cc,Community colleges,b2002,facfte2,group_era,0,0.641,0.161,12.5,0.483,11608,736.0
+cc,Community colleges,b2002,ptfacx,ext_group,0,0.638,0.378,33.0,0.783,11613,736.0
+cc,Community colleges,b2002,ptfacx,group_era,1,1.303,0.421,12.5,0.712,11608,736.0
+cc,Community colleges,b2002,ga,ext_group,0,0.027,0.051,33.0,0.004,11613,736.0
+cc,Community colleges,b2002,ga,group_era,1,0.026,0.035,12.5,0.013,11608,736.0
+cc,Community colleges,b2002,ptshare,ext_group,0,-0.001,0.071,33.0,0.068,11613,736.0
+cc,Community colleges,b2002,ptshare,group_era,1,0.134,0.075,12.5,0.062,11608,736.0
+cc,Community colleges,b2002,nonfacfte,ext_group,1,0.66,0.13,33.0,0.385,11613,736.0
+cc,Community colleges,b2002,allftex,ext_group,1,0.631,0.082,33.0,0.442,11613,736.0
+cc,Community colleges,b2002,eamproffte,group_era,1,0.672,0.178,12.5,0.383,11608,736.0
+cc,Community colleges,b2002,eamfte,group_era,1,0.64,0.213,12.5,0.289,11608,736.0
+cc,Community colleges,b2002,proffte,group_era,1,0.823,0.215,12.5,0.407,11608,736.0
+cc,Community colleges,b2002,nonproffte,group_era,1,0.308,0.154,12.5,0.302,11608,736.0
+xr,Private research,b1987,facfte,ext_group,1,1.557,0.45,13.9,0.81,2131,93.0
+xr,Private research,b1987,facfte,group_era,0,1.402,0.244,22.6,0.773,2131,93.0
+xr,Private research,b1987,facfte4,ext_group,1,1.466,0.426,13.9,0.798,2131,93.0
+xr,Private research,b1987,facfte4,group_era,0,1.367,0.236,22.6,0.754,2131,93.0
+xr,Private research,b1987,facfte2,ext_group,1,1.716,0.493,13.9,0.829,2131,93.0
+xr,Private research,b1987,facfte2,group_era,0,1.463,0.26,22.6,0.804,2131,93.0
+xr,Private research,b1987,ptfacx,ext_group,0,5.253,1.835,13.9,1.067,2131,93.0
+xr,Private research,b1987,ptfacx,group_era,1,2.648,1.236,22.6,1.098,2131,93.0
+xr,Private research,b1987,ga,ext_group,0,0.449,3.749,13.9,-0.117,2131,93.0
+xr,Private research,b1987,ga,group_era,1,-2.997,3.005,22.6,-0.56,2131,93.0
+xr,Private research,b1987,ptshare,ext_group,0,0.608,0.226,13.9,0.062,2131,93.0
+xr,Private research,b1987,ptshare,group_era,1,0.231,0.137,22.6,0.093,2131,93.0
+xr,Private research,b1987,nonfacfte,ext_group,1,2.062,0.487,13.9,0.688,2131,93.0
+xr,Private research,b1987,allftex,ext_group,1,1.837,0.413,13.9,0.731,2131,93.0
+xr,Private research,b1987,eamproffte,group_era,1,1.294,0.4,22.6,0.65,2131,93.0
+xr,Private research,b1987,eamfte,group_era,1,1.393,0.6,22.6,0.699,2131,93.0
+xr,Private research,b1987,proffte,group_era,1,1.247,0.542,22.6,0.602,2131,93.0
+xr,Private research,b1987,nonproffte,group_era,1,1.382,0.294,22.6,0.757,2131,93.0
+xr,Private research,b2002,facfte,ext_group,1,0.741,0.252,7.0,0.622,1359,89.0
+xr,Private research,b2002,facfte,group_era,0,0.738,0.184,13.0,0.6,1359,89.0
+xr,Private research,b2002,facfte4,ext_group,1,0.684,0.251,7.0,0.618,1359,89.0
+xr,Private research,b2002,facfte4,group_era,0,0.69,0.184,13.0,0.595,1359,89.0
+xr,Private research,b2002,facfte2,ext_group,1,0.84,0.262,7.0,0.631,1359,89.0
+xr,Private research,b2002,facfte2,group_era,0,0.819,0.195,13.0,0.612,1359,89.0
+xr,Private research,b2002,ptfacx,ext_group,0,3.7,1.125,7.0,1.082,1359,89.0
+xr,Private research,b2002,ptfacx,group_era,1,2.236,0.997,13.0,1.153,1359,89.0
+xr,Private research,b2002,ga,ext_group,0,4.523,2.463,7.0,0.428,1359,89.0
+xr,Private research,b2002,ga,group_era,1,1.71,2.218,13.0,0.418,1359,89.0
+xr,Private research,b2002,ptshare,ext_group,0,0.403,0.19,7.0,0.049,1359,89.0
+xr,Private research,b2002,ptshare,group_era,1,0.286,0.149,13.0,0.062,1359,89.0
+xr,Private research,b2002,nonfacfte,ext_group,1,1.359,0.406,7.0,0.628,1359,89.0
+xr,Private research,b2002,allftex,ext_group,1,1.131,0.321,7.0,0.627,1359,89.0
+xr,Private research,b2002,eamproffte,group_era,1,0.885,0.43,13.0,0.713,1359,89.0
+xr,Private research,b2002,eamfte,group_era,1,2.807,1.537,13.0,0.908,1359,89.0
+xr,Private research,b2002,proffte,group_era,1,-0.622,0.972,13.0,0.492,1359,89.0
+xr,Private research,b2002,nonproffte,group_era,1,0.944,0.289,13.0,0.701,1359,89.0
+xmb,Private master's & bachelor's,b1987,facfte,ext_group,1,0.846,0.231,10.9,0.7,18937,791.0
+xmb,Private master's & bachelor's,b1987,facfte,group_era,0,0.943,0.286,11.3,0.626,18933,791.0
+xmb,Private master's & bachelor's,b1987,facfte4,ext_group,1,0.831,0.223,10.9,0.678,18937,791.0
+xmb,Private master's & bachelor's,b1987,facfte4,group_era,0,0.933,0.286,11.3,0.605,18933,791.0
+xmb,Private master's & bachelor's,b1987,facfte2,ext_group,1,0.873,0.248,10.9,0.734,18937,791.0
+xmb,Private master's & bachelor's,b1987,facfte2,group_era,0,0.965,0.29,11.3,0.658,18933,791.0
+xmb,Private master's & bachelor's,b1987,ptfacx,ext_group,0,1.071,0.737,10.9,0.921,18937,791.0
+xmb,Private master's & bachelor's,b1987,ptfacx,group_era,1,1.521,0.855,11.3,0.819,18933,791.0
+xmb,Private master's & bachelor's,b1987,ga,ext_group,0,-1.58,1.398,10.9,0.496,18937,791.0
+xmb,Private master's & bachelor's,b1987,ga,group_era,1,-2.072,1.44,11.3,0.252,18933,791.0
+xmb,Private master's & bachelor's,b1987,ptshare,ext_group,0,0.091,0.118,10.9,0.082,18930,791.0
+xmb,Private master's & bachelor's,b1987,ptshare,group_era,1,0.093,0.093,11.3,0.079,18926,791.0
+xmb,Private master's & bachelor's,b1987,nonfacfte,ext_group,1,0.878,0.173,10.9,0.589,18937,791.0
+xmb,Private master's & bachelor's,b1987,allftex,ext_group,1,0.856,0.186,10.9,0.636,18937,791.0
+xmb,Private master's & bachelor's,b1987,eamproffte,group_era,1,1.258,0.46,11.3,0.487,18933,791.0
+xmb,Private master's & bachelor's,b1987,eamfte,group_era,1,1.576,0.553,11.3,0.363,18933,791.0
+xmb,Private master's & bachelor's,b1987,proffte,group_era,1,0.802,0.735,11.3,0.53,18933,791.0
+xmb,Private master's & bachelor's,b1987,nonproffte,group_era,1,0.298,0.298,11.3,0.529,18933,791.0
+xmb,Private master's & bachelor's,b2002,facfte,ext_group,1,0.67,0.324,4.3,0.654,12010,781.0
+xmb,Private master's & bachelor's,b2002,facfte,group_era,0,0.156,0.647,1.8,0.613,12001,781.0
+xmb,Private master's & bachelor's,b2002,facfte4,ext_group,1,0.61,0.304,4.3,0.635,12010,781.0
+xmb,Private master's & bachelor's,b2002,facfte4,group_era,0,0.112,0.644,1.8,0.594,12001,781.0
+xmb,Private master's & bachelor's,b2002,facfte2,ext_group,1,0.777,0.366,4.3,0.683,12010,781.0
+xmb,Private master's & bachelor's,b2002,facfte2,group_era,0,0.248,0.646,1.8,0.64,12001,781.0
+xmb,Private master's & bachelor's,b2002,ptfacx,ext_group,0,2.333,1.329,4.3,0.843,12010,781.0
+xmb,Private master's & bachelor's,b2002,ptfacx,group_era,1,2.42,1.648,1.8,0.838,12001,781.0
+xmb,Private master's & bachelor's,b2002,ga,ext_group,0,0.488,1.014,4.3,0.288,12010,781.0
+xmb,Private master's & bachelor's,b2002,ga,group_era,1,1.727,1.792,1.8,0.217,12001,781.0
+xmb,Private master's & bachelor's,b2002,ptshare,ext_group,0,0.406,0.272,4.3,0.064,12010,781.0
+xmb,Private master's & bachelor's,b2002,ptshare,group_era,1,0.43,0.326,1.8,0.066,12001,781.0
+xmb,Private master's & bachelor's,b2002,nonfacfte,ext_group,1,0.663,0.233,4.3,0.523,12010,781.0
+xmb,Private master's & bachelor's,b2002,allftex,ext_group,1,0.672,0.234,4.3,0.577,12010,781.0
+xmb,Private master's & bachelor's,b2002,eamproffte,group_era,1,1.394,1.006,1.8,0.461,12001,781.0
+xmb,Private master's & bachelor's,b2002,eamfte,group_era,1,1.079,0.764,1.8,0.272,12001,781.0
+xmb,Private master's & bachelor's,b2002,proffte,group_era,1,1.09,1.048,1.8,0.546,12001,781.0
+xmb,Private master's & bachelor's,b2002,nonproffte,group_era,1,-0.001,0.985,1.8,0.515,12001,781.0

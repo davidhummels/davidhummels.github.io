@@ -38,18 +38,59 @@ SGROUPS = [
   {k: "xmb", l: "Private master's & bachelor's", c: "#008300"}]
 SGL = Object.fromEntries([["all", "All institutions"], ...SGROUPS.map(d => [d.k, d.l])])
 SGC = Object.fromEntries([["all", BLUE], ...SGROUPS.map(d => [d.k, d.c])])
+// staff measures. FTE = full-time + part-time/3; faculty excludes graduate assistants (GAs), which are their own series.
+// "pair" (the default everywhere) draws faculty FTE and non-faculty FTE together. v1 headcount measures stay available, labeled.
+// brk: not comparable across the FY2012|FY2013 IPEDS HR redesign, drawn as separate segments and changed from FY2013 only
+// (PT faculty, GAs and the PT share are spliced at the redesign; EAM/professional/nonprofessional were reclassified;
+//  the v1 headcounts contain spliced PT faculty and GAs).
 MEAS = [
-  {k: "total", l: "All employees (headcount)"},
-  {k: "fte_staff", l: "FTE staff"},
+  {k: "pair", l: "Faculty FTE and non-faculty FTE"},
+  {k: "facfte", l: "Faculty FTE (excl. graduate assistants)"},
+  {k: "nonfacfte", l: "Non-faculty FTE"},
   {k: "ftfac", l: "Full-time faculty"},
-  {k: "ptfac", l: "Part-time faculty"},
-  {k: "nonfac", l: "Non-faculty staff"},
-  {k: "eam", l: "Executive, administrative & managerial (EAM)", brk: true},
-  {k: "prof", l: "Professional staff", brk: true},
-  {k: "nonprof", l: "Nonprofessional staff", brk: true},
-  {k: "eamprof", l: "EAM + professional", brk: true}]
-MEASL = Object.fromEntries(MEAS.map(d => [d.k, d.l]))
+  {k: "ptfacx", l: "Part-time faculty (excl. graduate assistants)", brk: true},
+  {k: "ga", l: "Graduate assistants", brk: true},
+  {k: "ptshare", l: "Part-time share of faculty (%)", brk: true, share: true},
+  {k: "allftex", l: "All FTE staff (excl. graduate assistants)"},
+  {k: "facfte4", l: "Faculty FTE, part-time weight 1/4 (check)"},
+  {k: "facfte2", l: "Faculty FTE, part-time weight 1/2 (check)"},
+  {k: "total", l: "All employees, headcount (v1, as in the 2014 brief)", brk: true, v1: true},
+  {k: "fte_staff", l: "FTE staff incl. graduate assistants (v1)", v1: true},
+  {k: "ptfac", l: "Part-time faculty incl. graduate assistants, headcount (v1)", brk: true, v1: true},
+  {k: "nonfac", l: "Non-faculty staff, headcount (v1)", brk: true, v1: true},
+  {k: "eam", l: "Executive, administrative & managerial (EAM), headcount", brk: true},
+  {k: "prof", l: "Professional staff, headcount", brk: true},
+  {k: "nonprof", l: "Nonprofessional staff, headcount", brk: true},
+  {k: "eamprof", l: "EAM + professional, headcount", brk: true}]
+MEASL = Object.fromEntries([...MEAS.map(d => [d.k, d.l]), ["eamproffte", "EAM + professional FTE"], ["nonproffte", "Nonprofessional FTE"], ["eamfte", "EAM FTE"], ["proffte", "Professional FTE"]])
 BRK = new Set(MEAS.filter(d => d.brk).map(d => d.k))
+PAIR = ["facfte", "nonfacfte"]
+PAIRL = ({facfte: "Faculty FTE", nonfacfte: "Non-faculty FTE"})
+PAIRDASH = ({facfte: null, nonfacfte: "5,3"})
+pairNote = "Faculty FTE (solid) and non-faculty FTE (dashed): full-time plus one-third of part-time staff; faculty excludes graduate assistants."
+// a measure select limited to the keys a file has; old URL values still work when present
+measSelect = (keys, {value, label = "Staff measure", L = MEASL} = {}) => Inputs.select(keys, {format: k => L[k] ?? k, value: keys.includes(value) ? value : keys[0], label})
+// institution-file codes (inst/<ST>.csv, bands.csv): same measures, short column names
+IMEAS = [
+  {k: "pair", l: "Faculty FTE and non-faculty FTE"},
+  {k: "ffte", l: "Faculty FTE (excl. graduate assistants)"},
+  {k: "nfte", l: "Non-faculty FTE"},
+  {k: "ftf", l: "Full-time faculty"},
+  {k: "ptx", l: "Part-time faculty (excl. graduate assistants)", brk: true},
+  {k: "ga", l: "Graduate assistants", brk: true},
+  {k: "pts", l: "Part-time share of faculty (%)", brk: true, share: true},
+  {k: "afx", l: "All FTE staff (excl. graduate assistants)"},
+  {k: "tot", l: "All employees, headcount (v1)", brk: true},
+  {k: "ptf", l: "Part-time faculty incl. graduate assistants, headcount (v1)", brk: true},
+  {k: "nfc", l: "Non-faculty staff, headcount (v1)", brk: true},
+  {k: "eam", l: "EAM, headcount", brk: true},
+  {k: "pro", l: "Professional staff, headcount", brk: true},
+  {k: "npr", l: "Nonprofessional staff, headcount", brk: true},
+  {k: "ep", l: "EAM + professional, headcount", brk: true}]
+IMEASL = Object.fromEntries(IMEAS.map(d => [d.k, d.l]))
+IBRK = new Set(IMEAS.filter(d => d.brk).map(d => d.k))
+IPAIR = ["ffte", "nfte"]
+brkNote = "Red dashed line: the FY2012|FY2013 IPEDS staff-survey redesign. Part-time faculty, graduate assistants and the part-time share are spliced there, EAM, professional and nonprofessional staff were reclassified, and the v1 headcounts contain the spliced series; all of these are drawn as separate segments and changed from FY2013. Faculty FTE, non-faculty FTE and full-time faculty are continuous at the median institution. Community-college non-faculty FTE steps up about 1 log point (part-time staff) in FY2013, so community-college changes start in FY2013."
 // era of an FY for break categories: FY2012 and earlier = old HR scheme, FY2013+ = new
 era = fy => fy >= 2013 ? "post" : "pre"
 STNAME = ({AL:"Alabama",AK:"Alaska",AZ:"Arizona",AR:"Arkansas",CA:"California",CO:"Colorado",CT:"Connecticut",DE:"Delaware",DC:"District of Columbia",FL:"Florida",GA:"Georgia",HI:"Hawaii",ID:"Idaho",IL:"Illinois",IN:"Indiana",IA:"Iowa",KS:"Kansas",KY:"Kentucky",LA:"Louisiana",ME:"Maine",MD:"Maryland",MA:"Massachusetts",MI:"Michigan",MN:"Minnesota",MS:"Mississippi",MO:"Missouri",MT:"Montana",NE:"Nebraska",NV:"Nevada",NH:"New Hampshire",NJ:"New Jersey",NM:"New Mexico",NY:"New York",NC:"North Carolina",ND:"North Dakota",OH:"Ohio",OK:"Oklahoma",OR:"Oregon",PA:"Pennsylvania",RI:"Rhode Island",SC:"South Carolina",SD:"South Dakota",TN:"Tennessee",TX:"Texas",UT:"Utah",VT:"Vermont",VA:"Virginia",WA:"Washington",WV:"West Virginia",WI:"Wisconsin",WY:"Wyoming"})

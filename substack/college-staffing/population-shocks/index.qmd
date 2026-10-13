@@ -21,8 +21,9 @@ OP = FileAttachment("../data/online_providers.csv").csv({typed: true})
 ```{ojs}
 {
   const a = DC.find(d => d.sec === "all" && d.weights === "unweighted");
-  const s = SP.find(d => d.sec === "all" && d.weights === "unweighted");
-  return md`<div class="cs-lead">Enrollment at the typical surviving college fell <b>${f1(-a.dlog_fte)}</b> log points from FY2013 to FY2024. Population change, measured by an instrument that ages each college's recruiting counties forward from age 10, accounts for <b>${s1(a.demographic)}</b>; the business cycle at most ${s1(a.cycle_national)}; the remaining <b>${s1(a.residual)}</b> is something else. Because staff respond to enrollment less than one for one, the fall raised staff per student: ${f1(s.enrollment_part)} of a ${f1(s.rise)}-point rise, with ${f1(s.beyond)} from staff growth beyond enrollment.</div>`;
+  const g = m => SP.find(d => d.sec === "all" && d.level === "all" && d.weights === "unweighted" && d.measure === m && d.method === "cf" && d.gfe === "ext_group");
+  const f = g("facfte"), n = g("nonfacfte");
+  return md`<div class="cs-lead">Enrollment at the typical surviving college fell <b>${f1(-a.dlog_fte)}</b> log points from FY2013 to FY2024. Population change, measured by an instrument that ages each college's recruiting counties forward from age 10, accounts for <b>${s1(a.demographic)}</b>; the business cycle at most ${s1(a.cycle_national)}; the remaining <b>${s1(a.residual)}</b> is something else. Because staff respond to enrollment less than one for one, the fall raised staff per student. Faculty FTE per student rose ${f1(f.rise)} points: ${f1(f.enrollment_part)} from the enrollment change and <b>${f1(f.beyond)}</b> beyond it. Non-faculty FTE per student rose ${f1(n.rise)}: ${f1(n.enrollment_part)} from the enrollment change and <b>${f1(n.beyond)}</b> beyond it. <b>Growth beyond enrollment is mostly non-faculty.</b></div>`;
 }
 ```
 
@@ -32,7 +33,7 @@ Read more: [white paper §6](../paper/index.qmd#sec-6) (population shocks) and [
 
 ::: {.cs-box}
 #### How the instrument works
-For each college, a gravity model gives the share of its students that comes from each county, based on distance and competing colleges. The instrument is the number of young people in those counties, built by aging each county's 10-year-olds forward, so current students' own choices never enter it. Its change over time is a demand shift the college does not control. The sample is the **1,903 surviving (S11) institutions** with the instrument; that is why its staff-per-student rise (12.8) differs slightly from the 12.6 for all 2,038 S11 institutions on the [Enrollment](../enrollment/index.qmd) page.
+For each college, a gravity model gives the share of its students that comes from each county, based on distance and competing colleges. The instrument is the number of young people in those counties, built by aging each county's 10-year-olds forward, so current students' own choices never enter it. Its change over time is a demand shift the college does not control. The sample is the **1,903 surviving (S11) institutions** with the instrument; that is why its rises in staff per student (faculty FTE 11.0, non-faculty FTE 17.3) differ slightly from those for all 2,038 S11 institutions on the [Enrollment](../enrollment/index.qmd) page (11.0 and 17.1).
 :::
 
 ```{ojs}
@@ -93,50 +94,70 @@ Predicted by population: the sector's first-stage coefficient times each college
 
 ## How staffing responds to enrollment
 
-An elasticity of 1 means staff move one for one with enrollment, keeping staff per student constant. Below 1, a falling enrollment raises staff per student.
+An elasticity of 1 means staff move one for one with enrollment, keeping staff per student constant. Below 1, a falling enrollment raises staff per student. The default shows faculty FTE and non-faculty FTE together (full-time + one-third of part-time; faculty excludes graduate assistants).
 
 ```{ojs}
-viewof cat = Inputs.select(new Map([["All staff", "total"], ["Full-time faculty", "ftfac"], ["Non-faculty staff", "nonfac"], ["EAM + professional", "eamprof"], ["Nonprofessional staff", "nonprof"]]), {value: param("cat", "total"), label: "Staff category"})
+CATK = ["pair", "facfte", "nonfacfte", "allftex", "ftfac", "ptfacx", "ga", "ptshare", "facfte4", "facfte2", "total", "nonfac", "eamproffte", "nonproffte", "eamprof", "nonprof"].filter(k => k === "pair" || EL.some(d => d.outcome === k))
+viewof cat = measSelect(CATK, {value: param("cat", "pair"), label: "Staff measure"})
 viewof bse = Inputs.radio(new Map([["Main (county base 1987)", "b1987"], ["Robustness (base 2002, FY2006+)", "b2002"]]), {value: param("base", "b1987"), label: "Instrument"})
+viewof ge = Inputs.toggle({label: "Institution × survey-era effects (where both exist)", value: param("ge", "0") === "1"})
 ```
 
 ```{ojs}
 {
-  setParam("cat", cat === "total" ? null : cat); setParam("base", bse === "b1987" ? null : bse);
+  setParam("cat", cat === "pair" ? null : cat); setParam("base", bse === "b1987" ? null : bse); setParam("ge", ge ? "1" : null);
+  const CS = cat === "pair" ? PAIR : [cat];
+  const POOLED = new Set(["total", "facfte", "nonfacfte", "allftex"]);
   const order = ["all", ...SGROUPS.map(s => s.k)];
-  const r = EL.filter(d => d.outcome === cat && d.base === bse && order.includes(d.sg) && d.fs_F >= 20 && (cat === "total" || d.sg !== "all")).map(d => ({...d, l: SGL[d.sg], lo: d.coef - 1.96 * d.se, hi: d.coef + 1.96 * d.se, weak: d.fs_F < 20}));
+  const pickRow = (sg, m) => { const r = EL.filter(d => d.outcome === m && d.base === bse && d.sg === sg); return (ge ? r.find(d => d.gfe === "group_era") : null) ?? r.find(d => d.main === 1) ?? r[0]; };
+  const r = order.flatMap(sg => CS.map(m => pickRow(sg, m))).filter(d => d && d.fs_F >= 20 && (POOLED.has(d.outcome) || d.sg !== "all"))
+    .map(d => ({...d, l: SGL[d.sg], lo: d.coef - 1.96 * d.se, hi: d.coef + 1.96 * d.se}));
   const narrow = width < 640;
+  const share = cat === "ptshare";
   return html`${Plot.plot({
-    width: Math.min(width, 860), height: 60 + order.length * 40, marginLeft: narrow ? 120 : 200, marginRight: 70,
-    x: {grid: true, label: "Elasticity of staff to fall FTE (95% interval)", domain: [Math.min(-0.2, d3.min(r, d => d.lo)), Math.max(2, d3.max(r, d => d.hi))]}, y: {domain: order.map(k => SGL[k]), label: null},
-    marks: [Plot.ruleX([1], {stroke: BREAKC, strokeDasharray: "4,3"}), Plot.ruleX([0], {stroke: "#bbb"}),
-      Plot.ruleY(r, {y: "l", x1: "lo", x2: "hi", stroke: d => d.weak ? "#c3ccd5" : SGC[d.sg], strokeWidth: 3}),
-      Plot.dot(r, {y: "l", x: "coef", r: 6, fill: d => d.weak ? "white" : SGC[d.sg], stroke: d => d.weak ? GRAY : "white", strokeWidth: 2}),
-      Plot.text(r, {y: "l", x: "hi", text: d => `${f2(d.coef)}${d.weak ? " (weak)" : ""}`, dx: 6, textAnchor: "start", fontSize: 11, fill: INK}),
-      Plot.tip(r, Plot.pointerY({y: "l", x: "coef", title: d => `${d.l}: ${f2(d.coef)} (SE ${f2(d.se)})\nfirst-stage F ${f1(d.fs_F)}${d.weak ? " (weak first stage: read with caution)" : ""}${d.fe_coef != null && isFinite(d.fe_coef) ? `\nwithin-institution OLS ${f2(d.fe_coef)}` : ""}\nN ${f0(d.N)}`}))]
-  })}<p class="cs-note">Red dashed line: elasticity 1. Private sectors are not shown: their first stages are too weak (F below 20) to report. "All institutions" pools sectors with sector × year effects and is shown for total staff only; pooled category elasticities are not robust across instrument bases and are not reported. EAM + professional and nonprofessional staff use institution × HR-era effects because of the 2012–13 redesign. The category elasticities are less robust than the total: EAM + professional is 0.89 at public research universities but 0.44 at regional publics, and noisy at community colleges, so there is no national "sticky administrators" pattern.</p>`;
+    width: Math.min(width, 860), height: 60 + order.length * (cat === "pair" ? 50 : 40), marginLeft: narrow ? 120 : 200, marginRight: 90,
+    x: {grid: true, label: share ? "Change in part-time share per log point of fall FTE (95% interval)" : "Elasticity of staff to fall FTE (95% interval)", domain: [Math.min(-0.2, d3.min(r, d => d.lo) ?? 0), Math.max(share ? 0.5 : 2, d3.max(r, d => d.hi) ?? 1)]}, y: {domain: order.map(k => SGL[k]), label: null},
+    marks: [share ? null : Plot.ruleX([1], {stroke: BREAKC, strokeDasharray: "4,3"}), Plot.ruleX([0], {stroke: "#bbb"}),
+      ...CS.map((m, i) => { const rr = r.filter(d => d.outcome === m), off = CS.length > 1 ? (i === 0 ? -6 : 6) : 0, open = CS.length > 1 && i === 1; return [
+        Plot.ruleY(rr, {y: "l", x1: "lo", x2: "hi", dy: off, stroke: d => SGC[d.sg], strokeWidth: 3, strokeOpacity: open ? 0.55 : 1}),
+        Plot.dot(rr, {y: "l", x: "coef", dy: off, r: 6, fill: d => open ? "white" : SGC[d.sg], stroke: d => SGC[d.sg], strokeWidth: 2}),
+        Plot.text(rr, {y: "l", x: "hi", dy: off, text: d => `${CS.length > 1 ? (i === 0 ? "faculty " : "non-faculty ") : ""}${f2(d.coef)}`, dx: 6, textAnchor: "start", fontSize: 11, fill: INK})]; }).flat(),
+      Plot.tip(r, Plot.pointerY({y: "l", x: "coef", title: d => `${d.l}, ${MEASL[d.outcome]}: ${f2(d.coef)} (SE ${f2(d.se)})\n${d.gfe === "group_era" ? "institution × survey-era effects" : "institution effects"}\nfirst-stage F ${f1(d.fs_F)}${d.fe_coef != null && isFinite(d.fe_coef) ? `\nwithin-institution OLS ${f2(d.fe_coef)}` : ""}\nN ${f0(d.N)}`}))]
+  })}<p class="cs-note">${cat === "pair" ? "Filled dot: faculty FTE; open dot: non-faculty FTE. " : ""}Red dashed line: elasticity 1. Private sectors are not shown: their first stages are too weak (F below 20) to report. "All institutions" pools sectors with sector × year effects and is shown for faculty FTE, non-faculty FTE, all FTE and headcount. Faculty FTE responds about 0.8 in all three public sectors; non-faculty FTE carries the sector gradient (public research highest, community colleges lowest). Part-time faculty, graduate assistants, the part-time share and executive, professional and nonprofessional staff use institution × survey-era effects because of the 2012–13 redesign. The part-time share does not respond in any public sector. Graduate-assistant estimates are noisy and change sign across specifications; read them as descriptive. EAM + professional estimates are not robust across instrument bases, so there is no national "sticky administrators" pattern.</p>`;
 }
 ```
 
 ## Why staff per student rose, by sector
 
 ```{ojs}
+SPK = ["pair", "facfte", "nonfacfte", "allftex", "ftfac", "ptfacx", "ga", "facfte4", "facfte2", "total", "nonfac"].filter(k => k === "pair" || SP.some(d => d.measure === k))
+viewof dm = measSelect(SPK, {value: param("dm", "pair"), label: "Staff measure"})
+viewof meth = Inputs.select(new Map([["Control function, pooled (headline)", "cf"], ["Within-institution (FE) elasticity, pooled", "fe"], ["2SLS elasticity (base 2002), pooled", "iv"], ["FE elasticity, sector-specific", "fe_sec"], ["2SLS elasticity, sector-specific", "iv_sec"]]), {value: param("meth", "cf"), label: "Elasticity used"})
+```
+
+```{ojs}
 {
+  setParam("dm", dm === "pair" ? null : dm); setParam("meth", meth === "cf" ? null : meth);
+  const DS2 = dm === "pair" ? PAIR : [dm];
   const order = [{k: "all", l: "All sectors"}, ...SECTORS];
   const lab = Object.fromEntries(order.map(d => [d.k, d.l]));
-  const r = SP.filter(d => d.weights === wt2);
+  const wOK = wt2 === "unweighted" || (DS2.every(m => m === "total") && meth === "cf");
+  const ww = wOK ? wt2 : "unweighted";
+  const r = SP.filter(d => d.weights === ww && d.method === meth && d.gfe === "ext_group" && (d.level === "all" || d.level === "sector") && DS2.includes(d.measure))
+    .map(d => ({...d, sl: lab[d.sec], ml: dm === "pair" ? PAIRL[d.measure] : MEASL[d.measure]}));
   const P2 = ["Elasticity below 1 meets the enrollment change", "Staff growth beyond enrollment"];
-  const long = r.flatMap(d => [{sec: lab[d.sec], part: P2[0], v: d.enrollment_part}, {sec: lab[d.sec], part: P2[1], v: d.beyond}]);
+  const long = r.flatMap(d => [{...d, part: P2[0], v: d.enrollment_part}, {...d, part: P2[1], v: d.beyond}]);
+  const ML = [...new Set(r.map(d => d.ml))];
   const narrow = width < 640;
   return html`${Plot.plot({
-    width: Math.min(width, 900), height: 50 + order.length * 34, marginLeft: narrow ? 120 : 150, marginRight: 40,
-    x: {grid: true, label: "Change in log staff per student, FY2013–24 (×100)"}, y: {domain: order.map(d => d.l), label: null},
+    width: Math.min(width, 900), height: 50 + order.length * ML.length * 26, marginLeft: narrow ? 120 : 150, marginRight: 60,
+    x: {grid: true, label: "Change in log staff per student, FY2013–24 (×100)"}, fy: {domain: order.map(d => d.l), label: null}, y: {domain: ML, label: null, axis: ML.length > 1 ? "right" : null},
     color: {domain: P2, range: [LIGHT, BLUE], legend: true},
-    marks: [Plot.barX(long, Plot.stackX({y: "sec", x: "v", fill: "part", inset: 0.5})), Plot.ruleX([0], {stroke: INK}),
-      Plot.dot(r, {y: d => lab[d.sec], x: "rise", r: 5, fill: "white", stroke: INK, strokeWidth: 2}),
-      Plot.text(r, {y: d => lab[d.sec], x: d => Math.max(d.rise, d.enrollment_part + Math.max(0, d.beyond), d.beyond), text: d => s1(d.rise), dx: 10, textAnchor: "start", fontSize: 11, fill: INK}),
-      Plot.tip(r, Plot.pointerY({y: d => lab[d.sec], x: "rise", title: d => `${lab[d.sec]} (${d.n} institutions)\nrise ${s1(d.rise)}\n= enrollment part ${s1(d.enrollment_part)}\n+ beyond enrollment ${s1(d.beyond)}\nFTE ${s1(d.dlog_fte)}, staff ${s1(d.dlog_staff)}`}))]
-  })}<p class="cs-note">Enrollment part = (0.70 − 1) × population-driven change + (0.57 − 1) × all other enrollment change, using the pooled control-function elasticities; staff growth beyond enrollment is the remainder. Sector rows apply the pooled elasticities to each sector's own enrollment changes (a simple aggregation for this site); the sector elasticities above differ, so read sector splits as approximate. At research universities enrollment grew, so the enrollment part is negative and the whole rise is staff growth.</p>`;
+    marks: [Plot.barX(long, Plot.stackX({fy: "sl", y: "ml", x: "v", fill: "part", inset: 0.5})), Plot.ruleX([0], {stroke: INK}),
+      Plot.dot(r, {fy: "sl", y: "ml", x: "rise", r: 5, fill: "white", stroke: INK, strokeWidth: 2}),
+      Plot.text(r, {fy: "sl", y: "ml", x: d => Math.max(d.rise, d.enrollment_part + Math.max(0, d.beyond), d.beyond), text: d => s1(d.rise), dx: 10, textAnchor: "start", fontSize: 11, fill: INK}),
+      Plot.tip(r, Plot.pointerY({fy: "sl", y: "ml", x: "rise", title: d => `${d.sl}, ${d.ml} (${d.n} institutions)\nrise ${s1(d.rise)}\n= enrollment part ${s1(d.enrollment_part)}\n+ beyond enrollment ${s1(d.beyond)}\nelasticities ${f2(d.b_demog)} (population) / ${f2(d.b_other)} (other)${d.b_source === "pooled (sector F < 10)" ? " (sector first stage weak: pooled used)" : ""}\nFTE ${s1(d.dlog_fte)}, staff ${s1(d.dlog_staff)}`}))]
+  })}<p class="cs-note">${wOK ? "" : "<b>Only the v1 headcount split with the control function has an enrollment-weighted version; showing unweighted.</b> "}Enrollment part = (β<sub>pop</sub> − 1) × population-driven change + (β<sub>other</sub> − 1) × all other enrollment change; staff growth beyond enrollment is the remainder (hover for the elasticities). The headline uses the pooled control-function elasticities for each measure (faculty FTE 0.65 / 0.60, non-faculty FTE 0.65 / 0.47): faculty FTE 11.0 = 7.1 + 3.9, non-faculty FTE 17.3 = 9.6 + 7.8. With the FE or 2SLS elasticities, non-faculty growth beyond enrollment runs from 7.8 to 11.1. Pooled rows apply one elasticity to each sector's own enrollment changes, so read sector splits as approximate; the sector-specific rows use each sector's own elasticity (pooled where the sector's first stage is weak). At public research universities enrollment grew, so the enrollment part is slightly negative and growth beyond enrollment slightly exceeds the rise (there faculty grew more than non-faculty). At community colleges faculty FTE tracked enrollment (little beyond it) while non-faculty FTE grew well beyond it.</p>`;
 }
 ```
 

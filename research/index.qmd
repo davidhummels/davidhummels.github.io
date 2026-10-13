@@ -8,6 +8,7 @@ Full details are in my [CV](https://webapps.krannert.purdue.edu/sites/Home/Files
 
 - **Completion efficiency in U.S. higher education** (white paper, in progress). <!-- Hidden until ready (2026-10-04): Companion data and tools: [Completion Efficiency project](../substack/completion-efficiency/index.qmd) -->
 <!-- Hidden until approved (item 12, 2026-10-12): - **Counting College Staff: Delta Cost, Twelve Years On** (white paper, draft). [PDF](papers/counting_college_staff_v1.pdf) · [HTML and interactive tools](../substack/college-staffing/paper/index.qmd) -->
+<!-- Hidden until approved (item 13, 2026-10-13): - **Counting College Staff: Delta Cost, Twelve Years On** (white paper, version 2, draft). [PDF](papers/counting_college_staff_v2.pdf) · [HTML and interactive tools](../substack/college-staffing/paper/index.qmd) -->
 - "The Efficiency Gains From Consolidating Universities," with Xiaoxiao Li and Hajime Shimao. Working paper.
 
 ## Working papers

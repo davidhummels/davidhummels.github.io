@@ -1,17 +1,954 @@
-sec,group,weights,n,rise,enrollment_part,beyond,dlog_fte,dlog_staff,b_demog,b_other
-all,All,unweighted,1903,12.767,7.663,5.104,-17.834,-5.067,0.698,0.574
-all,All,FY2013 FTE,1903,10.904,5.096,5.807,-11.654,-0.75,0.698,0.574
-pr,Public research,unweighted,139,6.583,-0.277,6.859,1.217,7.8,0.698,0.574
-pr,Public research,FY2013 FTE,139,6.425,-1.513,7.938,4.095,10.52,0.698,0.574
-pm,Public master's,unweighted,211,12.095,7.295,4.799,-16.995,-4.901,0.698,0.574
-pm,Public master's,FY2013 FTE,211,11.159,5.194,5.965,-11.999,-0.84,0.698,0.574
-pb,Public bachelor's,unweighted,76,13.893,6.604,7.289,-15.082,-1.189,0.698,0.574
-pb,Public bachelor's,FY2013 FTE,76,13.799,5.398,8.401,-11.622,2.177,0.698,0.574
-cc,Public community colleges,unweighted,705,16.403,12.899,3.504,-30.124,-13.72,0.698,0.574
-cc,Public community colleges,FY2013 FTE,705,16.105,13.061,3.044,-30.328,-14.224,0.698,0.574
-xr,Private research,unweighted,80,1.439,-1.217,2.656,2.942,4.381,0.698,0.574
-xr,Private research,FY2013 FTE,80,1.574,-3.1,4.674,7.293,8.867,0.698,0.574
-xm,Private master's,unweighted,280,10.305,5.375,4.929,-12.652,-2.347,0.698,0.574
-xm,Private master's,FY2013 FTE,280,11.316,3.993,7.324,-9.451,1.866,0.698,0.574
-xb,Private bachelor's,unweighted,412,12.639,5.044,7.595,-11.725,0.914,0.698,0.574
-xb,Private bachelor's,FY2013 FTE,412,15.232,7.818,7.415,-18.273,-3.041,0.698,0.574
+sec,group,level,measure,method,gfe,weights,n,rise,enrollment_part,beyond,dlog_fte,dlog_staff,b_demog,b_other,b_source,F
+all,All,all,total,cf,ext_group,FY2013 FTE,1903,10.904,5.096,5.807,-11.654,-0.75,0.698,0.574,pooled CF,
+pr,Public research,sector,total,cf,ext_group,FY2013 FTE,139,6.425,-1.513,7.938,4.095,10.52,0.698,0.574,pooled CF,
+pm,Public master's,sector,total,cf,ext_group,FY2013 FTE,211,11.159,5.194,5.965,-11.999,-0.84,0.698,0.574,pooled CF,
+pb,Public bachelor's,sector,total,cf,ext_group,FY2013 FTE,76,13.799,5.398,8.401,-11.622,2.177,0.698,0.574,pooled CF,
+cc,Public community colleges,sector,total,cf,ext_group,FY2013 FTE,705,16.105,13.061,3.044,-30.328,-14.224,0.698,0.574,pooled CF,
+xr,Private research,sector,total,cf,ext_group,FY2013 FTE,80,1.574,-3.1,4.674,7.293,8.867,0.698,0.574,pooled CF,
+xm,Private master's,sector,total,cf,ext_group,FY2013 FTE,280,11.316,3.993,7.324,-9.451,1.866,0.698,0.574,pooled CF,
+xb,Private bachelor's,sector,total,cf,ext_group,FY2013 FTE,412,15.232,7.818,7.415,-18.273,-3.041,0.698,0.574,pooled CF,
+all,All,all,total,cf,ext_group,unweighted,1903,12.767,7.663,5.104,-17.834,-5.067,0.698,0.574,pooled CF,
+all,All,all,total,fe,ext_group,unweighted,1903,12.767,7.527,5.24,-17.834,-5.067,0.578,0.578,pooled,
+all,All,all,total,iv,ext_group,unweighted,1903,12.767,5.102,7.664,-17.834,-5.067,0.714,0.714,pooled,25.9
+pr,Public research,sector,total,cf,ext_group,unweighted,139,6.583,-0.277,6.86,1.217,7.8,0.698,0.574,pooled CF,
+pr,Public research,sector,total,fe,ext_group,unweighted,139,6.583,-0.514,7.096,1.217,7.8,0.578,0.578,pooled,
+pr,Public research,sector,total,fe_sec,ext_group,unweighted,139,6.583,-0.508,7.09,1.217,7.8,0.583,0.583,sector,
+pr,Public research,sector,total,iv,ext_group,unweighted,139,6.583,-0.348,6.931,1.217,7.8,0.714,0.714,pooled,25.9
+pr,Public research,sector,total,iv_sec,ext_group,unweighted,139,6.583,-0.084,6.667,1.217,7.8,0.931,0.931,sector,12.1
+pm,Public master's,sector,total,cf,ext_group,unweighted,211,12.095,7.295,4.799,-16.995,-4.901,0.698,0.574,pooled CF,
+pm,Public master's,sector,total,fe,ext_group,unweighted,211,12.095,7.173,4.922,-16.995,-4.901,0.578,0.578,pooled,
+pm,Public master's,sector,total,fe_sec,ext_group,unweighted,211,12.095,6.718,5.376,-16.995,-4.901,0.605,0.605,sector,
+pm,Public master's,sector,total,iv,ext_group,unweighted,211,12.095,4.862,7.232,-16.995,-4.901,0.714,0.714,pooled,25.9
+pm,Public master's,sector,total,iv_sec,ext_group,unweighted,211,12.095,7.243,4.852,-16.995,-4.901,0.574,0.574,sector,12.0
+pb,Public bachelor's,sector,total,cf,ext_group,unweighted,76,13.893,6.604,7.289,-15.082,-1.189,0.698,0.574,pooled CF,
+pb,Public bachelor's,sector,total,fe,ext_group,unweighted,76,13.893,6.365,7.527,-15.082,-1.189,0.578,0.578,pooled,
+pb,Public bachelor's,sector,total,fe_sec,ext_group,unweighted,76,13.893,5.962,7.931,-15.082,-1.189,0.605,0.605,sector,
+pb,Public bachelor's,sector,total,iv,ext_group,unweighted,76,13.893,4.315,9.578,-15.082,-1.189,0.714,0.714,pooled,25.9
+pb,Public bachelor's,sector,total,iv_sec,ext_group,unweighted,76,13.893,6.428,7.465,-15.082,-1.189,0.574,0.574,sector,12.0
+cc,Public community colleges,sector,total,cf,ext_group,unweighted,705,16.403,12.899,3.504,-30.124,-13.72,0.698,0.574,pooled CF,
+cc,Public community colleges,sector,total,fe,ext_group,unweighted,705,16.403,12.714,3.69,-30.124,-13.72,0.578,0.578,pooled,
+cc,Public community colleges,sector,total,fe_sec,ext_group,unweighted,705,16.403,15.238,1.165,-30.124,-13.72,0.494,0.494,sector,
+cc,Public community colleges,sector,total,iv,ext_group,unweighted,705,16.403,8.619,7.785,-30.124,-13.72,0.714,0.714,pooled,25.9
+cc,Public community colleges,sector,total,iv_sec,ext_group,unweighted,705,16.403,10.136,6.267,-30.124,-13.72,0.664,0.664,sector,26.0
+xr,Private research,sector,total,cf,ext_group,unweighted,80,1.439,-1.217,2.656,2.942,4.381,0.698,0.574,pooled CF,
+xr,Private research,sector,total,fe,ext_group,unweighted,80,1.439,-1.242,2.681,2.942,4.381,0.578,0.578,pooled,
+xr,Private research,sector,total,fe_sec,ext_group,unweighted,80,1.439,-0.981,2.42,2.942,4.381,0.667,0.667,sector,
+xr,Private research,sector,total,iv,ext_group,unweighted,80,1.439,-0.842,2.281,2.942,4.381,0.714,0.714,pooled,25.9
+xr,Private research,sector,total,iv_sec,ext_group,unweighted,80,1.439,-0.842,2.281,2.942,4.381,0.714,0.714,pooled (sector F < 10),7.8
+xm,Private master's,sector,total,cf,ext_group,unweighted,280,10.305,5.375,4.93,-12.652,-2.347,0.698,0.574,pooled CF,
+xm,Private master's,sector,total,fe,ext_group,unweighted,280,10.305,5.34,4.965,-12.652,-2.347,0.578,0.578,pooled,
+xm,Private master's,sector,total,fe_sec,ext_group,unweighted,280,10.305,4.874,5.431,-12.652,-2.347,0.615,0.615,sector,
+xm,Private master's,sector,total,iv,ext_group,unweighted,280,10.305,3.62,6.685,-12.652,-2.347,0.714,0.714,pooled,25.9
+xm,Private master's,sector,total,iv_sec,ext_group,unweighted,280,10.305,3.62,6.685,-12.652,-2.347,0.714,0.714,pooled (sector F < 10),3.6
+xb,Private bachelor's,sector,total,cf,ext_group,unweighted,412,12.639,5.044,7.595,-11.725,0.914,0.698,0.574,pooled CF,
+xb,Private bachelor's,sector,total,fe,ext_group,unweighted,412,12.639,4.949,7.69,-11.725,0.914,0.578,0.578,pooled,
+xb,Private bachelor's,sector,total,fe_sec,ext_group,unweighted,412,12.639,4.517,8.122,-11.725,0.914,0.615,0.615,sector,
+xb,Private bachelor's,sector,total,iv,ext_group,unweighted,412,12.639,3.355,9.284,-11.725,0.914,0.714,0.714,pooled,25.9
+xb,Private bachelor's,sector,total,iv_sec,ext_group,unweighted,412,12.639,3.355,9.284,-11.725,0.914,0.714,0.714,pooled (sector F < 10),3.6
+pr,Public research,sgroup,total,cf,ext_group,unweighted,139,6.583,-0.277,6.86,1.217,7.8,0.698,0.574,pooled CF,
+pr,Public research,sgroup,total,fe,ext_group,unweighted,139,6.583,-0.514,7.096,1.217,7.8,0.578,0.578,pooled,
+pr,Public research,sgroup,total,fe_sec,ext_group,unweighted,139,6.583,-0.508,7.09,1.217,7.8,0.583,0.583,sector,
+pr,Public research,sgroup,total,iv,ext_group,unweighted,139,6.583,-0.348,6.931,1.217,7.8,0.714,0.714,pooled,25.9
+pr,Public research,sgroup,total,iv_sec,ext_group,unweighted,139,6.583,-0.084,6.667,1.217,7.8,0.931,0.931,sector,12.1
+rp,Regional publics,sgroup,total,cf,ext_group,unweighted,287,12.571,7.112,5.459,-16.488,-3.918,0.698,0.574,pooled CF,
+rp,Regional publics,sgroup,total,fe,ext_group,unweighted,287,12.571,6.959,5.612,-16.488,-3.918,0.578,0.578,pooled,
+rp,Regional publics,sgroup,total,fe_sec,ext_group,unweighted,287,12.571,6.518,6.053,-16.488,-3.918,0.605,0.605,sector,
+rp,Regional publics,sgroup,total,iv,ext_group,unweighted,287,12.571,4.718,7.853,-16.488,-3.918,0.714,0.714,pooled,25.9
+rp,Regional publics,sgroup,total,iv_sec,ext_group,unweighted,287,12.571,7.027,5.544,-16.488,-3.918,0.574,0.574,sector,12.0
+cc,Community colleges,sgroup,total,cf,ext_group,unweighted,705,16.403,12.899,3.504,-30.124,-13.72,0.698,0.574,pooled CF,
+cc,Community colleges,sgroup,total,fe,ext_group,unweighted,705,16.403,12.714,3.69,-30.124,-13.72,0.578,0.578,pooled,
+cc,Community colleges,sgroup,total,fe_sec,ext_group,unweighted,705,16.403,15.238,1.165,-30.124,-13.72,0.494,0.494,sector,
+cc,Community colleges,sgroup,total,iv,ext_group,unweighted,705,16.403,8.619,7.785,-30.124,-13.72,0.714,0.714,pooled,25.9
+cc,Community colleges,sgroup,total,iv_sec,ext_group,unweighted,705,16.403,10.136,6.267,-30.124,-13.72,0.664,0.664,sector,26.0
+xr,Private research,sgroup,total,cf,ext_group,unweighted,80,1.439,-1.217,2.656,2.942,4.381,0.698,0.574,pooled CF,
+xr,Private research,sgroup,total,fe,ext_group,unweighted,80,1.439,-1.242,2.681,2.942,4.381,0.578,0.578,pooled,
+xr,Private research,sgroup,total,fe_sec,ext_group,unweighted,80,1.439,-0.981,2.42,2.942,4.381,0.667,0.667,sector,
+xr,Private research,sgroup,total,iv,ext_group,unweighted,80,1.439,-0.842,2.281,2.942,4.381,0.714,0.714,pooled,25.9
+xr,Private research,sgroup,total,iv_sec,ext_group,unweighted,80,1.439,-0.842,2.281,2.942,4.381,0.714,0.714,pooled (sector F < 10),7.8
+xmb,Private master's & bachelor's,sgroup,total,cf,ext_group,unweighted,692,11.694,5.178,6.517,-12.1,-0.406,0.698,0.574,pooled CF,
+xmb,Private master's & bachelor's,sgroup,total,fe,ext_group,unweighted,692,11.694,5.107,6.588,-12.1,-0.406,0.578,0.578,pooled,
+xmb,Private master's & bachelor's,sgroup,total,fe_sec,ext_group,unweighted,692,11.694,4.661,7.033,-12.1,-0.406,0.615,0.615,sector,
+xmb,Private master's & bachelor's,sgroup,total,iv,ext_group,unweighted,692,11.694,3.462,8.233,-12.1,-0.406,0.714,0.714,pooled,25.9
+xmb,Private master's & bachelor's,sgroup,total,iv_sec,ext_group,unweighted,692,11.694,3.462,8.233,-12.1,-0.406,0.714,0.714,pooled (sector F < 10),3.6
+all,All,all,nonfac,cf,ext_group,unweighted,1903,15.667,9.757,5.909,-17.834,-2.167,0.756,0.462,pooled CF,
+all,All,all,nonfac,fe,ext_group,unweighted,1903,15.667,9.432,6.234,-17.834,-2.167,0.471,0.471,pooled,
+all,All,all,nonfac,iv,ext_group,unweighted,1903,15.667,4.21,11.457,-17.834,-2.167,0.764,0.764,pooled,25.9
+pr,Public research,sector,nonfac,cf,ext_group,unweighted,139,4.845,-0.084,4.929,1.217,6.063,0.756,0.462,pooled CF,
+pr,Public research,sector,nonfac,fe,ext_group,unweighted,139,4.845,-0.644,5.489,1.217,6.063,0.471,0.471,pooled,
+pr,Public research,sector,nonfac,fe_sec,ext_group,unweighted,139,4.845,-0.61,5.456,1.217,6.063,0.499,0.499,sector,
+pr,Public research,sector,nonfac,iv,ext_group,unweighted,139,4.845,-0.287,5.133,1.217,6.063,0.764,0.764,pooled,25.9
+pr,Public research,sector,nonfac,iv_sec,ext_group,unweighted,139,4.845,-0.262,5.108,1.217,6.063,0.784,0.784,sector,12.1
+pm,Public master's,sector,nonfac,cf,ext_group,unweighted,211,11.933,9.282,2.652,-16.995,-5.062,0.756,0.462,pooled CF,
+pm,Public master's,sector,nonfac,fe,ext_group,unweighted,211,11.933,8.989,2.944,-16.995,-5.062,0.471,0.471,pooled,
+pm,Public master's,sector,nonfac,fe_sec,ext_group,unweighted,211,11.933,8.343,3.59,-16.995,-5.062,0.509,0.509,sector,
+pm,Public master's,sector,nonfac,iv,ext_group,unweighted,211,11.933,4.012,7.921,-16.995,-5.062,0.764,0.764,pooled,25.9
+pm,Public master's,sector,nonfac,iv_sec,ext_group,unweighted,211,11.933,5.74,6.193,-16.995,-5.062,0.662,0.662,sector,12.0
+pb,Public bachelor's,sector,nonfac,cf,ext_group,unweighted,76,16.768,8.544,8.224,-15.082,1.686,0.756,0.462,pooled CF,
+pb,Public bachelor's,sector,nonfac,fe,ext_group,unweighted,76,16.768,7.977,8.792,-15.082,1.686,0.471,0.471,pooled,
+pb,Public bachelor's,sector,nonfac,fe_sec,ext_group,unweighted,76,16.768,7.404,9.365,-15.082,1.686,0.509,0.509,sector,
+pb,Public bachelor's,sector,nonfac,iv,ext_group,unweighted,76,16.768,3.56,13.208,-15.082,1.686,0.764,0.764,pooled,25.9
+pb,Public bachelor's,sector,nonfac,iv_sec,ext_group,unweighted,76,16.768,5.094,11.674,-15.082,1.686,0.662,0.662,sector,12.0
+cc,Public community colleges,sector,nonfac,cf,ext_group,unweighted,705,27.21,16.376,10.833,-30.124,-2.914,0.756,0.462,pooled CF,
+cc,Public community colleges,sector,nonfac,fe,ext_group,unweighted,705,27.21,15.932,11.277,-30.124,-2.914,0.471,0.471,pooled,
+cc,Public community colleges,sector,nonfac,fe_sec,ext_group,unweighted,705,27.21,18.415,8.795,-30.124,-2.914,0.389,0.389,sector,
+cc,Public community colleges,sector,nonfac,iv,ext_group,unweighted,705,27.21,7.111,20.099,-30.124,-2.914,0.764,0.764,pooled,25.9
+cc,Public community colleges,sector,nonfac,iv_sec,ext_group,unweighted,705,27.21,7.531,19.679,-30.124,-2.914,0.75,0.75,sector,26.0
+xr,Private research,sector,nonfac,cf,ext_group,unweighted,80,-6.236,-1.499,-4.737,2.942,-3.294,0.756,0.462,pooled CF,
+xr,Private research,sector,nonfac,fe,ext_group,unweighted,80,-6.236,-1.556,-4.68,2.942,-3.294,0.471,0.471,pooled,
+xr,Private research,sector,nonfac,fe_sec,ext_group,unweighted,80,-6.236,-1.171,-5.065,2.942,-3.294,0.602,0.602,sector,
+xr,Private research,sector,nonfac,iv,ext_group,unweighted,80,-6.236,-0.694,-5.542,2.942,-3.294,0.764,0.764,pooled,25.9
+xr,Private research,sector,nonfac,iv_sec,ext_group,unweighted,80,-6.236,-0.694,-5.542,2.942,-3.294,0.764,0.764,pooled (sector F < 10),7.8
+xm,Private master's,sector,nonfac,cf,ext_group,unweighted,280,6.962,6.779,0.184,-12.652,-5.69,0.756,0.462,pooled CF,
+xm,Private master's,sector,nonfac,fe,ext_group,unweighted,280,6.962,6.692,0.271,-12.652,-5.69,0.471,0.471,pooled,
+xm,Private master's,sector,nonfac,fe_sec,ext_group,unweighted,280,6.962,6.296,0.666,-12.652,-5.69,0.502,0.502,sector,
+xm,Private master's,sector,nonfac,iv,ext_group,unweighted,280,6.962,2.987,3.976,-12.652,-5.69,0.764,0.764,pooled,25.9
+xm,Private master's,sector,nonfac,iv_sec,ext_group,unweighted,280,6.962,2.987,3.976,-12.652,-5.69,0.764,0.764,pooled (sector F < 10),3.6
+xb,Private bachelor's,sector,nonfac,cf,ext_group,unweighted,412,11.443,6.428,5.014,-11.725,-0.282,0.756,0.462,pooled CF,
+xb,Private bachelor's,sector,nonfac,fe,ext_group,unweighted,412,11.443,6.201,5.241,-11.725,-0.282,0.471,0.471,pooled,
+xb,Private bachelor's,sector,nonfac,fe_sec,ext_group,unweighted,412,11.443,5.835,5.608,-11.725,-0.282,0.502,0.502,sector,
+xb,Private bachelor's,sector,nonfac,iv,ext_group,unweighted,412,11.443,2.768,8.675,-11.725,-0.282,0.764,0.764,pooled,25.9
+xb,Private bachelor's,sector,nonfac,iv_sec,ext_group,unweighted,412,11.443,2.768,8.675,-11.725,-0.282,0.764,0.764,pooled (sector F < 10),3.6
+pr,Public research,sgroup,nonfac,cf,ext_group,unweighted,139,4.845,-0.084,4.929,1.217,6.063,0.756,0.462,pooled CF,
+pr,Public research,sgroup,nonfac,fe,ext_group,unweighted,139,4.845,-0.644,5.489,1.217,6.063,0.471,0.471,pooled,
+pr,Public research,sgroup,nonfac,fe_sec,ext_group,unweighted,139,4.845,-0.61,5.456,1.217,6.063,0.499,0.499,sector,
+pr,Public research,sgroup,nonfac,iv,ext_group,unweighted,139,4.845,-0.287,5.133,1.217,6.063,0.764,0.764,pooled,25.9
+pr,Public research,sgroup,nonfac,iv_sec,ext_group,unweighted,139,4.845,-0.262,5.108,1.217,6.063,0.784,0.784,sector,12.1
+rp,Regional publics,sgroup,nonfac,cf,ext_group,unweighted,287,13.214,9.086,4.127,-16.488,-3.275,0.756,0.462,pooled CF,
+rp,Regional publics,sgroup,nonfac,fe,ext_group,unweighted,287,13.214,8.721,4.493,-16.488,-3.275,0.471,0.471,pooled,
+rp,Regional publics,sgroup,nonfac,fe_sec,ext_group,unweighted,287,13.214,8.094,5.119,-16.488,-3.275,0.509,0.509,sector,
+rp,Regional publics,sgroup,nonfac,iv,ext_group,unweighted,287,13.214,3.892,9.321,-16.488,-3.275,0.764,0.764,pooled,25.9
+rp,Regional publics,sgroup,nonfac,iv_sec,ext_group,unweighted,287,13.214,5.569,7.644,-16.488,-3.275,0.662,0.662,sector,12.0
+cc,Community colleges,sgroup,nonfac,cf,ext_group,unweighted,705,27.21,16.376,10.833,-30.124,-2.914,0.756,0.462,pooled CF,
+cc,Community colleges,sgroup,nonfac,fe,ext_group,unweighted,705,27.21,15.932,11.277,-30.124,-2.914,0.471,0.471,pooled,
+cc,Community colleges,sgroup,nonfac,fe_sec,ext_group,unweighted,705,27.21,18.415,8.795,-30.124,-2.914,0.389,0.389,sector,
+cc,Community colleges,sgroup,nonfac,iv,ext_group,unweighted,705,27.21,7.111,20.099,-30.124,-2.914,0.764,0.764,pooled,25.9
+cc,Community colleges,sgroup,nonfac,iv_sec,ext_group,unweighted,705,27.21,7.531,19.679,-30.124,-2.914,0.75,0.75,sector,26.0
+xr,Private research,sgroup,nonfac,cf,ext_group,unweighted,80,-6.236,-1.499,-4.737,2.942,-3.294,0.756,0.462,pooled CF,
+xr,Private research,sgroup,nonfac,fe,ext_group,unweighted,80,-6.236,-1.556,-4.68,2.942,-3.294,0.471,0.471,pooled,
+xr,Private research,sgroup,nonfac,fe_sec,ext_group,unweighted,80,-6.236,-1.171,-5.065,2.942,-3.294,0.602,0.602,sector,
+xr,Private research,sgroup,nonfac,iv,ext_group,unweighted,80,-6.236,-0.694,-5.542,2.942,-3.294,0.764,0.764,pooled,25.9
+xr,Private research,sgroup,nonfac,iv_sec,ext_group,unweighted,80,-6.236,-0.694,-5.542,2.942,-3.294,0.764,0.764,pooled (sector F < 10),7.8
+xmb,Private master's & bachelor's,sgroup,nonfac,cf,ext_group,unweighted,692,9.63,6.57,3.06,-12.1,-2.47,0.756,0.462,pooled CF,
+xmb,Private master's & bachelor's,sgroup,nonfac,fe,ext_group,unweighted,692,9.63,6.4,3.23,-12.1,-2.47,0.471,0.471,pooled,
+xmb,Private master's & bachelor's,sgroup,nonfac,fe_sec,ext_group,unweighted,692,9.63,6.021,3.608,-12.1,-2.47,0.502,0.502,sector,
+xmb,Private master's & bachelor's,sgroup,nonfac,iv,ext_group,unweighted,692,9.63,2.856,6.774,-12.1,-2.47,0.764,0.764,pooled,25.9
+xmb,Private master's & bachelor's,sgroup,nonfac,iv_sec,ext_group,unweighted,692,9.63,2.856,6.774,-12.1,-2.47,0.764,0.764,pooled (sector F < 10),3.6
+all,All,all,facfte,cf,ext_group,unweighted,1903,11.037,7.14,3.896,-17.834,-6.797,0.646,0.601,pooled CF,
+all,All,all,facfte,fe,ext_group,unweighted,1903,11.037,7.09,3.947,-17.834,-6.797,0.602,0.602,pooled,
+all,All,all,facfte,iv,ext_group,unweighted,1903,11.037,6.298,4.739,-17.834,-6.797,0.647,0.647,pooled,25.9
+pr,Public research,sector,facfte,cf,ext_group,unweighted,139,11.878,-0.398,12.276,1.217,13.096,0.646,0.601,pooled CF,
+pr,Public research,sector,facfte,fe,ext_group,unweighted,139,11.878,-0.484,12.362,1.217,13.096,0.602,0.602,pooled,
+pr,Public research,sector,facfte,fe_sec,ext_group,unweighted,139,11.878,-0.365,12.243,1.217,13.096,0.7,0.7,sector,
+pr,Public research,sector,facfte,iv,ext_group,unweighted,139,11.878,-0.43,12.308,1.217,13.096,0.647,0.647,pooled,25.9
+pr,Public research,sector,facfte,iv_sec,ext_group,unweighted,139,11.878,-0.023,11.901,1.217,13.096,0.981,0.981,sector,12.1
+pm,Public master's,sector,facfte,cf,ext_group,unweighted,211,12.228,6.802,5.426,-16.995,-4.767,0.646,0.601,pooled CF,
+pm,Public master's,sector,facfte,fe,ext_group,unweighted,211,12.228,6.757,5.472,-16.995,-4.767,0.602,0.602,pooled,
+pm,Public master's,sector,facfte,fe_sec,ext_group,unweighted,211,12.228,5.947,6.281,-16.995,-4.767,0.65,0.65,sector,
+pm,Public master's,sector,facfte,iv,ext_group,unweighted,211,12.228,6.001,6.227,-16.995,-4.767,0.647,0.647,pooled,25.9
+pm,Public master's,sector,facfte,iv_sec,ext_group,unweighted,211,12.228,6.55,5.679,-16.995,-4.767,0.615,0.615,sector,12.0
+pb,Public bachelor's,sector,facfte,cf,ext_group,unweighted,76,11.585,6.083,5.502,-15.082,-3.497,0.646,0.601,pooled CF,
+pb,Public bachelor's,sector,facfte,fe,ext_group,unweighted,76,11.585,5.996,5.589,-15.082,-3.497,0.602,0.602,pooled,
+pb,Public bachelor's,sector,facfte,fe_sec,ext_group,unweighted,76,11.585,5.277,6.308,-15.082,-3.497,0.65,0.65,sector,
+pb,Public bachelor's,sector,facfte,iv,ext_group,unweighted,76,11.585,5.326,6.259,-15.082,-3.497,0.647,0.647,pooled,25.9
+pb,Public bachelor's,sector,facfte,iv_sec,ext_group,unweighted,76,11.585,5.812,5.773,-15.082,-3.497,0.615,0.615,sector,12.0
+cc,Public community colleges,sector,facfte,cf,ext_group,unweighted,705,12.74,12.045,0.695,-30.124,-17.384,0.646,0.601,pooled CF,
+cc,Public community colleges,sector,facfte,fe,ext_group,unweighted,705,12.74,11.976,0.764,-30.124,-17.384,0.602,0.602,pooled,
+cc,Public community colleges,sector,facfte,fe_sec,ext_group,unweighted,705,12.74,15.089,-2.349,-30.124,-17.384,0.499,0.499,sector,
+cc,Public community colleges,sector,facfte,iv,ext_group,unweighted,705,12.74,10.637,2.103,-30.124,-17.384,0.647,0.647,pooled,25.9
+cc,Public community colleges,sector,facfte,iv_sec,ext_group,unweighted,705,12.74,11.818,0.922,-30.124,-17.384,0.608,0.608,sector,26.0
+xr,Private research,sector,facfte,cf,ext_group,unweighted,80,4.824,-1.161,5.985,2.942,7.766,0.646,0.601,pooled CF,
+xr,Private research,sector,facfte,fe,ext_group,unweighted,80,4.824,-1.17,5.994,2.942,7.766,0.602,0.602,pooled,
+xr,Private research,sector,facfte,fe_sec,ext_group,unweighted,80,4.824,-1.045,5.869,2.942,7.766,0.645,0.645,sector,
+xr,Private research,sector,facfte,iv,ext_group,unweighted,80,4.824,-1.039,5.863,2.942,7.766,0.647,0.647,pooled,25.9
+xr,Private research,sector,facfte,iv_sec,ext_group,unweighted,80,4.824,-1.039,5.863,2.942,7.766,0.647,0.647,pooled (sector F < 10),7.8
+xm,Private master's,sector,facfte,cf,ext_group,unweighted,280,10.404,5.044,5.361,-12.652,-2.247,0.646,0.601,pooled CF,
+xm,Private master's,sector,facfte,fe,ext_group,unweighted,280,10.404,5.03,5.375,-12.652,-2.247,0.602,0.602,pooled,
+xm,Private master's,sector,facfte,fe_sec,ext_group,unweighted,280,10.404,4.518,5.887,-12.652,-2.247,0.643,0.643,sector,
+xm,Private master's,sector,facfte,iv,ext_group,unweighted,280,10.404,4.468,5.937,-12.652,-2.247,0.647,0.647,pooled,25.9
+xm,Private master's,sector,facfte,iv_sec,ext_group,unweighted,280,10.404,4.468,5.937,-12.652,-2.247,0.647,0.647,pooled (sector F < 10),3.6
+xb,Private bachelor's,sector,facfte,cf,ext_group,unweighted,412,8.763,4.696,4.066,-11.725,-2.962,0.646,0.601,pooled CF,
+xb,Private bachelor's,sector,facfte,fe,ext_group,unweighted,412,8.763,4.661,4.101,-11.725,-2.962,0.602,0.602,pooled,
+xb,Private bachelor's,sector,facfte,fe_sec,ext_group,unweighted,412,8.763,4.187,4.576,-11.725,-2.962,0.643,0.643,sector,
+xb,Private bachelor's,sector,facfte,iv,ext_group,unweighted,412,8.763,4.14,4.622,-11.725,-2.962,0.647,0.647,pooled,25.9
+xb,Private bachelor's,sector,facfte,iv_sec,ext_group,unweighted,412,8.763,4.14,4.622,-11.725,-2.962,0.647,0.647,pooled (sector F < 10),3.6
+pr,Public research,sgroup,facfte,cf,ext_group,unweighted,139,11.878,-0.398,12.276,1.217,13.096,0.646,0.601,pooled CF,
+pr,Public research,sgroup,facfte,fe,ext_group,unweighted,139,11.878,-0.484,12.362,1.217,13.096,0.602,0.602,pooled,
+pr,Public research,sgroup,facfte,fe_sec,ext_group,unweighted,139,11.878,-0.365,12.243,1.217,13.096,0.7,0.7,sector,
+pr,Public research,sgroup,facfte,iv,ext_group,unweighted,139,11.878,-0.43,12.308,1.217,13.096,0.647,0.647,pooled,25.9
+pr,Public research,sgroup,facfte,iv_sec,ext_group,unweighted,139,11.878,-0.023,11.901,1.217,13.096,0.981,0.981,sector,12.1
+rp,Regional publics,sgroup,facfte,cf,ext_group,unweighted,287,12.058,6.612,5.446,-16.488,-4.431,0.646,0.601,pooled CF,
+rp,Regional publics,sgroup,facfte,fe,ext_group,unweighted,287,12.058,6.555,5.503,-16.488,-4.431,0.602,0.602,pooled,
+rp,Regional publics,sgroup,facfte,fe_sec,ext_group,unweighted,287,12.058,5.77,6.288,-16.488,-4.431,0.65,0.65,sector,
+rp,Regional publics,sgroup,facfte,iv,ext_group,unweighted,287,12.058,5.822,6.235,-16.488,-4.431,0.647,0.647,pooled,25.9
+rp,Regional publics,sgroup,facfte,iv_sec,ext_group,unweighted,287,12.058,6.354,5.704,-16.488,-4.431,0.615,0.615,sector,12.0
+cc,Community colleges,sgroup,facfte,cf,ext_group,unweighted,705,12.74,12.045,0.695,-30.124,-17.384,0.646,0.601,pooled CF,
+cc,Community colleges,sgroup,facfte,fe,ext_group,unweighted,705,12.74,11.976,0.764,-30.124,-17.384,0.602,0.602,pooled,
+cc,Community colleges,sgroup,facfte,fe_sec,ext_group,unweighted,705,12.74,15.089,-2.349,-30.124,-17.384,0.499,0.499,sector,
+cc,Community colleges,sgroup,facfte,iv,ext_group,unweighted,705,12.74,10.637,2.103,-30.124,-17.384,0.647,0.647,pooled,25.9
+cc,Community colleges,sgroup,facfte,iv_sec,ext_group,unweighted,705,12.74,11.818,0.922,-30.124,-17.384,0.608,0.608,sector,26.0
+xr,Private research,sgroup,facfte,cf,ext_group,unweighted,80,4.824,-1.161,5.985,2.942,7.766,0.646,0.601,pooled CF,
+xr,Private research,sgroup,facfte,fe,ext_group,unweighted,80,4.824,-1.17,5.994,2.942,7.766,0.602,0.602,pooled,
+xr,Private research,sgroup,facfte,fe_sec,ext_group,unweighted,80,4.824,-1.045,5.869,2.942,7.766,0.645,0.645,sector,
+xr,Private research,sgroup,facfte,iv,ext_group,unweighted,80,4.824,-1.039,5.863,2.942,7.766,0.647,0.647,pooled,25.9
+xr,Private research,sgroup,facfte,iv_sec,ext_group,unweighted,80,4.824,-1.039,5.863,2.942,7.766,0.647,0.647,pooled (sector F < 10),7.8
+xmb,Private master's & bachelor's,sgroup,facfte,cf,ext_group,unweighted,692,9.427,4.837,4.59,-12.1,-2.673,0.646,0.601,pooled CF,
+xmb,Private master's & bachelor's,sgroup,facfte,fe,ext_group,unweighted,692,9.427,4.81,4.616,-12.1,-2.673,0.602,0.602,pooled,
+xmb,Private master's & bachelor's,sgroup,facfte,fe_sec,ext_group,unweighted,692,9.427,4.321,5.106,-12.1,-2.673,0.643,0.643,sector,
+xmb,Private master's & bachelor's,sgroup,facfte,iv,ext_group,unweighted,692,9.427,4.273,5.154,-12.1,-2.673,0.647,0.647,pooled,25.9
+xmb,Private master's & bachelor's,sgroup,facfte,iv_sec,ext_group,unweighted,692,9.427,4.273,5.154,-12.1,-2.673,0.647,0.647,pooled (sector F < 10),3.6
+all,All,all,facfte,cf,group_era,unweighted,1903,11.037,7.758,3.279,-17.834,-6.797,0.614,0.566,pooled CF,
+all,All,all,facfte,fe,group_era,unweighted,1903,11.037,7.712,3.325,-17.834,-6.797,0.568,0.568,pooled,
+all,All,all,facfte,iv,group_era,unweighted,1903,11.037,7.252,3.784,-17.834,-6.797,0.593,0.593,pooled,11.9
+pr,Public research,sector,facfte,cf,group_era,unweighted,139,11.878,-0.435,12.313,1.217,13.096,0.614,0.566,pooled CF,
+pr,Public research,sector,facfte,fe,group_era,unweighted,139,11.878,-0.526,12.405,1.217,13.096,0.568,0.568,pooled,
+pr,Public research,sector,facfte,fe_sec,group_era,unweighted,139,11.878,-0.369,12.247,1.217,13.096,0.697,0.697,sector,
+pr,Public research,sector,facfte,iv,group_era,unweighted,139,11.878,-0.495,12.373,1.217,13.096,0.593,0.593,pooled,11.9
+pr,Public research,sector,facfte,iv_sec,group_era,unweighted,139,11.878,-0.495,12.373,1.217,13.096,0.593,0.593,pooled (sector F < 10),4.9
+pm,Public master's,sector,facfte,cf,group_era,unweighted,211,12.228,7.39,4.838,-16.995,-4.767,0.614,0.566,pooled CF,
+pm,Public master's,sector,facfte,fe,group_era,unweighted,211,12.228,7.349,4.879,-16.995,-4.767,0.568,0.568,pooled,
+pm,Public master's,sector,facfte,fe_sec,group_era,unweighted,211,12.228,6.767,5.461,-16.995,-4.767,0.602,0.602,sector,
+pm,Public master's,sector,facfte,iv,group_era,unweighted,211,12.228,6.911,5.317,-16.995,-4.767,0.593,0.593,pooled,11.9
+pm,Public master's,sector,facfte,iv_sec,group_era,unweighted,211,12.228,6.911,5.317,-16.995,-4.767,0.593,0.593,pooled (sector F < 10),6.6
+pb,Public bachelor's,sector,facfte,cf,group_era,unweighted,76,11.585,6.608,4.977,-15.082,-3.497,0.614,0.566,pooled CF,
+pb,Public bachelor's,sector,facfte,fe,group_era,unweighted,76,11.585,6.522,5.063,-15.082,-3.497,0.568,0.568,pooled,
+pb,Public bachelor's,sector,facfte,fe_sec,group_era,unweighted,76,11.585,6.005,5.58,-15.082,-3.497,0.602,0.602,sector,
+pb,Public bachelor's,sector,facfte,iv,group_era,unweighted,76,11.585,6.133,5.452,-15.082,-3.497,0.593,0.593,pooled,11.9
+pb,Public bachelor's,sector,facfte,iv_sec,group_era,unweighted,76,11.585,6.133,5.452,-15.082,-3.497,0.593,0.593,pooled (sector F < 10),6.6
+cc,Public community colleges,sector,facfte,cf,group_era,unweighted,705,12.74,13.087,-0.347,-30.124,-17.384,0.614,0.566,pooled CF,
+cc,Public community colleges,sector,facfte,fe,group_era,unweighted,705,12.74,13.026,-0.286,-30.124,-17.384,0.568,0.568,pooled,
+cc,Public community colleges,sector,facfte,fe_sec,group_era,unweighted,705,12.74,16.363,-3.622,-30.124,-17.384,0.457,0.457,sector,
+cc,Public community colleges,sector,facfte,iv,group_era,unweighted,705,12.74,12.25,0.49,-30.124,-17.384,0.593,0.593,pooled,11.9
+cc,Public community colleges,sector,facfte,iv_sec,group_era,unweighted,705,12.74,11.92,0.82,-30.124,-17.384,0.604,0.604,sector,12.6
+xr,Private research,sector,facfte,cf,group_era,unweighted,80,4.824,-1.262,6.086,2.942,7.766,0.614,0.566,pooled CF,
+xr,Private research,sector,facfte,fe,group_era,unweighted,80,4.824,-1.272,6.096,2.942,7.766,0.568,0.568,pooled,
+xr,Private research,sector,facfte,fe_sec,group_era,unweighted,80,4.824,-1.114,5.938,2.942,7.766,0.621,0.621,sector,
+xr,Private research,sector,facfte,iv,group_era,unweighted,80,4.824,-1.196,6.02,2.942,7.766,0.593,0.593,pooled,11.9
+xr,Private research,sector,facfte,iv_sec,group_era,unweighted,80,4.824,-0.891,5.716,2.942,7.766,0.697,0.697,sector,13.8
+xm,Private master's,sector,facfte,cf,group_era,unweighted,280,10.404,5.48,4.924,-12.652,-2.247,0.614,0.566,pooled CF,
+xm,Private master's,sector,facfte,fe,group_era,unweighted,280,10.404,5.471,4.933,-12.652,-2.247,0.568,0.568,pooled,
+xm,Private master's,sector,facfte,fe_sec,group_era,unweighted,280,10.404,4.869,5.535,-12.652,-2.247,0.615,0.615,sector,
+xm,Private master's,sector,facfte,iv,group_era,unweighted,280,10.404,5.145,5.26,-12.652,-2.247,0.593,0.593,pooled,11.9
+xm,Private master's,sector,facfte,iv_sec,group_era,unweighted,280,10.404,5.145,5.26,-12.652,-2.247,0.593,0.593,pooled (sector F < 10),1.9
+xb,Private bachelor's,sector,facfte,cf,group_era,unweighted,412,8.763,5.103,3.66,-11.725,-2.962,0.614,0.566,pooled CF,
+xb,Private bachelor's,sector,facfte,fe,group_era,unweighted,412,8.763,5.07,3.692,-11.725,-2.962,0.568,0.568,pooled,
+xb,Private bachelor's,sector,facfte,fe_sec,group_era,unweighted,412,8.763,4.512,4.25,-11.725,-2.962,0.615,0.615,sector,
+xb,Private bachelor's,sector,facfte,iv,group_era,unweighted,412,8.763,4.768,3.995,-11.725,-2.962,0.593,0.593,pooled,11.9
+xb,Private bachelor's,sector,facfte,iv_sec,group_era,unweighted,412,8.763,4.768,3.995,-11.725,-2.962,0.593,0.593,pooled (sector F < 10),1.9
+pr,Public research,sgroup,facfte,cf,group_era,unweighted,139,11.878,-0.435,12.313,1.217,13.096,0.614,0.566,pooled CF,
+pr,Public research,sgroup,facfte,fe,group_era,unweighted,139,11.878,-0.526,12.405,1.217,13.096,0.568,0.568,pooled,
+pr,Public research,sgroup,facfte,fe_sec,group_era,unweighted,139,11.878,-0.369,12.247,1.217,13.096,0.697,0.697,sector,
+pr,Public research,sgroup,facfte,iv,group_era,unweighted,139,11.878,-0.495,12.373,1.217,13.096,0.593,0.593,pooled,11.9
+pr,Public research,sgroup,facfte,iv_sec,group_era,unweighted,139,11.878,-0.495,12.373,1.217,13.096,0.593,0.593,pooled (sector F < 10),4.9
+rp,Regional publics,sgroup,facfte,cf,group_era,unweighted,287,12.058,7.183,4.875,-16.488,-4.431,0.614,0.566,pooled CF,
+rp,Regional publics,sgroup,facfte,fe,group_era,unweighted,287,12.058,7.13,4.928,-16.488,-4.431,0.568,0.568,pooled,
+rp,Regional publics,sgroup,facfte,fe_sec,group_era,unweighted,287,12.058,6.565,5.493,-16.488,-4.431,0.602,0.602,sector,
+rp,Regional publics,sgroup,facfte,iv,group_era,unweighted,287,12.058,6.705,5.353,-16.488,-4.431,0.593,0.593,pooled,11.9
+rp,Regional publics,sgroup,facfte,iv_sec,group_era,unweighted,287,12.058,6.705,5.353,-16.488,-4.431,0.593,0.593,pooled (sector F < 10),6.6
+cc,Community colleges,sgroup,facfte,cf,group_era,unweighted,705,12.74,13.087,-0.347,-30.124,-17.384,0.614,0.566,pooled CF,
+cc,Community colleges,sgroup,facfte,fe,group_era,unweighted,705,12.74,13.026,-0.286,-30.124,-17.384,0.568,0.568,pooled,
+cc,Community colleges,sgroup,facfte,fe_sec,group_era,unweighted,705,12.74,16.363,-3.622,-30.124,-17.384,0.457,0.457,sector,
+cc,Community colleges,sgroup,facfte,iv,group_era,unweighted,705,12.74,12.25,0.49,-30.124,-17.384,0.593,0.593,pooled,11.9
+cc,Community colleges,sgroup,facfte,iv_sec,group_era,unweighted,705,12.74,11.92,0.82,-30.124,-17.384,0.604,0.604,sector,12.6
+xr,Private research,sgroup,facfte,cf,group_era,unweighted,80,4.824,-1.262,6.086,2.942,7.766,0.614,0.566,pooled CF,
+xr,Private research,sgroup,facfte,fe,group_era,unweighted,80,4.824,-1.272,6.096,2.942,7.766,0.568,0.568,pooled,
+xr,Private research,sgroup,facfte,fe_sec,group_era,unweighted,80,4.824,-1.114,5.938,2.942,7.766,0.621,0.621,sector,
+xr,Private research,sgroup,facfte,iv,group_era,unweighted,80,4.824,-1.196,6.02,2.942,7.766,0.593,0.593,pooled,11.9
+xr,Private research,sgroup,facfte,iv_sec,group_era,unweighted,80,4.824,-0.891,5.716,2.942,7.766,0.697,0.697,sector,13.8
+xmb,Private master's & bachelor's,sgroup,facfte,cf,group_era,unweighted,692,9.427,5.256,4.171,-12.1,-2.673,0.614,0.566,pooled CF,
+xmb,Private master's & bachelor's,sgroup,facfte,fe,group_era,unweighted,692,9.427,5.232,4.194,-12.1,-2.673,0.568,0.568,pooled,
+xmb,Private master's & bachelor's,sgroup,facfte,fe_sec,group_era,unweighted,692,9.427,4.657,4.77,-12.1,-2.673,0.615,0.615,sector,
+xmb,Private master's & bachelor's,sgroup,facfte,iv,group_era,unweighted,692,9.427,4.921,4.506,-12.1,-2.673,0.593,0.593,pooled,11.9
+xmb,Private master's & bachelor's,sgroup,facfte,iv_sec,group_era,unweighted,692,9.427,4.921,4.506,-12.1,-2.673,0.593,0.593,pooled (sector F < 10),1.9
+all,All,all,facfte4,cf,ext_group,unweighted,1903,11.236,7.472,3.764,-17.834,-6.598,0.642,0.583,pooled CF,
+all,All,all,facfte4,fe,ext_group,unweighted,1903,11.236,7.405,3.831,-17.834,-6.598,0.585,0.585,pooled,
+all,All,all,facfte4,iv,ext_group,unweighted,1903,11.236,6.443,4.793,-17.834,-6.598,0.639,0.639,pooled,25.9
+pr,Public research,sector,facfte4,cf,ext_group,unweighted,139,11.888,-0.393,12.281,1.217,13.105,0.642,0.583,pooled CF,
+pr,Public research,sector,facfte4,fe,ext_group,unweighted,139,11.888,-0.505,12.393,1.217,13.105,0.585,0.585,pooled,
+pr,Public research,sector,facfte4,fe_sec,ext_group,unweighted,139,11.888,-0.367,12.255,1.217,13.105,0.698,0.698,sector,
+pr,Public research,sector,facfte4,iv,ext_group,unweighted,139,11.888,-0.44,12.328,1.217,13.105,0.639,0.639,pooled,25.9
+pr,Public research,sector,facfte4,iv_sec,ext_group,unweighted,139,11.888,-0.039,11.927,1.217,13.105,0.968,0.968,sector,12.1
+pm,Public master's,sector,facfte4,cf,ext_group,unweighted,211,12.167,7.117,5.05,-16.995,-4.828,0.642,0.583,pooled CF,
+pm,Public master's,sector,facfte4,fe,ext_group,unweighted,211,12.167,7.057,5.11,-16.995,-4.828,0.585,0.585,pooled,
+pm,Public master's,sector,facfte4,fe_sec,ext_group,unweighted,211,12.167,6.171,5.996,-16.995,-4.828,0.637,0.637,sector,
+pm,Public master's,sector,facfte4,iv,ext_group,unweighted,211,12.167,6.14,6.027,-16.995,-4.828,0.639,0.639,pooled,25.9
+pm,Public master's,sector,facfte4,iv_sec,ext_group,unweighted,211,12.167,6.092,6.074,-16.995,-4.828,0.642,0.642,sector,12.0
+pb,Public bachelor's,sector,facfte4,cf,ext_group,unweighted,76,11.69,6.377,5.313,-15.082,-3.391,0.642,0.583,pooled CF,
+pb,Public bachelor's,sector,facfte4,fe,ext_group,unweighted,76,11.69,6.262,5.428,-15.082,-3.391,0.585,0.585,pooled,
+pb,Public bachelor's,sector,facfte4,fe_sec,ext_group,unweighted,76,11.69,5.476,6.214,-15.082,-3.391,0.637,0.637,sector,
+pb,Public bachelor's,sector,facfte4,iv,ext_group,unweighted,76,11.69,5.449,6.241,-15.082,-3.391,0.639,0.639,pooled,25.9
+pb,Public bachelor's,sector,facfte4,iv_sec,ext_group,unweighted,76,11.69,5.406,6.284,-15.082,-3.391,0.642,0.642,sector,12.0
+cc,Public community colleges,sector,facfte4,cf,ext_group,unweighted,705,14.03,12.6,1.43,-30.124,-16.094,0.642,0.583,pooled CF,
+cc,Public community colleges,sector,facfte4,fe,ext_group,unweighted,705,14.03,12.508,1.522,-30.124,-16.094,0.585,0.585,pooled,
+cc,Public community colleges,sector,facfte4,fe_sec,ext_group,unweighted,705,14.03,15.632,-1.602,-30.124,-16.094,0.481,0.481,sector,
+cc,Public community colleges,sector,facfte4,iv,ext_group,unweighted,705,14.03,10.883,3.146,-30.124,-16.094,0.639,0.639,pooled,25.9
+cc,Public community colleges,sector,facfte4,iv_sec,ext_group,unweighted,705,14.03,11.926,2.104,-30.124,-16.094,0.604,0.604,sector,26.0
+xr,Private research,sector,facfte4,cf,ext_group,unweighted,80,4.483,-1.21,5.694,2.942,7.425,0.642,0.583,pooled CF,
+xr,Private research,sector,facfte4,fe,ext_group,unweighted,80,4.483,-1.222,5.705,2.942,7.425,0.585,0.585,pooled,
+xr,Private research,sector,facfte4,fe_sec,ext_group,unweighted,80,4.483,-1.07,5.553,2.942,7.425,0.636,0.636,sector,
+xr,Private research,sector,facfte4,iv,ext_group,unweighted,80,4.483,-1.063,5.546,2.942,7.425,0.639,0.639,pooled,25.9
+xr,Private research,sector,facfte4,iv_sec,ext_group,unweighted,80,4.483,-1.063,5.546,2.942,7.425,0.639,0.639,pooled (sector F < 10),7.8
+xm,Private master's,sector,facfte4,cf,ext_group,unweighted,280,9.796,5.272,4.524,-12.652,-2.856,0.642,0.583,pooled CF,
+xm,Private master's,sector,facfte4,fe,ext_group,unweighted,280,9.796,5.253,4.543,-12.652,-2.856,0.585,0.585,pooled,
+xm,Private master's,sector,facfte4,fe_sec,ext_group,unweighted,280,9.796,4.764,5.032,-12.652,-2.856,0.623,0.623,sector,
+xm,Private master's,sector,facfte4,iv,ext_group,unweighted,280,9.796,4.571,5.225,-12.652,-2.856,0.639,0.639,pooled,25.9
+xm,Private master's,sector,facfte4,iv_sec,ext_group,unweighted,280,9.796,4.571,5.225,-12.652,-2.856,0.639,0.639,pooled (sector F < 10),3.6
+xb,Private bachelor's,sector,facfte4,cf,ext_group,unweighted,412,7.964,4.915,3.049,-11.725,-3.761,0.642,0.583,pooled CF,
+xb,Private bachelor's,sector,facfte4,fe,ext_group,unweighted,412,7.964,4.868,3.096,-11.725,-3.761,0.585,0.585,pooled,
+xb,Private bachelor's,sector,facfte4,fe_sec,ext_group,unweighted,412,7.964,4.415,3.549,-11.725,-3.761,0.623,0.623,sector,
+xb,Private bachelor's,sector,facfte4,iv,ext_group,unweighted,412,7.964,4.236,3.728,-11.725,-3.761,0.639,0.639,pooled,25.9
+xb,Private bachelor's,sector,facfte4,iv_sec,ext_group,unweighted,412,7.964,4.236,3.728,-11.725,-3.761,0.639,0.639,pooled (sector F < 10),3.6
+pr,Public research,sgroup,facfte4,cf,ext_group,unweighted,139,11.888,-0.393,12.281,1.217,13.105,0.642,0.583,pooled CF,
+pr,Public research,sgroup,facfte4,fe,ext_group,unweighted,139,11.888,-0.505,12.393,1.217,13.105,0.585,0.585,pooled,
+pr,Public research,sgroup,facfte4,fe_sec,ext_group,unweighted,139,11.888,-0.367,12.255,1.217,13.105,0.698,0.698,sector,
+pr,Public research,sgroup,facfte4,iv,ext_group,unweighted,139,11.888,-0.44,12.328,1.217,13.105,0.639,0.639,pooled,25.9
+pr,Public research,sgroup,facfte4,iv_sec,ext_group,unweighted,139,11.888,-0.039,11.927,1.217,13.105,0.968,0.968,sector,12.1
+rp,Regional publics,sgroup,facfte4,cf,ext_group,unweighted,287,12.041,6.921,5.12,-16.488,-4.448,0.642,0.583,pooled CF,
+rp,Regional publics,sgroup,facfte4,fe,ext_group,unweighted,287,12.041,6.846,5.194,-16.488,-4.448,0.585,0.585,pooled,
+rp,Regional publics,sgroup,facfte4,fe_sec,ext_group,unweighted,287,12.041,5.987,6.054,-16.488,-4.448,0.637,0.637,sector,
+rp,Regional publics,sgroup,facfte4,iv,ext_group,unweighted,287,12.041,5.957,6.084,-16.488,-4.448,0.639,0.639,pooled,25.9
+rp,Regional publics,sgroup,facfte4,iv_sec,ext_group,unweighted,287,12.041,5.911,6.13,-16.488,-4.448,0.642,0.642,sector,12.0
+cc,Community colleges,sgroup,facfte4,cf,ext_group,unweighted,705,14.03,12.6,1.43,-30.124,-16.094,0.642,0.583,pooled CF,
+cc,Community colleges,sgroup,facfte4,fe,ext_group,unweighted,705,14.03,12.508,1.522,-30.124,-16.094,0.585,0.585,pooled,
+cc,Community colleges,sgroup,facfte4,fe_sec,ext_group,unweighted,705,14.03,15.632,-1.602,-30.124,-16.094,0.481,0.481,sector,
+cc,Community colleges,sgroup,facfte4,iv,ext_group,unweighted,705,14.03,10.883,3.146,-30.124,-16.094,0.639,0.639,pooled,25.9
+cc,Community colleges,sgroup,facfte4,iv_sec,ext_group,unweighted,705,14.03,11.926,2.104,-30.124,-16.094,0.604,0.604,sector,26.0
+xr,Private research,sgroup,facfte4,cf,ext_group,unweighted,80,4.483,-1.21,5.694,2.942,7.425,0.642,0.583,pooled CF,
+xr,Private research,sgroup,facfte4,fe,ext_group,unweighted,80,4.483,-1.222,5.705,2.942,7.425,0.585,0.585,pooled,
+xr,Private research,sgroup,facfte4,fe_sec,ext_group,unweighted,80,4.483,-1.07,5.553,2.942,7.425,0.636,0.636,sector,
+xr,Private research,sgroup,facfte4,iv,ext_group,unweighted,80,4.483,-1.063,5.546,2.942,7.425,0.639,0.639,pooled,25.9
+xr,Private research,sgroup,facfte4,iv_sec,ext_group,unweighted,80,4.483,-1.063,5.546,2.942,7.425,0.639,0.639,pooled (sector F < 10),7.8
+xmb,Private master's & bachelor's,sgroup,facfte4,cf,ext_group,unweighted,692,8.706,5.059,3.646,-12.1,-3.394,0.642,0.583,pooled CF,
+xmb,Private master's & bachelor's,sgroup,facfte4,fe,ext_group,unweighted,692,8.706,5.024,3.682,-12.1,-3.394,0.585,0.585,pooled,
+xmb,Private master's & bachelor's,sgroup,facfte4,fe_sec,ext_group,unweighted,692,8.706,4.556,4.149,-12.1,-3.394,0.623,0.623,sector,
+xmb,Private master's & bachelor's,sgroup,facfte4,iv,ext_group,unweighted,692,8.706,4.372,4.334,-12.1,-3.394,0.639,0.639,pooled,25.9
+xmb,Private master's & bachelor's,sgroup,facfte4,iv_sec,ext_group,unweighted,692,8.706,4.372,4.334,-12.1,-3.394,0.639,0.639,pooled (sector F < 10),3.6
+all,All,all,facfte4,cf,group_era,unweighted,1903,11.236,8.05,3.186,-17.834,-6.598,0.59,0.55,pooled CF,
+all,All,all,facfte4,fe,group_era,unweighted,1903,11.236,8.011,3.225,-17.834,-6.598,0.551,0.551,pooled,
+all,All,all,facfte4,iv,group_era,unweighted,1903,11.236,7.734,3.502,-17.834,-6.598,0.566,0.566,pooled,11.9
+pr,Public research,sector,facfte4,cf,group_era,unweighted,139,11.888,-0.471,12.358,1.217,13.105,0.59,0.55,pooled CF,
+pr,Public research,sector,facfte4,fe,group_era,unweighted,139,11.888,-0.547,12.435,1.217,13.105,0.551,0.551,pooled,
+pr,Public research,sector,facfte4,fe_sec,group_era,unweighted,139,11.888,-0.371,12.259,1.217,13.105,0.695,0.695,sector,
+pr,Public research,sector,facfte4,iv,group_era,unweighted,139,11.888,-0.528,12.416,1.217,13.105,0.566,0.566,pooled,11.9
+pr,Public research,sector,facfte4,iv_sec,group_era,unweighted,139,11.888,-0.528,12.416,1.217,13.105,0.566,0.566,pooled (sector F < 10),4.9
+pm,Public master's,sector,facfte4,cf,group_era,unweighted,211,12.167,7.669,4.498,-16.995,-4.828,0.59,0.55,pooled CF,
+pm,Public master's,sector,facfte4,fe,group_era,unweighted,211,12.167,7.634,4.532,-16.995,-4.828,0.551,0.551,pooled,
+pm,Public master's,sector,facfte4,fe_sec,group_era,unweighted,211,12.167,6.968,5.198,-16.995,-4.828,0.59,0.59,sector,
+pm,Public master's,sector,facfte4,iv,group_era,unweighted,211,12.167,7.37,4.797,-16.995,-4.828,0.566,0.566,pooled,11.9
+pm,Public master's,sector,facfte4,iv_sec,group_era,unweighted,211,12.167,7.37,4.797,-16.995,-4.828,0.566,0.566,pooled (sector F < 10),6.6
+pb,Public bachelor's,sector,facfte4,cf,group_era,unweighted,76,11.69,6.847,4.843,-15.082,-3.391,0.59,0.55,pooled CF,
+pb,Public bachelor's,sector,facfte4,fe,group_era,unweighted,76,11.69,6.775,4.916,-15.082,-3.391,0.551,0.551,pooled,
+pb,Public bachelor's,sector,facfte4,fe_sec,group_era,unweighted,76,11.69,6.184,5.506,-15.082,-3.391,0.59,0.59,sector,
+pb,Public bachelor's,sector,facfte4,iv,group_era,unweighted,76,11.69,6.54,5.15,-15.082,-3.391,0.566,0.566,pooled,11.9
+pb,Public bachelor's,sector,facfte4,iv_sec,group_era,unweighted,76,11.69,6.54,5.15,-15.082,-3.391,0.566,0.566,pooled (sector F < 10),6.6
+cc,Public community colleges,sector,facfte4,cf,group_era,unweighted,705,14.03,13.583,0.446,-30.124,-16.094,0.59,0.55,pooled CF,
+cc,Public community colleges,sector,facfte4,fe,group_era,unweighted,705,14.03,13.532,0.498,-30.124,-16.094,0.551,0.551,pooled,
+cc,Public community colleges,sector,facfte4,fe_sec,group_era,unweighted,705,14.03,16.892,-2.862,-30.124,-16.094,0.439,0.439,sector,
+cc,Public community colleges,sector,facfte4,iv,group_era,unweighted,705,14.03,13.063,0.966,-30.124,-16.094,0.566,0.566,pooled,11.9
+cc,Public community colleges,sector,facfte4,iv_sec,group_era,unweighted,705,14.03,12.875,1.155,-30.124,-16.094,0.573,0.573,sector,12.6
+xr,Private research,sector,facfte4,cf,group_era,unweighted,80,4.483,-1.313,5.796,2.942,7.425,0.59,0.55,pooled CF,
+xr,Private research,sector,facfte4,fe,group_era,unweighted,80,4.483,-1.322,5.805,2.942,7.425,0.551,0.551,pooled,
+xr,Private research,sector,facfte4,fe_sec,group_era,unweighted,80,4.483,-1.134,5.618,2.942,7.425,0.614,0.614,sector,
+xr,Private research,sector,facfte4,iv,group_era,unweighted,80,4.483,-1.276,5.759,2.942,7.425,0.566,0.566,pooled,11.9
+xr,Private research,sector,facfte4,iv_sec,group_era,unweighted,80,4.483,-1.012,5.495,2.942,7.425,0.656,0.656,sector,13.8
+xm,Private master's,sector,facfte4,cf,group_era,unweighted,280,9.796,5.691,4.105,-12.652,-2.856,0.59,0.55,pooled CF,
+xm,Private master's,sector,facfte4,fe,group_era,unweighted,280,9.796,5.683,4.113,-12.652,-2.856,0.551,0.551,pooled,
+xm,Private master's,sector,facfte4,fe_sec,group_era,unweighted,280,9.796,5.102,4.694,-12.652,-2.856,0.597,0.597,sector,
+xm,Private master's,sector,facfte4,iv,group_era,unweighted,280,9.796,5.487,4.31,-12.652,-2.856,0.566,0.566,pooled,11.9
+xm,Private master's,sector,facfte4,iv_sec,group_era,unweighted,280,9.796,5.487,4.31,-12.652,-2.856,0.566,0.566,pooled (sector F < 10),1.9
+xb,Private bachelor's,sector,facfte4,cf,group_era,unweighted,412,7.964,5.294,2.67,-11.725,-3.761,0.59,0.55,pooled CF,
+xb,Private bachelor's,sector,facfte4,fe,group_era,unweighted,412,7.964,5.267,2.697,-11.725,-3.761,0.551,0.551,pooled,
+xb,Private bachelor's,sector,facfte4,fe_sec,group_era,unweighted,412,7.964,4.728,3.236,-11.725,-3.761,0.597,0.597,sector,
+xb,Private bachelor's,sector,facfte4,iv,group_era,unweighted,412,7.964,5.085,2.88,-11.725,-3.761,0.566,0.566,pooled,11.9
+xb,Private bachelor's,sector,facfte4,iv_sec,group_era,unweighted,412,7.964,5.085,2.88,-11.725,-3.761,0.566,0.566,pooled (sector F < 10),1.9
+pr,Public research,sgroup,facfte4,cf,group_era,unweighted,139,11.888,-0.471,12.358,1.217,13.105,0.59,0.55,pooled CF,
+pr,Public research,sgroup,facfte4,fe,group_era,unweighted,139,11.888,-0.547,12.435,1.217,13.105,0.551,0.551,pooled,
+pr,Public research,sgroup,facfte4,fe_sec,group_era,unweighted,139,11.888,-0.371,12.259,1.217,13.105,0.695,0.695,sector,
+pr,Public research,sgroup,facfte4,iv,group_era,unweighted,139,11.888,-0.528,12.416,1.217,13.105,0.566,0.566,pooled,11.9
+pr,Public research,sgroup,facfte4,iv_sec,group_era,unweighted,139,11.888,-0.528,12.416,1.217,13.105,0.566,0.566,pooled (sector F < 10),4.9
+rp,Regional publics,sgroup,facfte4,cf,group_era,unweighted,287,12.041,7.451,4.589,-16.488,-4.448,0.59,0.55,pooled CF,
+rp,Regional publics,sgroup,facfte4,fe,group_era,unweighted,287,12.041,7.407,4.634,-16.488,-4.448,0.551,0.551,pooled,
+rp,Regional publics,sgroup,facfte4,fe_sec,group_era,unweighted,287,12.041,6.761,5.28,-16.488,-4.448,0.59,0.59,sector,
+rp,Regional publics,sgroup,facfte4,iv,group_era,unweighted,287,12.041,7.15,4.89,-16.488,-4.448,0.566,0.566,pooled,11.9
+rp,Regional publics,sgroup,facfte4,iv_sec,group_era,unweighted,287,12.041,7.15,4.89,-16.488,-4.448,0.566,0.566,pooled (sector F < 10),6.6
+cc,Community colleges,sgroup,facfte4,cf,group_era,unweighted,705,14.03,13.583,0.446,-30.124,-16.094,0.59,0.55,pooled CF,
+cc,Community colleges,sgroup,facfte4,fe,group_era,unweighted,705,14.03,13.532,0.498,-30.124,-16.094,0.551,0.551,pooled,
+cc,Community colleges,sgroup,facfte4,fe_sec,group_era,unweighted,705,14.03,16.892,-2.862,-30.124,-16.094,0.439,0.439,sector,
+cc,Community colleges,sgroup,facfte4,iv,group_era,unweighted,705,14.03,13.063,0.966,-30.124,-16.094,0.566,0.566,pooled,11.9
+cc,Community colleges,sgroup,facfte4,iv_sec,group_era,unweighted,705,14.03,12.875,1.155,-30.124,-16.094,0.573,0.573,sector,12.6
+xr,Private research,sgroup,facfte4,cf,group_era,unweighted,80,4.483,-1.313,5.796,2.942,7.425,0.59,0.55,pooled CF,
+xr,Private research,sgroup,facfte4,fe,group_era,unweighted,80,4.483,-1.322,5.805,2.942,7.425,0.551,0.551,pooled,
+xr,Private research,sgroup,facfte4,fe_sec,group_era,unweighted,80,4.483,-1.134,5.618,2.942,7.425,0.614,0.614,sector,
+xr,Private research,sgroup,facfte4,iv,group_era,unweighted,80,4.483,-1.276,5.759,2.942,7.425,0.566,0.566,pooled,11.9
+xr,Private research,sgroup,facfte4,iv_sec,group_era,unweighted,80,4.483,-1.012,5.495,2.942,7.425,0.656,0.656,sector,13.8
+xmb,Private master's & bachelor's,sgroup,facfte4,cf,group_era,unweighted,692,8.706,5.455,3.251,-12.1,-3.394,0.59,0.55,pooled CF,
+xmb,Private master's & bachelor's,sgroup,facfte4,fe,group_era,unweighted,692,8.706,5.436,3.27,-12.1,-3.394,0.551,0.551,pooled,
+xmb,Private master's & bachelor's,sgroup,facfte4,fe_sec,group_era,unweighted,692,8.706,4.879,3.826,-12.1,-3.394,0.597,0.597,sector,
+xmb,Private master's & bachelor's,sgroup,facfte4,iv,group_era,unweighted,692,8.706,5.247,3.458,-12.1,-3.394,0.566,0.566,pooled,11.9
+xmb,Private master's & bachelor's,sgroup,facfte4,iv_sec,group_era,unweighted,692,8.706,5.247,3.458,-12.1,-3.394,0.566,0.566,pooled (sector F < 10),1.9
+all,All,all,facfte2,cf,ext_group,unweighted,1903,10.809,6.646,4.163,-17.834,-7.025,0.654,0.628,pooled CF,
+all,All,all,facfte2,fe,ext_group,unweighted,1903,10.809,6.618,4.191,-17.834,-7.025,0.629,0.629,pooled,
+all,All,all,facfte2,iv,ext_group,unweighted,1903,10.809,6.022,4.787,-17.834,-7.025,0.662,0.662,pooled,25.9
+pr,Public research,sector,facfte2,cf,ext_group,unweighted,139,11.86,-0.401,12.262,1.217,13.078,0.654,0.628,pooled CF,
+pr,Public research,sector,facfte2,fe,ext_group,unweighted,139,11.86,-0.452,12.312,1.217,13.078,0.629,0.629,pooled,
+pr,Public research,sector,facfte2,fe_sec,ext_group,unweighted,139,11.86,-0.362,12.222,1.217,13.078,0.702,0.702,sector,
+pr,Public research,sector,facfte2,iv,ext_group,unweighted,139,11.86,-0.411,12.271,1.217,13.078,0.662,0.662,pooled,25.9
+pr,Public research,sector,facfte2,iv_sec,ext_group,unweighted,139,11.86,0.006,11.854,1.217,13.078,1.005,1.005,sector,12.1
+pm,Public master's,sector,facfte2,cf,ext_group,unweighted,211,12.362,6.332,6.03,-16.995,-4.634,0.654,0.628,pooled CF,
+pm,Public master's,sector,facfte2,fe,ext_group,unweighted,211,12.362,6.307,6.054,-16.995,-4.634,0.629,0.629,pooled,
+pm,Public master's,sector,facfte2,fe_sec,ext_group,unweighted,211,12.362,5.572,6.79,-16.995,-4.634,0.672,0.672,sector,
+pm,Public master's,sector,facfte2,iv,ext_group,unweighted,211,12.362,5.738,6.623,-16.995,-4.634,0.662,0.662,pooled,25.9
+pm,Public master's,sector,facfte2,iv_sec,ext_group,unweighted,211,12.362,7.317,5.045,-16.995,-4.634,0.57,0.57,sector,12.0
+pb,Public bachelor's,sector,facfte2,cf,ext_group,unweighted,76,11.443,5.647,5.797,-15.082,-3.638,0.654,0.628,pooled CF,
+pb,Public bachelor's,sector,facfte2,fe,ext_group,unweighted,76,11.443,5.597,5.846,-15.082,-3.638,0.629,0.629,pooled,
+pb,Public bachelor's,sector,facfte2,fe_sec,ext_group,unweighted,76,11.443,4.944,6.499,-15.082,-3.638,0.672,0.672,sector,
+pb,Public bachelor's,sector,facfte2,iv,ext_group,unweighted,76,11.443,5.092,6.351,-15.082,-3.638,0.662,0.662,pooled,25.9
+pb,Public bachelor's,sector,facfte2,iv_sec,ext_group,unweighted,76,11.443,6.493,4.95,-15.082,-3.638,0.57,0.57,sector,12.0
+cc,Public community colleges,sector,facfte2,cf,ext_group,unweighted,705,10.846,11.216,-0.371,-30.124,-19.278,0.654,0.628,pooled CF,
+cc,Public community colleges,sector,facfte2,fe,ext_group,unweighted,705,10.846,11.179,-0.334,-30.124,-19.278,0.629,0.629,pooled,
+cc,Public community colleges,sector,facfte2,fe_sec,ext_group,unweighted,705,10.846,14.266,-3.42,-30.124,-19.278,0.526,0.526,sector,
+cc,Public community colleges,sector,facfte2,iv,ext_group,unweighted,705,10.846,10.171,0.674,-30.124,-19.278,0.662,0.662,pooled,25.9
+cc,Public community colleges,sector,facfte2,iv_sec,ext_group,unweighted,705,10.846,11.614,-0.768,-30.124,-19.278,0.614,0.614,sector,26.0
+xr,Private research,sector,facfte2,cf,ext_group,unweighted,80,5.342,-1.086,6.428,2.942,8.284,0.654,0.628,pooled CF,
+xr,Private research,sector,facfte2,fe,ext_group,unweighted,80,5.342,-1.092,6.434,2.942,8.284,0.629,0.629,pooled,
+xr,Private research,sector,facfte2,fe_sec,ext_group,unweighted,80,5.342,-1.0,6.342,2.942,8.284,0.66,0.66,sector,
+xr,Private research,sector,facfte2,iv,ext_group,unweighted,80,5.342,-0.993,6.335,2.942,8.284,0.662,0.662,pooled,25.9
+xr,Private research,sector,facfte2,iv_sec,ext_group,unweighted,80,5.342,-0.993,6.335,2.942,8.284,0.662,0.662,pooled (sector F < 10),7.8
+xm,Private master's,sector,facfte2,cf,ext_group,unweighted,280,11.452,4.702,6.75,-12.652,-1.2,0.654,0.628,pooled CF,
+xm,Private master's,sector,facfte2,fe,ext_group,unweighted,280,11.452,4.695,6.756,-12.652,-1.2,0.629,0.629,pooled,
+xm,Private master's,sector,facfte2,fe_sec,ext_group,unweighted,280,11.452,4.158,7.294,-12.652,-1.2,0.671,0.671,sector,
+xm,Private master's,sector,facfte2,iv,ext_group,unweighted,280,11.452,4.272,7.18,-12.652,-1.2,0.662,0.662,pooled,25.9
+xm,Private master's,sector,facfte2,iv_sec,ext_group,unweighted,280,11.452,4.272,7.18,-12.652,-1.2,0.662,0.662,pooled (sector F < 10),3.6
+xb,Private bachelor's,sector,facfte2,cf,ext_group,unweighted,412,10.104,4.371,5.734,-11.725,-1.621,0.654,0.628,pooled CF,
+xb,Private bachelor's,sector,facfte2,fe,ext_group,unweighted,412,10.104,4.351,5.753,-11.725,-1.621,0.629,0.629,pooled,
+xb,Private bachelor's,sector,facfte2,fe_sec,ext_group,unweighted,412,10.104,3.853,6.251,-11.725,-1.621,0.671,0.671,sector,
+xb,Private bachelor's,sector,facfte2,iv,ext_group,unweighted,412,10.104,3.959,6.146,-11.725,-1.621,0.662,0.662,pooled,25.9
+xb,Private bachelor's,sector,facfte2,iv_sec,ext_group,unweighted,412,10.104,3.959,6.146,-11.725,-1.621,0.662,0.662,pooled (sector F < 10),3.6
+pr,Public research,sgroup,facfte2,cf,ext_group,unweighted,139,11.86,-0.401,12.262,1.217,13.078,0.654,0.628,pooled CF,
+pr,Public research,sgroup,facfte2,fe,ext_group,unweighted,139,11.86,-0.452,12.312,1.217,13.078,0.629,0.629,pooled,
+pr,Public research,sgroup,facfte2,fe_sec,ext_group,unweighted,139,11.86,-0.362,12.222,1.217,13.078,0.702,0.702,sector,
+pr,Public research,sgroup,facfte2,iv,ext_group,unweighted,139,11.86,-0.411,12.271,1.217,13.078,0.662,0.662,pooled,25.9
+pr,Public research,sgroup,facfte2,iv_sec,ext_group,unweighted,139,11.86,0.006,11.854,1.217,13.078,1.005,1.005,sector,12.1
+rp,Regional publics,sgroup,facfte2,cf,ext_group,unweighted,287,12.118,6.15,5.968,-16.488,-4.37,0.654,0.628,pooled CF,
+rp,Regional publics,sgroup,facfte2,fe,ext_group,unweighted,287,12.118,6.119,5.999,-16.488,-4.37,0.629,0.629,pooled,
+rp,Regional publics,sgroup,facfte2,fe_sec,ext_group,unweighted,287,12.118,5.405,6.713,-16.488,-4.37,0.672,0.672,sector,
+rp,Regional publics,sgroup,facfte2,iv,ext_group,unweighted,287,12.118,5.567,6.551,-16.488,-4.37,0.662,0.662,pooled,25.9
+rp,Regional publics,sgroup,facfte2,iv_sec,ext_group,unweighted,287,12.118,7.098,5.02,-16.488,-4.37,0.57,0.57,sector,12.0
+cc,Community colleges,sgroup,facfte2,cf,ext_group,unweighted,705,10.846,11.216,-0.371,-30.124,-19.278,0.654,0.628,pooled CF,
+cc,Community colleges,sgroup,facfte2,fe,ext_group,unweighted,705,10.846,11.179,-0.334,-30.124,-19.278,0.629,0.629,pooled,
+cc,Community colleges,sgroup,facfte2,fe_sec,ext_group,unweighted,705,10.846,14.266,-3.42,-30.124,-19.278,0.526,0.526,sector,
+cc,Community colleges,sgroup,facfte2,iv,ext_group,unweighted,705,10.846,10.171,0.674,-30.124,-19.278,0.662,0.662,pooled,25.9
+cc,Community colleges,sgroup,facfte2,iv_sec,ext_group,unweighted,705,10.846,11.614,-0.768,-30.124,-19.278,0.614,0.614,sector,26.0
+xr,Private research,sgroup,facfte2,cf,ext_group,unweighted,80,5.342,-1.086,6.428,2.942,8.284,0.654,0.628,pooled CF,
+xr,Private research,sgroup,facfte2,fe,ext_group,unweighted,80,5.342,-1.092,6.434,2.942,8.284,0.629,0.629,pooled,
+xr,Private research,sgroup,facfte2,fe_sec,ext_group,unweighted,80,5.342,-1.0,6.342,2.942,8.284,0.66,0.66,sector,
+xr,Private research,sgroup,facfte2,iv,ext_group,unweighted,80,5.342,-0.993,6.335,2.942,8.284,0.662,0.662,pooled,25.9
+xr,Private research,sgroup,facfte2,iv_sec,ext_group,unweighted,80,5.342,-0.993,6.335,2.942,8.284,0.662,0.662,pooled (sector F < 10),7.8
+xmb,Private master's & bachelor's,sgroup,facfte2,cf,ext_group,unweighted,692,10.65,4.505,6.145,-12.1,-1.451,0.654,0.628,pooled CF,
+xmb,Private master's & bachelor's,sgroup,facfte2,fe,ext_group,unweighted,692,10.65,4.49,6.159,-12.1,-1.451,0.629,0.629,pooled,
+xmb,Private master's & bachelor's,sgroup,facfte2,fe_sec,ext_group,unweighted,692,10.65,3.977,6.673,-12.1,-1.451,0.671,0.671,sector,
+xmb,Private master's & bachelor's,sgroup,facfte2,iv,ext_group,unweighted,692,10.65,4.086,6.564,-12.1,-1.451,0.662,0.662,pooled,25.9
+xmb,Private master's & bachelor's,sgroup,facfte2,iv_sec,ext_group,unweighted,692,10.65,4.086,6.564,-12.1,-1.451,0.662,0.662,pooled (sector F < 10),3.6
+all,All,all,facfte2,cf,group_era,unweighted,1903,10.809,7.32,3.489,-17.834,-7.025,0.655,0.591,pooled CF,
+all,All,all,facfte2,fe,group_era,unweighted,1903,10.809,7.26,3.549,-17.834,-7.025,0.593,0.593,pooled,
+all,All,all,facfte2,iv,group_era,unweighted,1903,10.809,6.435,4.374,-17.834,-7.025,0.639,0.639,pooled,11.9
+pr,Public research,sector,facfte2,cf,group_era,unweighted,139,11.86,-0.374,12.234,1.217,13.078,0.655,0.591,pooled CF,
+pr,Public research,sector,facfte2,fe,group_era,unweighted,139,11.86,-0.496,12.356,1.217,13.078,0.593,0.593,pooled,
+pr,Public research,sector,facfte2,fe_sec,group_era,unweighted,139,11.86,-0.364,12.225,1.217,13.078,0.701,0.701,sector,
+pr,Public research,sector,facfte2,iv,group_era,unweighted,139,11.86,-0.439,12.3,1.217,13.078,0.639,0.639,pooled,11.9
+pr,Public research,sector,facfte2,iv_sec,group_era,unweighted,139,11.86,-0.439,12.3,1.217,13.078,0.639,0.639,pooled (sector F < 10),4.9
+pm,Public master's,sector,facfte2,cf,group_era,unweighted,211,12.362,6.972,5.39,-16.995,-4.634,0.655,0.591,pooled CF,
+pm,Public master's,sector,facfte2,fe,group_era,unweighted,211,12.362,6.918,5.443,-16.995,-4.634,0.593,0.593,pooled,
+pm,Public master's,sector,facfte2,fe_sec,group_era,unweighted,211,12.362,6.426,5.936,-16.995,-4.634,0.622,0.622,sector,
+pm,Public master's,sector,facfte2,iv,group_era,unweighted,211,12.362,6.133,6.229,-16.995,-4.634,0.639,0.639,pooled,11.9
+pm,Public master's,sector,facfte2,iv_sec,group_era,unweighted,211,12.362,6.133,6.229,-16.995,-4.634,0.639,0.639,pooled (sector F < 10),6.6
+pb,Public bachelor's,sector,facfte2,cf,group_era,unweighted,76,11.443,6.254,5.19,-15.082,-3.638,0.655,0.591,pooled CF,
+pb,Public bachelor's,sector,facfte2,fe,group_era,unweighted,76,11.443,6.139,5.304,-15.082,-3.638,0.593,0.593,pooled,
+pb,Public bachelor's,sector,facfte2,fe_sec,group_era,unweighted,76,11.443,5.702,5.741,-15.082,-3.638,0.622,0.622,sector,
+pb,Public bachelor's,sector,facfte2,iv,group_era,unweighted,76,11.443,5.442,6.001,-15.082,-3.638,0.639,0.639,pooled,11.9
+pb,Public bachelor's,sector,facfte2,iv_sec,group_era,unweighted,76,11.443,5.442,6.001,-15.082,-3.638,0.639,0.639,pooled (sector F < 10),6.6
+cc,Public community colleges,sector,facfte2,cf,group_era,unweighted,705,10.846,12.342,-1.496,-30.124,-19.278,0.655,0.591,pooled CF,
+cc,Public community colleges,sector,facfte2,fe,group_era,unweighted,705,10.846,12.263,-1.417,-30.124,-19.278,0.593,0.593,pooled,
+cc,Public community colleges,sector,facfte2,fe_sec,group_era,unweighted,705,10.846,15.576,-4.731,-30.124,-19.278,0.483,0.483,sector,
+cc,Public community colleges,sector,facfte2,iv,group_era,unweighted,705,10.846,10.87,-0.024,-30.124,-19.278,0.639,0.639,pooled,11.9
+cc,Public community colleges,sector,facfte2,iv_sec,group_era,unweighted,705,10.846,10.391,0.455,-30.124,-19.278,0.655,0.655,sector,12.6
+xr,Private research,sector,facfte2,cf,group_era,unweighted,80,5.342,-1.184,6.526,2.942,8.284,0.655,0.591,pooled CF,
+xr,Private research,sector,facfte2,fe,group_era,unweighted,80,5.342,-1.198,6.54,2.942,8.284,0.593,0.593,pooled,
+xr,Private research,sector,facfte2,fe_sec,group_era,unweighted,80,5.342,-1.072,6.415,2.942,8.284,0.635,0.635,sector,
+xr,Private research,sector,facfte2,iv,group_era,unweighted,80,5.342,-1.062,6.404,2.942,8.284,0.639,0.639,pooled,11.9
+xr,Private research,sector,facfte2,iv_sec,group_era,unweighted,80,5.342,-0.687,6.03,2.942,8.284,0.766,0.766,sector,13.8
+xm,Private master's,sector,facfte2,cf,group_era,unweighted,280,11.452,5.162,6.29,-12.652,-1.2,0.655,0.591,pooled CF,
+xm,Private master's,sector,facfte2,fe,group_era,unweighted,280,11.452,5.15,6.301,-12.652,-1.2,0.593,0.593,pooled,
+xm,Private master's,sector,facfte2,fe_sec,group_era,unweighted,280,11.452,4.521,6.93,-12.652,-1.2,0.643,0.643,sector,
+xm,Private master's,sector,facfte2,iv,group_era,unweighted,280,11.452,4.565,6.886,-12.652,-1.2,0.639,0.639,pooled,11.9
+xm,Private master's,sector,facfte2,iv_sec,group_era,unweighted,280,11.452,4.565,6.886,-12.652,-1.2,0.639,0.639,pooled (sector F < 10),1.9
+xb,Private bachelor's,sector,facfte2,cf,group_era,unweighted,412,10.104,4.816,5.289,-11.725,-1.621,0.655,0.591,pooled CF,
+xb,Private bachelor's,sector,facfte2,fe,group_era,unweighted,412,10.104,4.773,5.331,-11.725,-1.621,0.593,0.593,pooled,
+xb,Private bachelor's,sector,facfte2,fe_sec,group_era,unweighted,412,10.104,4.19,5.914,-11.725,-1.621,0.643,0.643,sector,
+xb,Private bachelor's,sector,facfte2,iv,group_era,unweighted,412,10.104,4.231,5.874,-11.725,-1.621,0.639,0.639,pooled,11.9
+xb,Private bachelor's,sector,facfte2,iv_sec,group_era,unweighted,412,10.104,4.231,5.874,-11.725,-1.621,0.639,0.639,pooled (sector F < 10),1.9
+pr,Public research,sgroup,facfte2,cf,group_era,unweighted,139,11.86,-0.374,12.234,1.217,13.078,0.655,0.591,pooled CF,
+pr,Public research,sgroup,facfte2,fe,group_era,unweighted,139,11.86,-0.496,12.356,1.217,13.078,0.593,0.593,pooled,
+pr,Public research,sgroup,facfte2,fe_sec,group_era,unweighted,139,11.86,-0.364,12.225,1.217,13.078,0.701,0.701,sector,
+pr,Public research,sgroup,facfte2,iv,group_era,unweighted,139,11.86,-0.439,12.3,1.217,13.078,0.639,0.639,pooled,11.9
+pr,Public research,sgroup,facfte2,iv_sec,group_era,unweighted,139,11.86,-0.439,12.3,1.217,13.078,0.639,0.639,pooled (sector F < 10),4.9
+rp,Regional publics,sgroup,facfte2,cf,group_era,unweighted,287,12.118,6.782,5.337,-16.488,-4.37,0.655,0.591,pooled CF,
+rp,Regional publics,sgroup,facfte2,fe,group_era,unweighted,287,12.118,6.712,5.406,-16.488,-4.37,0.593,0.593,pooled,
+rp,Regional publics,sgroup,facfte2,fe_sec,group_era,unweighted,287,12.118,6.234,5.884,-16.488,-4.37,0.622,0.622,sector,
+rp,Regional publics,sgroup,facfte2,iv,group_era,unweighted,287,12.118,5.95,6.169,-16.488,-4.37,0.639,0.639,pooled,11.9
+rp,Regional publics,sgroup,facfte2,iv_sec,group_era,unweighted,287,12.118,5.95,6.169,-16.488,-4.37,0.639,0.639,pooled (sector F < 10),6.6
+cc,Community colleges,sgroup,facfte2,cf,group_era,unweighted,705,10.846,12.342,-1.496,-30.124,-19.278,0.655,0.591,pooled CF,
+cc,Community colleges,sgroup,facfte2,fe,group_era,unweighted,705,10.846,12.263,-1.417,-30.124,-19.278,0.593,0.593,pooled,
+cc,Community colleges,sgroup,facfte2,fe_sec,group_era,unweighted,705,10.846,15.576,-4.731,-30.124,-19.278,0.483,0.483,sector,
+cc,Community colleges,sgroup,facfte2,iv,group_era,unweighted,705,10.846,10.87,-0.024,-30.124,-19.278,0.639,0.639,pooled,11.9
+cc,Community colleges,sgroup,facfte2,iv_sec,group_era,unweighted,705,10.846,10.391,0.455,-30.124,-19.278,0.655,0.655,sector,12.6
+xr,Private research,sgroup,facfte2,cf,group_era,unweighted,80,5.342,-1.184,6.526,2.942,8.284,0.655,0.591,pooled CF,
+xr,Private research,sgroup,facfte2,fe,group_era,unweighted,80,5.342,-1.198,6.54,2.942,8.284,0.593,0.593,pooled,
+xr,Private research,sgroup,facfte2,fe_sec,group_era,unweighted,80,5.342,-1.072,6.415,2.942,8.284,0.635,0.635,sector,
+xr,Private research,sgroup,facfte2,iv,group_era,unweighted,80,5.342,-1.062,6.404,2.942,8.284,0.639,0.639,pooled,11.9
+xr,Private research,sgroup,facfte2,iv_sec,group_era,unweighted,80,5.342,-0.687,6.03,2.942,8.284,0.766,0.766,sector,13.8
+xmb,Private master's & bachelor's,sgroup,facfte2,cf,group_era,unweighted,692,10.65,4.956,5.694,-12.1,-1.451,0.655,0.591,pooled CF,
+xmb,Private master's & bachelor's,sgroup,facfte2,fe,group_era,unweighted,692,10.65,4.926,5.724,-12.1,-1.451,0.593,0.593,pooled,
+xmb,Private master's & bachelor's,sgroup,facfte2,fe_sec,group_era,unweighted,692,10.65,4.324,6.326,-12.1,-1.451,0.643,0.643,sector,
+xmb,Private master's & bachelor's,sgroup,facfte2,iv,group_era,unweighted,692,10.65,4.366,6.283,-12.1,-1.451,0.639,0.639,pooled,11.9
+xmb,Private master's & bachelor's,sgroup,facfte2,iv_sec,group_era,unweighted,692,10.65,4.366,6.283,-12.1,-1.451,0.639,0.639,pooled (sector F < 10),1.9
+all,All,all,ftfac,cf,ext_group,unweighted,1903,12.657,9.6,3.056,-17.834,-5.177,0.644,0.467,pooled CF,
+all,All,all,ftfac,fe,ext_group,unweighted,1903,12.657,9.397,3.26,-17.834,-5.177,0.473,0.473,pooled,
+all,All,all,ftfac,iv,ext_group,unweighted,1903,12.657,6.611,6.046,-17.834,-5.177,0.629,0.629,pooled,25.9
+pr,Public research,sector,ftfac,cf,ext_group,unweighted,139,11.916,-0.304,12.22,1.217,13.133,0.644,0.467,pooled CF,
+pr,Public research,sector,ftfac,fe,ext_group,unweighted,139,11.916,-0.641,12.557,1.217,13.133,0.473,0.473,pooled,
+pr,Public research,sector,ftfac,fe_sec,ext_group,unweighted,139,11.916,-0.374,12.289,1.217,13.133,0.693,0.693,sector,
+pr,Public research,sector,ftfac,iv,ext_group,unweighted,139,11.916,-0.451,12.367,1.217,13.133,0.629,0.629,pooled,25.9
+pr,Public research,sector,ftfac,iv_sec,ext_group,unweighted,139,11.916,-0.095,12.011,1.217,13.133,0.922,0.922,sector,12.1
+pm,Public master's,sector,ftfac,cf,ext_group,unweighted,211,11.904,9.139,2.765,-16.995,-5.092,0.644,0.467,pooled CF,
+pm,Public master's,sector,ftfac,fe,ext_group,unweighted,211,11.904,8.955,2.948,-16.995,-5.092,0.473,0.473,pooled,
+pm,Public master's,sector,ftfac,fe_sec,ext_group,unweighted,211,11.904,7.24,4.664,-16.995,-5.092,0.574,0.574,sector,
+pm,Public master's,sector,ftfac,iv,ext_group,unweighted,211,11.904,6.3,5.603,-16.995,-5.092,0.629,0.629,pooled,25.9
+pm,Public master's,sector,ftfac,iv_sec,ext_group,unweighted,211,11.904,4.011,7.893,-16.995,-5.092,0.764,0.764,sector,12.0
+pb,Public bachelor's,sector,ftfac,cf,ext_group,unweighted,76,12.222,8.295,3.927,-15.082,-2.859,0.644,0.467,pooled CF,
+pb,Public bachelor's,sector,ftfac,fe,ext_group,unweighted,76,12.222,7.947,4.276,-15.082,-2.859,0.473,0.473,pooled,
+pb,Public bachelor's,sector,ftfac,fe_sec,ext_group,unweighted,76,12.222,6.425,5.798,-15.082,-2.859,0.574,0.574,sector,
+pb,Public bachelor's,sector,ftfac,iv,ext_group,unweighted,76,12.222,5.591,6.632,-15.082,-2.859,0.629,0.629,pooled,25.9
+pb,Public bachelor's,sector,ftfac,iv_sec,ext_group,unweighted,76,12.222,3.559,8.663,-15.082,-2.859,0.764,0.764,sector,12.0
+cc,Public community colleges,sector,ftfac,cf,ext_group,unweighted,705,21.191,16.153,5.038,-30.124,-8.932,0.644,0.467,pooled CF,
+cc,Public community colleges,sector,ftfac,fe,ext_group,unweighted,705,21.191,15.872,5.319,-30.124,-8.932,0.473,0.473,pooled,
+cc,Public community colleges,sector,ftfac,fe_sec,ext_group,unweighted,705,21.191,18.657,2.534,-30.124,-8.932,0.381,0.381,sector,
+cc,Public community colleges,sector,ftfac,iv,ext_group,unweighted,705,21.191,11.167,10.025,-30.124,-8.932,0.629,0.629,pooled,25.9
+cc,Public community colleges,sector,ftfac,iv_sec,ext_group,unweighted,705,21.191,11.868,9.324,-30.124,-8.932,0.606,0.606,sector,26.0
+xr,Private research,sector,ftfac,cf,ext_group,unweighted,80,2.67,-1.517,4.187,2.942,5.612,0.644,0.467,pooled CF,
+xr,Private research,sector,ftfac,fe,ext_group,unweighted,80,2.67,-1.55,4.22,2.942,5.612,0.473,0.473,pooled,
+xr,Private research,sector,ftfac,fe_sec,ext_group,unweighted,80,2.67,-1.156,3.826,2.942,5.612,0.607,0.607,sector,
+xr,Private research,sector,ftfac,iv,ext_group,unweighted,80,2.67,-1.091,3.76,2.942,5.612,0.629,0.629,pooled,25.9
+xr,Private research,sector,ftfac,iv_sec,ext_group,unweighted,80,2.67,-1.091,3.76,2.942,5.612,0.629,0.629,pooled (sector F < 10),7.8
+xm,Private master's,sector,ftfac,cf,ext_group,unweighted,280,6.955,6.724,0.23,-12.652,-5.697,0.644,0.467,pooled CF,
+xm,Private master's,sector,ftfac,fe,ext_group,unweighted,280,6.955,6.666,0.288,-12.652,-5.697,0.473,0.473,pooled,
+xm,Private master's,sector,ftfac,fe_sec,ext_group,unweighted,280,6.955,6.475,0.479,-12.652,-5.697,0.488,0.488,sector,
+xm,Private master's,sector,ftfac,iv,ext_group,unweighted,280,6.955,4.69,2.265,-12.652,-5.697,0.629,0.629,pooled,25.9
+xm,Private master's,sector,ftfac,iv_sec,ext_group,unweighted,280,6.955,4.69,2.265,-12.652,-5.697,0.629,0.629,pooled (sector F < 10),3.6
+xb,Private bachelor's,sector,ftfac,cf,ext_group,unweighted,412,4.582,6.32,-1.738,-11.725,-7.143,0.644,0.467,pooled CF,
+xb,Private bachelor's,sector,ftfac,fe,ext_group,unweighted,412,4.582,6.178,-1.596,-11.725,-7.143,0.473,0.473,pooled,
+xb,Private bachelor's,sector,ftfac,fe_sec,ext_group,unweighted,412,4.582,6.001,-1.419,-11.725,-7.143,0.488,0.488,sector,
+xb,Private bachelor's,sector,ftfac,iv,ext_group,unweighted,412,4.582,4.346,0.236,-11.725,-7.143,0.629,0.629,pooled,25.9
+xb,Private bachelor's,sector,ftfac,iv_sec,ext_group,unweighted,412,4.582,4.346,0.236,-11.725,-7.143,0.629,0.629,pooled (sector F < 10),3.6
+pr,Public research,sgroup,ftfac,cf,ext_group,unweighted,139,11.916,-0.304,12.22,1.217,13.133,0.644,0.467,pooled CF,
+pr,Public research,sgroup,ftfac,fe,ext_group,unweighted,139,11.916,-0.641,12.557,1.217,13.133,0.473,0.473,pooled,
+pr,Public research,sgroup,ftfac,fe_sec,ext_group,unweighted,139,11.916,-0.374,12.289,1.217,13.133,0.693,0.693,sector,
+pr,Public research,sgroup,ftfac,iv,ext_group,unweighted,139,11.916,-0.451,12.367,1.217,13.133,0.629,0.629,pooled,25.9
+pr,Public research,sgroup,ftfac,iv_sec,ext_group,unweighted,139,11.916,-0.095,12.011,1.217,13.133,0.922,0.922,sector,12.1
+rp,Regional publics,sgroup,ftfac,cf,ext_group,unweighted,287,11.988,8.915,3.073,-16.488,-4.5,0.644,0.467,pooled CF,
+rp,Regional publics,sgroup,ftfac,fe,ext_group,unweighted,287,11.988,8.688,3.3,-16.488,-4.5,0.473,0.473,pooled,
+rp,Regional publics,sgroup,ftfac,fe_sec,ext_group,unweighted,287,11.988,7.024,4.964,-16.488,-4.5,0.574,0.574,sector,
+rp,Regional publics,sgroup,ftfac,iv,ext_group,unweighted,287,11.988,6.112,5.876,-16.488,-4.5,0.629,0.629,pooled,25.9
+rp,Regional publics,sgroup,ftfac,iv_sec,ext_group,unweighted,287,11.988,3.891,8.097,-16.488,-4.5,0.764,0.764,sector,12.0
+cc,Community colleges,sgroup,ftfac,cf,ext_group,unweighted,705,21.191,16.153,5.038,-30.124,-8.932,0.644,0.467,pooled CF,
+cc,Community colleges,sgroup,ftfac,fe,ext_group,unweighted,705,21.191,15.872,5.319,-30.124,-8.932,0.473,0.473,pooled,
+cc,Community colleges,sgroup,ftfac,fe_sec,ext_group,unweighted,705,21.191,18.657,2.534,-30.124,-8.932,0.381,0.381,sector,
+cc,Community colleges,sgroup,ftfac,iv,ext_group,unweighted,705,21.191,11.167,10.025,-30.124,-8.932,0.629,0.629,pooled,25.9
+cc,Community colleges,sgroup,ftfac,iv_sec,ext_group,unweighted,705,21.191,11.868,9.324,-30.124,-8.932,0.606,0.606,sector,26.0
+xr,Private research,sgroup,ftfac,cf,ext_group,unweighted,80,2.67,-1.517,4.187,2.942,5.612,0.644,0.467,pooled CF,
+xr,Private research,sgroup,ftfac,fe,ext_group,unweighted,80,2.67,-1.55,4.22,2.942,5.612,0.473,0.473,pooled,
+xr,Private research,sgroup,ftfac,fe_sec,ext_group,unweighted,80,2.67,-1.156,3.826,2.942,5.612,0.607,0.607,sector,
+xr,Private research,sgroup,ftfac,iv,ext_group,unweighted,80,2.67,-1.091,3.76,2.942,5.612,0.629,0.629,pooled,25.9
+xr,Private research,sgroup,ftfac,iv_sec,ext_group,unweighted,80,2.67,-1.091,3.76,2.942,5.612,0.629,0.629,pooled (sector F < 10),7.8
+xmb,Private master's & bachelor's,sgroup,ftfac,cf,ext_group,unweighted,692,5.542,6.484,-0.942,-12.1,-6.558,0.644,0.467,pooled CF,
+xmb,Private master's & bachelor's,sgroup,ftfac,fe,ext_group,unweighted,692,5.542,6.376,-0.834,-12.1,-6.558,0.473,0.473,pooled,
+xmb,Private master's & bachelor's,sgroup,ftfac,fe_sec,ext_group,unweighted,692,5.542,6.193,-0.651,-12.1,-6.558,0.488,0.488,sector,
+xmb,Private master's & bachelor's,sgroup,ftfac,iv,ext_group,unweighted,692,5.542,4.486,1.056,-12.1,-6.558,0.629,0.629,pooled,25.9
+xmb,Private master's & bachelor's,sgroup,ftfac,iv_sec,ext_group,unweighted,692,5.542,4.486,1.056,-12.1,-6.558,0.629,0.629,pooled (sector F < 10),3.6
+all,All,all,ptfacx,cf,ext_group,unweighted,1903,19.564,2.843,16.721,-17.834,1.73,0.808,0.84,pooled CF,
+all,All,all,ptfacx,fe,ext_group,unweighted,1903,19.564,2.911,16.652,-17.834,1.73,0.837,0.837,pooled,
+all,All,all,ptfacx,iv,ext_group,unweighted,1903,19.564,1.301,18.262,-17.834,1.73,0.927,0.927,pooled,25.9
+pr,Public research,sector,ptfacx,cf,ext_group,unweighted,139,10.452,-0.256,10.709,1.217,11.67,0.808,0.84,pooled CF,
+pr,Public research,sector,ptfacx,fe,ext_group,unweighted,139,10.452,-0.199,10.651,1.217,11.67,0.837,0.837,pooled,
+pr,Public research,sector,ptfacx,fe_sec,ext_group,unweighted,139,10.452,-0.375,10.828,1.217,11.67,0.692,0.692,sector,
+pr,Public research,sector,ptfacx,iv,ext_group,unweighted,139,10.452,-0.089,10.541,1.217,11.67,0.927,0.927,pooled,25.9
+pr,Public research,sector,ptfacx,iv_sec,ext_group,unweighted,139,10.452,0.532,9.921,1.217,11.67,1.437,1.437,sector,12.1
+pm,Public master's,sector,ptfacx,cf,ext_group,unweighted,211,19.473,2.711,16.762,-16.995,2.478,0.808,0.84,pooled CF,
+pm,Public master's,sector,ptfacx,fe,ext_group,unweighted,211,19.473,2.774,16.699,-16.995,2.478,0.837,0.837,pooled,
+pm,Public master's,sector,ptfacx,fe_sec,ext_group,unweighted,211,19.473,0.414,19.059,-16.995,2.478,0.976,0.976,sector,
+pm,Public master's,sector,ptfacx,iv,ext_group,unweighted,211,19.473,1.24,18.233,-16.995,2.478,0.927,0.927,pooled,25.9
+pm,Public master's,sector,ptfacx,iv_sec,ext_group,unweighted,211,19.473,19.967,-0.494,-16.995,2.478,-0.175,-0.175,sector,12.0
+pb,Public bachelor's,sector,ptfacx,cf,ext_group,unweighted,76,19.064,2.373,16.691,-15.082,3.982,0.808,0.84,pooled CF,
+pb,Public bachelor's,sector,ptfacx,fe,ext_group,unweighted,76,19.064,2.462,16.602,-15.082,3.982,0.837,0.837,pooled,
+pb,Public bachelor's,sector,ptfacx,fe_sec,ext_group,unweighted,76,19.064,0.367,18.696,-15.082,3.982,0.976,0.976,sector,
+pb,Public bachelor's,sector,ptfacx,iv,ext_group,unweighted,76,19.064,1.1,17.963,-15.082,3.982,0.927,0.927,pooled,25.9
+pb,Public bachelor's,sector,ptfacx,iv_sec,ext_group,unweighted,76,19.064,17.719,1.344,-15.082,3.982,-0.175,-0.175,sector,12.0
+cc,Public community colleges,sector,ptfacx,cf,ext_group,unweighted,705,5.201,4.813,0.388,-30.124,-24.923,0.808,0.84,pooled CF,
+cc,Public community colleges,sector,ptfacx,fe,ext_group,unweighted,705,5.201,4.917,0.284,-30.124,-24.923,0.837,0.837,pooled,
+cc,Public community colleges,sector,ptfacx,fe_sec,ext_group,unweighted,705,5.201,6.903,-1.702,-30.124,-24.923,0.771,0.771,sector,
+cc,Public community colleges,sector,ptfacx,iv,ext_group,unweighted,705,5.201,2.198,3.003,-30.124,-24.923,0.927,0.927,pooled,25.9
+cc,Public community colleges,sector,ptfacx,iv_sec,ext_group,unweighted,705,5.201,8.189,-2.988,-30.124,-24.923,0.728,0.728,sector,26.0
+xr,Private research,sector,ptfacx,cf,ext_group,unweighted,80,11.884,-0.481,12.364,2.942,14.826,0.808,0.84,pooled CF,
+xr,Private research,sector,ptfacx,fe,ext_group,unweighted,80,11.884,-0.48,12.364,2.942,14.826,0.837,0.837,pooled,
+xr,Private research,sector,ptfacx,fe_sec,ext_group,unweighted,80,11.884,0.44,11.444,2.942,14.826,1.15,1.15,sector,
+xr,Private research,sector,ptfacx,iv,ext_group,unweighted,80,11.884,-0.215,12.098,2.942,14.826,0.927,0.927,pooled,25.9
+xr,Private research,sector,ptfacx,iv_sec,ext_group,unweighted,80,11.884,-0.215,12.098,2.942,14.826,0.927,0.927,pooled (sector F < 10),7.8
+xm,Private master's,sector,ptfacx,cf,ext_group,unweighted,280,39.394,2.032,37.362,-12.652,26.742,0.808,0.84,pooled CF,
+xm,Private master's,sector,ptfacx,fe,ext_group,unweighted,280,39.394,2.065,37.329,-12.652,26.742,0.837,0.837,pooled,
+xm,Private master's,sector,ptfacx,fe_sec,ext_group,unweighted,280,39.394,1.979,37.416,-12.652,26.742,0.844,0.844,sector,
+xm,Private master's,sector,ptfacx,iv,ext_group,unweighted,280,39.394,0.923,38.471,-12.652,26.742,0.927,0.927,pooled,25.9
+xm,Private master's,sector,ptfacx,iv_sec,ext_group,unweighted,280,39.394,0.923,38.471,-12.652,26.742,0.927,0.927,pooled (sector F < 10),3.6
+xb,Private bachelor's,sector,ptfacx,cf,ext_group,unweighted,412,35.366,1.868,33.499,-11.725,23.641,0.808,0.84,pooled CF,
+xb,Private bachelor's,sector,ptfacx,fe,ext_group,unweighted,412,35.366,1.914,33.452,-11.725,23.641,0.837,0.837,pooled,
+xb,Private bachelor's,sector,ptfacx,fe_sec,ext_group,unweighted,412,35.366,1.834,33.533,-11.725,23.641,0.844,0.844,sector,
+xb,Private bachelor's,sector,ptfacx,iv,ext_group,unweighted,412,35.366,0.855,34.511,-11.725,23.641,0.927,0.927,pooled,25.9
+xb,Private bachelor's,sector,ptfacx,iv_sec,ext_group,unweighted,412,35.366,0.855,34.511,-11.725,23.641,0.927,0.927,pooled (sector F < 10),3.6
+pr,Public research,sgroup,ptfacx,cf,ext_group,unweighted,139,10.452,-0.256,10.709,1.217,11.67,0.808,0.84,pooled CF,
+pr,Public research,sgroup,ptfacx,fe,ext_group,unweighted,139,10.452,-0.199,10.651,1.217,11.67,0.837,0.837,pooled,
+pr,Public research,sgroup,ptfacx,fe_sec,ext_group,unweighted,139,10.452,-0.375,10.828,1.217,11.67,0.692,0.692,sector,
+pr,Public research,sgroup,ptfacx,iv,ext_group,unweighted,139,10.452,-0.089,10.541,1.217,11.67,0.927,0.927,pooled,25.9
+pr,Public research,sgroup,ptfacx,iv_sec,ext_group,unweighted,139,10.452,0.532,9.921,1.217,11.67,1.437,1.437,sector,12.1
+rp,Regional publics,sgroup,ptfacx,cf,ext_group,unweighted,287,19.364,2.622,16.743,-16.488,2.876,0.808,0.84,pooled CF,
+rp,Regional publics,sgroup,ptfacx,fe,ext_group,unweighted,287,19.364,2.692,16.673,-16.488,2.876,0.837,0.837,pooled,
+rp,Regional publics,sgroup,ptfacx,fe_sec,ext_group,unweighted,287,19.364,0.401,18.963,-16.488,2.876,0.976,0.976,sector,
+rp,Regional publics,sgroup,ptfacx,iv,ext_group,unweighted,287,19.364,1.203,18.162,-16.488,2.876,0.927,0.927,pooled,25.9
+rp,Regional publics,sgroup,ptfacx,iv_sec,ext_group,unweighted,287,19.364,19.372,-0.008,-16.488,2.876,-0.175,-0.175,sector,12.0
+cc,Community colleges,sgroup,ptfacx,cf,ext_group,unweighted,705,5.201,4.813,0.388,-30.124,-24.923,0.808,0.84,pooled CF,
+cc,Community colleges,sgroup,ptfacx,fe,ext_group,unweighted,705,5.201,4.917,0.284,-30.124,-24.923,0.837,0.837,pooled,
+cc,Community colleges,sgroup,ptfacx,fe_sec,ext_group,unweighted,705,5.201,6.903,-1.702,-30.124,-24.923,0.771,0.771,sector,
+cc,Community colleges,sgroup,ptfacx,iv,ext_group,unweighted,705,5.201,2.198,3.003,-30.124,-24.923,0.927,0.927,pooled,25.9
+cc,Community colleges,sgroup,ptfacx,iv_sec,ext_group,unweighted,705,5.201,8.189,-2.988,-30.124,-24.923,0.728,0.728,sector,26.0
+xr,Private research,sgroup,ptfacx,cf,ext_group,unweighted,80,11.884,-0.481,12.364,2.942,14.826,0.808,0.84,pooled CF,
+xr,Private research,sgroup,ptfacx,fe,ext_group,unweighted,80,11.884,-0.48,12.364,2.942,14.826,0.837,0.837,pooled,
+xr,Private research,sgroup,ptfacx,fe_sec,ext_group,unweighted,80,11.884,0.44,11.444,2.942,14.826,1.15,1.15,sector,
+xr,Private research,sgroup,ptfacx,iv,ext_group,unweighted,80,11.884,-0.215,12.098,2.942,14.826,0.927,0.927,pooled,25.9
+xr,Private research,sgroup,ptfacx,iv_sec,ext_group,unweighted,80,11.884,-0.215,12.098,2.942,14.826,0.927,0.927,pooled (sector F < 10),7.8
+xmb,Private master's & bachelor's,sgroup,ptfacx,cf,ext_group,unweighted,692,36.996,1.934,35.062,-12.1,24.896,0.808,0.84,pooled CF,
+xmb,Private master's & bachelor's,sgroup,ptfacx,fe,ext_group,unweighted,692,36.996,1.975,35.021,-12.1,24.896,0.837,0.837,pooled,
+xmb,Private master's & bachelor's,sgroup,ptfacx,fe_sec,ext_group,unweighted,692,36.996,1.892,35.104,-12.1,24.896,0.844,0.844,sector,
+xmb,Private master's & bachelor's,sgroup,ptfacx,iv,ext_group,unweighted,692,36.996,0.883,36.114,-12.1,24.896,0.927,0.927,pooled,25.9
+xmb,Private master's & bachelor's,sgroup,ptfacx,iv_sec,ext_group,unweighted,692,36.996,0.883,36.114,-12.1,24.896,0.927,0.927,pooled (sector F < 10),3.6
+all,All,all,ptfacx,cf,group_era,unweighted,1903,19.564,3.695,15.868,-17.834,1.73,1.258,0.806,pooled CF,
+all,All,all,ptfacx,fe,group_era,unweighted,1903,19.564,3.285,16.279,-17.834,1.73,0.816,0.816,pooled,
+all,All,all,ptfacx,iv,group_era,unweighted,1903,19.564,-6.943,26.506,-17.834,1.73,1.389,1.389,pooled,11.9
+pr,Public research,sector,ptfacx,cf,group_era,unweighted,139,10.452,0.642,9.81,1.217,11.67,1.258,0.806,pooled CF,
+pr,Public research,sector,ptfacx,fe,group_era,unweighted,139,10.452,-0.224,10.677,1.217,11.67,0.816,0.816,pooled,
+pr,Public research,sector,ptfacx,fe_sec,group_era,unweighted,139,10.452,-0.276,10.729,1.217,11.67,0.773,0.773,sector,
+pr,Public research,sector,ptfacx,iv,group_era,unweighted,139,10.452,0.474,9.979,1.217,11.67,1.389,1.389,pooled,11.9
+pr,Public research,sector,ptfacx,iv_sec,group_era,unweighted,139,10.452,0.474,9.979,1.217,11.67,1.389,1.389,pooled (sector F < 10),4.9
+pm,Public master's,sector,ptfacx,cf,group_era,unweighted,211,19.473,3.496,15.977,-16.995,2.478,1.258,0.806,pooled CF,
+pm,Public master's,sector,ptfacx,fe,group_era,unweighted,211,19.473,3.13,16.342,-16.995,2.478,0.816,0.816,pooled,
+pm,Public master's,sector,ptfacx,fe_sec,group_era,unweighted,211,19.473,2.317,17.156,-16.995,2.478,0.864,0.864,sector,
+pm,Public master's,sector,ptfacx,iv,group_era,unweighted,211,19.473,-6.616,26.089,-16.995,2.478,1.389,1.389,pooled,11.9
+pm,Public master's,sector,ptfacx,iv_sec,group_era,unweighted,211,19.473,-6.616,26.089,-16.995,2.478,1.389,1.389,pooled (sector F < 10),6.6
+pb,Public bachelor's,sector,ptfacx,cf,group_era,unweighted,76,19.064,3.575,15.489,-15.082,3.982,1.258,0.806,pooled CF,
+pb,Public bachelor's,sector,ptfacx,fe,group_era,unweighted,76,19.064,2.778,16.286,-15.082,3.982,0.816,0.816,pooled,
+pb,Public bachelor's,sector,ptfacx,fe_sec,group_era,unweighted,76,19.064,2.056,17.008,-15.082,3.982,0.864,0.864,sector,
+pb,Public bachelor's,sector,ptfacx,iv,group_era,unweighted,76,19.064,-5.871,24.935,-15.082,3.982,1.389,1.389,pooled,11.9
+pb,Public bachelor's,sector,ptfacx,iv_sec,group_era,unweighted,76,19.064,-5.871,24.935,-15.082,3.982,1.389,1.389,pooled (sector F < 10),6.6
+cc,Public community colleges,sector,ptfacx,cf,group_era,unweighted,705,5.201,6.081,-0.88,-30.124,-24.923,1.258,0.806,pooled CF,
+cc,Public community colleges,sector,ptfacx,fe,group_era,unweighted,705,5.201,5.549,-0.348,-30.124,-24.923,0.816,0.816,pooled,
+cc,Public community colleges,sector,ptfacx,fe_sec,group_era,unweighted,705,5.201,8.413,-3.212,-30.124,-24.923,0.721,0.721,sector,
+cc,Public community colleges,sector,ptfacx,iv,group_era,unweighted,705,5.201,-11.727,16.928,-30.124,-24.923,1.389,1.389,pooled,11.9
+cc,Public community colleges,sector,ptfacx,iv_sec,group_era,unweighted,705,5.201,-11.388,16.589,-30.124,-24.923,1.378,1.378,sector,12.6
+xr,Private research,sector,ptfacx,cf,group_era,unweighted,80,11.884,-0.439,12.323,2.942,14.826,1.258,0.806,pooled CF,
+xr,Private research,sector,ptfacx,fe,group_era,unweighted,80,11.884,-0.542,12.425,2.942,14.826,0.816,0.816,pooled,
+xr,Private research,sector,ptfacx,fe_sec,group_era,unweighted,80,11.884,0.461,11.422,2.942,14.826,1.157,1.157,sector,
+xr,Private research,sector,ptfacx,iv,group_era,unweighted,80,11.884,1.145,10.738,2.942,14.826,1.389,1.389,pooled,11.9
+xr,Private research,sector,ptfacx,iv_sec,group_era,unweighted,80,11.884,2.667,9.216,2.942,14.826,1.907,1.907,sector,13.8
+xm,Private master's,sector,ptfacx,cf,group_era,unweighted,280,39.394,2.401,36.993,-12.652,26.742,1.258,0.806,pooled CF,
+xm,Private master's,sector,ptfacx,fe,group_era,unweighted,280,39.394,2.33,37.064,-12.652,26.742,0.816,0.816,pooled,
+xm,Private master's,sector,ptfacx,fe_sec,group_era,unweighted,280,39.394,1.907,37.488,-12.652,26.742,0.849,0.849,sector,
+xm,Private master's,sector,ptfacx,iv,group_era,unweighted,280,39.394,-4.925,44.32,-12.652,26.742,1.389,1.389,pooled,11.9
+xm,Private master's,sector,ptfacx,iv_sec,group_era,unweighted,280,39.394,-4.925,44.32,-12.652,26.742,1.389,1.389,pooled (sector F < 10),1.9
+xb,Private bachelor's,sector,ptfacx,cf,group_era,unweighted,412,35.366,2.45,32.916,-11.725,23.641,1.258,0.806,pooled CF,
+xb,Private bachelor's,sector,ptfacx,fe,group_era,unweighted,412,35.366,2.16,33.207,-11.725,23.641,0.816,0.816,pooled,
+xb,Private bachelor's,sector,ptfacx,fe_sec,group_era,unweighted,412,35.366,1.767,33.599,-11.725,23.641,0.849,0.849,sector,
+xb,Private bachelor's,sector,ptfacx,iv,group_era,unweighted,412,35.366,-4.564,39.931,-11.725,23.641,1.389,1.389,pooled,11.9
+xb,Private bachelor's,sector,ptfacx,iv_sec,group_era,unweighted,412,35.366,-4.564,39.931,-11.725,23.641,1.389,1.389,pooled (sector F < 10),1.9
+pr,Public research,sgroup,ptfacx,cf,group_era,unweighted,139,10.452,0.642,9.81,1.217,11.67,1.258,0.806,pooled CF,
+pr,Public research,sgroup,ptfacx,fe,group_era,unweighted,139,10.452,-0.224,10.677,1.217,11.67,0.816,0.816,pooled,
+pr,Public research,sgroup,ptfacx,fe_sec,group_era,unweighted,139,10.452,-0.276,10.729,1.217,11.67,0.773,0.773,sector,
+pr,Public research,sgroup,ptfacx,iv,group_era,unweighted,139,10.452,0.474,9.979,1.217,11.67,1.389,1.389,pooled,11.9
+pr,Public research,sgroup,ptfacx,iv_sec,group_era,unweighted,139,10.452,0.474,9.979,1.217,11.67,1.389,1.389,pooled (sector F < 10),4.9
+rp,Regional publics,sgroup,ptfacx,cf,group_era,unweighted,287,19.364,3.516,15.848,-16.488,2.876,1.258,0.806,pooled CF,
+rp,Regional publics,sgroup,ptfacx,fe,group_era,unweighted,287,19.364,3.037,16.327,-16.488,2.876,0.816,0.816,pooled,
+rp,Regional publics,sgroup,ptfacx,fe_sec,group_era,unweighted,287,19.364,2.248,17.117,-16.488,2.876,0.864,0.864,sector,
+rp,Regional publics,sgroup,ptfacx,iv,group_era,unweighted,287,19.364,-6.419,25.783,-16.488,2.876,1.389,1.389,pooled,11.9
+rp,Regional publics,sgroup,ptfacx,iv_sec,group_era,unweighted,287,19.364,-6.419,25.783,-16.488,2.876,1.389,1.389,pooled (sector F < 10),6.6
+cc,Community colleges,sgroup,ptfacx,cf,group_era,unweighted,705,5.201,6.081,-0.88,-30.124,-24.923,1.258,0.806,pooled CF,
+cc,Community colleges,sgroup,ptfacx,fe,group_era,unweighted,705,5.201,5.549,-0.348,-30.124,-24.923,0.816,0.816,pooled,
+cc,Community colleges,sgroup,ptfacx,fe_sec,group_era,unweighted,705,5.201,8.413,-3.212,-30.124,-24.923,0.721,0.721,sector,
+cc,Community colleges,sgroup,ptfacx,iv,group_era,unweighted,705,5.201,-11.727,16.928,-30.124,-24.923,1.389,1.389,pooled,11.9
+cc,Community colleges,sgroup,ptfacx,iv_sec,group_era,unweighted,705,5.201,-11.388,16.589,-30.124,-24.923,1.378,1.378,sector,12.6
+xr,Private research,sgroup,ptfacx,cf,group_era,unweighted,80,11.884,-0.439,12.323,2.942,14.826,1.258,0.806,pooled CF,
+xr,Private research,sgroup,ptfacx,fe,group_era,unweighted,80,11.884,-0.542,12.425,2.942,14.826,0.816,0.816,pooled,
+xr,Private research,sgroup,ptfacx,fe_sec,group_era,unweighted,80,11.884,0.461,11.422,2.942,14.826,1.157,1.157,sector,
+xr,Private research,sgroup,ptfacx,iv,group_era,unweighted,80,11.884,1.145,10.738,2.942,14.826,1.389,1.389,pooled,11.9
+xr,Private research,sgroup,ptfacx,iv_sec,group_era,unweighted,80,11.884,2.667,9.216,2.942,14.826,1.907,1.907,sector,13.8
+xmb,Private master's & bachelor's,sgroup,ptfacx,cf,group_era,unweighted,692,36.996,2.43,34.566,-12.1,24.896,1.258,0.806,pooled CF,
+xmb,Private master's & bachelor's,sgroup,ptfacx,fe,group_era,unweighted,692,36.996,2.229,34.767,-12.1,24.896,0.816,0.816,pooled,
+xmb,Private master's & bachelor's,sgroup,ptfacx,fe_sec,group_era,unweighted,692,36.996,1.824,35.173,-12.1,24.896,0.849,0.849,sector,
+xmb,Private master's & bachelor's,sgroup,ptfacx,iv,group_era,unweighted,692,36.996,-4.71,41.707,-12.1,24.896,1.389,1.389,pooled,11.9
+xmb,Private master's & bachelor's,sgroup,ptfacx,iv_sec,group_era,unweighted,692,36.996,-4.71,41.707,-12.1,24.896,1.389,1.389,pooled (sector F < 10),1.9
+all,All,all,nonfacfte,cf,ext_group,unweighted,1903,17.341,9.564,7.776,-17.834,-0.493,0.654,0.469,pooled CF,
+all,All,all,nonfacfte,fe,ext_group,unweighted,1903,17.341,9.36,7.98,-17.834,-0.493,0.475,0.475,pooled,
+all,All,all,nonfacfte,iv,ext_group,unweighted,1903,17.341,6.283,11.058,-17.834,-0.493,0.648,0.648,pooled,25.9
+pr,Public research,sector,nonfacfte,cf,ext_group,unweighted,139,7.391,-0.286,7.677,1.217,8.608,0.654,0.469,pooled CF,
+pr,Public research,sector,nonfacfte,fe,ext_group,unweighted,139,7.391,-0.639,8.03,1.217,8.608,0.475,0.475,pooled,
+pr,Public research,sector,nonfacfte,fe_sec,ext_group,unweighted,139,7.391,-0.593,7.984,1.217,8.608,0.513,0.513,sector,
+pr,Public research,sector,nonfacfte,iv,ext_group,unweighted,139,7.391,-0.429,7.82,1.217,8.608,0.648,0.648,pooled,25.9
+pr,Public research,sector,nonfacfte,iv_sec,ext_group,unweighted,139,7.391,-0.304,7.695,1.217,8.608,0.75,0.75,sector,12.1
+pm,Public master's,sector,nonfacfte,cf,ext_group,unweighted,211,13.404,9.104,4.3,-16.995,-3.591,0.654,0.469,pooled CF,
+pm,Public master's,sector,nonfacfte,fe,ext_group,unweighted,211,13.404,8.92,4.484,-16.995,-3.591,0.475,0.475,pooled,
+pm,Public master's,sector,nonfacfte,fe_sec,ext_group,unweighted,211,13.404,8.149,5.255,-16.995,-3.591,0.52,0.52,sector,
+pm,Public master's,sector,nonfacfte,iv,ext_group,unweighted,211,13.404,5.988,7.417,-16.995,-3.591,0.648,0.648,pooled,25.9
+pm,Public master's,sector,nonfacfte,iv_sec,ext_group,unweighted,211,13.404,5.989,7.416,-16.995,-3.591,0.648,0.648,sector,12.0
+pb,Public bachelor's,sector,nonfacfte,cf,ext_group,unweighted,76,18.033,8.273,9.76,-15.082,2.952,0.654,0.469,pooled CF,
+pb,Public bachelor's,sector,nonfacfte,fe,ext_group,unweighted,76,18.033,7.916,10.118,-15.082,2.952,0.475,0.475,pooled,
+pb,Public bachelor's,sector,nonfacfte,fe_sec,ext_group,unweighted,76,18.033,7.232,10.802,-15.082,2.952,0.52,0.52,sector,
+pb,Public bachelor's,sector,nonfacfte,iv,ext_group,unweighted,76,18.033,5.314,12.72,-15.082,2.952,0.648,0.648,pooled,25.9
+pb,Public bachelor's,sector,nonfacfte,iv_sec,ext_group,unweighted,76,18.033,5.314,12.719,-15.082,2.952,0.648,0.648,sector,12.0
+cc,Public community colleges,sector,nonfacfte,cf,ext_group,unweighted,705,29.836,16.09,13.746,-30.124,-0.288,0.654,0.469,pooled CF,
+cc,Public community colleges,sector,nonfacfte,fe,ext_group,unweighted,705,29.836,15.81,14.025,-30.124,-0.288,0.475,0.475,pooled,
+cc,Public community colleges,sector,nonfacfte,fe_sec,ext_group,unweighted,705,29.836,18.721,11.114,-30.124,-0.288,0.378,0.378,sector,
+cc,Public community colleges,sector,nonfacfte,iv,ext_group,unweighted,705,29.836,10.613,19.223,-30.124,-0.288,0.648,0.648,pooled,25.9
+cc,Public community colleges,sector,nonfacfte,iv_sec,ext_group,unweighted,705,29.836,11.4,18.436,-30.124,-0.288,0.622,0.622,sector,26.0
+xr,Private research,sector,nonfacfte,cf,ext_group,unweighted,80,-3.887,-1.508,-2.379,2.942,-0.945,0.654,0.469,pooled CF,
+xr,Private research,sector,nonfacfte,fe,ext_group,unweighted,80,-3.887,-1.544,-2.343,2.942,-0.945,0.475,0.475,pooled,
+xr,Private research,sector,nonfacfte,fe_sec,ext_group,unweighted,80,-3.887,-1.15,-2.736,2.942,-0.945,0.609,0.609,sector,
+xr,Private research,sector,nonfacfte,iv,ext_group,unweighted,80,-3.887,-1.036,-2.85,2.942,-0.945,0.648,0.648,pooled,25.9
+xr,Private research,sector,nonfacfte,iv_sec,ext_group,unweighted,80,-3.887,-1.036,-2.85,2.942,-0.945,0.648,0.648,pooled (sector F < 10),7.8
+xm,Private master's,sector,nonfacfte,cf,ext_group,unweighted,280,7.682,6.695,0.987,-12.652,-4.97,0.654,0.469,pooled CF,
+xm,Private master's,sector,nonfacfte,fe,ext_group,unweighted,280,7.682,6.64,1.042,-12.652,-4.97,0.475,0.475,pooled,
+xm,Private master's,sector,nonfacfte,fe_sec,ext_group,unweighted,280,7.682,6.172,1.51,-12.652,-4.97,0.512,0.512,sector,
+xm,Private master's,sector,nonfacfte,iv,ext_group,unweighted,280,7.682,4.458,3.224,-12.652,-4.97,0.648,0.648,pooled,25.9
+xm,Private master's,sector,nonfacfte,iv_sec,ext_group,unweighted,280,7.682,4.458,3.224,-12.652,-4.97,0.648,0.648,pooled (sector F < 10),3.6
+xb,Private bachelor's,sector,nonfacfte,cf,ext_group,unweighted,412,11.891,6.297,5.594,-11.725,0.166,0.654,0.469,pooled CF,
+xb,Private bachelor's,sector,nonfacfte,fe,ext_group,unweighted,412,11.891,6.154,5.737,-11.725,0.166,0.475,0.475,pooled,
+xb,Private bachelor's,sector,nonfacfte,fe_sec,ext_group,unweighted,412,11.891,5.72,6.171,-11.725,0.166,0.512,0.512,sector,
+xb,Private bachelor's,sector,nonfacfte,iv,ext_group,unweighted,412,11.891,4.131,7.76,-11.725,0.166,0.648,0.648,pooled,25.9
+xb,Private bachelor's,sector,nonfacfte,iv_sec,ext_group,unweighted,412,11.891,4.131,7.76,-11.725,0.166,0.648,0.648,pooled (sector F < 10),3.6
+pr,Public research,sgroup,nonfacfte,cf,ext_group,unweighted,139,7.391,-0.286,7.677,1.217,8.608,0.654,0.469,pooled CF,
+pr,Public research,sgroup,nonfacfte,fe,ext_group,unweighted,139,7.391,-0.639,8.03,1.217,8.608,0.475,0.475,pooled,
+pr,Public research,sgroup,nonfacfte,fe_sec,ext_group,unweighted,139,7.391,-0.593,7.984,1.217,8.608,0.513,0.513,sector,
+pr,Public research,sgroup,nonfacfte,iv,ext_group,unweighted,139,7.391,-0.429,7.82,1.217,8.608,0.648,0.648,pooled,25.9
+pr,Public research,sgroup,nonfacfte,iv_sec,ext_group,unweighted,139,7.391,-0.304,7.695,1.217,8.608,0.75,0.75,sector,12.1
+rp,Regional publics,sgroup,nonfacfte,cf,ext_group,unweighted,287,14.63,8.884,5.746,-16.488,-1.858,0.654,0.469,pooled CF,
+rp,Regional publics,sgroup,nonfacfte,fe,ext_group,unweighted,287,14.63,8.654,5.976,-16.488,-1.858,0.475,0.475,pooled,
+rp,Regional publics,sgroup,nonfacfte,fe_sec,ext_group,unweighted,287,14.63,7.906,6.724,-16.488,-1.858,0.52,0.52,sector,
+rp,Regional publics,sgroup,nonfacfte,iv,ext_group,unweighted,287,14.63,5.809,8.821,-16.488,-1.858,0.648,0.648,pooled,25.9
+rp,Regional publics,sgroup,nonfacfte,iv_sec,ext_group,unweighted,287,14.63,5.81,8.82,-16.488,-1.858,0.648,0.648,sector,12.0
+cc,Community colleges,sgroup,nonfacfte,cf,ext_group,unweighted,705,29.836,16.09,13.746,-30.124,-0.288,0.654,0.469,pooled CF,
+cc,Community colleges,sgroup,nonfacfte,fe,ext_group,unweighted,705,29.836,15.81,14.025,-30.124,-0.288,0.475,0.475,pooled,
+cc,Community colleges,sgroup,nonfacfte,fe_sec,ext_group,unweighted,705,29.836,18.721,11.114,-30.124,-0.288,0.378,0.378,sector,
+cc,Community colleges,sgroup,nonfacfte,iv,ext_group,unweighted,705,29.836,10.613,19.223,-30.124,-0.288,0.648,0.648,pooled,25.9
+cc,Community colleges,sgroup,nonfacfte,iv_sec,ext_group,unweighted,705,29.836,11.4,18.436,-30.124,-0.288,0.622,0.622,sector,26.0
+xr,Private research,sgroup,nonfacfte,cf,ext_group,unweighted,80,-3.887,-1.508,-2.379,2.942,-0.945,0.654,0.469,pooled CF,
+xr,Private research,sgroup,nonfacfte,fe,ext_group,unweighted,80,-3.887,-1.544,-2.343,2.942,-0.945,0.475,0.475,pooled,
+xr,Private research,sgroup,nonfacfte,fe_sec,ext_group,unweighted,80,-3.887,-1.15,-2.736,2.942,-0.945,0.609,0.609,sector,
+xr,Private research,sgroup,nonfacfte,iv,ext_group,unweighted,80,-3.887,-1.036,-2.85,2.942,-0.945,0.648,0.648,pooled,25.9
+xr,Private research,sgroup,nonfacfte,iv_sec,ext_group,unweighted,80,-3.887,-1.036,-2.85,2.942,-0.945,0.648,0.648,pooled (sector F < 10),7.8
+xmb,Private master's & bachelor's,sgroup,nonfacfte,cf,ext_group,unweighted,692,10.188,6.458,3.73,-12.1,-1.912,0.654,0.469,pooled CF,
+xmb,Private master's & bachelor's,sgroup,nonfacfte,fe,ext_group,unweighted,692,10.188,6.351,3.837,-12.1,-1.912,0.475,0.475,pooled,
+xmb,Private master's & bachelor's,sgroup,nonfacfte,fe_sec,ext_group,unweighted,692,10.188,5.903,4.285,-12.1,-1.912,0.512,0.512,sector,
+xmb,Private master's & bachelor's,sgroup,nonfacfte,iv,ext_group,unweighted,692,10.188,4.263,5.925,-12.1,-1.912,0.648,0.648,pooled,25.9
+xmb,Private master's & bachelor's,sgroup,nonfacfte,iv_sec,ext_group,unweighted,692,10.188,4.263,5.925,-12.1,-1.912,0.648,0.648,pooled (sector F < 10),3.6
+all,All,all,allftex,cf,ext_group,unweighted,1903,14.401,8.55,5.85,-17.834,-3.433,0.638,0.524,pooled CF,
+all,All,all,allftex,fe,ext_group,unweighted,1903,14.401,8.424,5.976,-17.834,-3.433,0.528,0.528,pooled,
+all,All,all,allftex,iv,ext_group,unweighted,1903,14.401,6.529,7.872,-17.834,-3.433,0.634,0.634,pooled,25.9
+pr,Public research,sector,allftex,cf,ext_group,unweighted,139,8.96,-0.357,9.318,1.217,10.178,0.638,0.524,pooled CF,
+pr,Public research,sector,allftex,fe,ext_group,unweighted,139,8.96,-0.575,9.536,1.217,10.178,0.528,0.528,pooled,
+pr,Public research,sector,allftex,fe_sec,ext_group,unweighted,139,8.96,-0.535,9.495,1.217,10.178,0.561,0.561,sector,
+pr,Public research,sector,allftex,iv,ext_group,unweighted,139,8.96,-0.446,9.406,1.217,10.178,0.634,0.634,pooled,25.9
+pr,Public research,sector,allftex,iv_sec,ext_group,unweighted,139,8.96,-0.26,9.221,1.217,10.178,0.786,0.786,sector,12.1
+pm,Public master's,sector,allftex,cf,ext_group,unweighted,211,12.766,8.142,4.625,-16.995,-4.229,0.638,0.524,pooled CF,
+pm,Public master's,sector,allftex,fe,ext_group,unweighted,211,12.766,8.028,4.738,-16.995,-4.229,0.528,0.528,pooled,
+pm,Public master's,sector,allftex,fe_sec,ext_group,unweighted,211,12.766,7.282,5.484,-16.995,-4.229,0.572,0.572,sector,
+pm,Public master's,sector,allftex,iv,ext_group,unweighted,211,12.766,6.222,6.545,-16.995,-4.229,0.634,0.634,pooled,25.9
+pm,Public master's,sector,allftex,iv_sec,ext_group,unweighted,211,12.766,6.458,6.308,-16.995,-4.229,0.62,0.62,sector,12.0
+pb,Public bachelor's,sector,allftex,cf,ext_group,unweighted,76,15.135,7.345,7.791,-15.082,0.054,0.638,0.524,pooled CF,
+pb,Public bachelor's,sector,allftex,fe,ext_group,unweighted,76,15.135,7.124,8.011,-15.082,0.054,0.528,0.528,pooled,
+pb,Public bachelor's,sector,allftex,fe_sec,ext_group,unweighted,76,15.135,6.462,8.673,-15.082,0.054,0.572,0.572,sector,
+pb,Public bachelor's,sector,allftex,iv,ext_group,unweighted,76,15.135,5.521,9.614,-15.082,0.054,0.634,0.634,pooled,25.9
+pb,Public bachelor's,sector,allftex,iv_sec,ext_group,unweighted,76,15.135,5.731,9.404,-15.082,0.054,0.62,0.62,sector,12.0
+cc,Public community colleges,sector,allftex,cf,ext_group,unweighted,705,22.032,14.402,7.63,-30.124,-8.092,0.638,0.524,pooled CF,
+cc,Public community colleges,sector,allftex,fe,ext_group,unweighted,705,22.032,14.229,7.803,-30.124,-8.092,0.528,0.528,pooled,
+cc,Public community colleges,sector,allftex,fe_sec,ext_group,unweighted,705,22.032,17.061,4.971,-30.124,-8.092,0.434,0.434,sector,
+cc,Public community colleges,sector,allftex,iv,ext_group,unweighted,705,22.032,11.028,11.004,-30.124,-8.092,0.634,0.634,pooled,25.9
+cc,Public community colleges,sector,allftex,iv_sec,ext_group,unweighted,705,22.032,11.887,10.144,-30.124,-8.092,0.605,0.605,sector,26.0
+xr,Private research,sector,allftex,cf,ext_group,unweighted,80,-0.522,-1.367,0.845,2.942,2.42,0.638,0.524,pooled CF,
+xr,Private research,sector,allftex,fe,ext_group,unweighted,80,-0.522,-1.39,0.868,2.942,2.42,0.528,0.528,pooled,
+xr,Private research,sector,allftex,fe_sec,ext_group,unweighted,80,-0.522,-1.109,0.587,2.942,2.42,0.623,0.623,sector,
+xr,Private research,sector,allftex,iv,ext_group,unweighted,80,-0.522,-1.077,0.555,2.942,2.42,0.634,0.634,pooled,25.9
+xr,Private research,sector,allftex,iv_sec,ext_group,unweighted,80,-0.522,-1.077,0.555,2.942,2.42,0.634,0.634,pooled (sector F < 10),7.8
+xm,Private master's,sector,allftex,cf,ext_group,unweighted,280,8.54,6.01,2.53,-12.652,-4.112,0.638,0.524,pooled CF,
+xm,Private master's,sector,allftex,fe,ext_group,unweighted,280,8.54,5.976,2.564,-12.652,-4.112,0.528,0.528,pooled,
+xm,Private master's,sector,allftex,fe_sec,ext_group,unweighted,280,8.54,5.501,3.038,-12.652,-4.112,0.565,0.565,sector,
+xm,Private master's,sector,allftex,iv,ext_group,unweighted,280,8.54,4.632,3.908,-12.652,-4.112,0.634,0.634,pooled,25.9
+xm,Private master's,sector,allftex,iv_sec,ext_group,unweighted,280,8.54,4.632,3.908,-12.652,-4.112,0.634,0.634,pooled (sector F < 10),3.6
+xb,Private bachelor's,sector,allftex,cf,ext_group,unweighted,412,10.76,5.627,5.133,-11.725,-0.965,0.638,0.524,pooled CF,
+xb,Private bachelor's,sector,allftex,fe,ext_group,unweighted,412,10.76,5.538,5.221,-11.725,-0.965,0.528,0.528,pooled,
+xb,Private bachelor's,sector,allftex,fe_sec,ext_group,unweighted,412,10.76,5.098,5.661,-11.725,-0.965,0.565,0.565,sector,
+xb,Private bachelor's,sector,allftex,iv,ext_group,unweighted,412,10.76,4.292,6.467,-11.725,-0.965,0.634,0.634,pooled,25.9
+xb,Private bachelor's,sector,allftex,iv_sec,ext_group,unweighted,412,10.76,4.292,6.467,-11.725,-0.965,0.634,0.634,pooled (sector F < 10),3.6
+pr,Public research,sgroup,allftex,cf,ext_group,unweighted,139,8.96,-0.357,9.318,1.217,10.178,0.638,0.524,pooled CF,
+pr,Public research,sgroup,allftex,fe,ext_group,unweighted,139,8.96,-0.575,9.536,1.217,10.178,0.528,0.528,pooled,
+pr,Public research,sgroup,allftex,fe_sec,ext_group,unweighted,139,8.96,-0.535,9.495,1.217,10.178,0.561,0.561,sector,
+pr,Public research,sgroup,allftex,iv,ext_group,unweighted,139,8.96,-0.446,9.406,1.217,10.178,0.634,0.634,pooled,25.9
+pr,Public research,sgroup,allftex,iv_sec,ext_group,unweighted,139,8.96,-0.26,9.221,1.217,10.178,0.786,0.786,sector,12.1
+rp,Regional publics,sgroup,allftex,cf,ext_group,unweighted,287,13.394,7.93,5.463,-16.488,-3.095,0.638,0.524,pooled CF,
+rp,Regional publics,sgroup,allftex,fe,ext_group,unweighted,287,13.394,7.788,5.605,-16.488,-3.095,0.528,0.528,pooled,
+rp,Regional publics,sgroup,allftex,fe_sec,ext_group,unweighted,287,13.394,7.065,6.328,-16.488,-3.095,0.572,0.572,sector,
+rp,Regional publics,sgroup,allftex,iv,ext_group,unweighted,287,13.394,6.036,7.357,-16.488,-3.095,0.634,0.634,pooled,25.9
+rp,Regional publics,sgroup,allftex,iv_sec,ext_group,unweighted,287,13.394,6.265,7.128,-16.488,-3.095,0.62,0.62,sector,12.0
+cc,Community colleges,sgroup,allftex,cf,ext_group,unweighted,705,22.032,14.402,7.63,-30.124,-8.092,0.638,0.524,pooled CF,
+cc,Community colleges,sgroup,allftex,fe,ext_group,unweighted,705,22.032,14.229,7.803,-30.124,-8.092,0.528,0.528,pooled,
+cc,Community colleges,sgroup,allftex,fe_sec,ext_group,unweighted,705,22.032,17.061,4.971,-30.124,-8.092,0.434,0.434,sector,
+cc,Community colleges,sgroup,allftex,iv,ext_group,unweighted,705,22.032,11.028,11.004,-30.124,-8.092,0.634,0.634,pooled,25.9
+cc,Community colleges,sgroup,allftex,iv_sec,ext_group,unweighted,705,22.032,11.887,10.144,-30.124,-8.092,0.605,0.605,sector,26.0
+xr,Private research,sgroup,allftex,cf,ext_group,unweighted,80,-0.522,-1.367,0.845,2.942,2.42,0.638,0.524,pooled CF,
+xr,Private research,sgroup,allftex,fe,ext_group,unweighted,80,-0.522,-1.39,0.868,2.942,2.42,0.528,0.528,pooled,
+xr,Private research,sgroup,allftex,fe_sec,ext_group,unweighted,80,-0.522,-1.109,0.587,2.942,2.42,0.623,0.623,sector,
+xr,Private research,sgroup,allftex,iv,ext_group,unweighted,80,-0.522,-1.077,0.555,2.942,2.42,0.634,0.634,pooled,25.9
+xr,Private research,sgroup,allftex,iv_sec,ext_group,unweighted,80,-0.522,-1.077,0.555,2.942,2.42,0.634,0.634,pooled (sector F < 10),7.8
+xmb,Private master's & bachelor's,sgroup,allftex,cf,ext_group,unweighted,692,9.862,5.782,4.08,-12.1,-2.239,0.638,0.524,pooled CF,
+xmb,Private master's & bachelor's,sgroup,allftex,fe,ext_group,unweighted,692,9.862,5.716,4.146,-12.1,-2.239,0.528,0.528,pooled,
+xmb,Private master's & bachelor's,sgroup,allftex,fe_sec,ext_group,unweighted,692,9.862,5.262,4.6,-12.1,-2.239,0.565,0.565,sector,
+xmb,Private master's & bachelor's,sgroup,allftex,iv,ext_group,unweighted,692,9.862,4.43,5.432,-12.1,-2.239,0.634,0.634,pooled,25.9
+xmb,Private master's & bachelor's,sgroup,allftex,iv_sec,ext_group,unweighted,692,9.862,4.43,5.432,-12.1,-2.239,0.634,0.634,pooled (sector F < 10),3.6
+all,All,all,ga,cf,ext_group,unweighted,1903,32.888,14.007,18.88,-17.834,15.054,0.447,0.221,pooled CF,
+all,All,all,ga,fe,ext_group,unweighted,1903,32.888,13.706,19.182,-17.834,15.054,0.232,0.232,pooled,
+all,All,all,ga,iv,ext_group,unweighted,1903,32.888,9.114,23.774,-17.834,15.054,0.489,0.489,pooled,25.9
+pr,Public research,sector,ga,cf,ext_group,unweighted,139,4.006,-0.509,4.516,1.217,5.224,0.447,0.221,pooled CF,
+pr,Public research,sector,ga,fe,ext_group,unweighted,139,4.006,-0.936,4.942,1.217,5.224,0.232,0.232,pooled,
+pr,Public research,sector,ga,fe_sec,ext_group,unweighted,139,4.006,-0.462,4.469,1.217,5.224,0.62,0.62,sector,
+pr,Public research,sector,ga,iv,ext_group,unweighted,139,4.006,-0.622,4.629,1.217,5.224,0.489,0.489,pooled,25.9
+pr,Public research,sector,ga,iv_sec,ext_group,unweighted,139,4.006,-0.093,4.099,1.217,5.224,0.924,0.924,sector,12.1
+pm,Public master's,sector,ga,cf,ext_group,unweighted,211,18.13,13.335,4.795,-16.995,1.135,0.447,0.221,pooled CF,
+pm,Public master's,sector,ga,fe,ext_group,unweighted,211,18.13,13.061,5.069,-16.995,1.135,0.232,0.232,pooled,
+pm,Public master's,sector,ga,fe_sec,ext_group,unweighted,211,18.13,8.369,9.761,-16.995,1.135,0.508,0.508,sector,
+pm,Public master's,sector,ga,iv,ext_group,unweighted,211,18.13,8.685,9.445,-16.995,1.135,0.489,0.489,pooled,25.9
+pm,Public master's,sector,ga,iv_sec,ext_group,unweighted,211,18.13,-11.043,29.174,-16.995,1.135,1.65,1.65,sector,12.0
+pb,Public bachelor's,sector,ga,cf,ext_group,unweighted,76,42.64,12.07,30.57,-15.082,27.558,0.447,0.221,pooled CF,
+pb,Public bachelor's,sector,ga,fe,ext_group,unweighted,76,42.64,11.591,31.049,-15.082,27.558,0.232,0.232,pooled,
+pb,Public bachelor's,sector,ga,fe_sec,ext_group,unweighted,76,42.64,7.427,35.213,-15.082,27.558,0.508,0.508,sector,
+pb,Public bachelor's,sector,ga,iv,ext_group,unweighted,76,42.64,7.707,34.932,-15.082,27.558,0.489,0.489,pooled,25.9
+pb,Public bachelor's,sector,ga,iv_sec,ext_group,unweighted,76,42.64,-9.8,52.439,-15.082,27.558,1.65,1.65,sector,12.0
+cc,Public community colleges,sector,ga,cf,ext_group,unweighted,705,30.315,23.579,6.736,-30.124,0.192,0.447,0.221,pooled CF,
+cc,Public community colleges,sector,ga,fe,ext_group,unweighted,705,30.315,23.151,7.164,-30.124,0.192,0.232,0.232,pooled,
+cc,Public community colleges,sector,ga,fe_sec,ext_group,unweighted,705,30.315,30.134,0.181,-30.124,0.192,-0.0,-0.0,sector,
+cc,Public community colleges,sector,ga,iv,ext_group,unweighted,705,30.315,15.394,14.921,-30.124,0.192,0.489,0.489,pooled,25.9
+cc,Public community colleges,sector,ga,iv_sec,ext_group,unweighted,705,30.315,30.589,-0.274,-30.124,0.192,-0.015,-0.015,sector,26.0
+xr,Private research,sector,ga,cf,ext_group,unweighted,80,25.483,-2.226,27.709,2.942,28.425,0.447,0.221,pooled CF,
+xr,Private research,sector,ga,fe,ext_group,unweighted,80,25.483,-2.261,27.744,2.942,28.425,0.232,0.232,pooled,
+xr,Private research,sector,ga,fe_sec,ext_group,unweighted,80,25.483,-1.423,26.906,2.942,28.425,0.516,0.516,sector,
+xr,Private research,sector,ga,iv,ext_group,unweighted,80,25.483,-1.503,26.987,2.942,28.425,0.489,0.489,pooled,25.9
+xr,Private research,sector,ga,iv_sec,ext_group,unweighted,80,25.483,-1.503,26.987,2.942,28.425,0.489,0.489,pooled (sector F < 10),7.8
+xm,Private master's,sector,ga,cf,ext_group,unweighted,280,54.087,9.827,44.26,-12.652,41.435,0.447,0.221,pooled CF,
+xm,Private master's,sector,ga,fe,ext_group,unweighted,280,54.087,9.723,44.364,-12.652,41.435,0.232,0.232,pooled,
+xm,Private master's,sector,ga,fe_sec,ext_group,unweighted,280,54.087,9.161,44.926,-12.652,41.435,0.276,0.276,sector,
+xm,Private master's,sector,ga,iv,ext_group,unweighted,280,54.087,6.466,47.621,-12.652,41.435,0.489,0.489,pooled,25.9
+xm,Private master's,sector,ga,iv_sec,ext_group,unweighted,280,54.087,6.466,47.621,-12.652,41.435,0.489,0.489,pooled (sector F < 10),3.6
+xb,Private bachelor's,sector,ga,cf,ext_group,unweighted,412,39.822,9.219,30.603,-11.725,28.097,0.447,0.221,pooled CF,
+xb,Private bachelor's,sector,ga,fe,ext_group,unweighted,412,39.822,9.011,30.811,-11.725,28.097,0.232,0.232,pooled,
+xb,Private bachelor's,sector,ga,fe_sec,ext_group,unweighted,412,39.822,8.49,31.332,-11.725,28.097,0.276,0.276,sector,
+xb,Private bachelor's,sector,ga,iv,ext_group,unweighted,412,39.822,5.992,33.83,-11.725,28.097,0.489,0.489,pooled,25.9
+xb,Private bachelor's,sector,ga,iv_sec,ext_group,unweighted,412,39.822,5.992,33.83,-11.725,28.097,0.489,0.489,pooled (sector F < 10),3.6
+pr,Public research,sgroup,ga,cf,ext_group,unweighted,139,4.006,-0.509,4.516,1.217,5.224,0.447,0.221,pooled CF,
+pr,Public research,sgroup,ga,fe,ext_group,unweighted,139,4.006,-0.936,4.942,1.217,5.224,0.232,0.232,pooled,
+pr,Public research,sgroup,ga,fe_sec,ext_group,unweighted,139,4.006,-0.462,4.469,1.217,5.224,0.62,0.62,sector,
+pr,Public research,sgroup,ga,iv,ext_group,unweighted,139,4.006,-0.622,4.629,1.217,5.224,0.489,0.489,pooled,25.9
+pr,Public research,sgroup,ga,iv_sec,ext_group,unweighted,139,4.006,-0.093,4.099,1.217,5.224,0.924,0.924,sector,12.1
+rp,Regional publics,sgroup,ga,cf,ext_group,unweighted,287,24.621,13.0,11.62,-16.488,8.132,0.447,0.221,pooled CF,
+rp,Regional publics,sgroup,ga,fe,ext_group,unweighted,287,24.621,12.672,11.949,-16.488,8.132,0.232,0.232,pooled,
+rp,Regional publics,sgroup,ga,fe_sec,ext_group,unweighted,287,24.621,8.12,16.501,-16.488,8.132,0.508,0.508,sector,
+rp,Regional publics,sgroup,ga,iv,ext_group,unweighted,287,24.621,8.426,16.195,-16.488,8.132,0.489,0.489,pooled,25.9
+rp,Regional publics,sgroup,ga,iv_sec,ext_group,unweighted,287,24.621,-10.714,35.334,-16.488,8.132,1.65,1.65,sector,12.0
+cc,Community colleges,sgroup,ga,cf,ext_group,unweighted,705,30.315,23.579,6.736,-30.124,0.192,0.447,0.221,pooled CF,
+cc,Community colleges,sgroup,ga,fe,ext_group,unweighted,705,30.315,23.151,7.164,-30.124,0.192,0.232,0.232,pooled,
+cc,Community colleges,sgroup,ga,fe_sec,ext_group,unweighted,705,30.315,30.134,0.181,-30.124,0.192,-0.0,-0.0,sector,
+cc,Community colleges,sgroup,ga,iv,ext_group,unweighted,705,30.315,15.394,14.921,-30.124,0.192,0.489,0.489,pooled,25.9
+cc,Community colleges,sgroup,ga,iv_sec,ext_group,unweighted,705,30.315,30.589,-0.274,-30.124,0.192,-0.015,-0.015,sector,26.0
+xr,Private research,sgroup,ga,cf,ext_group,unweighted,80,25.483,-2.226,27.709,2.942,28.425,0.447,0.221,pooled CF,
+xr,Private research,sgroup,ga,fe,ext_group,unweighted,80,25.483,-2.261,27.744,2.942,28.425,0.232,0.232,pooled,
+xr,Private research,sgroup,ga,fe_sec,ext_group,unweighted,80,25.483,-1.423,26.906,2.942,28.425,0.516,0.516,sector,
+xr,Private research,sgroup,ga,iv,ext_group,unweighted,80,25.483,-1.503,26.987,2.942,28.425,0.489,0.489,pooled,25.9
+xr,Private research,sgroup,ga,iv_sec,ext_group,unweighted,80,25.483,-1.503,26.987,2.942,28.425,0.489,0.489,pooled (sector F < 10),7.8
+xmb,Private master's & bachelor's,sgroup,ga,cf,ext_group,unweighted,692,45.594,9.465,36.129,-12.1,33.494,0.447,0.221,pooled CF,
+xmb,Private master's & bachelor's,sgroup,ga,fe,ext_group,unweighted,692,45.594,9.299,36.295,-12.1,33.494,0.232,0.232,pooled,
+xmb,Private master's & bachelor's,sgroup,ga,fe_sec,ext_group,unweighted,692,45.594,8.761,36.833,-12.1,33.494,0.276,0.276,sector,
+xmb,Private master's & bachelor's,sgroup,ga,iv,ext_group,unweighted,692,45.594,6.184,39.41,-12.1,33.494,0.489,0.489,pooled,25.9
+xmb,Private master's & bachelor's,sgroup,ga,iv_sec,ext_group,unweighted,692,45.594,6.184,39.41,-12.1,33.494,0.489,0.489,pooled (sector F < 10),3.6
+all,All,all,ga,cf,group_era,unweighted,1903,32.888,14.511,18.376,-17.834,15.054,0.493,0.195,pooled CF,
+all,All,all,ga,fe,group_era,unweighted,1903,32.888,14.185,18.703,-17.834,15.054,0.205,0.205,pooled,
+all,All,all,ga,iv,group_era,unweighted,1903,32.888,6.502,26.386,-17.834,15.054,0.635,0.635,pooled,11.9
+pr,Public research,sector,ga,cf,group_era,unweighted,139,4.006,-0.401,4.408,1.217,5.224,0.493,0.195,pooled CF,
+pr,Public research,sector,ga,fe,group_era,unweighted,139,4.006,-0.968,4.975,1.217,5.224,0.205,0.205,pooled,
+pr,Public research,sector,ga,fe_sec,group_era,unweighted,139,4.006,-0.248,4.255,1.217,5.224,0.796,0.796,sector,
+pr,Public research,sector,ga,iv,group_era,unweighted,139,4.006,-0.444,4.45,1.217,5.224,0.635,0.635,pooled,11.9
+pr,Public research,sector,ga,iv_sec,group_era,unweighted,139,4.006,-0.444,4.45,1.217,5.224,0.635,0.635,pooled (sector F < 10),4.9
+pm,Public master's,sector,ga,cf,group_era,unweighted,211,18.13,13.811,4.319,-16.995,1.135,0.493,0.195,pooled CF,
+pm,Public master's,sector,ga,fe,group_era,unweighted,211,18.13,13.518,4.613,-16.995,1.135,0.205,0.205,pooled,
+pm,Public master's,sector,ga,fe_sec,group_era,unweighted,211,18.13,7.459,10.672,-16.995,1.135,0.561,0.561,sector,
+pm,Public master's,sector,ga,iv,group_era,unweighted,211,18.13,6.196,11.935,-16.995,1.135,0.635,0.635,pooled,11.9
+pm,Public master's,sector,ga,iv_sec,group_era,unweighted,211,18.13,6.196,11.935,-16.995,1.135,0.635,0.635,pooled (sector F < 10),6.6
+pb,Public bachelor's,sector,ga,cf,group_era,unweighted,76,42.64,12.568,30.072,-15.082,27.558,0.493,0.195,pooled CF,
+pb,Public bachelor's,sector,ga,fe,group_era,unweighted,76,42.64,11.996,30.644,-15.082,27.558,0.205,0.205,pooled,
+pb,Public bachelor's,sector,ga,fe_sec,group_era,unweighted,76,42.64,6.619,36.021,-15.082,27.558,0.561,0.561,sector,
+pb,Public bachelor's,sector,ga,iv,group_era,unweighted,76,42.64,5.498,37.142,-15.082,27.558,0.635,0.635,pooled,11.9
+pb,Public bachelor's,sector,ga,iv_sec,group_era,unweighted,76,42.64,5.498,37.142,-15.082,27.558,0.635,0.635,pooled (sector F < 10),6.6
+cc,Public community colleges,sector,ga,cf,group_era,unweighted,705,30.315,24.405,5.91,-30.124,0.192,0.493,0.195,pooled CF,
+cc,Public community colleges,sector,ga,fe,group_era,unweighted,705,30.315,23.96,6.356,-30.124,0.192,0.205,0.205,pooled,
+cc,Public community colleges,sector,ga,fe_sec,group_era,unweighted,705,30.315,29.855,0.46,-30.124,0.192,0.009,0.009,sector,
+cc,Public community colleges,sector,ga,iv,group_era,unweighted,705,30.315,10.982,19.333,-30.124,0.192,0.635,0.635,pooled,11.9
+cc,Public community colleges,sector,ga,iv_sec,group_era,unweighted,705,30.315,29.647,0.668,-30.124,0.192,0.016,0.016,sector,12.6
+xr,Private research,sector,ga,cf,group_era,unweighted,80,25.483,-2.282,27.765,2.942,28.425,0.493,0.195,pooled CF,
+xr,Private research,sector,ga,fe,group_era,unweighted,80,25.483,-2.34,27.823,2.942,28.425,0.205,0.205,pooled,
+xr,Private research,sector,ga,fe_sec,group_era,unweighted,80,25.483,-1.557,27.04,2.942,28.425,0.471,0.471,sector,
+xr,Private research,sector,ga,iv,group_era,unweighted,80,25.483,-1.072,26.556,2.942,28.425,0.635,0.635,pooled,11.9
+xr,Private research,sector,ga,iv_sec,group_era,unweighted,80,25.483,2.108,23.375,2.942,28.425,1.716,1.716,sector,13.8
+xm,Private master's,sector,ga,cf,group_era,unweighted,280,54.087,10.149,43.938,-12.652,41.435,0.493,0.195,pooled CF,
+xm,Private master's,sector,ga,fe,group_era,unweighted,280,54.087,10.063,44.024,-12.652,41.435,0.205,0.205,pooled,
+xm,Private master's,sector,ga,fe_sec,group_era,unweighted,280,54.087,10.004,44.083,-12.652,41.435,0.209,0.209,sector,
+xm,Private master's,sector,ga,iv,group_era,unweighted,280,54.087,4.612,49.474,-12.652,41.435,0.635,0.635,pooled,11.9
+xm,Private master's,sector,ga,iv_sec,group_era,unweighted,280,54.087,4.612,49.474,-12.652,41.435,0.635,0.635,pooled (sector F < 10),1.9
+xb,Private bachelor's,sector,ga,cf,group_era,unweighted,412,39.822,9.554,30.268,-11.725,28.097,0.493,0.195,pooled CF,
+xb,Private bachelor's,sector,ga,fe,group_era,unweighted,412,39.822,9.326,30.496,-11.725,28.097,0.205,0.205,pooled,
+xb,Private bachelor's,sector,ga,fe_sec,group_era,unweighted,412,39.822,9.271,30.551,-11.725,28.097,0.209,0.209,sector,
+xb,Private bachelor's,sector,ga,iv,group_era,unweighted,412,39.822,4.274,35.548,-11.725,28.097,0.635,0.635,pooled,11.9
+xb,Private bachelor's,sector,ga,iv_sec,group_era,unweighted,412,39.822,4.274,35.548,-11.725,28.097,0.635,0.635,pooled (sector F < 10),1.9
+pr,Public research,sgroup,ga,cf,group_era,unweighted,139,4.006,-0.401,4.408,1.217,5.224,0.493,0.195,pooled CF,
+pr,Public research,sgroup,ga,fe,group_era,unweighted,139,4.006,-0.968,4.975,1.217,5.224,0.205,0.205,pooled,
+pr,Public research,sgroup,ga,fe_sec,group_era,unweighted,139,4.006,-0.248,4.255,1.217,5.224,0.796,0.796,sector,
+pr,Public research,sgroup,ga,iv,group_era,unweighted,139,4.006,-0.444,4.45,1.217,5.224,0.635,0.635,pooled,11.9
+pr,Public research,sgroup,ga,iv_sec,group_era,unweighted,139,4.006,-0.444,4.45,1.217,5.224,0.635,0.635,pooled (sector F < 10),4.9
+rp,Regional publics,sgroup,ga,cf,group_era,unweighted,287,24.621,13.482,11.139,-16.488,8.132,0.493,0.195,pooled CF,
+rp,Regional publics,sgroup,ga,fe,group_era,unweighted,287,24.621,13.115,11.506,-16.488,8.132,0.205,0.205,pooled,
+rp,Regional publics,sgroup,ga,fe_sec,group_era,unweighted,287,24.621,7.236,17.384,-16.488,8.132,0.561,0.561,sector,
+rp,Regional publics,sgroup,ga,iv,group_era,unweighted,287,24.621,6.011,18.61,-16.488,8.132,0.635,0.635,pooled,11.9
+rp,Regional publics,sgroup,ga,iv_sec,group_era,unweighted,287,24.621,6.011,18.61,-16.488,8.132,0.635,0.635,pooled (sector F < 10),6.6
+cc,Community colleges,sgroup,ga,cf,group_era,unweighted,705,30.315,24.405,5.91,-30.124,0.192,0.493,0.195,pooled CF,
+cc,Community colleges,sgroup,ga,fe,group_era,unweighted,705,30.315,23.96,6.356,-30.124,0.192,0.205,0.205,pooled,
+cc,Community colleges,sgroup,ga,fe_sec,group_era,unweighted,705,30.315,29.855,0.46,-30.124,0.192,0.009,0.009,sector,
+cc,Community colleges,sgroup,ga,iv,group_era,unweighted,705,30.315,10.982,19.333,-30.124,0.192,0.635,0.635,pooled,11.9
+cc,Community colleges,sgroup,ga,iv_sec,group_era,unweighted,705,30.315,29.647,0.668,-30.124,0.192,0.016,0.016,sector,12.6
+xr,Private research,sgroup,ga,cf,group_era,unweighted,80,25.483,-2.282,27.765,2.942,28.425,0.493,0.195,pooled CF,
+xr,Private research,sgroup,ga,fe,group_era,unweighted,80,25.483,-2.34,27.823,2.942,28.425,0.205,0.205,pooled,
+xr,Private research,sgroup,ga,fe_sec,group_era,unweighted,80,25.483,-1.557,27.04,2.942,28.425,0.471,0.471,sector,
+xr,Private research,sgroup,ga,iv,group_era,unweighted,80,25.483,-1.072,26.556,2.942,28.425,0.635,0.635,pooled,11.9
+xr,Private research,sgroup,ga,iv_sec,group_era,unweighted,80,25.483,2.108,23.375,2.942,28.425,1.716,1.716,sector,13.8
+xmb,Private master's & bachelor's,sgroup,ga,cf,group_era,unweighted,692,45.594,9.795,35.799,-12.1,33.494,0.493,0.195,pooled CF,
+xmb,Private master's & bachelor's,sgroup,ga,fe,group_era,unweighted,692,45.594,9.624,35.97,-12.1,33.494,0.205,0.205,pooled,
+xmb,Private master's & bachelor's,sgroup,ga,fe_sec,group_era,unweighted,692,45.594,9.568,36.026,-12.1,33.494,0.209,0.209,sector,
+xmb,Private master's & bachelor's,sgroup,ga,iv,group_era,unweighted,692,45.594,4.411,41.183,-12.1,33.494,0.635,0.635,pooled,11.9
+xmb,Private master's & bachelor's,sgroup,ga,iv_sec,group_era,unweighted,692,45.594,4.411,41.183,-12.1,33.494,0.635,0.635,pooled (sector F < 10),1.9

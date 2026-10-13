@@ -1,0 +1,7 @@
+sg,sgroup,n,d_enrfacing,d_noninstr,d_instr,d_allstaff,d_instr_ft,d_instr_pt,share_of_noninstr_rise,share_of_allstaff_rise_v1
+all,All,1905,7.875,12.873,4.6,17.473,3.849,2.253,0.6117,0.4507
+pr,Public research,141,5.364,9.174,2.452,11.625,1.692,2.277,0.5847,0.4614
+rp,Regional publics,288,5.892,10.685,5.339,16.024,4.428,2.735,0.5514,0.3677
+cc,Community colleges,704,6.062,16.56,4.349,20.909,5.073,-2.172,0.3661,0.2899
+xr,Private research,80,5.351,0.508,2.151,2.659,0.456,5.084,10.5375,2.0125
+xmb,Private master's & bachelor's,692,11.347,12.216,5.268,17.484,3.195,6.221,0.9288,0.649

@@ -14,6 +14,7 @@ execute:
 OC = FileAttachment("../data/occupations.csv").csv({typed: true})
 CO = FileAttachment("../data/coaches.csv").csv({typed: true})
 OE = FileAttachment("../data/occ_elasticity.csv").csv({typed: true})
+EF = FileAttachment("../data/enrfacing_share.csv").csv({typed: true})
 ```
 
 ```{ojs}
@@ -26,9 +27,9 @@ OCCO = ["allstaff", "instr", "enrfacing", "studaff", "commsport", "sales", "mgmt
 {
   const a = OC.filter(d => d.sg === "all"), g = k => a.find(d => d.occ === k);
   const e = g("enrfacing"), t = g("allstaff");
-  const sh = (e.per1000_fy2024 - e.per1000_fy2015) / (t.per1000_fy2024 - t.per1000_fy2015);
+  const ef = EF.find(d => d.sg === "all");
   const c = CO.find(d => d.sg === "all"), cx = CO.find(d => d.sg === "xmb");
-  return md`<div class="cs-lead">From FY2015 to FY2024, while enrollment at the typical surviving college fell ${f1(-e.dlog_fte)} log points, <b>enrollment-facing staff rose ${f1(e.dlog)}</b>: advisers, admissions and student-life staff, counselors, coaches, marketing and recruiters. They account for about <b>${pct0(sh)}</b> of the rise in staff per 1,000 students. Coaches alone are ${pct0(c.coach_share_of_enrfacing_growth)} of that growth, and ${pct0(cx.coach_share_of_enrfacing_growth)} at private master's and bachelor's colleges.</div>`;
+  return md`<div class="cs-lead">From FY2015 to FY2024, while enrollment at the typical surviving college fell ${f1(-e.dlog_fte)} log points, <b>enrollment-facing staff rose ${f1(e.dlog)}</b>: advisers, admissions and student-life staff, counselors, coaches, marketing and recruiters. They account for <b>${pct0(ef.share_of_noninstr_rise)} of the rise in non-instructional staff</b> per 1,000 students (${pct0(ef.share_of_allstaff_rise_v1)} of the rise in all staff, instruction included). Coaches alone are ${pct0(c.coach_share_of_enrfacing_growth)} of that growth, and ${pct0(cx.coach_share_of_enrfacing_growth)} at private master's and bachelor's colleges.</div>`;
 }
 ```
 
@@ -44,7 +45,7 @@ viewof ov = Inputs.radio(new Map([["Staff per 1,000 students", "lvl"], ["Change 
 ```{ojs}
 {
   setParam("sg", sg === "all" ? null : sg); setParam("view", ov === "lvl" ? null : ov);
-  const r = OC.filter(d => d.sg === sg);
+  const r = OC.filter(d => d.sg === sg && OCCO.includes(d.occ));
   const order = OCCO.filter(k => r.some(d => d.occ === k)).map(k => OCCL[k]);
   const rows = r.map(d => ({...d, l: OCCL[d.occ], ef: ["enrfacing", "studaff", "commsport", "sales"].includes(d.occ)}));
   const c = SGC[sg];
@@ -77,19 +78,50 @@ viewof ov = Inputs.radio(new Map([["Staff per 1,000 students", "lvl"], ["Change 
 **Data.** IPEDS Human Resources occupation codes (the detailed categories exist from fall 2012), non-medical staff, FTE = full-time + one-third of part-time; S11 surviving institutions; FY2015 base, because student-affairs staff (code 270) jump 22–24% in FY2014 as reporting settled; a FY2016 base gives the same split. Mean of institution ratios. FY2024 NCES provisional.
 :::
 
+## Instructional and non-instructional staff
+
+Occupation codes split staff into instruction and everything else. The default shows both, in FTE (full-time + one-third of part-time), FY2015 → FY2024, per 1,000 students. Instruction (IPEDS code 210) is close to, but not the same as, faculty: research and public-service staff with faculty status count as non-instructional here.
+
+```{ojs}
+viewof dmo = Inputs.select(new Map([["Instructional and non-instructional FTE", "pair"], ["Full-time headcount", "ft"], ["Part-time headcount", "pt"]]), {value: ["pair", "ft", "pt"].includes(param("dm", "pair")) ? param("dm", "pair") : "pair", label: "Staff measure"})
+```
+
+```{ojs}
+{
+  setParam("dm", dmo === "pair" ? null : dmo);
+  const OC2 = dmo === "pair" ? [["instr", "Instructional"], ["noninstr", "Non-instructional"]] : dmo === "ft" ? [["instr_ft", "Instructional, full-time"], ["noninstr_ft", "Non-instructional, full-time"]] : [["instr_pt", "Instructional, part-time"], ["noninstr_pt", "Non-instructional, part-time"]];
+  const order = ["all", ...SGROUPS.map(s => s.k)];
+  const rows = order.flatMap(sg => OC2.map(([k, l]) => { const d = OC.find(x => x.sg === sg && x.occ === k); return d ? {...d, l, gl: SGL[sg]} : null; })).filter(Boolean);
+  const narrow = width < 640;
+  return html`${Plot.plot({
+    width: Math.min(width, 900), height: 50 + order.length * 64, marginLeft: narrow ? 120 : 200, marginRight: 110,
+    x: {grid: true, label: `${dmo === "pair" ? "FTE staff" : "Staff (headcount)"} per 1,000 FTE students, FY2015 → FY2024`}, fy: {domain: order.map(k => SGL[k]), label: null}, y: {domain: OC2.map(d => d[1]), label: null, axis: narrow ? null : "left", tickFormat: l => l.replace(", full-time", "").replace(", part-time", "")},
+    marks: [Plot.link(rows, {fy: "gl", y1: "l", y2: "l", x1: "per1000_fy2015", x2: "per1000_fy2024", stroke: d => d.occ.startsWith("instr") ? GRAY : SGC[d.sg], strokeWidth: 3, markerEnd: "arrow"}),
+      Plot.dot(rows, {fy: "gl", y: "l", x: "per1000_fy2015", r: 4, fill: "white", stroke: GRAY, strokeWidth: 2}),
+      Plot.text(rows, {fy: "gl", y: "l", x: d => Math.max(d.per1000_fy2015, d.per1000_fy2024), text: d => `${f1(d.per1000_fy2015)} → ${f1(d.per1000_fy2024)}`, dx: 8, textAnchor: "start", fontSize: 10, fill: INK}),
+      Plot.tip(rows, Plot.pointerY({fy: "gl", y: "l", x: "per1000_fy2024", title: d => `${d.gl}: ${d.l}\nper 1,000: ${f1(d.per1000_fy2015)} (FY2015) → ${f1(d.per1000_fy2024)} (FY2024)\n${d.n} institutions`}))]
+  })}
+  <div class="cs-scroll"><table class="cs-sectab"><thead><tr><th>Sector group</th><th>Non-instructional FTE per 1,000, change</th><th>of which enrollment-facing</th><th>Enrollment-facing share of non-instructional rise</th><th>Share of all-staff rise</th></tr></thead><tbody>
+  ${order.map(sg => { const d = EF.find(x => x.sg === sg); return d ? html`<tr><td>${SGL[sg]}</td><td>${s1(d.d_noninstr)}</td><td>${s1(d.d_enrfacing)}</td><td><b>${sg === "xr" ? "n/a" : pct0(d.share_of_noninstr_rise)}</b></td><td>${sg === "xr" ? "n/a" : pct0(d.share_of_allstaff_rise_v1)}</td></tr>` : ""; })}
+  </tbody></table></div>
+  <p class="cs-note">Open circle: FY2015; arrow tip: FY2024. S11 surviving institutions, non-medical staff, mean of institution ratios. Private research: non-instructional staff per 1,000 rose only ${f1(EF.find(d => d.sg === "xr")?.d_noninstr)}, so a share of that rise is not meaningful. ${(() => { const c = OC.find(d => d.sg === "cc" && d.occ === "instr_pt"); return c ? `At community colleges part-time instructors per 1,000 students fell (${f1(c.per1000_fy2015)} → ${f1(c.per1000_fy2024)}): adjuncts were cut faster than enrollment fell.` : ""; })()}</p>`;
+}
+```
+
 ## Enrollment-facing staff don't track enrollment
 
 ```{ojs}
 {
-  const keep = ["instr", "enrfacing", "allstaff"];
-  const r = OE.filter(d => keep.includes(d.occ) && d.sg === "all").map(d => ({...d, l: {instr: "Instruction", enrfacing: "Enrollment-facing", allstaff: "All non-medical staff"}[d.occ], lo: d.iv - 1.96 * d.iv_se, hi: d.iv + 1.96 * d.iv_se}));
+  const EL3 = {instr: "Instruction (FTE)", instr_ft: "Instruction, full-time", noninstr: "Non-instructional (FTE)", enrfacing: "Enrollment-facing", allstaff: "All non-medical staff"};
+  const keep = Object.keys(EL3);
+  const r = OE.filter(d => keep.includes(d.occ) && d.sg === "all").map(d => ({...d, l: EL3[d.occ], lo: d.iv - 1.96 * d.iv_se, hi: d.iv + 1.96 * d.iv_se}));
   return html`${Plot.plot({
-    width: Math.min(width, 760), height: 170, marginLeft: 160, marginRight: 60,
-    x: {grid: true, domain: [-0.3, 1.4], label: "Elasticity to fall FTE, gravity instrument (95% interval)"}, y: {domain: ["Instruction", "Enrollment-facing", "All non-medical staff"], label: null},
+    width: Math.min(width, 760), height: 230, marginLeft: 170, marginRight: 60,
+    x: {grid: true, domain: [-0.3, 1.4], label: "Elasticity to fall FTE, gravity instrument (95% interval)"}, y: {domain: Object.values(EL3), label: null},
     marks: [Plot.ruleX([1], {stroke: BREAKC, strokeDasharray: "4,3"}), Plot.ruleX([0], {stroke: "#bbb"}),
       Plot.ruleY(r, {y: "l", x1: "lo", x2: "hi", stroke: BLUE, strokeWidth: 3}), Plot.dot(r, {y: "l", x: "iv", r: 6, fill: BLUE, stroke: "white", strokeWidth: 2}),
       Plot.text(r, {y: "l", x: "hi", text: d => f2(d.iv), dx: 6, textAnchor: "start", fontSize: 11, fill: INK})]
-  })}<p class="cs-note">Pooled across sectors, gravity population instrument (base 2002), FY2015–24. Enrollment-facing staff move about ${f2(r.find(d => d.occ === "enrfacing").iv)} with enrollment, instructional staff ${f2(r.find(d => d.occ === "instr").iv)}. Growth in enrollment-facing staff over FY2015–19 also does not predict first-time enrollment over FY2019–24 (see the payoff table on <a href="../amenities-athletics/index.html#payoff">Amenities and athletics</a>).</p>`;
+  })}<p class="cs-note">Pooled across sectors, gravity population instrument (base 2002), FY2015–24. Enrollment-facing staff move about ${f2(r.find(d => d.occ === "enrfacing").iv)} with enrollment, only slightly less than non-instructional staff as a whole (${f2(r.find(d => d.occ === "noninstr").iv)}) and about the same as full-time instructional staff (${f2(r.find(d => d.occ === "instr_ft").iv)}). Instructional FTE (${f2(r.find(d => d.occ === "instr").iv)}) responds more, mostly through part-time instructors. Intervals are wide. Growth in enrollment-facing staff over FY2015–19 also does not predict first-time enrollment over FY2019–24 (see the payoff table on <a href="../amenities-athletics/index.html#payoff">Amenities and athletics</a>).</p>`;
 }
 ```
 
