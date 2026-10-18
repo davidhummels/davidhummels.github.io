@@ -12,6 +12,7 @@ Course materials, simulations, and readings for Econ 432 will live here.
 - Syllabus *(coming soon)*
 - Interactive simulations
     - [Is it a demand curve or a supply curve?](econ432/leamer-feenstra/index.qmd): Leamer (1981) bounds and Feenstra (1994) identification
+    - [If ideas combine, why doesn't growth explode?](econ432/combinatorial-growth/index.qmd): combinatorial growth, testing costs, thin tails and re-domaining (Weitzman 1998; Jones 2021; Arthur 2009)
 - Readings *(coming soon)*
 
 <!--

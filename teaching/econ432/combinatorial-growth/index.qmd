@@ -1,0 +1,23 @@
+---
+title: "If ideas combine, why doesn't growth explode?"
+subtitle: "Combinatorial growth, testing costs, thin tails and fading search"
+page-layout: full
+resources:
+  - app.html
+---
+
+New technologies are combinations of old ones, so the number of possible new ideas grows explosively, yet US income per person has grown a steady 2% a year for a century. This simulation, built for Econ 432 (Lecture 23, The Nature of Technology), lets you explore three answers to that puzzle. The first tab runs Weitzman's (1998) recombinant growth model, where each period new ideas pair with the existing stock and a share of the pairs prove useful, and adds a calculator for what it costs to test all those candidates as a share of GDP. The second tab shows why better ideas get harder to find when quality follows a bell curve (Jones 2021), and lets you escape the thin tail by switching to a new principle (Arthur's re-domaining). The third tab shows how growth slows when what each person knows can't keep up with the stock of knowledge (after Agrawal, McHale and Oettl 2019). Every tab has an AI-assist switch. All numbers are simulated in your browser; GDP and R&D figures are rounded US values.
+
+[Open the simulation full screen ↗](app.html){target="_blank"}
+
+```{=html}
+<iframe id="cg-app" src="app.html" title="Combinatorial growth simulation" style="width:100%;border:0;min-height:1400px;display:block" loading="eager"></iframe>
+<script>
+(function(){
+  var f=document.getElementById('cg-app');
+  function fit(){try{var d=f.contentWindow.document;f.style.height=(d.documentElement.scrollHeight+4)+'px';}catch(e){}}
+  f.addEventListener('load',function(){fit();try{new f.contentWindow.ResizeObserver(fit).observe(f.contentWindow.document.body);}catch(e){}});
+  window.addEventListener('resize',fit);
+})();
+</script>
+```

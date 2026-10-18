@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>[hidden]{display:none!important}body{margin:0}img{max-width:100%}</style>
+<title>Combinatorial Growth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#ECEFF3; --panel:#FFFFFF; --plot:#FBFCFD; --ink:#17202D; --muted:#5A6779; --grid:#E3E8EE; --rule:#C9D1DB;
+  --a:#2D5DA6; --b:#B0386B; --c:#0E7C75; --d:#B98200; --e:#6B4FA0; --ref:#8A96A6; --warn:#B0383B;
+  --f-display:'Literata', Georgia, 'Times New Roman', serif;
+  --f-body:'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-mono:'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#10141A; --panel:#171D25; --plot:#131920; --ink:#E3E8EE; --muted:#93A0B1; --grid:#232B35; --rule:#333D4A;
+    --a:#6E9DEA; --b:#EE70A2; --c:#3CC4B7; --d:#E9B83E; --e:#A68BE0; --ref:#6B7788; --warn:#F07B7E; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#10141A; --panel:#171D25; --plot:#131920; --ink:#E3E8EE; --muted:#93A0B1; --grid:#232B35; --rule:#333D4A;
+  --a:#6E9DEA; --b:#EE70A2; --c:#3CC4B7; --d:#E9B83E; --e:#A68BE0; --ref:#6B7788; --warn:#F07B7E; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:20px;padding-block:28px 48px;display:flex;flex-direction:column;gap:18px}
+header{display:flex;flex-direction:column;gap:6px;max-width:80ch}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--f-display);font-weight:600;font-size:clamp(26px,3.4vw,38px);line-height:1.15;margin:0;text-wrap:balance}
+h2{font-family:var(--f-display);font-weight:500;font-size:19px;margin:0}
+h3{font-size:13px;font-weight:600;margin:0;letter-spacing:.02em}
+.lead{margin:0;color:var(--muted);max-width:80ch}
+.panel{background:var(--panel);border:1px solid var(--rule);border-radius:8px}
+button,select{font:inherit;font-size:13px;color:var(--ink);background:var(--plot);border:1px solid var(--rule);border-radius:6px;padding:6px 12px;cursor:pointer}
+button:hover,select:hover{border-color:var(--muted)}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+input[type=range]{accent-color:var(--a);width:100%}
+.tabs{display:flex;gap:4px;flex-wrap:wrap;border-bottom:1px solid var(--rule)}
+.tabs button{border:1px solid transparent;border-bottom:none;border-radius:6px 6px 0 0;background:transparent;padding:9px 14px;font-size:14px;color:var(--muted);margin-bottom:-1px;text-align:left}
+.tabs button[aria-selected="true"]{background:var(--panel);border-color:var(--rule);color:var(--ink);font-weight:600}
+.tabs button small{display:block;font-size:11px;font-weight:400;color:var(--muted);font-family:var(--f-mono)}
+.tabpanel{display:flex;flex-direction:column;gap:18px}
+.plots{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fig{padding:14px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.fig-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.fig-head p{margin:0;font-size:12.5px;color:var(--muted)}
+.cv{width:100%;position:relative;aspect-ratio:4/3}
+.cv.wide{aspect-ratio:5/2}
+.cv canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+@media (max-width:700px){.cv.wide{aspect-ratio:4/3}}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{display:inline-block;width:18px;height:0;border-top:2px solid currentColor}
+.sw.dash{border-top-style:dashed}
+.sw.sq{width:10px;height:10px;border:none;background:currentColor;opacity:.6}
+.ca{color:var(--a)} .cb{color:var(--b)} .cc{color:var(--c)} .cd{color:var(--d)} .ce{color:var(--e)} .cr{color:var(--ref)} .cw{color:var(--warn)}
+.controls{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:16px}
+fieldset{border:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;min-width:0}
+legend{font-weight:600;font-size:13px;padding:0;margin-bottom:2px}
+.ctl{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center;font-size:13px}
+.ctl output{font-family:var(--f-mono);font-size:12.5px;color:var(--muted);text-align:right;min-width:4ch}
+.ctl input[type=range]{grid-column:1/-1}
+.ctl select{grid-column:1/-1}
+.checks{display:flex;flex-direction:column;gap:6px;font-size:13px}
+.checks label{display:flex;gap:8px;align-items:flex-start}
+.desc{font-size:12px;color:var(--muted);margin:0}
+.ai{border:1px dashed var(--rule);border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;gap:8px;background:var(--plot)}
+.ai .tag{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--e)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.stat{padding:10px 12px;border:1px solid var(--grid);border-radius:6px;background:var(--plot);display:flex;flex-direction:column;gap:2px}
+.stat b{font-family:var(--f-mono);font-size:18px;font-weight:500}
+.stat span{font-size:12px;color:var(--muted)}
+.callout{margin:0;font-size:14px;padding:10px 12px;border-left:3px solid var(--a);background:var(--plot);border-radius:0 6px 6px 0}
+.callout.warn{border-left-color:var(--warn)}
+.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.note{padding:16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.note p{margin:0;font-size:14px}
+.note ul{margin:0;padding-left:18px;font-size:14px;display:flex;flex-direction:column;gap:4px}
+.eq{font-family:var(--f-mono);font-size:13px;background:var(--plot);border:1px solid var(--grid);border-radius:6px;padding:8px 10px;overflow-x:auto;white-space:normal;line-height:1.7}
+.cite{font-size:12px;color:var(--muted);margin:0}
+table{border-collapse:collapse;width:100%;font-size:12.5px;font-variant-numeric:tabular-nums}
+.tbl{overflow-x:auto;max-height:340px;overflow-y:auto}
+th,td{text-align:right;padding:5px 8px;border-bottom:1px solid var(--grid);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{font-weight:500;color:var(--muted);font-size:11.5px;position:sticky;top:0;background:var(--panel)}
+td{font-family:var(--f-mono)}
+tr.over td{color:var(--warn)}
+@media (max-width:900px){.plots,.controls,.notes{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Econ 432 · Lecture 23 · The nature of technology</div>
+    <h1>If ideas combine, why doesn't growth explode?</h1>
+    <p class="lead">New technologies are combinations of old ones, so the number of possible new ideas grows explosively. Yet income per person in the US has grown a steady 2% a year for a century. Each tab lets you play with one answer to that puzzle: testing ideas costs resources, better ideas get harder to find, and our ability to search fades as knowledge grows. Every tab has an <span class="ce">AI assist</span> switch so you can ask whether AI changes the logic or just the numbers.</p>
+  </header>
+
+  <nav class="tabs" id="tabbar" role="tablist" aria-label="Sections">
+    <button role="tab" id="tab-comb" aria-controls="p-comb" aria-selected="true">Combinations explode<small>Weitzman 1998 · testing costs</small></button>
+    <button role="tab" id="tab-tail" aria-controls="p-tail" aria-selected="false" tabindex="-1">Better ideas get harder to find<small>Jones 2021 · re-domaining</small></button>
+    <button role="tab" id="tab-search" aria-controls="p-search" aria-selected="false" tabindex="-1">Our search ability fades<small>Agrawal, McHale &amp; Oettl 2019</small></button>
+  </nav>
+
+  <!-- ===================== TAB 1 ===================== -->
+  <section id="p-comb" class="tabpanel" role="tabpanel" aria-labelledby="tab-comb">
+    <p class="lead">Start with a stock of ideas. Every period, each new idea can be paired with every idea that already exists, and a fixed share of those new pairs turn out to be useful. The useful ones join the stock and become ingredients for the next round. Below the growth chart is a calculator for what it costs to test all those candidates, and what happens when the research budget can't keep up.</p>
+
+    <div class="stats" id="c-stats"></div>
+    <p class="callout" id="c-callout"></p>
+
+    <div class="plots">
+      <section class="panel fig">
+        <div class="fig-head"><h2>The stock of ideas</h2><p>log scale</p></div>
+        <div class="cv"><canvas id="cvC1" aria-label="Number of ideas by period"></canvas></div>
+        <div class="legend">
+          <span class="ca"><i class="sw"></i>Every new pair tested</span>
+          <span class="cb" id="c-leg-b"><i class="sw"></i>Testing limited by the R&amp;D budget</span>
+          <span class="ce" id="c-leg-ai"><i class="sw dash"></i>Budget-limited, with AI-cheapened tests</span>
+          <span class="cr"><i class="sw dash"></i>Steady 2% growth, for comparison</span>
+        </div>
+      </section>
+      <section class="panel fig">
+        <div class="fig-head"><h2>Cost of testing every new pair</h2><p>as a share of GDP, log scale</p></div>
+        <div class="cv"><canvas id="cvC2" aria-label="Cost of testing as a share of GDP"></canvas></div>
+        <div class="legend">
+          <span class="ca"><i class="sw"></i>Cost per test as set</span>
+          <span class="ce" id="c-leg-ai2"><i class="sw dash"></i>With AI-cheapened tests</span>
+          <span class="cd"><i class="sw dash"></i>Current US R&amp;D (3.4% of GDP)</span>
+          <span class="cw"><i class="sw dash"></i>All of GDP</span>
+        </div>
+      </section>
+    </div>
+
+    <section class="panel controls" aria-label="Combination settings">
+      <fieldset>
+        <legend>Ideas</legend>
+        <div class="ctl"><label for="cN0">Starting number of ideas</label><output id="cN0O"></output><input id="cN0" type="range" min="10" max="300" step="5" value="50"></div>
+        <div class="ctl"><label for="cR">Share of new pairs that are useful</label><output id="cRO"></output><input id="cR" type="range" min="0.1" max="5" step="0.1" value="1"></div>
+        <div class="ctl"><label for="cT">Periods (years)</label><output id="cTO"></output><input id="cT" type="range" min="5" max="40" step="1" value="10"></div>
+        <div class="checks"><label><input id="cWhole" type="checkbox"> Whole ideas only (round useful ideas down)</label></div>
+      </fieldset>
+      <fieldset>
+        <legend>Testing costs</legend>
+        <div class="ctl"><label for="cC">Cost to test one pair</label><output id="cCO"></output><input id="cC" type="range" min="3" max="9" step="0.1" value="6"></div>
+        <div class="ctl"><label for="cS">R&amp;D budget, share of GDP</label><output id="cSO"></output><input id="cS" type="range" min="0.5" max="10" step="0.1" value="3.4"></div>
+        <div class="checks"><label><input id="cLim" type="checkbox" checked> Limit testing to the R&amp;D budget (untested pairs wait in a queue)</label></div>
+        <p class="desc">GDP starts at $30 trillion (roughly the US today) and grows 2% a year.</p>
+      </fieldset>
+      <fieldset>
+        <div class="ai">
+          <div class="tag">AI assist</div>
+          <div class="checks"><label><input id="cAI" type="checkbox"> AI makes testing a pair cheaper</label></div>
+          <div class="ctl"><label for="cAIx">Tests are this many times cheaper</label><output id="cAIxO"></output><input id="cAIx" type="range" min="0" max="4" step="0.1" value="3"></div>
+          <p class="desc">Think of screening molecules or materials on a computer before anyone goes to the lab.</p>
+        </div>
+      </fieldset>
+    </section>
+
+    <section class="panel fig">
+      <div class="fig-head"><h2>Period by period</h2><p>red rows: testing every new pair would cost more than the R&amp;D budget</p></div>
+      <div class="tbl"><table>
+        <thead><tr><th>Period</th><th>Ideas at start</th><th>Possible pairs</th><th>New pairs</th><th>Useful new ideas</th><th>Cost to test new pairs</th><th>% of GDP</th><th>Ideas (budget-limited)</th></tr></thead>
+        <tbody id="c-tbody"></tbody>
+      </table></div>
+    </section>
+
+    <section class="notes">
+      <div class="panel note">
+        <h3>The math</h3>
+        <div class="eq">possible pairs: P(N) = N(N−1)/2<br>new pairs this period: P(N<sub>t</sub>) − P(N<sub>t−1</sub>)<br>N<sub>t+1</sub> = N<sub>t</sub> + r × [new pairs]</div>
+        <p>This is the version in your pre-work spreadsheet and in Clancy's essay. With 100 ideas there are 4,950 pairs; at r = 1%, 49 are useful. Now there are 149 ideas, 11,026 pairs, 6,076 of them new, so 61 more useful ideas. Each new idea pairs with everything already in the stock, so each round adds more than the last.</p>
+      </div>
+      <div class="panel note">
+        <h3>Why it can fizzle or explode</h3>
+        <div class="eq">one new idea → about N new pairs → r × N useful ideas</div>
+        <p>Call r × N the idea's <b>reproduction number</b>, like the R of an epidemic. If each new idea produces less than one useful new idea (r × N &lt; 1), the process dies out. If it produces more than one, each round is bigger than the last, and because N keeps growing, the reproduction number itself keeps rising. That's faster than exponential growth. Try 50 ideas at 1%, then 2%, then 100 ideas at 1%.</p>
+      </div>
+      <div class="panel note">
+        <h3>Weitzman's brake</h3>
+        <div class="eq">new ideas per year ≈ (s × GDP ÷ cost per test) × r</div>
+        <p>Someone has to test each candidate. Once the candidates outrun what the budget can test, ideas grow only as fast as the budget, which grows with GDP. Turn on the budget limit and watch the blue line bend toward steady growth. Then turn on AI. Cheaper tests shift the line up a lot. Do they change its long-run slope?</p>
+      </div>
+    </section>
+    <p class="cite">Weitzman, M. (1998), "Recombinant Growth," <i>Quarterly Journal of Economics</i> 113(2). Clancy, M., "Combinatorial Innovation and Technological Progress in the Very Long Run," <i>New Things Under the Sun</i>. If any subset of ideas can combine (not just pairs), Arthur (2009) counts 2<sup>N</sup> − N − 1 possibilities, which explodes even faster.</p>
+  </section>
+
+  <!-- ===================== TAB 2 ===================== -->
+  <section id="p-tail" class="tabpanel" role="tabpanel" aria-labelledby="tab-tail" hidden>
+    <p class="lead">A new combination has to do more than work. It has to beat the best idea we already have. If the quality of a random try follows a bell curve, the chance of beating the current best is the area of the curve to the right of it, and that area shrinks very fast as the best gets better. On the right, watch a research program climb: each year it makes a number of tries and keeps the best one it has ever found.</p>
+
+    <div class="plots">
+      <section class="panel fig">
+        <div class="fig-head"><h2>Chance a new try beats the current best</h2><p>quality in standard deviations</p></div>
+        <div class="cv"><canvas id="cvT1" aria-label="Bell curve with shaded tails"></canvas></div>
+        <div class="legend">
+          <span class="ca"><i class="sw sq"></i>Beats a best at cutoff 1</span>
+          <span class="cb"><i class="sw sq"></i>Beats a best at cutoff 2</span>
+          <span class="cc" id="t-leg-new"><i class="sw"></i>New principle (re-domained)</span>
+          <span class="ce" id="t-leg-ai"><i class="sw dash"></i>Tries screened by AI</span>
+        </div>
+        <div class="stats" id="t-stats1"></div>
+      </section>
+      <section class="panel fig">
+        <div class="fig-head"><h2>A research program climbs</h2><p>best quality found so far</p></div>
+        <div class="cv"><canvas id="cvT2" aria-label="Best quality found over time"></canvas></div>
+        <div class="legend">
+          <span class="cr"><i class="sw"></i>One principle, no AI</span>
+          <span class="ca"><i class="sw"></i>Your settings</span>
+          <span class="cc"><i class="sw dash"></i>Re-domaining (new principle arrives)</span>
+        </div>
+        <div class="cv wide"><canvas id="cvT3" aria-label="Chance the next try is an improvement"></canvas></div>
+        <div class="legend"><span class="cr"><i class="sw"></i>Chance the next try beats the best, one principle</span><span class="ca"><i class="sw"></i>Your settings</span></div>
+      </section>
+    </div>
+    <p class="callout" id="t-callout"></p>
+
+    <section class="panel controls" aria-label="Better ideas settings">
+      <fieldset>
+        <legend>The bell curve</legend>
+        <div class="ctl"><label for="tQ1">Cutoff 1: current best (sd above average)</label><output id="tQ1O"></output><input id="tQ1" type="range" min="0" max="6" step="0.1" value="1"></div>
+        <div class="ctl"><label for="tQ2">Cutoff 2: a better current best</label><output id="tQ2O"></output><input id="tQ2" type="range" min="0" max="6" step="0.1" value="3"></div>
+        <div class="ctl"><label for="tCost">Cost per try</label><output id="tCostO"></output><input id="tCost" type="range" min="3" max="9" step="0.1" value="6"></div>
+      </fieldset>
+      <fieldset>
+        <legend>The research program</legend>
+        <div class="ctl"><label for="tN">Tries per year at the start</label><output id="tNO"></output><input id="tN" type="range" min="0" max="6" step="0.1" value="1"></div>
+        <div class="ctl"><label for="tG">Growth in tries per year</label><output id="tGO"></output><input id="tG" type="range" min="0" max="30" step="1" value="0"></div>
+        <div class="ctl"><label for="tY">Years</label><output id="tYO"></output><input id="tY" type="range" min="10" max="150" step="5" value="60"></div>
+        <div class="ctl"><label for="tRe">Re-domaining</label>
+          <select id="tRe"><option value="none">None: stay with one principle</option><option value="once" selected>Once, in a chosen year</option><option value="auto">Automatically, whenever progress stalls</option></select></div>
+        <div class="ctl" id="tReYW"><label for="tReY">Year the new principle arrives</label><output id="tReYO"></output><input id="tReY" type="range" min="1" max="100" step="1" value="30"></div>
+        <div class="ctl" id="tThW"><label for="tTh">Switch when expected improvements per year fall below</label><output id="tThO"></output><input id="tTh" type="range" min="0.02" max="1" step="0.02" value="0.1"></div><p class="desc" id="tThD">A new principle takes time to find: at most one every 10 years.</p>
+        <div class="ctl"><label for="tGap">New principle starts this far below the best (sd)</label><output id="tGapO"></output><input id="tGap" type="range" min="0" max="4" step="0.1" value="1.5"></div>
+        <div class="ctl"><label for="tSd">New principle's spread (sd, old = 1)</label><output id="tSdO"></output><input id="tSd" type="range" min="0.5" max="3" step="0.1" value="1.5"></div>
+        <button id="tSeed" type="button">New random draws</button>
+      </fieldset>
+      <fieldset>
+        <div class="ai">
+          <div class="tag">AI assist</div>
+          <div class="checks"><label><input id="tAI" type="checkbox"> Turn on AI</label></div>
+          <div class="ctl"><label for="tAIn">More tries: multiply tries by</label><output id="tAInO"></output><input id="tAIn" type="range" min="0" max="4" step="0.1" value="2"></div>
+          <div class="ctl"><label for="tAIm">Better aim: tested ideas average this much better (sd)</label><output id="tAImO"></output><input id="tAIm" type="range" min="0" max="2" step="0.1" value="0.5"></div>
+          <p class="desc">"More tries" is cheaper testing. "Better aim" is AI screening out the bad candidates before anyone tests them.</p>
+        </div>
+      </fieldset>
+    </section>
+
+    <section class="notes">
+      <div class="panel note">
+        <h3>The math</h3>
+        <div class="eq">P(a try beats best q*) = 1 − Φ(q*)<br>expected tries to improve = 1 ÷ [1 − Φ(q*)]</div>
+        <p>Φ is the standard normal cumulative distribution. A best one standard deviation above average is beaten by about 16% of tries (1 in 6). Three: 0.13% (1 in 741). Five: one try in 3.5 million. The tail thins so fast that each step up costs far more than the last.</p>
+      </div>
+      <div class="panel note">
+        <h3>Contrast with the quality ladder</h3>
+        <p>In lecture 20's quality ladder, each rung was better by the same factor λ and cost the same research effort no matter how high you'd climbed, so steady research gave steady growth. Here the rungs get harder. With a fixed number of tries per year, progress slows to a crawl. To keep climbing at a steady pace, tries have to grow, which is what exploding combinations (tab 1) and rising R&amp;D spending supply. Jones (2021) shows the two forces can offset each other almost exactly.</p>
+      </div>
+      <div class="panel note">
+        <h3>Re-domaining: a new bell curve</h3>
+        <p>Stretching an old principle means drawing deeper into its thin tail. A new principle (Arthur's re-domaining) is a fresh distribution. Its average try may be worse than today's best, but with a wider spread a much larger share of its tries beat the best. Try switching once, then let the program switch automatically whenever progress stalls. Growth becomes a series of new principles.</p>
+      </div>
+    </section>
+    <p class="cite">Jones, C. (2021), "Recipes and Economic Growth: A Combinatorial March Down an Exponential Tail," NBER WP 28340. Arthur, W. B. (2009), <i>The Nature of Technology</i>, chapters 6–7. Quality is drawn from a normal distribution; the best of n tries is drawn exactly from the distribution of the maximum.</p>
+  </section>
+
+  <!-- ===================== TAB 3 ===================== -->
+  <section id="p-search" class="tabpanel" role="tabpanel" aria-labelledby="tab-search" hidden>
+    <p class="lead">You can only combine ideas you know. As the stock of knowledge grows, each person knows a smaller share of it. Here the useful new ideas come only from pairs someone can actually see. The key setting is how fast what one person knows keeps up with everything that's known.</p>
+
+    <div class="stats" id="s-stats"></div>
+    <p class="callout" id="s-callout"></p>
+
+    <div class="plots">
+      <section class="panel fig">
+        <div class="fig-head"><h2>The stock of ideas</h2><p>log scale</p></div>
+        <div class="cv"><canvas id="cvS1" aria-label="Ideas over time"></canvas></div>
+        <div class="legend">
+          <span class="cr"><i class="sw dash"></i>Everyone knows everything (tab 1)</span>
+          <span class="ca"><i class="sw"></i>Your settings, no AI</span>
+          <span class="ce" id="s-leg-ai"><i class="sw"></i>With AI</span>
+        </div>
+      </section>
+      <section class="panel fig">
+        <div class="fig-head"><h2>Growth rate of ideas</h2><p>percent per period</p></div>
+        <div class="cv"><canvas id="cvS2" aria-label="Growth rate over time"></canvas></div>
+        <div class="legend">
+          <span class="cr"><i class="sw dash"></i>Everyone knows everything</span>
+          <span class="ca"><i class="sw"></i>Your settings, no AI</span>
+          <span class="ce" id="s-leg-ai2"><i class="sw"></i>With AI</span>
+        </div>
+        <div class="cv wide"><canvas id="cvS3" aria-label="Share of all pairs that anyone can see"></canvas></div>
+        <div class="legend"><span class="ca"><i class="sw"></i>Share of all possible pairs the team can see (log scale)</span><span class="ce" id="s-leg-ai3"><i class="sw"></i>With AI</span></div>
+      </section>
+    </div>
+
+    <section class="panel controls" aria-label="Search settings">
+      <fieldset>
+        <legend>Knowledge</legend>
+        <div class="ctl"><label for="sN0">Starting number of ideas</label><output id="sN0O"></output><input id="sN0" type="range" min="50" max="1000" step="10" value="300"></div>
+        <div class="ctl"><label for="sR">Useful ideas found per 10,000 visible pairs, each period</label><output id="sRO"></output><input id="sR" type="range" min="0.2" max="5" step="0.1" value="1.3"></div>
+        <div class="ctl"><label for="sPhi">How fast personal knowledge keeps up, φ</label><output id="sPhiO"></output><input id="sPhi" type="range" min="0.2" max="1" step="0.05" value="0.5"></div>
+        <div class="ctl"><label for="sT">Periods</label><output id="sTO"></output><input id="sT" type="range" min="10" max="150" step="5" value="100"></div>
+      </fieldset>
+      <fieldset>
+        <legend>Teams</legend>
+        <div class="ctl"><label for="sM">People per team (each knows different things)</label><output id="sMO"></output><input id="sM" type="range" min="1" max="10" step="1" value="1"></div>
+        <div class="ctl"><label for="sK">Coordination cost per extra member</label><output id="sKO"></output><input id="sK" type="range" min="0" max="50" step="1" value="15"></div>
+        <p class="desc">A team can combine anything any member knows, but meetings, translation and trust use up time, so it examines a smaller share of what it can see.</p>
+      </fieldset>
+      <fieldset>
+        <div class="ai">
+          <div class="tag">AI assist</div>
+          <div class="ctl"><label for="sAI">What AI does</label>
+            <select id="sAI"><option value="none">Off</option><option value="reach" selected>Extends reach: each person can draw on a× more ideas</option><option value="phi">Keeps knowledge growing with the stock: raises φ</option></select></div>
+          <div class="ctl" id="sAIaW"><label for="sAIa">Reach multiplier a</label><output id="sAIaO"></output><input id="sAIa" type="range" min="1" max="3" step="0.1" value="1.5"></div>
+          <div class="ctl" id="sAIpW"><label for="sAIp">Increase in φ</label><output id="sAIpO"></output><input id="sAIp" type="range" min="0.05" max="0.5" step="0.05" value="0.15"></div>
+          <p class="desc">Agrawal, McHale and Oettl think AI's biggest contribution is retrieval: helping people find and use what's already known outside their field.</p>
+        </div>
+      </fieldset>
+    </section>
+
+    <section class="notes">
+      <div class="panel note">
+        <h3>The math</h3>
+        <div class="eq">what a person knows: K = N<sub>0</sub><sup>1−φ</sup> · N<sup>φ</sup><br>pairs a team of m can see: V = P(min(N, m·K))<br>N<sub>t+1</sub> = N<sub>t</sub> + h<sub>m</sub> × V<sub>t</sub></div>
+        <p>Each period, researchers find h useful ideas per pair they can see. At the start everyone knows everything (K = N<sub>0</sub>). If φ = 1, personal knowledge keeps up with the stock: everyone can see every pair, as in tab 1. If φ &lt; 1, each person's share of what's known shrinks as knowledge grows. Teams pay a coordination cost: h<sub>m</sub> = h ÷ (1 + cost × (m − 1)).</p>
+      </div>
+      <div class="panel note">
+        <h3>The knife edge at φ = ½</h3>
+        <div class="eq">growth rate = h × V ÷ N ≈ h × K² ÷ 2N ∝ N<sup>2φ−1</sup></div>
+        <p>If φ = ½, K² grows exactly as fast as N, so the growth rate is constant: steady exponential growth. Above ½ the growth rate rises with N and growth explodes, as in tab 1. Below ½ it falls toward zero. Steady growth is what you get when what one person knows grows with the square root of everything known.</p>
+      </div>
+      <div class="panel note">
+        <h3>Teams and AI: level or slope?</h3>
+        <p>Teams and an AI that multiplies everyone's reach both scale up what each searcher can see, which raises the growth rate by a constant factor but doesn't change whether it rises or falls. An AI that lets personal knowledge keep pace with the stock (a higher φ) changes the exponent, and with it the shape of growth. Which kind of tool do you think today's AI is?</p>
+      </div>
+    </section>
+    <p class="cite">Agrawal, A., J. McHale and A. Oettl (2019), "Finding Needles in Haystacks: Artificial Intelligence and Recombinant Growth," in <i>The Economics of Artificial Intelligence</i>. The model here is a simplified teaching version of their idea, built on the same pairs arithmetic as tab 1.</p>
+  </section>
+
+  <p class="cite">Built for Econ 432, Purdue University. All calculations run in your browser.</p>
+</div>
+
+<script>
+(function(){
+"use strict";
+const $ = id => document.getElementById(id);
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+/* ---------- formatting ---------- */
+function fmtNum(x, d){
+  if (!isFinite(x)) return "∞";
+  const a = Math.abs(x);
+  if (a < 1000) return x.toLocaleString("en-US",{maximumFractionDigits: d===undefined ? (a<10?1:0) : d});
+  if (a < 1e6) return Math.round(x).toLocaleString("en-US");
+  const names = [[1e15,"quadrillion"],[1e12,"trillion"],[1e9,"billion"],[1e6,"million"]];
+  if (a < 1e18) for (const [v,n] of names) if (a >= v) return (x/v).toPrecision(3).replace(/\.?0+$/,"")+" "+n;
+  const e = Math.floor(Math.log10(a)); return (x/Math.pow(10,e)).toFixed(1)+"×10"+sup(e);
+}
+function sup(n){ const m={"0":"⁰","1":"¹","2":"²","3":"³","4":"⁴","5":"⁵","6":"⁶","7":"⁷","8":"⁸","9":"⁹","-":"⁻"}; return String(n).split("").map(c=>m[c]).join(""); }
+function fmtUSD(x){
+  if (!isFinite(x)) return "∞";
+  if (x < 1e6) return "$"+Math.round(x).toLocaleString("en-US");
+  return "$"+fmtNum(x);
+}
+function fmtPct(p){
+  if (!isFinite(p)) return "∞";
+  if (p >= 1e4){ const e=Math.floor(Math.log10(p)); return (p/Math.pow(10,e)).toFixed(0)+"×10"+sup(e)+"%"; }
+  if (p >= 10) return p.toFixed(0)+"%";
+  if (p >= 0.1) return p.toFixed(1)+"%";
+  if (p >= 0.001) return p.toFixed(3)+"%";
+  return p.toExponential(1)+"%";
+}
+function oneIn(p){ if (p<=0) return "never"; const t=1/p; return t<1.5? "almost every try" : "1 in "+fmtNum(t, t<10?1:0); }
+
+/* ---------- normal distribution ---------- */
+function erfc(x){ // Numerical Recipes erfc, rel err < 1.2e-7
+  const z=Math.abs(x), t=1/(1+0.5*z);
+  const r=t*Math.exp(-z*z-1.26551223+t*(1.00002368+t*(0.37409196+t*(0.09678418+t*(-0.18628806+t*(0.27886807+t*(-1.13520398+t*(1.48851587+t*(-0.82215223+t*0.17087277)))))))));
+  return x>=0? r : 2-r;
+}
+const upper = z => 0.5*erfc(z/Math.SQRT2);          // P(Z > z)
+function invUpper(p){ // z such that P(Z>z)=p, Acklam
+  if (p<=0) return Infinity; if (p>=1) return -Infinity;
+  const a=[-39.69683028665376,220.9460984245205,-275.9285104469687,138.3577518672690,-30.66479806614716,2.506628277459239];
+  const b=[-54.47609879822406,161.5858368580409,-155.6989798598866,66.80131188771972,-13.28068155288572];
+  const c=[-0.007784894002430293,-0.3223964580411365,-2.400758277161838,-2.549732539343734,4.374664141464968,2.938163982698783];
+  const d=[0.007784695709041462,0.3224671290700398,2.445134137142996,3.754408661907416];
+  const lo=0.02425; let q,r,x;
+  const pl = 1-p; // lower-tail prob
+  if (p < lo){ q=Math.sqrt(-2*Math.log(p)); x=-(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1); return x; }
+  if (pl < lo){ q=Math.sqrt(-2*Math.log(pl)); x=(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1); return x; }
+  q=pl-0.5; r=q*q; x=(((((a[0]*r+a[1])*r+a[2])*r+a[3])*r+a[4])*r+a[5])*q/(((((b[0]*r+b[1])*r+b[2])*r+b[3])*r+b[4])*r+1);
+  return x;
+}
+// max of n iid N(0,1): P(max>z)=1-(1-P(Z>z))^n ; draw via U: tail p = -expm1(log(U)/n)
+function drawMaxZ(n, u){ return invUpper(-Math.expm1(Math.log(u)/n)); }
+function rng(seed){ let s=seed>>>0||1; return ()=>{ s^=s<<13; s>>>=0; s^=s>>>17; s^=s<<5; s>>>=0; return (s+0.5)/4294967296; }; }
+
+/* ---------- canvas chart ---------- */
+function setup(cv){
+  const r=cv.getBoundingClientRect(), dpr=window.devicePixelRatio||1;
+  cv.width=Math.max(1,Math.round(r.width*dpr)); cv.height=Math.max(1,Math.round(r.height*dpr));
+  const g=cv.getContext("2d"); g.setTransform(dpr,0,0,dpr,0,0); return {g,w:r.width,h:r.height};
+}
+function niceTicks(lo,hi,n){
+  const span=hi-lo; if(span<=0) return [lo];
+  const step0=span/n, mag=Math.pow(10,Math.floor(Math.log10(step0))), f=step0/mag;
+  const step=(f<1.5?1:f<3?2:f<7?5:10)*mag; const out=[];
+  for(let v=Math.ceil(lo/step)*step; v<=hi+1e-9*step; v+=step) out.push(+v.toPrecision(12));
+  return out;
+}
+function chart(cv, o){
+  const {g,w,h}=setup(cv);
+  const m={l:74,r:14,t:12,b:40};
+  const ink=css("--ink"), muted=css("--muted"), grid=css("--grid"), plot=css("--plot");
+  g.clearRect(0,0,w,h); g.fillStyle=plot; g.fillRect(0,0,w,h);
+  const X0=m.l, X1=w-m.r, Y0=h-m.b, Y1=m.t;
+  const [xa,xb]=o.x, [ya,yb]=o.y;
+  const ylog=!!o.ylog;
+  const ty = v => ylog? Math.log10(Math.max(v,1e-300)) : v;
+  const yA=ty(ya), yB=ty(yb);
+  const sx = v => X0+(v-xa)/(xb-xa)*(X1-X0);
+  const sy = v => { const t=(ty(v)-yA)/(yB-yA); return Y0-t*(Y0-Y1); };
+  g.font="11px "+css("--f-mono"); g.textBaseline="middle";
+  // y grid
+  let yt;
+  if (ylog){ const lo=Math.ceil(yA), hi=Math.floor(yB); const stepE=Math.max(1,Math.ceil((hi-lo)/6)); yt=[]; for(let e=lo;e<=hi;e+=stepE) yt.push(Math.pow(10,e)); }
+  else yt=niceTicks(ya,yb,5);
+  g.strokeStyle=grid; g.lineWidth=1; g.fillStyle=muted; g.textAlign="right";
+  for(const v of yt){ const y=sy(v); g.beginPath(); g.moveTo(X0,y); g.lineTo(X1,y); g.stroke(); g.fillText(o.yfmt? o.yfmt(v) : (ylog? tickLog(v) : String(v)), X0-6, y); }
+  const xt=o.xticks || niceTicks(xa,xb,6);
+  g.textAlign="center"; g.textBaseline="top";
+  for(const v of xt){ const x=sx(v); g.beginPath(); g.moveTo(x,Y0); g.lineTo(x,Y1); g.stroke(); g.fillText(o.xfmt? o.xfmt(v):String(v), x, Y0+6); }
+  g.strokeStyle=muted; g.beginPath(); g.moveTo(X0,Y1); g.lineTo(X0,Y0); g.lineTo(X1,Y0); g.stroke();
+  g.fillStyle=muted; g.font="12px "+css("--f-body");
+  g.textAlign="center"; g.fillText(o.xlabel||"", (X0+X1)/2, h-16);
+  if(o.ylabel){ g.save(); g.translate(13,(Y0+Y1)/2); g.rotate(-Math.PI/2); g.textBaseline="middle"; g.fillText(o.ylabel,0,0); g.restore(); }
+  g.save(); g.beginPath(); g.rect(X0,Y1,X1-X0,Y0-Y1); g.clip();
+  for(const f of (o.fills||[])){
+    g.fillStyle=f.color; g.globalAlpha=f.alpha||0.3; g.beginPath();
+    let started=false;
+    for(let i=0;i<f.xs.length;i++){ const x=sx(f.xs[i]), y=sy(f.ys[i]); if(!started){g.moveTo(x,sy(f.base||0)); started=true;} g.lineTo(x,y); }
+    if(started){ g.lineTo(sx(f.xs[f.xs.length-1]), sy(f.base||0)); g.closePath(); g.fill(); }
+    g.globalAlpha=1;
+  }
+  for(const l of (o.hlines||[])){ const y=sy(l.y); g.strokeStyle=l.color; g.setLineDash([5,4]); g.lineWidth=1.3; g.beginPath(); g.moveTo(X0,y); g.lineTo(X1,y); g.stroke(); g.setLineDash([]); if(l.label){ g.fillStyle=l.color; g.textAlign="left"; g.textBaseline="bottom"; g.font="11px "+css("--f-body"); g.fillText(l.label, X0+6, y-3);} }
+  for(const l of (o.vlines||[])){ const x=sx(l.x); g.strokeStyle=l.color; g.setLineDash(l.dash===false?[]:[5,4]); g.lineWidth=l.width||1.3; g.beginPath(); g.moveTo(x,Y0); g.lineTo(x,Y1); g.stroke(); g.setLineDash([]); if(l.label){ g.fillStyle=l.color; g.textAlign="left"; g.textBaseline="top"; g.font="11px "+css("--f-body"); g.fillText(l.label, x+4, Y1+4);} }
+  for(const s of (o.series||[])){
+    g.strokeStyle=s.color; g.lineWidth=s.width||2.2; g.setLineDash(s.dash?[6,4]:[]);
+    g.beginPath(); let pen=false;
+    for(let i=0;i<s.xs.length;i++){ const yv=s.ys[i]; if(yv===null||!isFinite(yv)||(ylog&&yv<=0)){pen=false; continue;} const x=sx(s.xs[i]), y=sy(yv); if(!pen){g.moveTo(x,y); pen=true;} else g.lineTo(x,y); }
+    g.stroke(); g.setLineDash([]);
+    if(s.dots){ g.fillStyle=s.color; for(let i=0;i<s.xs.length;i++){ const yv=s.ys[i]; if(yv===null||!isFinite(yv)||(ylog&&yv<=0)) continue; g.beginPath(); g.arc(sx(s.xs[i]),sy(yv),2.6,0,2*Math.PI); g.fill(); } }
+  }
+  g.restore();
+}
+function tickLog(v){ const e=Math.round(Math.log10(v)); if(e>=-2&&e<=5) return v>=1? Number(v).toLocaleString("en-US") : String(+v.toPrecision(2)); return "10"+sup(e); }
+function bounds(arrs, ylog){
+  let lo=Infinity, hi=-Infinity;
+  for(const a of arrs) for(const v of a){ if(v===null||!isFinite(v)) continue; if(ylog&&v<=0) continue; if(v<lo)lo=v; if(v>hi)hi=v; }
+  if(!isFinite(lo)){lo=1;hi=10;}
+  if(ylog){ const a=Math.floor(Math.log10(lo)), b=Math.ceil(Math.log10(hi)); return [Math.pow(10,a), Math.pow(10, b===a? a+1 : b)]; }
+  const pad=(hi-lo)*0.06||1; return [lo-pad, hi+pad];
+}
+function bindOut(id, f){ const el=$(id), o=$(id+"O"); const upd=()=>{ if(o) o.textContent=f(+el.value); }; el.addEventListener("input", upd); upd(); }
+function stat(label, value){ return `<div class="stat"><b>${value}</b><span>${label}</span></div>`; }
+
+/* ---------- tabs ---------- */
+const tabs=[...document.querySelectorAll('[role="tab"]')];
+function selectTab(t){
+  tabs.forEach(b=>{ const on=b===t; b.setAttribute("aria-selected",on); b.tabIndex=on?0:-1; $(b.getAttribute("aria-controls")).hidden=!on; });
+  try{ history.replaceState(null,"","#"+t.id.replace("tab-","")); }catch(e){}
+  renderAll();
+}
+tabs.forEach((b,i)=>{ b.addEventListener("click",()=>selectTab(b)); b.addEventListener("keydown",e=>{ if(e.key==="ArrowRight"||e.key==="ArrowLeft"){ const n=tabs[(i+(e.key==="ArrowRight"?1:tabs.length-1))%tabs.length]; n.focus(); selectTab(n);} }); });
+
+/* =============== TAB 1 =============== */
+const GDP0=30e12, GG=0.02;
+const P2 = n => n*(n-1)/2;
+bindOut("cN0", v=>v); bindOut("cR", v=>v.toFixed(1)+"%"); bindOut("cT", v=>v);
+bindOut("cC", v=>fmtUSD(Math.pow(10,v))); bindOut("cS", v=>v.toFixed(1)+"%"); bindOut("cAIx", v=>fmtNum(Math.pow(10,v))+"×");
+function simComb(N0, r, T, whole, cost, s, limit){
+  const rows=[]; let N=N0, prevP=0, Nb=N0, prevPb=0, queue=0;
+  for(let t=1;t<=T;t++){
+    const Y=GDP0*Math.pow(1+GG,t-1);
+    const Pn=P2(N), newP=Pn-prevP; let useful=r*newP; if(whole) useful=Math.floor(useful+1e-9);
+    const c=newP*cost;
+    // budget-limited path
+    const Pb=P2(Nb), newPb=Pb-prevPb; queue+=newPb;
+    const cap=limit? s*Y/cost : Infinity; const tested=Math.min(queue,cap); queue-=tested;
+    let ub=r*tested; if(whole) ub=Math.floor(ub+1e-9);
+    rows.push({t, N, Pn, newP, useful, c, share:c/Y*100, Nb, ub, tested, capped: newP*cost > s*Y});
+    prevP=Pn; N=N+useful; prevPb=Pb; Nb=Nb+ub;
+    if(!isFinite(N)||N>1e150) { N=Infinity; }
+  }
+  rows.push({t:T+1, N, Nb, end:true});
+  return rows;
+}
+function renderComb(){
+  const N0=+$("cN0").value, r=+$("cR").value/100, T=+$("cT").value, whole=$("cWhole").checked;
+  const cost=Math.pow(10,+$("cC").value), s=+$("cS").value/100, lim=$("cLim").checked;
+  const ai=$("cAI").checked, aix=Math.pow(10,+$("cAIx").value);
+  $("c-leg-b").hidden=!lim; $("c-leg-ai").hidden=!(ai&&lim); $("c-leg-ai2").hidden=!ai;
+  const base=simComb(N0,r,T,whole,cost,s,lim);
+  const withAI=ai? simComb(N0,r,T,whole,cost/aix,s,lim) : null;
+  const xs=base.map(d=>d.t-1);
+  const sA=base.map(d=>isFinite(d.N)?d.N:null), sB=base.map(d=>d.Nb), sAI=withAI? withAI.map(d=>d.Nb):[];
+  const ref=xs.map(t=>N0*Math.pow(1.02,t));
+  const ys=[sA,ref]; if(lim) ys.push(sB); if(ai&&lim) ys.push(sAI);
+  let [ya,yb]=bounds(ys,true); ya=Math.min(ya,Math.pow(10,Math.floor(Math.log10(N0)))); if (yb>1e60) yb=1e60;
+  const series=[{xs,ys:ref,color:css("--ref"),dash:true,width:1.5},{xs,ys:sA,color:css("--a"),dots:true,width:lim?4:2.2}];
+  if(lim) series.push({xs,ys:sB,color:css("--b"),dots:true,width:1.8});
+  if(ai&&lim) series.push({xs,ys:sAI,color:css("--e"),dash:true,dots:true});
+  chart($("cvC1"),{x:[0,T],y:[ya,yb],ylog:true,series,xlabel:"Period",ylabel:"Number of ideas"});
+  // cost share chart
+  const rows=base.filter(d=>!d.end), xs2=rows.map(d=>d.t);
+  const sh=rows.map(d=>d.share>0&&isFinite(d.share)?d.share:null);
+  const shAI=ai? rows.map(d=>d.share>0&&isFinite(d.share)? d.share/aix : null) : [];
+  const ys2=[sh,[s*100,100]]; if(ai) ys2.push(shAI);
+  let [a2,b2]=bounds(ys2,true); if(b2>1e40) b2=1e40;
+  const ser2=[{xs:xs2,ys:sh,color:css("--a"),dots:true}]; if(ai) ser2.push({xs:xs2,ys:shAI,color:css("--e"),dash:true,dots:true});
+  chart($("cvC2"),{x:[1,Math.max(2,T)],y:[a2,b2],ylog:true,series:ser2,
+    hlines:[{y:s*100,color:css("--d"),label:"R&D budget ("+(s*100).toFixed(1)+"% of GDP)"},{y:100,color:css("--warn"),label:"all of GDP"}],
+    yfmt:v=>fmtPct(v), xlabel:"Period", ylabel:"Share of GDP"});
+  // stats
+  const last=base[base.length-1], R0=r*N0;
+  const firstOver=rows.find(d=>d.capped), firstAll=rows.find(d=>d.share>100);
+  $("c-stats").innerHTML = stat("Reproduction number at the start, r × N", R0.toFixed(2))
+    + stat("Ideas after "+T+" periods, every pair tested", fmtNum(last.N))
+    + (lim? stat("Ideas after "+T+" periods, budget-limited", fmtNum(last.Nb)) : "")
+    + stat("First period testing every new pair costs more than the R&D budget", firstOver? "period "+firstOver.t : "not within "+T)
+    + stat("First period it costs more than all of GDP", firstAll? "period "+firstAll.t : "not within "+T);
+  let msg;
+  if (R0<1 && last.N < N0*3) msg=`Each new idea produces only about ${R0.toFixed(2)} useful new ideas (r × N = ${(r*100).toFixed(1)}% × ${N0}), so each round is smaller than the last and the process fizzles out. Raise the useful share or the starting stock until r × N passes 1.`;
+  else if (R0<1) msg=`At the start r × N = ${R0.toFixed(2)}, below 1, so early rounds shrink. Growth survives only because the stock creeps up enough to push r × N past 1.`;
+  else msg=`Each new idea produces about ${R0.toFixed(2)} useful new ideas at the start, and that number rises as the stock grows. Each round is bigger than the last: faster than exponential growth.`;
+  if (lim && firstOver) msg+=` From period ${firstOver.t}, testing every new pair would cost more than ${(s*100).toFixed(1)}% of GDP. The budget-limited path (pink) can only test what the budget allows, so it bends toward steady growth.`;
+  if (ai && lim) msg+=` With tests ${fmtNum(aix)}× cheaper, the AI path tests far more and ends with ${fmtNum(withAI[withAI.length-1].Nb)} ideas. Once its budget binds, though, its slope is set by the budget again.`;
+  $("c-callout").textContent=msg;
+  // table
+  $("c-tbody").innerHTML = rows.map(d=>`<tr class="${d.capped?'over':''}"><td>${d.t}</td><td>${fmtNum(d.N)}</td><td>${fmtNum(d.Pn)}</td><td>${fmtNum(d.newP)}</td><td>${fmtNum(d.useful)}</td><td>${fmtUSD(d.c)}</td><td>${fmtPct(d.share)}</td><td>${fmtNum(d.Nb)}</td></tr>`).join("");
+}
+["cN0","cR","cT","cWhole","cC","cS","cLim","cAI","cAIx"].forEach(id=>$(id).addEventListener("input",renderComb));
+
+/* =============== TAB 2 =============== */
+bindOut("tQ1",v=>v.toFixed(1)); bindOut("tQ2",v=>v.toFixed(1)); bindOut("tCost",v=>fmtUSD(Math.pow(10,v)));
+bindOut("tN",v=>fmtNum(Math.pow(10,v))); bindOut("tG",v=>v+"% a year"); bindOut("tY",v=>v);
+bindOut("tReY",v=>v); bindOut("tTh",v=>v.toFixed(2)); bindOut("tGap",v=>v.toFixed(1)); bindOut("tSd",v=>v.toFixed(1));
+bindOut("tAIn",v=>fmtNum(Math.pow(10,v))+"×"); bindOut("tAIm",v=>"+"+v.toFixed(1));
+let tSeed=20261018;
+$("tSeed").addEventListener("click",()=>{ tSeed=(tSeed*1103515245+12345)>>>0; renderTail(); });
+function simTail(o, seed){
+  const R=rng(seed); let best=0; // start: best = average of old principle
+  let mu=0, sd=1; const path=[{t:0,best,p:upper((best-mu)/sd)}], switches=[];
+  for(let t=1;t<=o.Y;t++){
+    if(o.re==="once" && t===o.reY){ mu=best-o.gap; sd=o.sd; switches.push(t); }
+    const n=Math.max(1, o.n0*Math.pow(1+o.g,t-1)*o.mult);
+    const pNow=upper((best-mu-o.aim)/sd), last=switches.length? switches[switches.length-1] : -99;
+    if(o.re==="auto" && n*pNow < o.th && t-last>=10){ mu=best-o.gap; sd=o.sd; switches.push(t); }
+    const draw=mu+o.aim+sd*drawMaxZ(n, R());
+    if(draw>best) best=draw;
+    path.push({t,best,p:upper((best-mu-o.aim)/sd)});
+  }
+  return {path,switches};
+}
+function renderTail(){
+  const q1=+$("tQ1").value, q2=+$("tQ2").value, cost=Math.pow(10,+$("tCost").value);
+  const re=$("tRe").value, gap=+$("tGap").value, sdN=+$("tSd").value, ai=$("tAI").checked;
+  const mult= ai? Math.pow(10,+$("tAIn").value) : 1, aim= ai? +$("tAIm").value : 0;
+  $("tReYW").hidden = re!=="once"; $("tThW").hidden = re!=="auto"; $("tThD").hidden = re!=="auto";
+  $("t-leg-new").hidden = re==="none"; $("t-leg-ai").hidden=!ai;
+  const Y=+$("tY").value; $("tReY").max=Y;
+  // panel A: bell curve
+  const xs=[], pdf=[]; for(let x=-4;x<=7.001;x+=0.02){ xs.push(+x.toFixed(2)); pdf.push(Math.exp(-x*x/2)/Math.sqrt(2*Math.PI)); }
+  const t1x=xs.filter(x=>x>=q1), t1y=t1x.map(x=>Math.exp(-x*x/2)/Math.sqrt(2*Math.PI));
+  const t2x=xs.filter(x=>x>=q2), t2y=t2x.map(x=>Math.exp(-x*x/2)/Math.sqrt(2*Math.PI));
+  const series=[{xs,ys:pdf,color:css("--ink"),width:2}];
+  const fills=[{xs:t1x,ys:t1y,color:css("--a"),alpha:0.3},{xs:t2x,ys:t2y,color:css("--b"),alpha:0.85}];
+  const hi=Math.max(q1,q2);
+  if(re!=="none"){ const m=hi-gap; const ny=xs.map(x=>Math.exp(-Math.pow((x-m)/sdN,2)/2)/(sdN*Math.sqrt(2*Math.PI))); series.push({xs,ys:ny,color:css("--c"),width:2}); fills.push({xs:xs.filter(x=>x>=hi), ys:xs.filter(x=>x>=hi).map(x=>Math.exp(-Math.pow((x-m)/sdN,2)/2)/(sdN*Math.sqrt(2*Math.PI))), color:css("--c"), alpha:0.25}); }
+  if(ai && aim>0){ series.push({xs,ys:xs.map(x=>Math.exp(-Math.pow(x-aim,2)/2)/Math.sqrt(2*Math.PI)),color:css("--e"),dash:true,width:1.6}); }
+  chart($("cvT1"),{x:[-4,7],y:[0,0.45],series,fills,vlines:[{x:q1,color:css("--a"),label:"cutoff 1"},{x:q2,color:css("--b"),label:"cutoff 2"}],xlabel:"Quality of a new try (sd from the old principle's average)",ylabel:"",yfmt:()=>"",xticks:[-4,-2,0,2,4,6]});
+  const p1=upper(q1), p2=upper(q2);
+  let st = stat("Cutoff "+q1.toFixed(1)+": chance a try beats it", fmtPct(p1*100)+" · "+oneIn(p1))
+         + stat("Expected cost of one improvement", fmtUSD(cost/p1))
+         + stat("Cutoff "+q2.toFixed(1)+": chance a try beats it", fmtPct(p2*100)+" · "+oneIn(p2))
+         + stat("Expected cost of one improvement", fmtUSD(cost/p2));
+  if(re!=="none"){ const pn=upper(gap/sdN); st+=stat("New principle: chance a try beats cutoff "+hi.toFixed(1), fmtPct(pn*100)+" · "+oneIn(pn)); }
+  if(ai&&aim>0){ st+=stat("AI-screened tries beat cutoff "+hi.toFixed(1), fmtPct(upper(hi-aim)*100)+" · "+oneIn(upper(hi-aim))); }
+  $("t-stats1").innerHTML=st;
+  // panel B: climb
+  const common={Y, n0:Math.pow(10,+$("tN").value), g:+$("tG").value/100, gap, sd:sdN, reY:+$("tReY").value, th:+$("tTh").value};
+  const base=simTail({...common, re:"none", mult:1, aim:0}, tSeed);
+  const mine=simTail({...common, re, mult, aim}, tSeed);
+  const xsB=base.path.map(d=>d.t);
+  const yb=[base.path.map(d=>d.best), mine.path.map(d=>d.best)];
+  let [lo,hb]=bounds(yb,false); lo=Math.min(0,lo);
+  chart($("cvT2"),{x:[0,Y],y:[lo,hb],series:[{xs:xsB,ys:yb[0],color:css("--ref")},{xs:xsB,ys:yb[1],color:css("--a")}],
+    vlines:mine.switches.map(t=>({x:t,color:css("--c")})), xlabel:"Year", ylabel:"Best quality found (sd)"});
+  const pb=[base.path.map(d=>d.p), mine.path.map(d=>d.p)];
+  let [pl,ph]=bounds(pb,true); ph=Math.min(ph,1);
+  chart($("cvT3"),{x:[0,Y],y:[pl,ph],ylog:true,series:[{xs:xsB,ys:pb[0],color:css("--ref")},{xs:xsB,ys:pb[1],color:css("--a")}],
+    vlines:mine.switches.map(t=>({x:t,color:css("--c")})), xlabel:"Year", ylabel:"P(next try is better)", yfmt:v=>fmtPct(v*100)});
+  const bEnd=base.path[base.path.length-1], mEnd=mine.path[mine.path.length-1];
+  const half=Math.floor(Y/2), bHalf=base.path[half].best;
+  let msg=`In this run, with one principle and no AI, the best idea reaches ${bEnd.best.toFixed(2)} sd after ${Y} years. It gained ${bHalf.toFixed(2)} sd in the first ${half} years and only ${(bEnd.best-bHalf).toFixed(2)} in the next ${Y-half}: the same effort buys less and less. By the end, ${oneIn(bEnd.p)} beats the best.`;
+  if(+$("tG").value>0) msg+=` Growing the number of tries ${$("tG").value}% a year keeps the climb going, but only because effort keeps rising.`;
+  if(re!=="none") msg+= mine.switches.length? ` Your program re-domained ${mine.switches.length===1? "once" : mine.switches.length+" times"} (green lines) and reached ${mEnd.best.toFixed(2)} sd.` : ` The program never re-domained in this run.`;
+  if(ai) msg+=` AI is on: ${fmtNum(mult)}× the tries and +${aim.toFixed(1)} sd better aim. Compare how much each lever moves the end point: more tries helps only logarithmically, better aim shifts the whole curve.`;
+  $("t-callout").textContent=msg;
+}
+["tQ1","tQ2","tCost","tN","tG","tY","tRe","tReY","tTh","tGap","tSd","tAI","tAIn","tAIm"].forEach(id=>$(id).addEventListener("input",renderTail));
+
+/* =============== TAB 3 =============== */
+bindOut("sN0",v=>v); bindOut("sR",v=>v.toFixed(1)); bindOut("sPhi",v=>v.toFixed(2)); bindOut("sT",v=>v);
+bindOut("sM",v=>v); bindOut("sK",v=>v+"%"); bindOut("sAIa",v=>v.toFixed(1)+"×"); bindOut("sAIp",v=>"+"+v.toFixed(2));
+function simSearch(N0, r, phi, T, m, kappa, reach){
+  const rm=r/(1+kappa*(m-1)); let N=N0; const out=[];
+  for(let t=0;t<=T;t++){
+    const K=Math.pow(N0,1-phi)*Math.pow(N,phi);
+    const Ke=Math.min(N, m*reach*K); const V=P2(Ke);
+    out.push({t,N,share:V/P2(N),V});
+    if(t===T) break;
+    const Nn=N+rm*V;
+    if(!isFinite(Nn)||Nn>1e60){ for(let k=t+1;k<=T;k++) out.push({t:k,N:Infinity,share:null}); break; }
+    N=Nn;
+  }
+  return out;
+}
+function renderSearch(){
+  const N0=+$("sN0").value, r=+$("sR").value/10000, phi=+$("sPhi").value, T=+$("sT").value, m=+$("sM").value, kappa=+$("sK").value/100;
+  const mode=$("sAI").value, a=+$("sAIa").value, dphi=+$("sAIp").value;
+  $("sAIaW").hidden=mode!=="reach"; $("sAIpW").hidden=mode!=="phi";
+  const aiOn=mode!=="none"; ["s-leg-ai","s-leg-ai2","s-leg-ai3"].forEach(id=>$(id).hidden=!aiOn);
+  const W=simSearch(N0,r,1,T,1,0,1);
+  const B=simSearch(N0,r,phi,T,m,kappa,1);
+  const A= mode==="reach"? simSearch(N0,r,phi,T,m,kappa,a) : mode==="phi"? simSearch(N0,r,Math.min(1,phi+dphi),T,m,kappa,1) : null;
+  const xs=B.map(d=>d.t);
+  const ys=[W.map(d=>d.N),B.map(d=>d.N)]; if(A) ys.push(A.map(d=>d.N));
+  let [lo,hi]=bounds(ys.slice(1),true); hi=Math.min(1e60, hi*100);
+  const ser=[{xs,ys:ys[0],color:css("--ref"),dash:true,width:1.6},{xs,ys:ys[1],color:css("--a")}]; if(A) ser.push({xs,ys:ys[2],color:css("--e")});
+  chart($("cvS1"),{x:[0,T],y:[lo,hi],ylog:true,series:ser,xlabel:"Period",ylabel:"Number of ideas"});
+  const gr = arr => arr.map((d,i)=> i===0||!isFinite(d.N)||!isFinite(arr[i-1].N)? null : (d.N/arr[i-1].N-1)*100);
+  const gW=gr(W), gB=gr(B), gA=A? gr(A):null;
+  const gys=[gB]; if(gA) gys.push(gA);
+  let [glo,ghi]=bounds(gys.concat([gW.map(v=> v!==null&&v<Math.max(...gB.filter(x=>x!==null),1)*3? v:null)]),false); glo=Math.min(0,glo);
+  const gser=[{xs,ys:gW,color:css("--ref"),dash:true,width:1.6},{xs,ys:gB,color:css("--a")}]; if(gA) gser.push({xs,ys:gA,color:css("--e")});
+  chart($("cvS2"),{x:[0,T],y:[glo,ghi],series:gser,xlabel:"Period",ylabel:"Growth of ideas (%)"});
+  const sh=[B.map(d=>d.share)]; if(A) sh.push(A.map(d=>d.share));
+  let [slo,shi]=bounds(sh,true); shi=Math.max(shi,1); if(shi>1) shi=1;
+  const sser=[{xs,ys:sh[0],color:css("--a")}]; if(A) sser.push({xs,ys:sh[1],color:css("--e")});
+  chart($("cvS3"),{x:[0,T],y:[slo,shi],ylog:true,series:sser,xlabel:"Period",ylabel:"Share visible",yfmt:v=>fmtPct(v*100)});
+  const rm=r/(1+kappa*(m-1));
+  const lastB=B[B.length-1], lastA=A? A[A.length-1]:null;
+  const gEnd=gB[gB.length-1], gMid=gB[Math.max(1,Math.floor(T/2))];
+  $("s-stats").innerHTML = stat("Ideas after "+T+" periods: everyone knows everything", fmtNum(W[W.length-1].N))
+    + stat("Ideas after "+T+" periods: your settings", fmtNum(lastB.N))
+    + (A? stat("Ideas after "+T+" periods: with AI", fmtNum(lastA.N)) : "")
+    + stat("Share of all pairs your team can see at the end", lastB.share!==null? fmtPct(lastB.share*100) : "—")
+    + stat("Exponent on N in the growth rate, 2φ − 1", (2*phi-1).toFixed(2));
+  let msg;
+  if (Math.abs(phi-0.5)<0.026) msg=`At φ = ½, the pairs each person can see grow exactly as fast as the stock of ideas, so ideas grow at a steady rate (about ${gEnd!==null? gEnd.toFixed(1):"–"}% per period).`;
+  else if (phi>0.5) msg=`With φ above ½, what each person knows keeps up well enough that the growth rate rises over time: an explosion, like tab 1, only slower.`;
+  else msg=`With φ below ½, each person sees a shrinking share of the possibilities and the growth rate falls (from ${gMid!==null?gMid.toFixed(1):"–"}% at mid-run to ${gEnd!==null?gEnd.toFixed(1):"–"}% at the end). Knowledge piles up faster than anyone can combine it.`;
+  if (m>1) msg+=` Teams of ${m} see more combinations, but coordination cuts the useful share to ${(rm*100).toFixed(2)}%.`;
+  if (mode==="reach") msg+=` AI multiplies everyone's reach by ${a}×, which multiplies the pairs they can see, and so the growth rate, by about ${(a*a).toFixed(1)}×. Look at the growth-rate chart: the purple line sits higher, but it has the same shape. If φ < ½ it still trends down.`;
+  if (mode==="phi") msg+=` AI raises φ to ${Math.min(1,phi+dphi).toFixed(2)}. That changes the exponent, so it changes the shape of growth, not just its level.`;
+  $("s-callout").textContent=msg;
+}
+["sN0","sR","sPhi","sT","sM","sK","sAI","sAIa","sAIp"].forEach(id=>$(id).addEventListener("input",renderSearch));
+
+/* ---------- render ---------- */
+function renderAll(){
+  const sel=tabs.find(b=>b.getAttribute("aria-selected")==="true").id;
+  if(sel==="tab-comb") renderComb(); else if(sel==="tab-tail") renderTail(); else renderSearch();
+}
+let rz; window.addEventListener("resize",()=>{ clearTimeout(rz); rz=setTimeout(renderAll,120); });
+if (window.matchMedia) window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",renderAll);
+const h=(location.hash||"").replace("#",""); const start=tabs.find(b=>b.id==="tab-"+h)||tabs[0];
+selectTab(start);
+})();
+</script>
+</body>
+</html>
