@@ -72,10 +72,27 @@
   function normalizeExpr(s) {
     return String(s).replace(/α/g, 'alpha').replace(/θ/g, 'theta').replace(/σ/g, 'sigma').replace(/−/g, '-').replace(/·|×/g, '*').replace(/\*\*/g, '^');
   }
+  /* Forgiving front end for typed answers:
+     - "ln(y) = ..." or "dY/dK = ..." -> keep only the right-hand side
+     - "ln A", "lnA", "ln k"           -> ln(A), ln(k)   (single-letter variables)
+     - "alpha(1-alpha)"                -> alpha*(1-alpha) (a variable is never a function) */
+  function prepExpr(raw, vars) {
+    let s = normalizeExpr(raw).trim();
+    let lhs = '';
+    const eq = s.lastIndexOf('=');
+    if (eq >= 0) { lhs = s.slice(0, eq).replace(/=+$/, '').trim(); s = s.slice(eq + 1).trim(); }
+    const single = vars.filter(v => v.length === 1).join('');
+    if (single) {
+      const re = new RegExp('\\b(ln|log)\\s*([' + single + '])(?![A-Za-z0-9_(])', 'g');
+      s = s.replace(re, '$1($2)');
+    }
+    for (const v of vars) s = s.replace(new RegExp('\\b' + v + '\\s*\\(', 'g'), v + '*(');
+    return { s, lhs };
+  }
   function parseExpr(raw, vars) {
     setupMath();
     if (!window.math) return { error: 'The algebra checker didn’t load. Check your connection and reload the page.' };
-    const s = normalizeExpr(raw).trim();
+    const s = prepExpr(raw, vars).s;
     if (!s) return { empty: true };
     let node;
     try { node = window.math.parse(s); } catch (e) { return { error: 'I couldn’t parse that expression. Check your parentheses, and use * for multiplication and ^ for powers.' }; }
@@ -88,6 +105,8 @@
     });
     if (bad.length) {
       const nm = bad[0];
+      const flip = vars.find(v => v.toLowerCase() === String(nm).toLowerCase());
+      if (flip) return { error: `Letters are case-sensitive: this problem uses <code>${flip}</code>, not <code>${nm}</code>.` };
       return { error: `I don’t recognize <code>${nm}</code>. Use only ${vars.map(v => '<code>' + v + '</code>').join(', ')}, and put * between letters (write <code>alpha*K</code>, not <code>alphaK</code>).` };
     }
     return { node };
@@ -97,7 +116,7 @@
      picture keeps up with the typing instead of waiting for valid syntax. */
   function renderPreview(raw, vars, box, note) {
     setupMath();
-    const s = normalizeExpr(raw).trim();
+    const prep = prepExpr(raw, vars); const s = prep.s;
     note.textContent = ''; note.className = 'me-note';
     if (!s) { box.innerHTML = '<span class="ph">The formatted equation appears here as you type.</span>'; box.classList.remove('partial'); return; }
     if (!window.math || !window.katex) { box.textContent = s; return; }
@@ -114,7 +133,14 @@
       // while K^alpha-1 visibly shows as K^alpha minus 1. Single letters stay italic,
       // and multiplication dots between letters are dropped to match textbook style.
       let tex = node.toTex({ parenthesis: 'auto', implicit: 'hide' });
-      tex = tex.replace(/\\mathrm\{([A-Za-z])\}/g, '$1').replace(/\\cdot(?!\s*[0-9.])/g, '\\,');
+      tex = tex.replace(/\\mathrm\{ln\}/g, '\\ln').replace(/\\mathrm\{([A-Za-z])\}/g, '$1').replace(/\\cdot(?!\s*[0-9.])/g, '\\,');
+      // ln(A) -> ln A, matching how the solutions are written
+      tex = tex.replace(/\\(ln|log)\\left\(\s*([A-Za-z]|\\[a-z]+)\s*\\right\)/g, '\\$1 $2');
+      if (prep.lhs) {
+        let lt = prep.lhs;
+        try { lt = window.math.parse(prepExpr(prep.lhs, vars.concat(['y', 'Y'])).s).toTex({ parenthesis: 'auto', implicit: 'hide' }).replace(/\\mathrm\{ln\}/g, '\\ln').replace(/\\mathrm\{([A-Za-z])\}/g, '$1').replace(/\\cdot/g, '\\,').replace(/\\(ln|log)\\left\(\s*([A-Za-z]|\\[a-z]+)\s*\\right\)/g, '\\$1 $2'); } catch (e) { lt = '\\text{' + prep.lhs.replace(/[{}\\]/g, '') + '}'; }
+        tex = lt + ' = ' + tex;
+      }
       window.katex.render(tex, box, { throwOnError: false, displayMode: false });
     } catch (e) { box.textContent = s; }
     box.classList.toggle('partial', partial);
@@ -334,7 +360,7 @@
     return { row, inp };
   }
   function unitNote(spec) {
-    if (spec.type === 'expr') return 'Type it like a calculator: <code>*</code> to multiply, <code>^</code> for powers, <code>ln( )</code> for logs. Greek letters: <code>alpha</code>, <code>theta</code>.';
+    if (spec.type === 'expr') return 'Type it like a calculator: <code>*</code> to multiply, <code>^</code> for powers, <code>ln( )</code> for logs. Greek letters: <code>alpha</code>, <code>theta</code>. You can write the whole equation (<code>ln(y) = …</code>) or just the right-hand side.';
     if (spec.unit === 'pct') return 'Enter a percent (3.2 means 3.2%). About 3 significant digits is fine.';
     return spec.unitNote || 'About 3 significant digits is fine. You can type arithmetic like 2^1.5 or 15100*8880/1240.';
   }
