@@ -1,0 +1,33 @@
+---
+title: "Math toolkit for Econ 432"
+subtitle: "Interactive refreshers on the math used in lecture"
+page-layout: full
+resources:
+  - app.html
+  - engine.js
+  - content.js
+---
+
+Short, interactive refreshers on the math that Econ 432 lectures use. Each skill explains one idea with an example from class, then gives practice problems. If you get an answer wrong, you get feedback aimed at the most likely mistake, and you can break any problem into steps and solve it one piece at a time. Use **By lecture** to find the math behind a particular class. Two modules are ready now, Logarithms and Cobb-Douglas & CES; more are on the way. Everything runs in your browser, and progress is saved only on your own device.
+
+[Open the toolkit full screen ↗](app.html){target="_blank"}
+
+```{=html}
+<iframe id="mt-app" title="Econ 432 math toolkit" style="width:100%;border:0;min-height:1400px;display:block" loading="eager"></iframe>
+<script>
+(function(){
+  var f=document.getElementById('mt-app');
+  // Pass any #skill-id in this page's URL through to the app, so links like
+  // .../math-toolkit/#log-rules open that skill directly.
+  f.src='app.html'+(location.hash||'');
+  function fit(){try{var d=f.contentWindow.document;f.style.height=(d.documentElement.scrollHeight+4)+'px';}catch(e){}}
+  f.addEventListener('load',function(){fit();try{new f.contentWindow.ResizeObserver(fit).observe(f.contentWindow.document.body);}catch(e){}});
+  window.addEventListener('resize',fit);
+  // Keep this page's URL in sync with the app so the address bar is shareable.
+  window.addEventListener('message',function(e){
+    if(e.source!==f.contentWindow||!e.data||e.data.type!=='math-toolkit-hash')return;
+    try{history.replaceState(null,'',location.pathname+location.search+(e.data.hash||''));}catch(err){}
+  });
+})();
+</script>
+```
