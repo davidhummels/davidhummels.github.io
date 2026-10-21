@@ -92,6 +92,40 @@
     }
     return { node };
   }
+  /* Live preview: render on every keystroke. Half-finished input (an open
+     parenthesis, a trailing ^ or *) is patched just for display so the
+     picture keeps up with the typing instead of waiting for valid syntax. */
+  function renderPreview(raw, vars, box, note) {
+    setupMath();
+    const s = normalizeExpr(raw).trim();
+    note.textContent = ''; note.className = 'me-note';
+    if (!s) { box.innerHTML = '<span class="ph">The formatted equation appears here as you type.</span>'; box.classList.remove('partial'); return; }
+    if (!window.math || !window.katex) { box.textContent = s; return; }
+    let node = null, partial = false;
+    try { node = window.math.parse(s); } catch (e) {
+      let t = s.replace(/[+\-*/^(\s]+$/, '');
+      const open = (t.match(/\(/g) || []).length - (t.match(/\)/g) || []).length;
+      if (open > 0) t += ')'.repeat(open);
+      try { if (t) { node = window.math.parse(t); partial = true; } } catch (e2) { node = null; }
+    }
+    if (!node) { box.classList.add('partial'); note.textContent = 'Keep typing… (this doesn’t parse yet)'; return; }
+    try {
+      // 'auto' drops grouping parentheses, so K^(alpha-1) shows as a clean exponent,
+      // while K^alpha-1 visibly shows as K^alpha minus 1. Single letters stay italic,
+      // and multiplication dots between letters are dropped to match textbook style.
+      let tex = node.toTex({ parenthesis: 'auto', implicit: 'hide' });
+      tex = tex.replace(/\\mathrm\{([A-Za-z])\}/g, '$1').replace(/\\cdot(?!\s*[0-9.])/g, '\\,');
+      window.katex.render(tex, box, { throwOnError: false, displayMode: false });
+    } catch (e) { box.textContent = s; }
+    box.classList.toggle('partial', partial);
+    if (partial) { note.textContent = 'Unfinished: missing parentheses are filled in for the preview.'; return; }
+    const unknown = [];
+    node.traverse((n, path, parent) => {
+      if (n.isSymbolNode && !(parent && parent.isFunctionNode && path === 'fn') && !vars.includes(n.name) && n.name !== 'e' && n.name !== 'pi' && !unknown.includes(n.name)) unknown.push(n.name);
+    });
+    if (unknown.length) { note.className = 'me-note warn'; note.innerHTML = `<code>${unknown[0]}</code> isn’t one of the variables. Put * between letters, e.g. <code>alpha*K</code>.`; }
+  }
+
   function atomicLogs(node) {
     let ok = true;
     node.traverse(n => {
@@ -423,18 +457,28 @@
           }
         };
         const { row, inp } = inputFor(spec, doCheck);
-        row.appendChild(h('button', { class: 'primary', onclick: doCheck }, 'Check'));
-        if (spec.unit === 'pct') row.appendChild(h('span', { class: 'unit' }, '%'));
-        card.appendChild(row);
-        const prev = h('div', { class: 'preview' });
         if (spec.type === 'expr') {
-          card.appendChild(prev);
-          inp.addEventListener('input', () => {
-            const r = parseExpr(inp.value, Object.keys(spec.vars));
-            if (r.node && window.katex) {
-              try { prev.innerHTML = 'You typed: <span class="k"></span>'; window.katex.render(r.node.toTex({ parenthesis: 'keep', implicit: 'show' }), prev.querySelector('.k'), { throwOnError: false }); } catch (e) { prev.textContent = ''; }
-            } else prev.textContent = inp.value.trim() ? '…' : '';
-          });
+          // Side-by-side entry: what you type on the left, the formatted equation on the right.
+          const entry = h('div', { class: 'math-entry' });
+          const left = h('div', { class: 'me-col' });
+          left.appendChild(h('div', { class: 'me-label' }, 'You type'));
+          left.appendChild(inp);
+          const right = h('div', { class: 'me-col' });
+          right.appendChild(h('div', { class: 'me-label' }, 'It reads as'));
+          const box = h('div', { class: 'preview-box', 'aria-live': 'polite' }, '<span class="ph">The formatted equation appears here as you type.</span>');
+          const note = h('div', { class: 'me-note' });
+          right.appendChild(box);
+          left.appendChild(note);
+          entry.appendChild(left); entry.appendChild(right);
+          card.appendChild(entry);
+          const update = () => renderPreview(inp.value, Object.keys(spec.vars), box, note);
+          inp.addEventListener('input', update);
+          row.appendChild(h('button', { class: 'primary', onclick: doCheck }, 'Check'));
+          card.appendChild(row);
+        } else {
+          row.appendChild(h('button', { class: 'primary', onclick: doCheck }, 'Check'));
+          if (spec.unit === 'pct') row.appendChild(h('span', { class: 'unit' }, '%'));
+          card.appendChild(row);
         }
         card.appendChild(h('div', { class: 'unit' }, unitNote(spec)));
       }

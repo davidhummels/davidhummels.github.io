@@ -101,8 +101,16 @@ button.link:hover{text-decoration:underline}
 button:disabled{opacity:.45;cursor:default}
 button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .unit{font-size:13px;color:var(--muted)}
-.preview{font-size:14px;color:var(--muted);min-height:1.6em;overflow-x:auto}
-.preview .k{color:var(--ink)}
+.math-entry{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;max-width:820px}
+@media (max-width:640px){.math-entry{grid-template-columns:1fr}}
+.me-col{display:flex;flex-direction:column;gap:4px;min-width:0}
+.me-label{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.math-entry input[type=text]{width:100%;max-width:none;min-height:52px}
+.preview-box{min-height:52px;display:flex;align-items:center;padding:6px 14px;border:1px solid var(--accent);border-radius:6px;background:var(--accent-soft);font-size:19px;overflow-x:auto;overflow-y:hidden;color:var(--ink)}
+.preview-box.partial{opacity:.55;border-style:dashed}
+.preview-box .ph{font-size:13px;color:var(--muted);font-family:var(--f-body)}
+.me-note{font-size:12.5px;color:var(--muted);min-height:1.2em}
+.me-note.warn{color:var(--bad)}
 .fb{border-radius:8px;padding:10px 14px;font-size:15px;max-width:74ch}
 .fb p{margin:0 0 6px}.fb p:last-child{margin:0}
 .fb.ok{background:var(--ok-soft);border-left:3px solid var(--ok)}
