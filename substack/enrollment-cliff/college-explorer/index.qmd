@@ -1,0 +1,98 @@
+---
+title: "College explorer: students in your recruiting area"
+subtitle: "Expected recent high-school graduates in each college's recruiting area, 2025–2042"
+---
+
+Every college recruits from its own mix of counties and states. This tool combines where a college drew its first-time students in 2022 and 2024 with forecasts of how many young people in those places will go to that kind of college, through the high-school class of 2042. It shows how the college's recruiting area changes (class of 2024 = 100) and how much the college relies on out-of-state students from states whose numbers of 17-year-olds are shrinking. **This is demographics, not a prediction of the college's enrollment**: prices, programs, recruiting and competition will decide what actually happens.
+
+**Data:** IPEDS fall enrollment by state of residence (2022, 2024) and recent high-school graduates (2024); SEER county population projections; American Community Survey 2022–24; High School Longitudinal Study of 2009. Colleges with at least 25 recent high-school graduates in fall 2024. Forecasts by David Hummels (working paper in progress). Related posts: [Finding Equilibrium on Substack](https://findingequilibriumfuturehighered.substack.com/).
+
+```{ojs}
+//| echo: false
+colleges = FileAttachment("../data/colleges.csv").csv({typed: true})
+series = FileAttachment("../data/college_series.csv").csv({typed: true})
+LAB = new Map([["two_year", "Two-year"], ["reg_public", "Regional public"], ["reg_private", "Regional private"],
+  ["sel_public", "Highly selective public"], ["sel_private", "Highly selective private"]])
+labelOf = d => `${d.name} (${d.city}, ${d.state})`
+byLabel = new Map(colleges.map(d => [labelOf(d), d]))
+```
+
+```{ojs}
+//| echo: false
+viewof pick = Inputs.text({label: "Find a college", placeholder: "Type part of a name, e.g. Purdue", datalist: [...byLabel.keys()].sort(),
+  value: "Purdue University-Main Campus (West Lafayette, IN)", width: 520})
+```
+
+```{ojs}
+//| echo: false
+c = byLabel.get(pick) ?? colleges.find(d => d.name.toLowerCase().includes(pick.toLowerCase()))
+s = c ? series.filter(d => d.unitid === c.unitid) : []
+pct = x => x == null || Number.isNaN(x) ? "n/a" : `${(100 * x).toFixed(0)}%`
+chg = x => x == null || Number.isNaN(x) ? "n/a" : `${x > 0 ? "+" : ""}${x.toFixed(1)}%`
+```
+
+```{ojs}
+//| echo: false
+c ? md`### ${c.name}
+${c.city}, ${c.state} · ${LAB.get(c.dest)} · ${Math.round(c.hs_2024).toLocaleString("en-US")} recent high-school graduates enrolled in fall 2024` : md`*No college matches "${pick}".*`
+```
+
+```{ojs}
+//| echo: false
+c ? Plot.plot({
+  height: 300, marginLeft: 50,
+  x: {label: "High-school class", tickFormat: "d"},
+  y: {label: "Recruiting-area demand (class of 2024 = 100)", grid: true},
+  color: {legend: true, domain: ["Income as rank", "Income +0.9%/yr", "Births only (no migration)"], range: ["#1f4e79", "#5b8fc1", "#888"]},
+  marks: [
+    Plot.areaY(s, {x: "cls", y1: d => d.lo - d.band, y2: d => d.lo + d.band, fill: "#1f4e79", fillOpacity: 0.12}),
+    Plot.ruleY([100], {stroke: "#ccc"}),
+    Plot.line(s, {x: "cls", y: "lo", stroke: () => "Income as rank", strokeWidth: 2}),
+    Plot.line(s, {x: "cls", y: "hi", stroke: () => "Income +0.9%/yr", strokeWidth: 2}),
+    Plot.line(s, {x: "cls", y: "births_lo", stroke: () => "Births only (no migration)", strokeDasharray: "4,3"}),
+    Plot.tip(s, Plot.pointerX({x: "cls", y: "lo", title: d => `Class of ${d.cls}\nIncome as rank: ${d.lo.toFixed(1)}\nIncome +0.9%/yr: ${d.hi.toFixed(1)}\nBirths only: ${d.births_lo.toFixed(1)}`}))
+  ]
+}) : md``
+```
+
+```{ojs}
+//| echo: false
+{
+  if (!c) return md``;
+  const e = s.find(d => d.cls === 2042) ?? {};
+  const pred = c.dest.startsWith("sel") ? `For highly selective colleges the tool shows demand only: their enrollment has not tracked local demand (they ration seats), so no enrollment change is implied.`
+    : `At the pass-through estimated for ${LAB.get(c.dest).toLowerCase()} colleges (${c.beta.toFixed(2)}: a recruiting area 10% smaller has meant about ${(10 * c.beta).toFixed(0)}% fewer recent graduates, relative to similar colleges), this implies **${chg(e.pred_lo_pct)} to ${chg(e.pred_hi_pct)}** in recent high-school graduates by 2042 if nothing else changes.`;
+  return md`**By the class of 2042** the number of students the recruiting area produces for this kind of college changes by **${chg(Math.min(e.lo, e.hi) - 100)} to ${chg(Math.max(e.lo, e.hi) - 100)}** relative to 2024 (${chg(e.births_lo - 100)} with no migration). ${pred}
+
+**Where students come from.** ${pct(c.oos_share_2022_24)} of first-time students from the U.S. came from out of state in 2022–24 (${pct(c.oos_share_2000_04)} in 2000–04). Largest out-of-state sources: ${c.top_origin_states || "none"}. The number of 17-year-olds falls ${chg(c.home_state_n17_chg_2024_42)} in ${c.state} between 2024 and 2042${c.oos_origin_n17_chg_2024_42 == null || Number.isNaN(c.oos_origin_n17_chg_2024_42) ? "" : `, and ${chg(c.oos_origin_n17_chg_2024_42)} on average in the states its out-of-state students come from`}. Of the change in demand by 2042, ${c.demand_chg_from_home_pts.toFixed(1)} points come from the home state and ${c.demand_chg_from_oos_pts.toFixed(1)} from out of state (income as rank).`;
+}
+```
+
+## Compare colleges
+
+Change in recruiting-area demand from the class of 2024 to 2042, under each income assumption, and the share of first-time students from out of state (2022–24). Click a column to sort.
+
+```{ojs}
+//| echo: false
+viewof stateF = Inputs.select(["All", ...new Set(colleges.map(d => d.state))].sort(), {label: "State", value: "All"})
+viewof destF = Inputs.select(new Map([["All kinds", "all"], ...[...LAB].map(([k, v]) => [v, k])]), {label: "Kind of college", value: "all"})
+```
+
+```{ojs}
+//| echo: false
+s42 = new Map(series.filter(d => d.cls === 2042).map(d => [d.unitid, d]))
+tbl = colleges.filter(d => (stateF === "All" || d.state === stateF) && (destF === "all" || d.dest === destF)).map(d => ({
+  College: d.name, St: d.state, Kind: LAB.get(d.dest), "HS grads 2024": d.hs_2024,
+  "2042 (rank)": s42.get(d.unitid)?.lo - 100, "2042 (+0.9%)": s42.get(d.unitid)?.hi - 100,
+  "Out of state": d.oos_share_2022_24}))
+Inputs.table(tbl, {sort: "HS grads 2024", reverse: true, rows: 15, layout: "auto",
+  width: {College: 280, St: 40, Kind: 160},
+  format: {"HS grads 2024": x => Math.round(x).toLocaleString("en-US"), "2042 (rank)": chg, "2042 (+0.9%)": chg, "Out of state": pct}})
+```
+
+## How to read this
+
+- **Recruiting-area demand** is the number of students the college's recruiting area is expected to produce for its kind of college, using where the college drew first-time students in 2022 and 2024 (by state, and within each state by distance and population) and expected college-going in each county. Students from abroad or of unknown residence are held constant.
+- **The two blue lines** bracket family income: "as rank" counts no real income gains; "+0.9%/yr" adds real income growth at its 2009–24 pace. The shaded band shows typical error in the population projection alone at each distance ahead. **Dashed:** no migration.
+- **Behavior is held at 2024.** National shifts, such as the 2012–24 decline in recent graduates starting at community colleges, are not projected forward.
+- **Out-of-state reliance.** A college that recruits heavily from states with steep declines (for example Illinois, California or New Mexico, each down 28 to 32 percent by 2042) faces a larger fall than its home state's numbers suggest.

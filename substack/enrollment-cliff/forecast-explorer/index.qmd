@@ -1,0 +1,122 @@
+---
+title: "Forecast explorer: the enrollment cliff by kind of college"
+subtitle: "Recent high-school graduates entering five kinds of colleges, actual 2012–2024 and forecast to 2042"
+---
+
+The number of 17-year-olds in the U.S. falls about 16 percent between the high-school classes of 2025 and 2042, but the students who start college right after high school will not fall evenly across kinds of colleges. Today's children have more educated parents than earlier generations, and children of college graduates are far more likely to attend selective colleges. This tool shows the expected number of recent high-school graduates entering each kind of college, as an index (class of 2024 = 100) or in students, for the nation, a census division or a state. Use the controls to change the assumptions.
+
+**Data:** IPEDS first-time students who finished high school in the prior twelve months, by state of residence, 2012–2024; county population projections from SEER estimates; family backgrounds from the 2022–24 American Community Survey; college-going patterns from the High School Longitudinal Study of 2009. Forecasts by David Hummels (working paper in progress). Related posts: [Finding Equilibrium on Substack](https://findingequilibriumfuturehighered.substack.com/).
+
+```{ojs}
+//| echo: false
+geoData = FileAttachment("../data/geo_series.csv").csv({typed: true})
+tuData = FileAttachment("../data/total_undergrad.csv").csv({typed: true})
+seats = FileAttachment("../data/seats.csv").csv({typed: true})
+DEST = ["two_year", "reg_public", "reg_private", "sel_public", "sel_private"]
+LAB = new Map([["two_year", "Two-year"], ["reg_public", "Regional public"], ["reg_private", "Regional private"],
+  ["sel_public", "Highly selective public"], ["sel_private", "Highly selective private"]])
+```
+
+```{ojs}
+//| echo: false
+viewof geoType = Inputs.radio(["Nation", "Census division", "State"], {value: "Nation", label: "Area"})
+```
+
+```{ojs}
+//| echo: false
+geoOptions = geoType === "Nation" ? ["United States"]
+  : [...new Set(geoData.filter(d => d.geo_type === (geoType === "State" ? "state" : "division")).map(d => d.geo))].sort()
+viewof geo = Inputs.select(geoOptions, {label: geoType === "State" ? "State" : geoType === "Nation" ? "Area" : "Division"})
+```
+
+```{ojs}
+//| echo: false
+viewof income = Inputs.radio(new Map([["Income as rank (no real income growth)", "lo"], ["Real family income grows 0.9% a year", "hi"]]),
+  {value: "lo", label: "Family income"})
+viewof behavior = Inputs.radio(new Map([["Stays as in 2024", "hold"], ["Drifts back to 2012 patterns by 2042", "drift"]]),
+  {value: "hold", label: "College-going behavior"})
+viewof cohort = Inputs.radio(new Map([["Recent migration continues", "main"], ["Births only (no migration)", "births"]]),
+  {value: "main", label: "Population"})
+viewof measure = Inputs.radio(new Map([["Entering students (recent high-school graduates)", "entrants"],
+  ["Total undergraduates (implied; nation only)", "total"]]), {value: "entrants", label: "Measure"})
+viewof units = Inputs.radio(["Index (2024 = 100)", "Students"], {value: "Index (2024 = 100)", label: "Units"})
+viewof seatsOn = Inputs.radio(new Map([["Demand (no seat limit)", false], ["Highly selective colleges keep 2024 seats (nation only)", true]]),
+  {value: false, label: "Seats"})
+```
+
+```{ojs}
+//| echo: false
+col = `${income}_${cohort}_${behavior}`
+useTotal = measure === "total" && geoType === "Nation"
+rows = {
+  const src = useTotal ? tuData.map(d => ({...d, geo: "United States", actual_idx: d.cls === 2024 ? 100 : null}))
+                       : geoData.filter(d => d.geo === geo && (geoType === "Nation" ? d.geo_type === "nation" : d.geo_type === (geoType === "State" ? "state" : "division")));
+  const scale = d => units === "Students" ? d.base_2024 / 100 : 1;
+  const out = [];
+  for (const d of src) {
+    const s = scale(d);
+    const fixed = seatsOn && geoType === "Nation" && !useTotal && d.dest.startsWith("sel") && d.cls >= 2024;
+    if (d.actual_idx != null && !Number.isNaN(d.actual_idx)) out.push({dest: d.dest, cls: d.cls, v: d.actual_idx * s, kind: "Actual"});
+    if (d.cls >= 2024 && d[col] != null) {
+      out.push({dest: d.dest, cls: d.cls, v: (fixed ? 100 : d[col]) * s, kind: "Forecast",
+        lo: !useTotal && cohort === "main" && behavior === "hold" && !fixed ? d[`${income}_band_lo`] * s : null,
+        hi: !useTotal && cohort === "main" && behavior === "hold" && !fixed ? d[`${income}_band_hi`] * s : null});
+    }
+  }
+  return out;
+}
+```
+
+```{ojs}
+//| echo: false
+Plot.plot({
+  width: Math.max(width, 900), height: 320, marginLeft: units === "Students" ? 80 : 55, marginBottom: 35, marginRight: 20,
+  fx: {domain: DEST, tickFormat: d => LAB.get(d), label: null, padding: 0.12},
+  x: {label: null, tickFormat: "d", ticks: [2012, 2024, 2042], domain: [2012, 2042], inset: 6},
+  y: {label: units === "Students" ? (useTotal ? "Undergraduates" : "Students") : "Class of 2024 = 100", grid: true, zero: units === "Students"},
+  marks: [
+    Plot.areaY(rows.filter(d => d.lo != null), {fx: "dest", x: "cls", y1: "lo", y2: "hi", fill: "#1f4e79", fillOpacity: 0.15}),
+    Plot.ruleY(units === "Students" ? [] : [100], {stroke: "#ccc"}),
+    Plot.line(rows.filter(d => d.kind === "Actual"), {fx: "dest", x: "cls", y: "v", stroke: "#222", strokeWidth: 2}),
+    Plot.dot(rows.filter(d => d.kind === "Actual"), {fx: "dest", x: "cls", y: "v", fill: "#222", r: 2.5}),
+    Plot.line(rows.filter(d => d.kind === "Forecast"), {fx: "dest", x: "cls", y: "v", stroke: "#1f4e79", strokeWidth: 2}),
+    Plot.tip(rows, Plot.pointerX({fx: "dest", x: "cls", y: "v",
+      title: d => `${LAB.get(d.dest)}, class of ${d.cls}\n${d.kind}: ${units === "Students" ? Math.round(d.v).toLocaleString("en-US") : d.v.toFixed(1)}`}))
+  ]
+})
+```
+
+<div style="font-size: 0.85em; color: #555;">Black: actual (even years). Blue: forecast. Shaded: uncertainty in the population projection alone, from how far the method missed in past tests at the same distance ahead (shown for the default population and behavior settings).</div>
+
+```{ojs}
+//| echo: false
+change = DEST.map(k => {
+  const f = rows.filter(d => d.dest === k && d.kind === "Forecast");
+  const at = t => f.find(d => d.cls === t)?.v;
+  const pct = t => at(2025) ? 100 * (at(t) / at(2025) - 1) : null;
+  return {"Kind of college": LAB.get(k), "Class of 2024": units === "Students" ? Math.round(at(2024)).toLocaleString("en-US") : "100",
+    "2025 → 2030": pct(2030), "2025 → 2035": pct(2035), "2025 → 2042": pct(2042)};
+})
+Inputs.table(change, {format: {"2025 → 2030": x => x == null ? "" : `${x.toFixed(1)}%`, "2025 → 2035": x => x == null ? "" : `${x.toFixed(1)}%`,
+  "2025 → 2042": x => x == null ? "" : `${x.toFixed(1)}%`}, layout: "auto"})
+```
+
+```{ojs}
+//| echo: false
+{
+  if (!seatsOn || geoType !== "Nation" || useTotal) return html``;
+  const s = seats.filter(d => d.income === income);
+  const f = (k, t, c) => s.find(d => d.dest === k && d.cls === t)?.[c];
+  const n = x => Math.round(x).toLocaleString("en-US");
+  return md`**Fixed seats.** If highly selective colleges keep their 2024 seats (${n(f("sel_public", 2035, "seats"))} recent graduates at publics, ${n(f("sel_private", 2035, "seats"))} at privates), demand at today's behavior exceeds those seats in 2035 by **${n(f("sel_public", 2035, "excess_vs_current"))}** at publics and **${n(f("sel_private", 2035, "excess_vs_current"))}** at privates (2042: ${n(f("sel_public", 2042, "excess_vs_current"))} and ${n(f("sel_private", 2042, "excess_vs_current"))}). At 2012 behavior the private excess would be ${n(f("sel_private", 2035, "excess_vs_2012"))} in 2035. Excess demand shows up as pressure on admissions and price, not as students turned away from college: the tool does not reassign them elsewhere. Negative numbers mean demand falls below the fixed seats.`;
+}
+```
+
+## How to read this
+
+- **Kinds of colleges.** Two-year colleges; regional (less selective) public and private four-year colleges; highly selective public and private colleges (the Carnegie 2005 "more selective" group). They are kept separate because they move in opposite directions.
+- **What is held fixed.** For each kind of college, the 2024 ratio of actual enrollment to what demography predicts. Between 2012 and 2024 that ratio fell 11 to 12 percent at two-year colleges, about 10 percent at regional privates and 17 to 21 percent at selective privates, and rose 7 to 13 percent at selective publics. "Drifts back to 2012 patterns" moves it gradually back to its 2012 value by 2042.
+- **Family background.** Each future high-school class is scored using today's children of the same age, with their parents' education carried forward to age 17 as it has risen for earlier generations. Income: "as rank" counts no gain in real income; "+0.9%" adds real income growth at its 2009–24 pace.
+- **Population.** "Recent migration continues" uses county projections that carry forward recent moves and immigration (damped). "Births only" assumes no migration at all: a low case if immigration stays low.
+- **Total undergraduates** (nation only) is a translation, not a forecast: students under 25 follow the entering classes with typical persistence; students 25 and over follow the adult population. It shows that total enrollment falls later and less than entering classes.
+- **Not an enrollment prediction.** These are expected numbers of students given demography and today's behavior. Prices, programs, closures, recruiting and the economy will move actual enrollment.

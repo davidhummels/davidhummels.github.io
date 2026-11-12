@@ -24,6 +24,8 @@ website:
           # Hidden until the white paper draft is ready (David, 2026-10-04); uncomment to restore:
           # - href: substack/completion-efficiency/index.qmd
           #   text: Completion Efficiency
+          - href: substack/enrollment-cliff/index.qmd
+            text: "Who's Afraid of the Demographic Cliff?"
           - text: "---"
           - href: https://findingequilibriumfuturehighered.substack.com/
             text: Read on Substack ↗

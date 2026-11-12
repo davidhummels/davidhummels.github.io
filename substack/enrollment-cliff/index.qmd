@@ -1,0 +1,30 @@
+---
+title: "Who's Afraid of the Demographic Cliff?"
+subtitle: "How the coming fall in 17-year-olds reaches different kinds of colleges, and individual campuses"
+---
+
+::: {.status-tag}
+In progress
+:::
+
+## The question
+
+The number of American 17-year-olds peaks with the high-school classes of 2025 and 2026 and falls about 16 percent by 2042. This project asks how much of that decline reaches each kind of college, and each campus. It combines county population projections, the family backgrounds of today's children (how many have college-educated parents, family income), national survey evidence on who goes to which kind of college, and where each college actually recruits its students.
+
+Two findings shape everything here. First, the decline is not shared evenly: rising parental education and income offset much of it at highly selective colleges and almost none of it at community colleges. Second, demography is only part of the story. Between 2012 and 2024, changes in college-going behavior, such as fewer recent graduates starting at community colleges, mattered as much as the number of students.
+
+## Posts
+
+<!-- TODO: link posts as they're published, newest first:
+- [Post title](https://findingequilibriumfuturehighered.substack.com/p/slug) (Month YYYY)
+-->
+*First post coming soon.* Follow along at [Finding Equilibrium](https://findingequilibriumfuturehighered.substack.com/).
+
+## Interactive tools
+
+- [**Forecast explorer**](forecast-explorer/index.html): recent high-school graduates entering five kinds of colleges, actual 2012–2024 and forecast to 2042, for the nation, census divisions and states, under different assumptions about income, behavior and migration.
+- [**College explorer**](college-explorer/index.html): for a single college, how many students its recruiting area is expected to produce through 2042, and how much it depends on states whose numbers of young people are shrinking.
+
+## Data and methods
+
+Forecasts are by David Hummels from a working paper in progress. Sources: SEER county population estimates; American Community Survey (IPUMS USA), 2007–2024; the High School Longitudinal Study of 2009 (NCES); IPEDS fall enrollment by state of residence, 2000–2024. "Highly selective" means the Carnegie 2005 "more selective" four-year colleges. Numbers are forecasts of demographic pressure, not predictions of any college's enrollment.

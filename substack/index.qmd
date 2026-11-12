@@ -21,7 +21,15 @@ Each project has its own page with the posts it supports, the data behind them, 
 
 -->
 
-*Projects will be listed here as they launch.*
+::: {.g-col-12 .g-col-md-6}
+<a class="section-card" href="enrollment-cliff/index.html">
+<span class="status-tag">In progress</span>
+<h3>Who's Afraid of the Demographic Cliff?</h3>
+<p>How the coming fall in 17-year-olds reaches two-year, regional and highly selective colleges, and individual campuses, through 2042. Forecasts by state and an explorer for every college's recruiting area.</p>
+<span class="go">Open project →</span>
+</a>
+:::
+
 
 
 :::
